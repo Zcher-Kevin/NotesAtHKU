@@ -1,0 +1,7 @@
+{
+  "title": "MATH1853",
+  "description": "2023 Winter",
+  "root": true,
+  "icon": "House",
+  "pages": ["index", "---Chapter 1---", "..."]
+}

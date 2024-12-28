@@ -2,5 +2,6 @@
   "title": "MATH1851",
   "description": "2024 Spring",
   "root": true,
-  "pages": ["---Chapter 1---", "index"]
+  "icon": "DraftingCompass",
+  "pages": ["index", "---Chapter 1---", "limits", "..."]
 }

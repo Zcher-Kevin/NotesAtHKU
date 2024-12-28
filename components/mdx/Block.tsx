@@ -17,16 +17,16 @@ const STYLES = {
     head: "bg-indigo-100 dark:bg-indigo-800 border-indigo-600",
   },
   knowledge: {
-    body: "bg-slate-200 dark:bg-slate-800 border-slate-600 dark:border-slate-700",
+    body: "bg-slate-100 dark:bg-slate-800 border-slate-600 dark:border-slate-700",
     head: "bg-slate-100 dark:bg-slate-700 border-slate-600",
   },
 };
 
-const Block: React.FC<BlockProps> = ({
+export default function Block({
   title = "Title",
   variant = "knowledge",
   children,
-}) => {
+}: BlockProps) {
   const href_id = title.replace(/\s+/g, "-").toLowerCase();
 
   return (
@@ -43,6 +43,4 @@ const Block: React.FC<BlockProps> = ({
       {children}
     </div>
   );
-};
-
-export default Block;
+}

@@ -9,6 +9,7 @@
     "postinstall": "fumadocs-mdx"
   },
   "dependencies": {
+    "@giscus/react": "^3.0.0",
     "fumadocs-core": "14.6.4",
     "fumadocs-mdx": "11.2.1",
     "fumadocs-ui": "14.6.4",
