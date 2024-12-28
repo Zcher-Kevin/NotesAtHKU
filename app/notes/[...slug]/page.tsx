@@ -1,4 +1,4 @@
-import Balls from "@/components/mdx/Balls";
+import mdxComponents from "@/components/mdx";
 import { source } from "@/lib/source";
 import defaultMdxComponents from "fumadocs-ui/mdx";
 import {
@@ -23,7 +23,7 @@ export default async function Page(props: {
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
-        <MDX components={{ ...defaultMdxComponents, Balls }} />
+        <MDX components={{ ...defaultMdxComponents, ...mdxComponents }} />
       </DocsBody>
     </DocsPage>
   );

@@ -1,0 +1,48 @@
+import { Heading } from "fumadocs-ui/components/heading";
+import React from "react";
+
+interface BlockProps {
+  title: string;
+  variant: "primary" | "secondary" | "knowledge";
+  children: React.ReactNode;
+}
+
+const STYLES = {
+  primary: {
+    body: "bg-green-50 dark:bg-green-800 border-green-600 dark:border-green-900",
+    head: "bg-green-100 dark:bg-green-800 border-green-600",
+  },
+  secondary: {
+    body: "bg-indigo-50 dark:bg-indigo-800 border-indigo-600 dark:border-indigo-900",
+    head: "bg-indigo-100 dark:bg-indigo-800 border-indigo-600",
+  },
+  knowledge: {
+    body: "bg-slate-200 dark:bg-slate-800 border-slate-600 dark:border-slate-700",
+    head: "bg-slate-100 dark:bg-slate-700 border-slate-600",
+  },
+};
+
+const Block: React.FC<BlockProps> = ({
+  title = "Title",
+  variant = "knowledge",
+  children,
+}) => {
+  const href_id = title.replace(/\s+/g, "-").toLowerCase();
+
+  return (
+    <div
+      className={`rounded-xl px-4 relative pt-1 mb-6 mt-1 ${STYLES[variant].body} border-2  dark:bg-opacity-50`}
+    >
+      <div
+        className={`${STYLES[variant].head} -top-3 absolute w-fit px-3 left-3 rounded-lg border-2   dark:border-none dark:py-[2px] dark:-translate-y-[2px]`}
+      >
+        <Heading as="h3" className="m-0 text-base font-medium" id={href_id}>
+          {title}
+        </Heading>
+      </div>
+      {children}
+    </div>
+  );
+};
+
+export default Block;
