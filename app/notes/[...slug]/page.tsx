@@ -1,12 +1,13 @@
-import { source } from '@/lib/source';
+import Balls from "@/components/mdx/Balls";
+import { source } from "@/lib/source";
+import defaultMdxComponents from "fumadocs-ui/mdx";
 import {
-  DocsPage,
   DocsBody,
   DocsDescription,
+  DocsPage,
   DocsTitle,
-} from 'fumadocs-ui/page';
-import { notFound } from 'next/navigation';
-import defaultMdxComponents from 'fumadocs-ui/mdx';
+} from "fumadocs-ui/page";
+import { notFound } from "next/navigation";
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -22,7 +23,7 @@ export default async function Page(props: {
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
-        <MDX components={{ ...defaultMdxComponents }} />
+        <MDX components={{ ...defaultMdxComponents, Balls }} />
       </DocsBody>
     </DocsPage>
   );
