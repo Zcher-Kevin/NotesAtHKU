@@ -2,21 +2,21 @@ import { createPreset } from "fumadocs-ui/tailwind-plugin";
 
 const neutral = {
   light: {
-    background: "30 100% 96%",
-    foreground: "30 100% 3.9%",
+    background: "0 0% 96%",
+    foreground: "0 0% 3.9%",
     muted: "0 0% 96.1%",
     "muted-foreground": "0 0% 45.1%",
     popover: "0 0% 98%",
     "popover-foreground": "0 0% 15.1%",
-    card: "30 100% 94.7%",
-    "card-foreground": "30 100% 3.9%",
+    card: "0 0% 94.7%",
+    "card-foreground": "0 0% 3.9%",
     border: "0 0% 89.8%",
     primary: "0 0% 9%",
     "primary-foreground": "0 0% 98%",
     secondary: "0 0% 93.1%",
     "secondary-foreground": "0 0% 9%",
-    accent: "30 100% 90.1%",
-    "accent-foreground": "30 100% 9%",
+    accent: "0 0% 90.1%",
+    "accent-foreground": "0 0% 9%",
     ring: "0 0% 63.9%",
   },
   dark: {
