@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "Notes@HKU by Jax",
+  description: "Notes@HKU by Jax",
+};
+
 export default function HomePage() {
   return (
     <main className="flex flex-col justify-center flex-1 text-center">

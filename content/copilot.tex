@@ -8,8 +8,9 @@ Lorem ipsum \textbf{hello world} \textit{italtic}! $\frac12$ some inline math % 
 
 \subsection{Subsection} % convert to ## Subsection
 
-\hyperref[sec:name]{Link to section} % convert to [Link to section](./name-of-section)
-\hyperref[subsec:name]{Link to section} % convert to [Link to section](#name-of-section)
+\hyperref[sec:name]{Link to section} % convert to [FIXME](./name-of-section)
+\hyperref[subsec:name]{Link to section} % convert to [FIXME](#name-of-section)
+% Keep FIXME text. 
 
 \[1+2=3\] % convert to:
 % ```math
@@ -56,4 +57,14 @@ Hello world
 \end{knBox}
 % <Block title="Title of definition" variant="knowledge"> Hello world </Block>
 
+\begin{example}
+{Title of example}
+Hello world
+\end{example}
+% <Block title="Title of definition" variant="example"> Hello world </Block>
+
 \includegraphics[width=\textwidth]{img/lim3.jpg} % convert to ![Image caption](./img/lim3.jpg)
+
+Other environments like itemize, enumerate, etc. should be converted to markdown equivalents.
+Spacing like \hfill and \vfill should be removed, as well as \label commands.
+Tables should be converted using markdown tables.

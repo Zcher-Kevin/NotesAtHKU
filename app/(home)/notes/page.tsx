@@ -2,6 +2,11 @@ import fs from "fs";
 import Link from "next/link";
 import path from "path";
 
+export const metadata = {
+  title: "Notes@HKU Directory",
+  description: "Choose a note to view",
+};
+
 function getJsonFiles() {
   const directoryPath = path.join(process.cwd(), "content/notes");
   const jsonFiles: any[] = [];

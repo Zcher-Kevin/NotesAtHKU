@@ -27,11 +27,12 @@ export default function Block({
   variant = "knowledge",
   children,
 }: BlockProps) {
+  variant = variant in STYLES ? variant : "knowledge";
   const href_id = title.replace(/\s+/g, "-").toLowerCase();
 
   return (
     <div
-      className={`rounded-xl px-4 relative pt-1 mb-6 mt-1 ${STYLES[variant].body} border-2  dark:bg-opacity-50`}
+      className={`rounded-xl px-4 relative pt-1 mb-6 mt-3 ${STYLES[variant].body} border-2  dark:bg-opacity-50`}
     >
       <div
         className={`${STYLES[variant].head} -top-3 absolute w-fit px-3 left-3 rounded-lg border-2   dark:border-none dark:py-[2px] dark:-translate-y-[2px]`}

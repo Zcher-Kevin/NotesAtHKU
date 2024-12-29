@@ -3,5 +3,5 @@
   "description": "2024 Spring",
   "root": true,
   "icon": "DraftingCompass",
-  "pages": ["index", "---Chapter 1---", "limits", "..."]
+  "pages": ["index", "---Chapter 1---", "limits-and-continuity", "..."]
 }
