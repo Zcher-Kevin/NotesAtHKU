@@ -1,0 +1,7 @@
+{
+  "title": "IIMT2601",
+  "description": "2024 Spring",
+  "root": true,
+  "icon": "DraftingCompass",
+  "pages": ["index", "..."]
+}

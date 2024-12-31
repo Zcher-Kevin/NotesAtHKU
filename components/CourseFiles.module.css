@@ -1,0 +1,23 @@
+.cf {
+  transform-origin: center;
+  transform: perspective(300px) rotateX(-15deg);
+  transition: transform 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.cf:hover {
+  transform: perspective(300px) rotateX(-5deg) translateY(-15px);
+}
+
+.arrow {
+  opacity: 0;
+  position: absolute;
+  right: 0px;
+  transition: opacity 0.2s ease-in-out, right 0.2s ease-in-out;
+}
+
+.cf:hover .arrow {
+  opacity: 1;
+  right: 24px;
+}

@@ -1,3 +1,6 @@
+# conversion working dir
+/utils/working/
+
 # deps
 /node_modules
 

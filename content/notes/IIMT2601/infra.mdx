@@ -1,0 +1,154 @@
+---
+title: Internet infrastructure
+---
+
+<Block variant="theorem" title="Moore's Law">
+The number of transistors on an integrated circuit doubles about every two years.
+</Block>
+
+
+## Extranet vs Intranet
+
+
+    - **Extranet**: A network that is connected to the internet.
+    - **Intranet**: A network that is not connected to the internet.
+
+## Architecture
+
+
+<Block variant="definition" title="ISP">
+The global internet is connected by fiber optic cables, with **Internet Service Providers (ISP)** connecting devices to the internet. The optic cables are prone to natural hazards as well as human activities like ship anchoring.
+</Block>
+
+
+<Block variant="definition" title="NAP">
+The ISPs connect to the internet through **Network Access Points (NAP)**. They are high speed routers that connect to the internet.
+</Block>
+
+
+## Speed
+
+
+<Block variant="definition" title="Bandwidth">
+The amount of data that can be transmitted through a network per unit of time.
+</Block>
+
+
+## Network protocols
+
+
+<Block variant="definition" title="Protocol">
+A format for transmitting packets (data) that has been agreed by a standard organization or industry.
+**IP**: Internet Protocol
+**TCP**: Transmission Control Protocol
+</Block>
+
+
+<Block variant="theorem" title="Packet switching">
+
+    1. The data is divided into packets.
+    2. Each packet is transmitted to the destination through the network by different paths.
+    3. The destination is responsible for reassembling the packets into the original data.
+    - **TCP**: Ordering packets\\
+Forming packets (adding headers and control information), dividing and reassembling, collision control (error checking)
+
+    - **IP**: Routing packets\\
+Send to proper destination, addresses
+</Block>
+
+
+## IP Addresses
+
+
+<Block variant="definition" title="IP Address">
+A unique identifier for a device on the internet. Generic form called **IPv4**.
+x.x.x.x where x is a number between 0 and 255.
+</Block>
+
+
+<Block variant="theorem" title="Dynamic IP addresses">
+When device connected to internet, it is assigned a temporary IP address. When the connection is lost, the IP address is released and assigned to another device.
+</Block>
+
+
+<Block variant="definition" title="Domain Name">
+A human-readable name for an IP address.
+</Block>
+
+
+<Block variant="definition" title="Domain Name System (DNS)">
+A distributed database that translates domain names to IP addresses. It is stored by your **ISPs**.
+</Block>
+
+
+![](./images/tld.png)
+
+
+
+## Open source software
+
+
+<Block variant="definition" title="Open source software (OSS)">
+Software that is free to use, modify, and distribute.
+
+    - **Free**: Free of charge
+    - **Source code**: Available for public inspection
+    - **Licensed**: Original author retains copyright and terms of use.
+    - **Repository**: Code is usually shared on **GitHub**, users can freely download, use, modify, and distribute.
+</Block>
+
+There are a few problems that comes with open source software:
+
+    - **Support**: There is no guarantee of support from the original author.
+    - **Administration**: Malware and viruses can be introduced unintentionally.
+    - **Quality assurance**: Quality of contribution is not guaranteed.
+    - **Legal issues**: Legal disputes may arise from patent infringement.
+    - **Security**: Security vulnerabilities may exist in the software.
+
+<Block variant="definition" title="Total cost of ownership (TCO)">
+The total cost of owning a software system beyond the purchase price. This includes costs like **maintenance**, **upgrades**, **service**, and **support**.
+For OSS, the TCO is usually lower than that of proprietary software, as the cost of support is distributed among the users.
+</Block>
+
+
+<Block variant="definition" title="LAMP stack">
+The usage of 4 OSS to build a web service, powering services such as Youtube.
+
+    - **Linux**: Operating system
+    - **Apache**: Web server
+    - **MySQL**: Database
+    - **PHP**: Programming language
+</Block>
+
+
+## Cloud computing
+
+
+<Block variant="definition" title="Cloud computing">
+Data sent to shared computing resources over the internet, and sent back when completed.
+</Block>
+
+
+<Block variant="theorem" title="Cloud computing models">
+
+    - **Infrastructure as a Service (IaaS)**: Provides virtualized computing resources over the internet.
+    - **Platform as a Service (PaaS)**: Provides a platform for developing and deploying applications.
+    - **Software as a Service (SaaS)**: Provides software applications that are accessed over the internet.
+</Block>
+
+Potential problems of cloud computing:
+
+    - **Data privacy**: Data may be leaked to other users.
+    - **Service availability**: Service may be unavailable.
+    - **Vendor lock-in**: Switching to another vendor is difficult as the data is usually held by the vendor.
+
+## Internet of things (IoT)
+
+
+<Block variant="definition" title="Internet of things (IoT)">
+A network of physical devices that can connect and exchange data over a network without requiring human-to-computer interaction. It consists of 3 layers:
+
+    - **Perception layer**: Interact with the physical environment, like Sensors & actuators
+    - **Network layer**: Discovers, connects & translates the perception layer to the application layer
+    - **Application layer**: Store & process data
+</Block>

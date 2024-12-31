@@ -1,5 +1,5 @@
+import CourseFiles from "@/components/CourseFiles";
 import fs from "fs";
-import Link from "next/link";
 import path from "path";
 
 export const metadata = {
@@ -34,7 +34,7 @@ function getJsonFiles() {
   return jsonFiles;
 }
 
-function Timeline() {
+export default function Page() {
   const jsonFiles = getJsonFiles();
 
   const sortedFiles = jsonFiles.sort((a, b) => {
@@ -49,27 +49,8 @@ function Timeline() {
   });
 
   return (
-    <div className="flex p-4 space-x-4 overflow-x-auto">
-      {sortedFiles.map((jsonData, index) => (
-        <Link
-          href={`notes/${jsonData.title}`}
-          key={index}
-          className="flex-none w-64 p-4 bg-white rounded-lg shadow-md"
-        >
-          <div className="mt-2 text-center">
-            <h3 className="text-lg font-semibold">{jsonData.title}</h3>
-            <p className="text-sm">{jsonData.description}</p>
-          </div>
-        </Link>
-      ))}
-    </div>
-  );
-}
-
-export default function Page() {
-  return (
     <div className="flex items-center justify-center flex-grow mb-20">
-      <Timeline />
+      <CourseFiles sortedFiles={sortedFiles} />
     </div>
   );
 }
