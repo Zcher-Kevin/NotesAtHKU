@@ -1,0 +1,14 @@
+{
+    "title": "COMP2119",
+    "description": "2024 Spring",
+    "root": true,
+    "icon": "DraftingCompass",
+    "pages": [
+        "search",
+        "recursion",
+        "analysis",
+        "sort",
+        "question-examples",
+        "structures"
+    ]
+}

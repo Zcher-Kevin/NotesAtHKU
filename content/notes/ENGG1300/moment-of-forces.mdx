@@ -1,0 +1,82 @@
+---
+title: Moment of forces
+---
+
+
+<Block variant="primary" title="Definition of moment">
+The moment of a force is a measure of its *tendency* to cause a body to rotate about a specific point.
+The moment about a point $O$, when $F$ is applied a distance $d$ from the point is:
+$M_O=F\times d$
+Keep in mind that *positive* moment is *anti-clockwise*.
+</Block>
+
+
+## Coplanar / 2D moment
+
+
+<Block variant="knowledge" title="Resultant moments">
+The resultant moment is the **sum** of all moments present on the point, given by:
+$M_R=\sum M_O$
+</Block>
+
+
+### The moment of a non-linearly attached force
+
+One simple way is to find the *components* of the force, and sum their individual moments together. The following is a simple example:
+![](./img/Moment1.jpg)
+
+After finding the component forces of $F$, we can deduce the resultant moment to be:
+```math
+M_O & =F_x\times 0.8\sin 45\deg+F_y\times(1+0.8\cos 45\deg) \\
+& =-150.7kNm
+```
+
+
+## Non-coplanar / 3D moment
+
+
+<Block variant="primary" title="Moments in a 3D system">
+Consider position vector $\vec{r}$ drawn from $O$ to **any point on the *line of action*** of $F$. The moment can hence be given by:
+$M_O=r\times F$
+</Block>
+
+
+<Block variant="primary" title="Finding the moment via cross products Cartesian vectors">
+The cross product $C$ given by $A$ and $B$ is:
+$A\times B=\begin{vmatrix}
+i   & j   & k   \\
+A_x & A_y & A_z \\
+B_x & B_y & B_z
+The cross-product for vectors going in the *same direction* is 0. (i.e. $n\boldsymbol{k}\times m\boldsymbol{k}=0$)
+</Block>
+
+
+<Block variant="knowledge" title="Resultant moments">
+The resultant moment is simply the **sum** of *couple moments* and moments of forces:
+$(M_R)_O=\sum M_O + \sum M$
+You can interpret $(M_R)_O$ as the resultant moment about point $O$.
+</Block>
+
+
+<Block variant="knowledge" title="Finding moments by force perpendicular to plane">
+(Exam question) Given a force $F$ acting perpendicular to a plane $ABO$ at $O$, determine the moment about a point $A$.
+
+    1. Find the *position vector* $\{r=OD\}$ of the force. ($AC\times BC=OD$)
+    2. Convert force to Cartesian form. ($F=|F|\times\frac{r}{|r|}$)
+    3. Find the *cross product* of the vector from point to the force. ($M_A=OA\times F$)
+</Block>
+
+
+
+## Couple moments
+
+Couples are *two parallel forces* that have the same magnitude but have *opposite directions*, separated by a *perpendicular distance* $d$. The magnitude of the moment is given by:
+$M=Fd$
+
+Notice that there's no point mentioned so far. For couple moment, it is **always the same about any point**. Let's assume for any point $O$ (refer to graph), the moment is:
+```math
+M_O & =r_B\times F+r_A\times -F \&=(r_B-r_A)\times F\&=r\times F    \text{which is independent of }O
+```
+Hence, we can say that couple moments are **free vectors**.
+
+![](./img/Couple.jpg)

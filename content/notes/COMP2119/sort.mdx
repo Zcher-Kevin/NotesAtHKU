@@ -1,0 +1,268 @@
+---
+title: Sorting
+---
+
+We usually sort elements in accending order.
+A sorting algorithm can have the following proerties:
+
+    - **Stable:** Elements with the same value appear in the same order in the sorted list.
+    - **In place:** The algorithm uses a constant amount ($O(1)$) of extra memory.
+    - **Non Comparative:** The algorithm doesn't compare elements.
+
+
+
+
+<Block variant="secondary" title="Lower bound (worse case) of comparison based sorting">
+The **minimum number of comparisons required** to sort an array of $n$ elements in the **worse case** (can't assume sorted) is
+```math
+\log_2(n!) \in \Theta(n \log n)
+```
+</Block>
+
+
+
+
+## Algorithms
+
+
+
+
+
+
+
+
+
+
+<Block variant="knowledge" title="Selection Sort">
+For each element, find the minimum value in the subarray after it (including itself), and swap it with the current element.
+**Time Complexity:** $O(n^2)$
+</Block>
+
+
+
+
+
+
+
+
+
+
+<Block variant="knowledge" title="Bubble sort">
+For each element with index i, for elements in array till before the element $n-i-1$, check if current element is greater than the next, and swap if true.  Repeat until no swaps are made for an element.
+**Time Complexity:** $\Theta(n^2),\Omega(n)$
+</Block>
+
+
+
+
+
+
+
+
+
+
+
+
+<Block variant="primary" title="Insertion sort">
+For each element, for each previous element, if current element smaller than current previous element, swap them.
+**Time Complexity:** $\Theta(n^2),\Omega(n)$
+**Notes:** Efficient for small datasets and nearly sorted arrays. $O(n)$ for when the array is already sorted.
+</Block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<Block variant="primary" title="Merge Sort">
+A divide-and-conquer algorithm that breaks the array into subarrays, sorts them, and merges them back.
+
+    - **Base case**: Array length is less than 2, return array.
+    - **Recursion:** Split the array into halves and (merge)sort them.
+    - Merge the sorted arrays using a helper function, which:
+        - Create result array
+        - Until one array ran out of elements, compare foremost element in each array, add smaller to list, and increment index.
+        - Add remaining elements to the result array.
+**Time Complexity:** $O(n \log n)$
+**Space Complexity:** $O(n)$
+**Notes:** The array is divided into halves, so the time complexity is $O(\log n)$ for the number of divisions and $O(n)$ for the merge step.
+
+    - Performs better than simple sorts.
+    - Requires extra space as it doesn't sort in place
+</Block>
+
+
+
+
+
+<Block variant="secondary" title="Parition">
+The process of rearranging the array so that all elements with values less than the pivot come before the pivot, and all elements with values greater than the pivot come after it.
+
+    1. Pick index as pivot
+    2. Initialze swap index as -1
+    3. For each element, if element $<$ pivot, increment swap, and swap current element with swap index.
+    4. Pivot element is at $swap + 1$. Move it to the pivot index by swapping.
+    5. Return pivot index.
+**Time Complexity:** $O(n)$
+</Block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<Block variant="primary" title="Quick Sort">
+A divide-and-conquer algorithm that picks a pivot, **partitions** the array, and recursively sorts the subarrays.
+
+    - **Base case**: Array length is less than 2
+    - Get pivot index by paritioning array (randomly)
+    - **Recursion:** Split and sort the sub-arrays according to pivot index.
+**Time Complexity:** $O(n^2),\Theta(n \log n)$
+**Space Complexity:** $O(\log n)$ (recursion call stack)
+**Notes:** The time complexity depends on the pivot selection. Worst case is $O(n^2)$ when the pivot is the **smallest or largest** element, as the array is not divided.
+The pivot can be selected in different ways:
+
+    - Randomized quicksort: Randomly select a pivot.
+    - Median of three: Select the median of the first, middle, and last element.
+    - First / middle / last element: Select the first, middle, or last element as the pivot.
+If we choose **randomized quicksort**, the expected time complexity must be $O(n \log n)$, as we don't expect to choose the largest / smallest element every parition.
+</Block>
+
+
+
+
+
+<Block variant="primary" title="Heap sort">
+Call *create\_max\_heap* on the array, then for each element from the right, swap the first element with the current element, then call *heapify* on the array excluding the current element.
+**Time Complexity:** $O(n \log n)$.
+**Notes:**
+
+    - Both functions convert an array into a [max heap](FIXME-subsubsec:heaps), where the **first element must be the largest**. This is why we swap the first element with the current element.
+    - *create\_max\_heap* is $O(n)$, and *heapify* is $O(\log n)$, which is ran $n-1$ times for each element.
+    - *Heapify* is used to maintain the heap property, so it is more efficient as it assumes the array is already a heap.
+</Block>
+
+
+
+
+
+
+
+<Block variant="primary" title="Counting sort">
+A stable, non-comparative sorting algorithm.
+
+    1. Create a new counter array of length $k$ (max element in array / number of distinct elements).
+    2. For each element, increment the counter array at the index of the element.
+    3. Then, for each counter item, add their previous value to the current value.
+    4. Create a new result array of length $n$.
+    5. For each element in the original array, add it to the result array at the index of the counter array, then decrement the counter array.
+**Time Complexity:** $O(n+k)$
+**Space Complexity:** $O(n+k)$, as we need a counter array of length $k$ and a result array of length $n$.
+**Notes:** The algorithm is stable as it loops through the original array at the end in order.
+</Block>
+
+
+
+
+
+
+
+<Block variant="primary" title="Radix sort">
+Find the maximum number of digits $d$ in the array, then sort the array using **exp** counting sort for each digit.
+Instead of using the element value as the key, we use the ith digit (0-based) by $n // 10^i\ \%\ 10$.
+**Time Complexity:** $O(d(n+k))$
+**Space Complexity:** $O(n+k)$
+**Notes:** The algorithm is stable as counting sort is stable. Radix sort works best for arrays with elements ${0,1,2,...,b^d}$ with fixed length $d$.
+</Block>
+
+
+
+## Summary
+
+
+
+
+
+| **Algorithm** | **Average Time** | **Special Time** | **Space** | **Stable** | **Use when** | **Ex** |
+| :--- | ---: | :--- | :--- | :--- | :--- | :--- |
+| Selection Sort | <ColorBox color='pink'>$n^2$</ColorBox> | - | <ColorBox color='green'>$1$</ColorBox> | <ColorBox color='gray'>N</ColorBox> | - | [e](FIXME-eg:selection_sort) |
+| Bubble Sort | <ColorBox color='pink'>$n^2$</ColorBox> | <ColorBox color='green'>$\Omega(n)$</ColorBox> | <ColorBox color='green'>$1$</ColorBox> | Y | Nearly sorted data | [e](FIXME-eg:bubble_sort) |
+| Insertion Sort | <ColorBox color='pink'>$n^2$</ColorBox> | <ColorBox color='green'>$\Omega(n)$</ColorBox> | <ColorBox color='green'>$1$</ColorBox> | Y | Nearly sorted data | [e](FIXME-eg:insertion_sort) |
+| Heap Sort | <ColorBox color='yellow'>$n \log n$</ColorBox> | - | <ColorBox color='green'>$1$</ColorBox> | <ColorBox color='gray'>N</ColorBox> | Limited space | [e](FIXME-eg:heap_sort) |
+| Merge Sort | <ColorBox color='yellow'>$n \log n$</ColorBox> | - | <ColorBox color='pink'>$n$</ColorBox> | Y | Stable $n\log n$ | [e](FIXME-eg:merge_sort) |
+| Randomized Quick Sort | <ColorBox color='yellow'>$n \log n$</ColorBox> | - | <ColorBox color='yellow'>$\log n$</ColorBox> | <ColorBox color='gray'>N</ColorBox> | Best performance | [e](FIXME-eg:quick_sort) |
+| Quick Sort | <ColorBox color='yellow'>$n \log n$</ColorBox> | <ColorBox color='pink'>$O(n^2)$</ColorBox> | <ColorBox color='yellow'>$\log n$</ColorBox> | <ColorBox color='gray'>N</ColorBox> | - | [e](FIXME-eg:quick_sort) |
+| Counting Sort | <ColorBox color='green'>$n+k$</ColorBox> | - | <ColorBox color='pink'>$n+k$</ColorBox> | Y | Small range of integers | [e](FIXME-eg:count_sort) |
+| Radix Sort | <ColorBox color='yellow'>$d(n+k)$</ColorBox> | - | <ColorBox color='pink'>$n+k$</ColorBox> | Y | Fixed-length integers | [e](FIXME-eg:radix_sort) |
+
+
+
+
+
+## K-sorted arrays
+
+
+**k-sorted arrays** are arrays where each element is at most $k$ positions away from its sorted position.
+
+
+
+<Block variant="knowledge" title="Sorting k-sorted arrays - modified selection sort">
+For each element, find the minimum value within the next $k$ elements after (including itself), and swap it with the current element.
+**Time complexity: ** $O(nk)$
+</Block>
+
+
+
+
+
+<Block variant="knowledge" title="Sorting k-sorted arrays - heaps">
+
+    1. Put the first $k$ elements of each array into a min-heap.
+    2. For each remaining element, pop the min element from heap back to array from the start, then add current to the heap.
+    3. Pop remaining elements to array.
+**Time complexity: ** $O(n\log k)$ time as the heap always has at most $k$ elements, and we processed all $n$ elements to the heap.
+**Space complexity: ** $O(k)$ as the heap always has at most $k$ elements, and we used the original array as we process the remaining elements.
+</Block>
+
+
+
+## Other related non-sorting algorithms
+
+
+
+
+
+
+<Block variant="knowledge" title="Quickselect">
+A selection algorithm that selects the $k$th smallest element in an unordered list.
+
+    - **Base case**: One element only, return it.
+    - Get pivot index by paritioning array (randomly)
+    - **Recursive**: Check if pivot index is $k$, return if true
+    - If not, see if pivot index is less than $k$, then search right subarray, else search left subarray.
+**Time Complexity:** $O(n^2),\Theta(n)$.
+**Notes:** Because the pivot index is already sorted, it must be the $k$th smallest element. But if it's not, we know that the smaller elements are on the left, and larger elements are on the right. If we're unlucky and never get the pivot index as $k$, the base case will eventually be reached.
+The algorithm can achieve $\Theta(n)$ as we only need to search one side of the array.
+</Block>

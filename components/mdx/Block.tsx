@@ -1,4 +1,3 @@
-import { Heading } from "fumadocs-ui/components/heading";
 import React from "react";
 
 interface BlockProps {
@@ -37,9 +36,9 @@ export default function Block({
       <div
         className={`${STYLES[variant].head} -top-3 absolute w-fit px-3 left-3 rounded-lg border-2   dark:border-none dark:py-[2px] dark:-translate-y-[2px]`}
       >
-        <Heading as="h3" className="m-0 text-base font-medium" id={href_id}>
+        <h3 className="m-0 text-base font-medium" id={href_id}>
           {title}
-        </Heading>
+        </h3>
       </div>
       {children}
     </div>

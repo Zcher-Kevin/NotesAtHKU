@@ -1,0 +1,402 @@
+---
+title: Examples & questions bank
+---
+
+
+
+<Block variant="example" title="">
+Solving a recurrence relation with subsitution method [Solve Re](FIXME-thm:solve_re)
+```math
+(\text{lvl }1):\ f(n)   & =2f(n-1)+1             \\
+(\text{lvl }2):\ f(n-1) & =2f(n-2)+1             \\
+\uparrow\ f(n)          & =2(2f(n-2)+1)+1        \\
+& = 4f(n-2)+2+1          \\
+(\text{lvl }3):\ f(n)   & =2(2(2f(n-3)+1)+1)+1   \\
+& = 8f(n-3)+4+2+1        \\\
+(\text{lvl }k):\ f(n)   & =2^kf(n-k)+2^k-1       \\\
+f(1) = f(n-k)           & =1 \implies k=n-1      \\
+\therefore f(n)         & =2^{n-1}f(1)+2^{n-1}-1 \\
+& =2\times2^{n-1}-1      \\
+& =2^n-1
+```
+</Block>
+
+
+
+
+
+<Block variant="example" title="">
+Proving with MI [Mi](FIXME-def:mi)
+```math
+& \text{Prove } f(n) = 1\cdot2^1 + 2\cdot2^2 + \cdots + n\cdot2^n = (n-1) \cdot 2^{n+1} + 2 \\
+& \text{Base case: } n = 1                                                                  \\
+\text{LHS:\ }         & f(1) = 1\cdot2^1 = 2                                                                      \\
+\text{RHS:\ }         & (1-1) \cdot 2^{1+1} + 2 = 0 \cdot 2^2 + 2 = 2                                             \\
+& \text{Inductive step: Assume }f(n)\text{ holds true }\forall n \leq k:                    \\
+f(k+1):\ \text{LHS\ } & = f(k) + (k+1)\cdot2^{k+1}                                                                \\
+& = [(k-1) \cdot 2^{k+1} + 2] + (k+1)\cdot2^{k+1}                                           \\
+& = (k-1) \cdot 2^{k+1} + (k+1)\cdot2^{k+1} + 2                                             \\
+& = (2k) \cdot 2^{k+1} + 2                                                                  \\
+& = k \cdot 2^{k+2} + 2                                                                     \\
+& = ((k+1)-1) \cdot 2^{(k+1)+1} + 2                                                         \\
+& = \text{RHS}                                                                              \\
+\therefore\           & \text{Statement holds true }\forall\ n > 0
+```
+</Block>
+
+
+
+
+
+
+<Block variant="example" title="Disproving Big O notation} [Asym](FIXME-def:asym)">
+Consider $T(n) = 3n^3 + 1$, to show that $T(n) \neq O(n^2)$:
+```math
+3n^3 + 1           & \leq c \cdot n^2 & \forall\ n \geq n_0 \\
+3n^3 + 1           & \leq c\cdot n^2  & \forall\ n \geq 2   \\
+3n + \frac{1}{n^2} & \leq c           & \forall\ n \geq 2   \\
+```
+As this expression cannot hold true for all $n \geq 2$ for a specific $c$ value, we can conclude that $T(n) \neq O(n^2)$.
+(Example: if $c = 10$ the equation does not hold when let's say $n = 100$)
+</Block>
+
+
+
+
+
+
+<Block variant="example" title="Proving Little o notation} [Asym](FIXME-def:asym)">
+To show that $T(n) \in o(n^4)$:
+```math
+3n^3 + 1                    & < c \cdot n^4 & \forall\ n \geq n_0 \\
+\frac{3}{n} + \frac{1}{n^4} & < c           & \forall\ n \geq n_0 \\
+```
+As this express can hold true for any $c > 0$ with sufficiently large $n_0$, we can conclude that $T(n) \in o(n^4)$.
+(Example: if $c = 1$ the equation holds with $n_0 = 100$)
+</Block>
+
+
+
+
+
+
+
+<Block variant="example" title="Proving Big Theta notation} [Asym](FIXME-def:asym)">
+Consider $T(n)=4n^2$, to show that $T(n) \in \Theta(0.5n^2+10n+20)$:
+We know that $T(n) \leq c_2 \cdot (0.5n^2 + 10n + 20)$ for $c_2 = 8$ easily.
+Consider the lower bound:
+```math
+4n^2          & \geq c_1 \cdot (0.5n^2 + 10n + 20) & \forall\ n \geq n_0                \\
+n^2           & \geq 0.5n^2 + 10n + 20             & \forall\ n \geq n_0, c_1 = \frac14 \\
+n^2 - 10n -20 & \geq 0                             & \forall\ n \geq n_0                \\
+```
+Therefore we can simply take $n_0 = 10$ and $c_1 = \frac14, c_2=8$ to satisfy the definition of big Theta.
+</Block>
+
+
+
+
+
+
+
+<Block variant="example" title="">
+Identifying asymptotic growths [Iasym](FIXME-thm:iasym)
+*Example 1: *$T(n)=3n^3+1\implies O(n^3)\ \Omega(n^3)\ \Theta(n^3)\ o(n^4)\ \omega(n^2)$
+*Example 2: *$n^2 \in O(2^n)$ ($n^2 \leq 2^n$ order of growth. This is one of the many satisfying $g(n)$. The useful $g(n)$ would be: $n^2 \in O(n^2)$)
+*Example 3: *$n\log n \in \Omega(e^{\log n})$  ($n\log n \geq n$)
+</Block>
+
+
+
+
+<Block variant="example" title="">
+Example implementation of reversing a linked list [Linked List Reverse](FIXME-thm:linked_list_reverse)
+</Block>
+
+```python, firstline=1, lastline=9
+def reverse_linked_list(head):
+    prev = None
+    current = head
+    while current:
+        next = current.next
+        current.next = prev
+        prev = current
+        current = next
+    return prev
+
+def find_middle_node(head):
+    slow = head
+    fast = head
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+    return slow
+
+```
+
+
+
+<Block variant="example" title="">
+Example implementation of finding the middle node of a linked list [Linked List Find Middle](FIXME-thm:linked_list_find_middle)
+</Block>
+
+```python, firstline=11, lastline=17
+def reverse_linked_list(head):
+    prev = None
+    current = head
+    while current:
+        next = current.next
+        current.next = prev
+        prev = current
+        current = next
+    return prev
+
+def find_middle_node(head):
+    slow = head
+    fast = head
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+    return slow
+
+```
+
+
+
+<Block variant="example" title="">
+Example implementation of BFS [Graph Bfs](FIXME-thm:graph_bfs)
+</Block>
+
+```python
+def bfs(mtx, start):
+    q = Queue()
+    
+    q.enqueue(start) # queue start node
+    qd = [start]
+    
+    while not q.isEmpty():
+        cur = q.dequeue() # visit node
+        print(cur)
+        for x in mtx[cur]:
+            if x not in qd:    # if not queued
+                q.enqueue(x)  # put in queue
+                qd.append(x)   # mark as queued
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<Block variant="example" title="">
+Example of finding the average number of slots inspected for unsuccessful search of built hash table with resolution method double hashing [Collision-Hash Unsuccessful Average Slots Inspected](FIXME-thm:collision-hash_unsuccessful_average_slots_inspected)
+$m = 5,     h(k) = k \mod 5$ with double hashing $f(i) = i \cdot h'(k),     h'(k) = 2 - (k \mod 2)$.
+Therefore the average is $\frac{(4+1+3+1+2)+(2+1+2+1+3)}{5\times 2} = 2$
+</Block>
+
+
+
+
+<Block variant="example" title="">
+Example of implementation of selection sort. [Sort Summary](FIXME-subsec:sort_summary)
+</Block>
+
+```python
+function selection_sort(array):
+    for i in array:
+        min_index = i
+        for j in array after i:
+            if current element < min element:
+                min_index = j
+        swap(A, i, min_index)
+    return A
+
+```
+
+
+
+<Block variant="example" title="">
+Example of implementation of bubble sort. [Sort Summary](FIXME-subsec:sort_summary)
+</Block>
+
+```python
+function bubble_sort(array, n): 
+    for i in 0 to n - 1:
+        swapped = False
+        for j in 0 to before n - i - 1:
+            if current element > next element:
+                swap(current, next)
+                swapped = True
+        if not swapped break 
+        # if no two elements were swapped, the array is sorted
+    return A
+```
+
+
+
+<Block variant="example" title="">
+Example of implementation of insertion sort. [Sort Summary](FIXME-subsec:sort_summary)
+</Block>
+
+```python
+function insertion_sort(array):
+    for i in array after 0:
+        for j in array before i reversed:
+            if array[j] > array[i]:
+                swap(array, i, j)
+            else:
+                break
+    return array
+    
+            
+```
+
+
+
+<Block variant="example" title="">
+Example of implementation of heap sort. [Sort Summary](FIXME-subsec:sort_summary)
+</Block>
+
+```python
+function heap_sort(array):
+    create_max_heap(array)
+
+    for i from right in array:
+        swap(array, 0, i)
+        heapify(array from 0 to i - 1)
+    
+    return array
+```
+
+
+
+<Block variant="example" title="">
+Example of implementation of merge sort. [Sort Summary](FIXME-subsec:sort_summary)
+</Block>
+
+```python
+function merge_sort(array):
+    function merge(A1, A2):
+        result = []
+        while A1 and A2:
+            if A1[0] < A2[0]:
+                result.append(A1.pop(0))
+            else:
+                result.append(A2.pop(0))
+        return result + A1 + A2
+    
+    if len(array) < 2 return array
+
+    mid = len(array) // 2
+    left = merge_sort(array to mid)
+    right = merge_sort(array after mid)
+
+    return merge(left, right)
+```
+
+
+
+<Block variant="example" title="">
+Example of implementation of quick sort. [Sort Summary](FIXME-subsec:sort_summary)
+</Block>
+
+```python
+function quick_sort(array):
+    function partition(array):
+        pivot = random index from array
+        swap = -1
+
+        for j in array:
+            if current element < pivot element:
+                swap += 1
+                swap(arr, swap, current)
+        
+        # move pivot element to its correct position
+        pivot_index = swap + 1
+        swap(arr, pivot_index, pivot) 
+        return pivot_index
+    
+    if len(array) < 2 return array
+
+    pivot = partition(array)
+    quickSort(array before pivot)
+    quickSort(array after pivot)
+```
+
+
+
+<Block variant="example" title="">
+Example of implementation of count sort. [Sort Summary](FIXME-subsec:sort_summary)
+</Block>
+
+```python
+function counting_sort(array):
+    k = max(array) # O(n)
+    counter = Array(k)
+    for i in array:
+        counter[i] += 1
+    
+    for i in counter after 0:
+        counter[i] += counter[i-1]
+    
+    result = Array(len(array))
+    for i, x in array:
+        result[counter[x]-1] = x
+        counter[x] -= 1
+    
+    return result
+```
+
+
+
+<Block variant="example" title="">
+Example of implementation of radix sort. [Sort Summary](FIXME-subsec:sort_summary)
+</Block>
+
+```python
+function radix_sort(array, b=10):
+    function countin_sort_exp(i):
+        function get_key(n):
+            return ith digit of n in base b (0 based)
+            # (n // b**i) % b
+
+        counter = Array(b)
+        for i in array:
+            key = get_key(i)
+            counter[key] += 1
+            
+            for i in counter after 0:
+                counter[i] += counter[i-1]
+            
+            result = Array(len(array))
+            for x in array:
+                key = get_key(x)
+                result[counter[key]] = x
+                counter[key] -= 1
+            array = result
+
+    d = len(max(array))
+
+    for i from 0 to d - 1:
+        counting_sort_exp(i)
+
+```

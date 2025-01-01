@@ -1,13 +1,14 @@
 .cf {
   transform-origin: center;
-  transform: perspective(300px) rotateX(-15deg);
+  transform: perspective(700px) rotateX(-15deg);
   transition: transform 0.2s ease-in-out;
   position: relative;
   overflow: hidden;
 }
 
 .cf:hover {
-  transform: perspective(300px) rotateX(-5deg) translateY(-15px);
+  transform: perspective(300px) rotateX(-5deg) translateY(-15px)
+    translateX(15px);
 }
 
 .arrow {

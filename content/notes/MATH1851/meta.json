@@ -1,7 +1,14 @@
 {
-  "title": "MATH1851",
-  "description": "2024 Spring",
-  "root": true,
-  "icon": "DraftingCompass",
-  "pages": ["index", "---Chapter 1---", "limits-and-continuity", "..."]
+    "title": "MATH1851",
+    "description": "2024 Spring",
+    "root": true,
+    "icon": "DraftingCompass",
+    "pages": [
+        "derivatives",
+        "ode",
+        "limits-and-continuity",
+        "polar",
+        "trigo-review",
+        "integrals"
+    ]
 }

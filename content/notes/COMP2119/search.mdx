@@ -1,0 +1,199 @@
+---
+title: Searching
+---
+
+When we search for data, we want to find the data as quickly as possible.
+
+Searching through unorganized data must be $O(n)$, as we have to look at every element to find the data. This is called **linear / sequential search**.
+
+This could be **not true for organized data**, where we can **gain information** about the data **without** looking at every element, such as with a sorted list.
+
+We will focus on searching algorithms on a **sorted list** in this section.
+
+
+
+<Block variant="primary" title="Jump search">
+Works by:
+
+    - Access linearly every floor($\sqrt{n}$) elements
+    - If the element is greater than the target, go back to the previous jump
+    - Linearly search the elements in the jump
+**Amount of comparisons** $=\frac{n}{\sqrt{n}} + \sqrt{n} - 1$
+**Time complexity:** $O(\sqrt{n})$
+</Block>
+
+
+
+
+
+<Block variant="primary" title="Binary search">
+Works by:
+
+    - Start at the middle of the list
+    - If the element is greater than the target, search the left half
+    - If the element is less than the target, search the right half
+**Time complexity:**  $O(\log n)$
+Remember that the middle must be recalculated each time.
+</Block>
+
+
+
+
+
+
+<Block variant="secondary" title="Interpolation search">
+An improved version of binary search. Instead of searching the middle, we search the **interpolated position** (probe) based on the target.
+```math
+\text{probe} = \text{low} + \frac{(\text{high} - \text{low})}{(\text{A[high]} - \text{A[low]})} \times (\text{target} - \text{A[low]})
+```
+**Time complexity:** $\Theta(\log \log n) O(n)$
+**Note:** This is only effective when the data is **evenly distributed** (linear). Otherwise, it is not effective, such as when the data is exponential, resulting in $O(n)$ time complexity.
+</Block>
+
+
+---
+title: Tree searching
+---
+
+We can use a tree to search for data. BST and AVL trees guarentee $\Theta(\log n)$ time complexity, as we don't have to access every element to gain information about them.
+
+This is built upon the idea of binary search.
+
+
+## Binary search tree
+
+
+
+<Block variant="primary" title="Binary search tree (BST)">
+A binary tree (two child nodes per node) that satisfies the following properties:
+
+    - Left node: key $\leq$ root.key
+    - Right node: key $>$ root.key
+The height of a BST is $\log n$.
+</Block>
+
+
+
+<Block variant="secondary" title="Time complexities">
+Consider the height of a BST:
+
+    - Min height: $\log_2 n + 1$
+    - Max height: $n$ (All nodes are in a straight line)
+We can then conclude the time complexities for insert, search and delete is: $\Theta(\log n) O(n)$
+</Block>
+
+
+
+<Block variant="secondary" title="Traversal methods">
+The following are three recursive methods to traverse a tree:
+
+    - Pre-order: root$\to$left$\to$right
+    - In-order: left$\to$root$\to$right
+    - Post-order: left$\to$right$\to$root
+Where you access the root and **recursively** trasverse the left and right subtrees. When we consider trees, we always think recursively. These are all **DFS** methods.
+</Block>
+
+
+To search for a node in a BST, we can simply captialized on the properties of the tree:
+
+    1. Start at the root
+    2. If the key is less than the root, go left
+    3. If the key is greater than the root, go right
+    4. Return if equal
+Remember, we always consider trees recursively.
+
+
+## Balancing trees
+
+
+
+
+<Block variant="knowledge" title="The balance factor">
+```math
+B(n)=\text{left.height} - \text{right.height}
+```
+A perfectly balanced tree has $B(n)=0$.
+</Block>
+
+
+
+
+<Block variant="primary" title="AVL tree">
+A self-balancing binary search tree where $|{B(n)}|\leq 1$.
+**Self-balancing** means that when modifying the tree, it will **rotate** the tree to *fix imbalance*.
+</Block>
+
+
+
+<Block variant="secondary" title="Time complexities">
+The time complexities for insert, search and delete in an AVL tree is $\Theta(\log n)$.
+</Block>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<Block variant="secondary" title="Rotations">
+After inserting a node to the correct position, or deleting a node, the tree may become unbalanced. We need to check for imbalance for each processed node and **rotate** the tree to fix it.
+The following are two types of rotation:
+Notice that they are **mirrored** of each other.
+Consider the following conditions of balance for each processed node for rotations:
+</Block>

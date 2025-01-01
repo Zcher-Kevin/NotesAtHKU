@@ -1,7 +1,16 @@
 {
-  "title": "IIMT2601",
-  "description": "2024 Spring",
-  "root": true,
-  "icon": "DraftingCompass",
-  "pages": ["index", "..."]
+    "title": "IIMT2601",
+    "description": "2024 Spring",
+    "root": true,
+    "icon": "DraftingCompass",
+    "pages": [
+        "exam-and-case-study",
+        "e-commerce",
+        "itns",
+        "e-business-models",
+        "digital-economy",
+        "social-media",
+        "data",
+        "internet-infrastructure"
+    ]
 }

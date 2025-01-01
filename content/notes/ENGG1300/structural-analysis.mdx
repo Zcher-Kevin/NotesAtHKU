@@ -1,0 +1,77 @@
+---
+title: Structural analysis
+---
+
+## Pin-joined trusses
+
+A **truss** is a structure that consists of *straight members* connected at their ends by *pin joints*.
+
+A triangular truss is a statically determinate structure, but a quadrangular truss is not.
+![](././img/quadtruss.png)
+![](././img/tritruss.png)
+
+
+<Block variant="secondary" title="Zero-force members">
+The following are zero-force members given that **no external load or support reaction is applied to the joint**.
+
+    - **2 non-collinear members** of a two-member-joint
+    - **3rd member** of a three-member-joint, where the other two are collinear.
+Additionally, members that provide **no structural support against the applied load** are also considered to be zero-force members.
+Removing zero-force members allows us to simplify a truss structure.
+<BlockSep />
+![](././img/zero2.jpg)
+![](././img/zero3.jpg)
+</Block>
+
+
+
+## Statically determinate trusses
+
+To construct an *internally* statically determinate truss, we begin with a triangular pin-jointed truss and then successively adding two new members with a new joint.
+
+We say the truss is only *internally* statically determinate because the external reactions are not yet known.
+
+
+## Truss analysis
+
+When we analyze a truss, we assume that forces are only applied at joints.
+
+<Block variant="knowledge" title="Internal vs. External forces">
+
+    - Forces acting on the members $\to$ **Internal forces**
+    - Forces acting on joints $\to$ **External forces**
+</Block>
+
+
+
+<Block variant="primary" title="Sign convention of analysis">
+As we focus on the analysis of **internal forces acting on joints**, we always draw:
+
+    - Tension forces $\to$ **pointing away** from the joint $\{\leftarrow\circ\boxed{\rightarrow\ T\ \leftarrow}\circ\rightarrow\}$
+    - Compression forces $\to$ **pointing towards** the joint $\{\rightarrow\circ\boxed{\leftarrow\ C\ \rightarrow}\circ\leftarrow\}$
+During analysis, we always draw forces **pointing towards** the joint $\{\rightarrow\circ\leftarrow\}$, which means we treat **compression as positive**.
+We also treat **downward forces as positive** $\{+\downarrow\}$.
+</Block>
+
+
+## Equilibrium sections
+
+If we cut out any section of an equilibrium system, the cut will be in equilibrium. That is, the **external forces** are balanced by **internal forces**.
+
+Therefore, to solve for the forces in a system, we simply cut out a section that we deem solvable (by practice!) and draw it's FBD. The forces includes *all external forces in the cut* as well as the *interal forces of the cut members*.
+
+Note that to solve for a joint, the number of unknowns must be equal to the number of equations of equilibrium.
+
+
+## Cable anaylsis
+
+
+<Block variant="primary" title="Cable forces">
+Cables are **always in tension**. The tension force is always in the direction of the cable.
+</Block>
+
+Some characteristics of cable structures:
+
+    - Supports are always 2 inverted pinned supports
+    - Applied forces all point downwards due to gravity
+    - Horizontal reaction forces at supports are equal in magnitude

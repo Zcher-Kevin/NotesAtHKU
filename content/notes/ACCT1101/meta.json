@@ -1,0 +1,20 @@
+{
+  "title": "ACCT1101",
+  "description": "2024 Spring",
+  "root": true,
+  "icon": "DraftingCompass",
+  "pages": [
+    "accounting",
+    "---During period---",
+    "bookkeeping",
+    "---End of period---",
+    "trial-balances",
+    "---After period---",
+    "financial-statements",
+    "closing-entries",
+    "---Others---",
+    "ratios",
+    "analyze-statements",
+    "concepts"
+  ]
+}

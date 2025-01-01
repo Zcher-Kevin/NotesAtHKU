@@ -1,5 +1,6 @@
 # conversion working dir
 /utils/working/
+pandoc
 
 # deps
 /node_modules
@@ -29,3 +30,6 @@ yarn-error.log*
 .env*.local
 .vercel
 next-env.d.ts
+
+# python artifacts
+*.pyc

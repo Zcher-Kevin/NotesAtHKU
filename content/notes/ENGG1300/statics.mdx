@@ -1,0 +1,107 @@
+---
+title: Statics
+---
+
+## Equilibrium of rigid bodies
+
+
+<Block variant="primary" title="The 3 equations of equilibrium">
+A rigid body is in equilibrium if:
+$\sum F_x=0,    \sum F_y=0,    \sum M_O=0$
+Where $O$ is any point.
+</Block>
+
+
+<Block variant="primary" title="Static equilibrium">
+A system is in **static equilibrium** if it experiences no acceleration when loads are applied to it.
+</Block>
+
+
+<Block variant="knowledge" title="Free body diagrams (FBD)">
+Free body diagrams are diagrams that show all the forces acting on a body. They are useful in determining the forces that cause the body to be in equilibrium.
+</Block>
+
+
+<Block variant="primary" title="Static systems">
+A static system:
+
+    1. Must be in equilibrium
+    2. Does not experience any acceleration
+    3. Can have mechanisms that doesn't undergo movements
+</Block>
+
+
+
+## Members
+
+A member is a *straight* and *long* structural element that is subjected to axial forces. The following are the types of members:
+
+
+
+## Static systems
+
+
+
+
+<Block variant="primary" title="Supports and reaction forces">
+Each support will restrict the movement of the rigid body in a certain way. If a certain degree of freedom is restricted, a reaction force will be present to counteract the force that would have caused the movement.
+
+| **Support type** | **Restricted movement and reaction forces** | **Shape** |
+| :--- | ---: | :--- |
+| Fixed | x, y, r (moment) | Flat |
+| Pinned | x, y | Triangle |
+| Roller | y | Circle |
+
+</Block>
+
+
+<Block variant="primary" title="Stable structures">
+A structure is said *stable* if all members remain in place under any loading conditions. (No mechanisms)
+</Block>
+
+
+
+<Block variant="primary" title="Static conditions of a system">
+A system's state of equilibrium can be determined by the number of restraints present:
+
+    1. Insufficient restraints $\to$ **non-static system**
+    2. Sufficient restraints $\to$ **static system**
+A static system is said to be **statically indeterminate** if the number of unknowns is larger than the number of equations of equilibrium.
+</Block>
+
+
+<Block variant="secondary" title="Degree of indeterminacy (Trusses)">
+$I=m+r-2j$
+Where $m$ is the number of members, $r$ is the number of reaction forces, $j$ is the number of internal hinges (circles).
+</Block>
+
+
+<Block variant="secondary" title="Degree of indeterminacy (Frames)">
+$I=3m+r-3n-j$
+
+    1. $m$ is the number of members (intersecting beams are separate)
+    2. $r$ is the number of reaction forces
+    3. $n$ is the number of nodes (all ends and intersections)
+    4. $j$ is the number of internal hinges (circles)
+</Block>
+
+
+
+## Loading
+
+
+<Block variant="knowledge" title="Types of loading">
+
+    1. **Concentrated load** is a force applied at a single point. ($N$)
+    2. **Distributed load** is a force applied over a length. ($N/m$)
+</Block>
+
+
+
+<Block variant="secondary" title="Distributed load">
+A *distributed load* $(w)$ is a force that is distributed over a length $(l)$, that has the unit $N/m$.
+The **resultant force** is the supposed area of the load. To consider the **moment** by a distributed load, we can treat the load as a *single force* acting at the **centroid** of the load.
+
+    - Unifrom $\to$ $F=wl     @\frac{1}{2}l$
+    - Triangular $\to$ $F=\frac{1}{2}wl     @ \frac{1}{3}l$  (from the base of the load)
+</Block>

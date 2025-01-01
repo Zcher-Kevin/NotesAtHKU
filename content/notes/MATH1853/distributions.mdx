@@ -1,0 +1,115 @@
+---
+title: Probability distributions
+---
+A *continuous* random variable has probabilities the area under its curve. Hence, $P(X=n)$ for any outcome $n$ is $0$. A *discrete* random variables have specific probabilities assigned to an outcome.\\\
+
+<Block variant="knowledge" title="Operation on continous ranges">
+$P(X<x)=P(X\leq x)$\\
+$P(X>x)=1 - P(X<x)$\\
+$P(a\leq X\leq b)=P(X<b)-P(X<a)$
+</Block>
+
+
+
+<Block variant="knowledge" title="Operation on discrete ranges">
+$P(X<x)=P(X\leq x-1)$\\
+$P(X>x)=1-P(X\leq x)$\\
+$P(a\leq X\leq b)=P(X\leq b)-P(X\leq a-1)$
+</Block>
+
+
+## Probability distribution functions
+
+A *p.d.f* is a continuous function that returns the probability of the given outcome. The following is an example of a p.d.f:
+```math
+
+X\sim f(x) = \begin{cases}
+Kx^2 & 0 \leq x \leq 1  \\
+0    & \text{otherwise}
+
+```
+
+<Block variant="primary" title="Using the function">
+$P(X=x)=0$\\
+$P(a<X<b)=P(a\leq X\leq b)=\int_{a}^{b}f(x)dx$\\\
+Note that $\int_{\infty}^{-\infty}f(x)dx = 1$, as the total probability of any event is 1. This condition *must be true* for $f(x)$ to be a valid p.d.f. Hence for the example $K=3$
+</Block>
+
+
+<Block variant="primary" title="Expected value">
+$E(X^n)=\int_{\infty}^{-\infty}x^nf(x)dx$
+</Block>
+
+
+## Cumulative distribution function
+
+To obtain a *c.d.f* $X'\sim F(x)$where $P(X'=x) = P(X < x)$, all we have to do is integrate the p.d.f:
+```math
+F(X)=\int f(x)dx
+```
+Using our example:
+```math
+F(X)=\begin{cases}
+1   & x > 1     \\
+x^3 & 0 < x < 1 \\
+0   & x < 0     \\
+```
+And to convert a c.d.f back to it's p.d.f, all we have to do is differentiate $F(x)$:
+```math
+f(x)=\frac{d}{dx}F(x)
+```
+
+
+## Statistical distributions
+
+
+### Common statistical distribution
+
+
+|  |  |  |  |  |  |
+| :--- | ---: | :--- | :--- | :--- | :--- |
+| Continuous | Discrete | Discrete | Discrete | Discrete | Discrete |
+| __Expo__nential | __Ber__noulli | __B__inomial | __Geo__metric | __N__egative __B__inomial | __Po__ssion |
+| $Expo(\lambda)$ | $Ber(p)$ | $B(n, p)$ | $Geo(p)$ | $NB(n, p)$ | $Po(\lambda)$ |
+| $\lambda e^{-\lambda x}$ | $p$ if true, else $(1-p)$ | $\binom{n}{x} p^x(1-p)^{n-x}$ | $p(1-p)^{x-1}$ | $\binom{x-1}{n-1} p^n(1-p)^{x-n}$ | $\frac{\lambda^x}{x!} e^{-\lambda}$ |
+| $E=\lambda^{-1}$ | $E=p$ | $E=np$ | $E=\frac{1}{p}$ | $E=\frac{n}{p}$ | $E=\lambda$ |
+| $Var=\lambda^{-2}$ | $Var=p(1-p)$ | $Var=np(1-p)$ | $Var=\frac{1-p}{p2}$ | $Var=\frac{n(1-p)}{p2}$ | $Var=\lambda$ |
+|  |  |  |  |  |  |
+
+
+### Usage cases
+
+
+
+    - Ber: Outcomes only $True$ or $False$
+    - B: $x$ successes in $n$
+    - Geo: $1$st success at $x$ tries
+    - NB: $n$th success at $x$ tries
+    - Po: $x$ successes in interval $\lambda$
+
+
+### Normal distribution
+
+The __N__ormal distribution is given by the following formula (which you don't have to memorize):
+```math
+X\sim N(\mu, \sigma^2)=\frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}},        \text{where }\underbrace{\mu}_{\text{mean}},\underbrace{\sigma^2}_{\text{variance}}
+```
+To calculate $P(X<x)$, we have to *standardize* our $N$ by $Z\sim N(0, 1)$, $P(X<x)=P(Z<\frac{x-\mu}{\sigma})$. Here $Z$ is the *standard normal variable*.
+
+
+<Block variant="knowledge" title="Reading the Z-table">
+For $P(Z<z)=p$, to find $p$, locate the header and leftmost column in the z-table such that their *sum* is $z$. The corresponding intersecting cell is $p$.\\
+$Z_p$ gives the value $z$ in $P(Z<z)=p$
+</Block>
+
+
+<Block variant="primary" title="Critical interval">
+The critical interval is given by:
+```math
+C.I.=[\bar{X}\pm Z_{\frac{C.L.+1}{2}}\times\frac{\sigma}{\sqrt{n}}],        \text{where }\underbrace{C.L.}_{\text{Confidence level}},\ \underbrace{\bar{X}}_{\text{Mean value}}
+```
+Hence, we can derive that the critical interval width is:
+```math
+2\times Z_{\frac{C.L.+1}{2}}\times\frac{\sigma}{\sqrt{n}}
+```
+</Block>
