@@ -1,14 +1,17 @@
 {
-    "title": "COMP2119",
-    "description": "2024 Spring",
-    "root": true,
-    "icon": "DraftingCompass",
-    "pages": [
-        "search",
-        "recursion",
-        "analysis",
-        "sort",
-        "question-examples",
-        "structures"
-    ]
+  "title": "COMP2119",
+  "description": "2024 Fall",
+  "root": true,
+  "icon": "BetweenVerticalStart",
+  "pages": [
+    "index",
+    "---Contents---",
+    "recursion",
+    "analysis",
+    "structures",
+    "search",
+    "sort",
+    "question-examples"
+  ],
+  "wip": false
 }

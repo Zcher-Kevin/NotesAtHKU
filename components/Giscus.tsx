@@ -3,7 +3,7 @@
 import GiscusReact from "@giscus/react";
 import { useEffect } from "react";
 
-export default function Giscus() {
+export default function Giscus({ courseCode }: { courseCode: string }) {
   function updateGiscusTheme() {
     console.log("Updating Giscus theme...");
     const theme = document.documentElement.classList.contains("dark")
@@ -61,7 +61,8 @@ export default function Giscus() {
         repoId="R_kgDONjHylQ"
         category="General"
         categoryId="DIC_kwDONjHylc4ClkoB"
-        mapping="pathname"
+        mapping="specific"
+        term={courseCode}
         strict="0"
         reactionsEnabled="1"
         emitMetadata="0"

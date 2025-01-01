@@ -30,7 +30,7 @@ const Welcome: React.FC<WelcomeProps> = ({ course }) => (
       the notes <a href={`https://jaxtam.dev/notes/${course}`}>here</a>. Note
       that they will not receive any content updates.
     </p>
-    <Giscus />
+    <Giscus courseCode={course} />
   </>
 );
 

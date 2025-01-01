@@ -1,3 +1,4 @@
+import FAB from "@/components/FAB";
 import mdxComponents from "@/components/mdx";
 import { source } from "@/lib/source";
 import { getGithubLastEdit } from "fumadocs-core/server";
@@ -16,6 +17,7 @@ export default async function Page(props: {
 }) {
   const params = await props.params;
   const page = source.getPage(params.slug);
+  const currentCourseCode = params.slug?.join("/").split("/")[0];
   if (!page) notFound();
 
   const MDX = page.data.body;
@@ -27,25 +29,26 @@ export default async function Page(props: {
   });
 
   return (
-    <DocsPage
-      toc={page.data.toc}
-      full={page.data.full}
-      // footer={{ component: <p>Hello</p> }}
-      lastUpdate={time ? new Date(time) : undefined}
-    >
-      <DocsTitle>{page.data.title}</DocsTitle>
-      <DocsDescription>{page.data.description}</DocsDescription>
-      <DocsBody>
-        <MDX
-          components={{
-            ...defaultMdxComponents,
-            ...mdxComponents,
-            img: (props) => <ImageZoom {...(props as any)} />,
-          }}
-        />
-        {/* <Giscus /> */}
-      </DocsBody>
-    </DocsPage>
+    <>
+      <DocsPage
+        toc={page.data.toc}
+        full={page.data.full}
+        lastUpdate={time ? new Date(time) : undefined}
+      >
+        <DocsTitle>{page.data.title}</DocsTitle>
+        <DocsDescription>{page.data.description}</DocsDescription>
+        <DocsBody>
+          <MDX
+            components={{
+              ...defaultMdxComponents,
+              ...mdxComponents,
+              img: (props) => <ImageZoom {...(props as any)} />,
+            }}
+          />
+        </DocsBody>
+      </DocsPage>
+      <FAB currentCourseCode={currentCourseCode} />
+    </>
   );
 }
 

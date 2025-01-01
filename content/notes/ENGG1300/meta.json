@@ -1,16 +1,22 @@
 {
-    "title": "ENGG1300",
-    "description": "2024 Spring",
-    "root": true,
-    "icon": "DraftingCompass",
-    "pages": [
-        "dynamics",
-        "centroids-and-inertia",
-        "moment-of-forces",
-        "axially-loaded-members",
-        "statics",
-        "vectors",
-        "bending-and-stress",
-        "structural-analysis"
-    ]
+  "title": "ENGG1300",
+  "description": "2024 Spring",
+  "root": true,
+  "icon": "School",
+  "pages": [
+    "index",
+    "---Chapter 1---",
+    "vectors",
+    "moment-of-forces",
+    "axially-loaded-members",
+    "---Chapter 2---",
+    "statics",
+    "structural-analysis",
+    "---Chapter 3---",
+    "centroids-and-inertia",
+    "bending-and-stress",
+    "---Chapter 4---",
+    "dynamics"
+  ],
+  "wip": false
 }

@@ -1,13 +1,16 @@
 {
-    "title": "MATH1853",
-    "description": "2024 Spring",
-    "root": true,
-    "icon": "DraftingCompass",
-    "pages": [
-        "probabilities",
-        "matrices",
-        "distributions",
-        "hyperbolic",
-        "complex-numbers"
-    ]
+  "title": "MATH1853",
+  "description": "2023 Fall",
+  "root": true,
+  "icon": "Calculator",
+  "pages": [
+    "index",
+    "---Contents---",
+    "matrices",
+    "complex-numbers",
+    "hyperbolic",
+    "probabilities",
+    "distributions"
+  ],
+  "wip": false
 }

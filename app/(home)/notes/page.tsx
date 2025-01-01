@@ -35,22 +35,11 @@ function getJsonFiles() {
 }
 
 export default function Page() {
-  const jsonFiles = getJsonFiles();
-
-  const sortedFiles = jsonFiles.sort((a, b) => {
-    const [yearA, seasonA] = a.description.split(" ");
-    const [yearB, seasonB] = b.description.split(" ");
-
-    if (yearA !== yearB) {
-      return parseInt(yearA) - parseInt(yearB);
-    }
-
-    return seasonA === "Spring" ? -1 : 1;
-  });
-
   return (
     <div className="flex items-center justify-center flex-grow mb-20">
-      <CourseFiles sortedFiles={sortedFiles} />
+      <div className="w-4/5">
+        <CourseFiles />
+      </div>
     </div>
   );
 }

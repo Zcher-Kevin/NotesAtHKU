@@ -7,8 +7,8 @@ interface ColorBoxProps {
 
 export default function ColorBox({ color, children }: ColorBoxProps) {
   return (
-    <div style={{ backgroundColor: color }} className="p-[2px] w-fit inline">
+    <span style={{ backgroundColor: color }} className="p-[2px] w-fit inline">
       {children}
-    </div>
+    </span>
   );
 }

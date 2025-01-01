@@ -1,16 +1,19 @@
 {
-    "title": "IIMT2601",
-    "description": "2024 Spring",
-    "root": true,
-    "icon": "DraftingCompass",
-    "pages": [
-        "exam-and-case-study",
-        "e-commerce",
-        "itns",
-        "e-business-models",
-        "digital-economy",
-        "social-media",
-        "data",
-        "internet-infrastructure"
-    ]
+  "title": "IIMT2601",
+  "description": "2024 Fall",
+  "root": true,
+  "icon": "Globe",
+  "pages": [
+    "index",
+    "---Contents---",
+    "itns",
+    "digital-economy",
+    "internet-infrastructure",
+    "e-business-models",
+    "e-commerce",
+    "social-media",
+    "data",
+    "exam-and-case-study"
+  ],
+  "wip": false
 }

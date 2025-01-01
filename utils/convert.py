@@ -75,6 +75,8 @@ def convert_tex_to_mdx(t, course):
     t = re.sub(r"\\\]", r"$", t)
     # rule fix parameter braces not escaped in math mode: ]{...} to ]\{...\}
     t = re.sub(r"\]{\\text{([^}]*)}}", r"]\{\\text{\1}\}", t)
+    # rule escape all pipe characters inside a math environment
+    t = re.sub(r"\$(.*?)\$", lambda m: re.sub(r"\|", r"\\|", m.group(0)), t)
     # ------------- Colorbox ------------- #
     t = re.sub(
         r"\\colorbox{([^}]*)}{([^}]*)}", r"<ColorBox color='\1'>\2</ColorBox>", t

@@ -1,9 +1,10 @@
 {
   "title": "ACCT1101",
-  "description": "2024 Spring",
+  "description": "2024 Fall",
   "root": true,
-  "icon": "DraftingCompass",
+  "icon": "ChartPie",
   "pages": [
+    "index",
     "accounting",
     "---During period---",
     "bookkeeping",
@@ -16,5 +17,6 @@
     "ratios",
     "analyze-statements",
     "concepts"
-  ]
+  ],
+  "wip": false
 }

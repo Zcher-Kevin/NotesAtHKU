@@ -4,9 +4,7 @@ title: Derivatives
 
 <Block variant="primary" title="First principle">
 The first principle is the definition of the derivative of a function $f(x)$ at $x=a$:
-```math
-f'(x) = \frac{d}{dx} f(x)=\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}
-```
+$f'(x) = \frac{d}{dx} f(x)=\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}$
 Note the notation of *prime* ($'$), which denotes the derivative against $x$ for any function primed.
 </Block>
 
@@ -14,9 +12,7 @@ Note the notation of *prime* ($'$), which denotes the derivative against $x$ for
 
 <Block variant="secondary" title="Differentiability">
 The function is differentiable at $x=a$ if:
-```math
-\lim_{x\to a^-}f'=\lim_{x\to a^+}f'
-```
+$\lim_{x\to a^-}f'=\lim_{x\to a^+}f'$
 Use first principle if the function is cased.
 </Block>
 
@@ -36,25 +32,19 @@ Use first principle if the function is cased.
 
 <Block variant="secondary" title="Chain rule">
 Shorthand: **d**1x2 + **d**2x1
-```math
-(u(v))'=u'(v)v'        \text{or}        \frac{dy}{dx}=\frac{dy}{du}\frac{du}{dx}
-```
+$(u(v))'=u'(v)v'        \text{or}        \frac{dy}{dx}=\frac{dy}{du}\frac{du}{dx}$
 </Block>
 
 
 <Block variant="secondary" title="Product rule">
 Shorthand: **d** from outside to inside
-```math
-(uv)' = uv' + vu'        \text{or}        \frac{d}{dx}(uv)=u\frac{dv}{dx}+v\frac{du}{dx}
-```
+$(uv)' = uv' + vu'        \text{or}        \frac{d}{dx}(uv)=u\frac{dv}{dx}+v\frac{du}{dx}$
 </Block>
 
 
 <Block variant="secondary" title="Quotient rule">
 Shorthand: move lower **d** upper - **d** lower x upper, lower square
-```math
-(\frac{u}{v})'=\frac{vu'-uv'}{v^2}        \text{or}        \frac{d}{dx}(\frac{u}{v})=\frac{v\frac{du}{dx}-u\frac{dv}{dx}}{v^2}
-```
+$(\frac{u}{v})'=\frac{vu'-uv'}{v^2}        \text{or}        \frac{d}{dx}(\frac{u}{v})=\frac{v\frac{du}{dx}-u\frac{dv}{dx}}{v^2}$
 </Block>
 
 
@@ -63,30 +53,18 @@ Shorthand: move lower **d** upper - **d** lower x upper, lower square
 |  | $f(x)$ | $f'(x)$ |
 | :--- | ---: | :--- |
 | 1. | $a^x$ | $\ln{a}\cdot a^x$ |
-| \arrayrulecolor{lightgray}
-2. | $e^{kx}$ | $ke^{kx}$ |
-| \arrayrulecolor{lightgray}
-3. | $\ln{kx}$ | $x^{-1}$ |
-| \arrayrulecolor{lightgray}
-4. | $|x|$ | $\frac{|x|}{x}$ |
-| \arrayrulecolor{lightgray}
-5. | $\sin kx$ | $k\cos kx$ |
-| \arrayrulecolor{lightgray}
-6. | $\cos kx$ | $-k\sin kx$ |
-| \arrayrulecolor{lightgray}
-7. | $\tan kx$ | $k\sec^2 kx$ |
-| \arrayrulecolor{lightgray}
-8. | $\csc x$ | $-\csc x \cot x$ |
-| \arrayrulecolor{lightgray}
-9. | $\sec x$ | $\sec x \tan x$ |
-| \arrayrulecolor{lightgray}
-10. | $\cot x$ | $-\csc^2x$ |
-| \arrayrulecolor{lightgray}
-11. | $\sin^{-1} x$ | $(\sqrt{1-x^2})^{-1}$ |
-| \arrayrulecolor{lightgray}
-12. | $\cos^{-1} x$ | $-(\sqrt{1-x^2})^{-1}$ |
-| \arrayrulecolor{lightgray}
-13. | $\tan^{-1} x$ | $(1+x^2)^{-1}$ |
+| 2. | $e^{kx}$ | $ke^{kx}$ |
+| 3. | $\ln{kx}$ | $x^{-1}$ |
+| 4. | $\|x\|$ | $\frac{\|x\|}{x}$ |
+| 5. | $\sin kx$ | $k\cos kx$ |
+| 6. | $\cos kx$ | $-k\sin kx$ |
+| 7. | $\tan kx$ | $k\sec^2 kx$ |
+| 8. | $\csc x$ | $-\csc x \cot x$ |
+| 9. | $\sec x$ | $\sec x \tan x$ |
+| 10. | $\cot x$ | $-\csc^2x$ |
+| 11. | $\sin^{-1} x$ | $(\sqrt{1-x^2})^{-1}$ |
+| 12. | $\cos^{-1} x$ | $-(\sqrt{1-x^2})^{-1}$ |
+| 13. | $\tan^{-1} x$ | $(1+x^2)^{-1}$ |
 
 
 
@@ -98,9 +76,7 @@ Shorthand: move lower **d** upper - **d** lower x upper, lower square
 
 <Block variant="knowledge" title="Parametric differentiation">
 For a parametric equation $y=f(t)$ and $x=g(t)$:
-```math
-\frac{dy}{dx}=\frac{dy}{dt}\div \frac{dx}{dt}
-```
+$\frac{dy}{dx}=\frac{dy}{dt}\div \frac{dx}{dt}$
 </Block>
 
 
@@ -115,9 +91,7 @@ $f^{-1}(x): f(x)\leftrightarrow x$ (switch $x$ and $y$).
 
 <Block variant="secondary" title="Derivative of Inverse functions">
 At $c$, we first find $f'(x)$ and the value of $f^{-1}(c)$, then we apply the formula to find the value of $f^{-1'}(c)$:
-```math
-f^{-1'}(c)=\frac{1}{f'(f^{-1}(c))}
-```
+$f^{-1'}(c)=\frac{1}{f'(f^{-1}(c))}$
 $f^{-1}(c)$ can be found by solving $f(x)=c$.
 </Block>
 
@@ -157,9 +131,7 @@ y & =  e^{x\ln x}                    \\
 
 <Block variant="secondary" title="L'Hopital's rule">
 For any $a\in [\mathds{R}, \pm\infty]$, if $\lim_{x\to a}(\frac{f}{g})$ is in [indeterminate form](FIXME-sec:indeterminate) after substitution, we can conclude:
-```math
-\lim_{x\to a}(\frac{f}{g})=\lim_{x\to a}(\frac{f'}{g'})
-```
+$\lim_{x\to a}(\frac{f}{g})=\lim_{x\to a}(\frac{f'}{g'})$
 <BlockSep />
 To find $\lim_{x\to-\infty}xe^x$, we first check if the limit is indeterminate, then we can apply the rule:
 ```math
@@ -179,9 +151,7 @@ To find $\lim_{x\to-\infty}xe^x$, we first check if the limit is indeterminate, 
 
 <Block variant="secondary" title="Mean value theorem (MVT)">
 For $f(x)$ that is *continuous* in $[a,b]$ and *differentiable* in $(a,b)$:
-```math
-f'(c)=\frac{f(b)-f(a)}{b-a},     c\in(a,b)
-```
+$f'(c)=\frac{f(b)-f(a)}{b-a},     c\in(a,b)$
 <BlockSep />
 The theorem tells us that, in described conditions, there must be a point $c$ where the slope of the *tangent line* is equal to the slope of the line from $a\to b$ (secant line).
 ![](././img/mvt.png)
@@ -190,9 +160,7 @@ The theorem tells us that, in described conditions, there must be a point $c$ wh
 
 <Block variant="secondary" title="Rolle's theorem">
 For $f(x)$ that is *continuous* in $[a,b]$ and *differentiable* in $(a,b)$:
-```math
-\forall\ f(a)=f(b)\text{  there exists  }f'(c)=0,     c\in(a,b)
-```
+$\forall\ f(a)=f(b)\text{  there exists  }f'(c)=0,     c\in(a,b)$
 ![](././img/rt.png)
 <BlockSep />
 For $F'=f$, if $F$ has 4 roots, then $f$ has 3 roots.
