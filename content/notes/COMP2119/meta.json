@@ -1,6 +1,7 @@
 {
   "title": "COMP2119",
-  "description": "2024 Fall",
+  "semester": "2024 Fall",
+  "description": "Introduction to Data Structures and Algorithms",
   "root": true,
   "icon": "BetweenVerticalStart",
   "pages": [

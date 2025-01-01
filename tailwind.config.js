@@ -57,7 +57,7 @@ export default {
   ],
   presets: [
     createPreset({
-      preset: neutral,
+      preset: "vitepress",
     }),
   ],
 };

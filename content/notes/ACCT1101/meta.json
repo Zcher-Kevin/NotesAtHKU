@@ -1,6 +1,7 @@
 {
   "title": "ACCT1101",
-  "description": "2024 Fall",
+  "semester": "2024 Fall",
+  "description": "Introduction to Financial Accounting",
   "root": true,
   "icon": "ChartPie",
   "pages": [
@@ -18,5 +19,5 @@
     "analyze-statements",
     "concepts"
   ],
-  "wip": false
+  "wip": true
 }

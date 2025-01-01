@@ -1,6 +1,7 @@
 {
   "title": "MATH1851",
-  "description": "2024 Spring",
+  "semester": "2024 Spring",
+  "description": "Calculus and Ordinary differential equations",
   "root": true,
   "icon": "Calculator",
   "pages": [

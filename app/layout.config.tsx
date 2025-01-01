@@ -1,3 +1,4 @@
+import { REPO } from "@/constants";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 
 /**
@@ -9,13 +10,19 @@ import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
  */
 export const baseOptions: BaseLayoutProps = {
   nav: {
-    title: "Notes@HKU",
+    title: (
+      <>
+        <span>Notes@HKU</span>
+        <span className="text-xs font-normal opacity-40"> by Jax</span>
+      </>
+    ),
   },
+  githubUrl: REPO,
   links: [
-    {
-      text: "Notes",
-      url: "/notes",
-      active: "nested-url",
-    },
+    // {
+    //   text: "Notes",
+    //   url: "/notes",
+    //   active: "nested-url",
+    // },
   ],
 };

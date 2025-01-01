@@ -1,5 +1,6 @@
 import FAB from "@/components/FAB";
 import mdxComponents from "@/components/mdx";
+import { REPO_BRANCH, REPO_NAME, REPO_OWNER } from "@/constants";
 import { source } from "@/lib/source";
 import { getGithubLastEdit } from "fumadocs-core/server";
 import { ImageZoom } from "fumadocs-ui/components/image-zoom";
@@ -17,7 +18,8 @@ export default async function Page(props: {
 }) {
   const params = await props.params;
   const page = source.getPage(params.slug);
-  const currentCourseCode = params.slug?.join("/").split("/")[0];
+  const path = `apps/docs/content/docs/${page?.file.path}`;
+  const currentCourseCode = params.slug?.join("/").split("/")[0] || "";
   if (!page) notFound();
 
   const MDX = page.data.body;
@@ -33,6 +35,19 @@ export default async function Page(props: {
       <DocsPage
         toc={page.data.toc}
         full={page.data.full}
+        tableOfContent={{
+          style: "clerk",
+          single: false,
+        }}
+        editOnGithub={{
+          repo: REPO_NAME,
+          owner: REPO_OWNER,
+          sha: REPO_BRANCH,
+          path,
+        }}
+        article={{
+          className: "max-sm:pb-16",
+        }}
         lastUpdate={time ? new Date(time) : undefined}
       >
         <DocsTitle>{page.data.title}</DocsTitle>

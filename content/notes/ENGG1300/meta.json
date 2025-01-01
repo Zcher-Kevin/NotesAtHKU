@@ -1,6 +1,7 @@
 {
   "title": "ENGG1300",
-  "description": "2024 Spring",
+  "semester": "2024 Spring",
+  "description": "Fundamental mechanics",
   "root": true,
   "icon": "School",
   "pages": [

@@ -1,11 +1,11 @@
 import { RootProvider } from "fumadocs-ui/provider";
 import "katex/dist/katex.css";
-import { Old_Standard_TT as Font } from "next/font/google";
+import { Geist } from "next/font/google";
 import type { ReactNode } from "react";
 import "./global.css";
 
-const font = Font({
-  weight: ["400", "700"],
+const font = Geist({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
 });
 

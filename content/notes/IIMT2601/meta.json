@@ -1,6 +1,7 @@
 {
   "title": "IIMT2601",
-  "description": "2024 Fall",
+  "semester": "2024 Fall",
+  "description": "Management information systems",
   "root": true,
   "icon": "Globe",
   "pages": [

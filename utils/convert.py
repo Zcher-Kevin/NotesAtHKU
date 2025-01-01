@@ -155,7 +155,7 @@ icon: Album
         # Create meta.json in the output directory
         meta_content = {
             "title": course,
-            "description": "2024 Spring",
+            "semester": "2024 Spring",
             "root": True,
             "icon": "DraftingCompass",
             "pages": filenames,

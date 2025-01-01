@@ -1,6 +1,7 @@
 {
   "title": "MATH1853",
-  "description": "2023 Fall",
+  "semester": "2023 Fall",
+  "description": "Linear algebra, probability and statistics",
   "root": true,
   "icon": "Calculator",
   "pages": [

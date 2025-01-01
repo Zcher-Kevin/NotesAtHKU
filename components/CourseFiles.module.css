@@ -22,3 +22,15 @@
   opacity: 1;
   right: 24px;
 }
+
+.tag {
+  opacity: 0;
+  position: absolute;
+  right: 0px;
+  transition: opacity 0.2s ease-in-out, right 0.2s ease-in-out;
+}
+
+.cf:hover .tag {
+  opacity: 1;
+  right: 60px;
+}
