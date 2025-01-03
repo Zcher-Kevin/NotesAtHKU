@@ -13,14 +13,16 @@ export default function HomePage() {
   const COMMON_STYLES =
     "border rounded-lg bg-fd-card hover:bg-fd-accent/80 hover:text-fd-accent-foreground";
   return (
-    <main className="flex flex-col items-center justify-center flex-grow w-full max-w-3xl mx-auto text-center">
-      <h1 className="mb-4 text-5xl font-bold">
+    <main className="flex flex-col items-center justify-center flex-grow w-full max-w-3xl px-6 mx-auto text-center">
+      <h1 className="mb-4 text-4xl font-bold lg:text-5xl">
         Concise, open, collective notes for HKU students
       </h1>
-      <p className="mb-12 text-lg">Browse around!</p>
+      <p className="mb-12 lg:text-lg">Browse around!</p>
       <CourseFiles className="mb-12" />
       <div className="flex items-center gap-4">
-        <p className="opacity-50">Interested in sharing your notes?</p>
+        <p className="text-left opacity-50">
+          Interested in sharing your notes?
+        </p>
         <Link href={REPO}>
           <Button iconComponent={<Github />}>Contribute</Button>
         </Link>

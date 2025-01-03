@@ -25,8 +25,8 @@ export default async function Page(props: {
   const MDX = page.data.body;
 
   const time = await getGithubLastEdit({
-    owner: "EnhancedJax",
-    repo: "notes.jaxtam.dev",
+    owner: REPO_OWNER,
+    repo: REPO_NAME,
     path: `content/notes/${page.file.path}`,
   });
 

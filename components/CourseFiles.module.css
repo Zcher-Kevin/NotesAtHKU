@@ -1,14 +1,24 @@
-.cf {
-  transform-origin: center;
-  transform: perspective(700px) rotateX(-15deg);
-  transition: transform 0.2s ease-in-out;
+.cf_container {
   position: relative;
-  overflow: hidden;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
 }
 
-.cf:hover {
-  transform: perspective(300px) rotateX(-5deg) translateY(-15px)
-    translateX(15px);
+.cf {
+  position: relative;
+  overflow: hidden;
 }
 
 .arrow {
