@@ -12,9 +12,12 @@ A sorting algorithm can have the following proerties:
 
 <Block variant="secondary" title="Lower bound (worse case) of comparison based sorting">
 The **minimum number of comparisons required** to sort an array of $n$ elements in the **worse case** (can't assume sorted) is
-$
+```math
+
 \log_2(n!) \in \Theta(n \log n)
-$
+
+```
+
 </Block>
 
 
@@ -228,7 +231,7 @@ Instead of using the element value as the key, we use the ith digit (0-based) by
 <Block variant="knowledge" title="Sorting k-sorted arrays - modified selection sort">
 For each element, find the minimum value within the next $k$ elements after (including itself), and swap it with the current element.
 
-**Time complexity:** $O(nk)$
+**Time complexity:**  $O(nk)$
 </Block>
 
 
@@ -239,9 +242,9 @@ For each element, find the minimum value within the next $k$ elements after (inc
     2. For each remaining element, pop the min element from heap back to array from the start, then add current to the heap.
     3. Pop remaining elements to array.
 
-**Time complexity:** $O(n\log k)$ time as the heap always has at most $k$ elements, and we processed all $n$ elements to the heap.
+**Time complexity:**  $O(n\log k)$ time as the heap always has at most $k$ elements, and we processed all $n$ elements to the heap.
 
-**Space complexity:** $O(k)$ as the heap always has at most $k$ elements, and we used the original array as we process the remaining elements.
+**Space complexity:**  $O(k)$ as the heap always has at most $k$ elements, and we used the original array as we process the remaining elements.
 </Block>
 
 

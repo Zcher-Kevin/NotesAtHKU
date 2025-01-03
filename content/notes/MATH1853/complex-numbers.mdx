@@ -3,42 +3,97 @@ title: Complex numbers
 ---
 The imaginary number $i=\sqrt{-1}$. A complex number is usually denoted as $z=a+bi$. In operations, the imaginary number can be considered as an unknown, though note that $i^2=-1$ (and so forth).
 
+## Useful items
 
 
+<Block variant="primary" title="Common properties">
+The *modulus*: $\|z\|=\sqrt{a^2+b^2}$
 
+The *conjugate*: $conj(z) = \hat{z} = a-bi$
 
 
+</Block>
 
 
 
+<Block variant="knowledge" title="Polar form">
+We can write a complex number in polar form: $z=r(\cos\theta+i\sin\theta),\quad \text{where } r=\|z\|$.
 
+This represents the point on a circle with radius $r$, at the angle $\theta$.
+</Block>
 
 
 
+<Block variant="knowledge" title="Euler's formula">
 
 
+Using the formula, we can easily derive:
 
+    - $(\cos\theta+i\sin\theta)^n = (\cos{n\theta}+i\sin{n\theta})$
+    - $(\cos\theta+i\sin\theta)^{-1} = (\cos{\theta}-i\sin{\theta})$
+    - $(\sin\theta+i\cos\theta) = i(\cos{\theta}-i\sin{\theta})=ie^{-i\theta}$
+</Block>
 
 
 
+<Block variant="primary" title="Complex roots">
+Consider $nz=k$, the solutions to the equation is:
 
+$\underbrace{kw^0 + kw^1 + \dots + kw^{n-1}}_{n\text{ solutions}}\quad for\ w = e^(\frac{2\pi i}{n})$,
+</Block>
 
 
 
+<Block variant="knowledge" title="Set notation">
+Elements in a set are *unique*.
+```math
+A=\{\underbrace{\underbrace{1}_{\text{An element}},2,3}_{\text{Elements}}\}\quad\quad B=\{\underbrace{x}_{\text{For all}}\ |\ \underbrace{0<x<2}_{\text{Such that}}\underbrace{,}_{\text{And}}\quad x\in\mathbb{R}\}=\{1\}
+```
+</Block>
 
 
 
+## Image under complex function
 
+Given a complex function $f(z)$ and a set of complex numbers $D=\{g(z)\in \mathbb{C}:h(z)\}$, our goal is to solve for the function $f(D)$ in a form that we can identify the shape / image.
 
 
+### General steps
 
 
+    1. Find $f(D)$ by finding $f(g(z))$
+    2. Let $f(g(z))$ be $x'+y'i$, then solve for $x$ and $y$ in terms of $x'$ and $y'$ \\(Note that $g(z)$ and $h(z)$ are functions of $x+yi$)
+    3. Substitute your $x$ and $y$ to $f(D)$, so that all unknowns are in terms of $x'$ and $y'$
+    4. Rearrange $h(z)$ to solve the shape of the image
 
 
+### Simple example
 
+Let $D=\{x+iy \in \mathbb{C}\ \| \|x+iy\|>1\}$, with complex function $f(z)=-1/z$. Find $f(D)$, then sketch the picture of $f(D)$ on the complex plane. 23 Dec, Part 2 Assignment 2 Question 3
 
 
+We first find $f(D)$ by finding $f(x+yi)$:
+```math
+f(x+yi)=\frac{-1}{x+yi}\rightarrow f(D)=\{\frac{-1}{x+yi}\in \mathbb{C}||x+yi|>1\}
+```
+Then let $\frac{-1}{x+yi}$ be $x'+y'i$, then solve for $x$ and $y$ in terms of $x'$ and $y'$
+```math
+x'+y'i=\frac{-1}{x+yi}\rightarrow x+yi=\frac{-1}{x'+y'i}
+```
+Substitute the values we found into $f(D)$
+```math
+f(D)=\{x'+y'i\in \mathbb{C}||\frac{-1}{x'+y'i}|>1\}
+```
+Then finally we rearrange the right side of the equation as:
+```math
+\frac{1}{\sqrt{x'^2+y'^2}}>1
+```
+```math
+1>x'^2+y'^2
+```
+Therefore, we can conclude that the image is a filled circle with radius 1 (excluding edges):
 
+FIX-ME: Insert a diagram here
 
 
 
@@ -64,43 +119,27 @@ The imaginary number $i=\sqrt{-1}$. A complex number is usually denoted as $z=a+
 
 
 
+### A more elegant way
 
+We can use Euler's formula to solve questions involving circles. Using the above example:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+We let $x+yi$ as $re^{i\theta}$ and substitute:
+```math
+D=\{re^{i\theta}\in\mathbb{C}|\underbrace{r>1}_{\text{As $\|z\|$ is $r$}}\}
+```
+Then following the usual steps:
+```math
+f(D)=\{-r^{-1}e^{-i\theta}\in \mathbb{C}| r > 1\}
+```
+```math
+f(D)=\{r^{-1}\underbrace{e^{-i\theta+i\pi}}_{-1=e^{i\pi}}\in \mathbb{C}| r > 1\}
+```
+```math
+Let\ r'=r^{-1}, \theta'=\pi-\theta\rightarrow r=r'^{-1}
+```
+```math
+f(D)=\{r'e^{i\theta'}\in \mathbb{C}| r^{-1} > 1\}
+```
+```math
+f(D)=\{r'e^{i\theta'}\in \mathbb{C}| r < 1\}
+```

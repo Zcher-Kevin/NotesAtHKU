@@ -61,7 +61,7 @@ $\begin{bmatrix}
 1 & 2 \\3&4
 \end{bmatrix}^T \equiv \begin{bmatrix}
 1 & 3 \\2&4
-\end{bmatrix}     \begin{bmatrix}
+\end{bmatrix}\quad \begin{bmatrix}
 1 & 2 & 3
 \end{bmatrix}^T \equiv \begin{bmatrix}
 1 \\2\\3
@@ -109,50 +109,75 @@ GE are operations by __rows__, performed on augmented matrices. The possible mov
 ### Strict variables
 
 Consider the following linear system. We can take the coefficients and write it into AM form as followed:
-$
+```math
+
+\begin{matrix}
 x_1 + 2x_2 = 3 \\
 2x_1 + 5x_2 = 10
 \end{matrix}\xRightarrow{\hspace{0.5cm}}
+\left[\begin{array}{cc|c}
 1 & 2 & 3 \\ \underbrace{2}_{x_1} & \underbrace{5}_{x_2} & 10
-\end{amatrix}
-$
+\end{array}\right]
+
+```
+
 
 Then, we perform GE on the created augmented matrix to make the left side row-echelon.
-$
+```math
+
+\left[\begin{array}{cc|c}
 1 & 2 & 3 \\ 2 & 5 & 10
-\end{amatrix} \xrightarrow{R_2-2R_1}
+\end{array}\right] \xrightarrow{R_2-2R_1}
+\left[\begin{array}{cc|c}
 1 & 2 & 3 \\ 0 & 1 & 4
-\end{amatrix}
-$
+\end{array}\right]
+
+```
+
 Deriving from the AM, we know:
-$
+```math
+
+\begin{matrix}
 x_1 + 2x_2 = 3 \\
 x_2 = 4
 \end{matrix}
-$
+
+```
+
 So the solution is:
-$
+```math
+
+\begin{bmatrix}
 3-2\cdot 4 \\
 4
 \end{bmatrix}\equiv
+\begin{bmatrix}
 -5 \\
 4
 \end{bmatrix}
-$
+
+```
+
 
 
 ### Inconsistent systems
 
 We say a system is inconsistent if a full row of 0 on the left is equal to a non-zero number. We can also conclude that there are no solutions to the system. The following is an example of a system with no solutions:
-$
+```math
+
+\begin{matrix}
 x_1 + 2x_2 = 3 \\
 2x_1 + 4x_2 = 10
 \end{matrix}\xRightarrow{\hspace{0.5cm}}
+\left[\begin{array}{cc|c}
 1 & 2 & 3 \\ 2 & 4 & 10
-\end{amatrix}\xrightarrow{R_2-2R_1}
-1 & 2 & 3 \\ \mathcolor{red}{0 & 0 & 4}
-\end{amatrix}
-$
+\end{array}\right]\xrightarrow{R_2-2R_1}
+\left[\begin{array}{cc|c}
+1 & 2 & 3 \\ \htmlClass{text-red}{0 & 0 & 4}
+\end{array}\right]
+
+```
+
 
 
 ### Free variable systems
@@ -160,24 +185,31 @@ $
 Free variables are variables with their corresponding columns having **no leading 1s** before 0s in the augmented matrix. If a system has free variables, the solution exists in a space, defined by the general solution.
 
 Consider the following system with free variables, we can derive:
-$
-1 & 0 & \mathcolor{blue}{-5 & 0} & 8 & 3\\
-0 & 1 & \mathcolor{blue}{-4 & -1} & 0 & 6\\
-0 & 0 & \mathcolor{blue}{\underbrace{0}_{free} & \underbrace{0}_{free}} & 1 & 0
-\end{amatrix}\xRightarrow{\hspace{0.5cm}}\begin{matrix}
+```math
+
+\left[\begin{array}{cccc|c}
+1 & 0 & \htmlClass{text-blue}{-5                    & 0}                     & 8 & 3 \\
+0 & 1 & \htmlClass{text-blue}{-4                    & -1}                    & 0 & 6 \\
+0 & 0 & \htmlClass{text-blue}{\underbrace{0}_{free} & \underbrace{0}_{free}} & 1 & 0
+\end{array}\right]\xRightarrow{\hspace{0.5cm}}\begin{matrix}
 x_1 -5x_3+8x_5 = 3 \\
 x_2-4x_3-x_4=6     \\
 x_5=0
-\end{matrix}$
+\end{matrix}
+```
+
 We can ignore the free variables, and substitute $x_5$ into both equations, deriving the general solution to be:
-$
+```math
+
 x=\begin{bmatrix}
 3+5x_3     \\
 6+x_4+4x_3 \\
 x_3        \\
 x_4        \\
 0
-\end{bmatrix}$
+\end{bmatrix}
+```
+
 
 
 ## Matrix determinant
@@ -188,9 +220,9 @@ Determinant is a property of a matrix, represented by $\|A\|$ or $det(A)$. Only 
 
 
 <Block variant="knowledge" title="$det(A\in \mathbb{R}^{2\times 2})$">
-$for     A=\begin{bmatrix}
+$for\quad A=\begin{bmatrix}
 a & b \\c&d
-\end{bmatrix},     |A| = ad - bc$
+\end{bmatrix},\quad |A| = ad - bc$
 </Block>
 
 
@@ -233,7 +265,10 @@ $|\begin{smallmatrix}
 
 ## Vectors
 
-Vectors are matrices with a single column, represented by letters with an arrow above them. $\overrightarrow{v} = \begin{bmatrix}1 \\2\\3\end{bmatrix}$
+Vectors are matrices with a single column, represented by letters with an arrow above them.
+$\overrightarrow{v} = \begin{bmatrix}
+1 \\2\\3
+\end{bmatrix}$
 
 
 <Block variant="knowledge" title="Dot product">
@@ -326,11 +361,11 @@ d & -b \\-c &a
 
 
 <Block variant="knowledge" title="$A^{-1} \in \mathbb{R}^{n\times n}$">
-$\begin{amatrix}{1}
-A&I
-\end{amatrix}\xrightarrow{GE}\begin{amatrix}{1}
-I&A^{-1}
-\end{amatrix}$
+$\left[\begin{array}{c|c}
+A & I
+\end{array}\right]\xrightarrow{GE}\left[\begin{array}{c|c}
+I & A^{-1}
+\end{array}\right]$
 </Block>
 
 
@@ -352,7 +387,7 @@ The eigenvalues of $\begin{bmatrix}
 1 & 1 \\4&1
 \end{bmatrix}$ can be found by $|\begin{smallmatrix}
 1-\lambda&1\\4&1-\lambda
-\end{smallmatrix}|=0:    (1-\lambda)^2 - 4 = 0    \rightarrow    \lambda_1=3,\ \lambda_2=-1$
+\end{smallmatrix}|=0:\quad(1-\lambda)^2 - 4 = 0\quad\rightarrow\quad\lambda_1=3,\ \lambda_2=-1$
 </Block>
 
 
@@ -370,15 +405,15 @@ For $\lambda_1=3$ and $A=\begin{bmatrix}
 1 & 1 & 1 \\1&1&1\\1&1&1
 \end{bmatrix}$:
 
-$(A-3\lambda)v=0 \xRightarrow{\hspace{0.5cm}} \begin{amatrix}{3}
--2&1&1&0\\1&-2&1&0\\1&1&-2&0
-\end{amatrix}\xrightarrow{GE}\begin{amatrix}{3}
--2&1&1&0\\0&-1&1&0\\\mathcolor{blue}{0&0&0&0}
-\end{amatrix}\begin{matrix}
-\ \\\ \\\mathcolor{blue}{GM=1}
+$(A-3\lambda)v=0 \xRightarrow{\hspace{0.5cm}} \left[\begin{array}{ccc|c}
+-2 & 1 & 1 & 0 \\1&-2&1&0\\1&1&-2&0
+\end{array}\right]\xrightarrow{GE}\left[\begin{array}{ccc|c}
+-2 & 1 & 1 & 0 \\0&-1&1&0\\\htmlClass{text-blue}{0&0&0&0}
+\end{array}\right]\begin{matrix}
+\ \\\ \\\htmlClass{text-blue}{GM=1}
 \end{matrix}$
 
-From the augmented matrix: $-2x_1+x_2+x_3=0,     -x_2+x_3=0$.
+From the augmented matrix: $-2x_1+x_2+x_3=0,\quad -x_2+x_3=0$.
 
 As $x_3$ is in both equations, let $x_3=1$: $x_2=1, x_1=1\rightarrow v_1=\begin{bmatrix}1 \\1\\1\end{bmatrix}$
 </Block>
@@ -417,13 +452,7 @@ A matrix can only be diagonalized if all of it's eigenpairs has their $AM = GM$.
 
 
 <Block variant="knowledge" title="Eigendecomposition">
-```math
-A=VDV^{-1},    \text{where }V=\begin{bmatrix}
-v_1 \\\dots\\v_n
-\end{bmatrix},\ D=\begin{bmatrix}
-\lambda_1 & 0 & 0 \\0&\ddots&0\\0&0&\lambda_n
-\end{bmatrix}
-```
+$A=VDV^{-1},\quad\text{where }V=\begin{bmatrix}v_1 \\\dots\\v_n\end{bmatrix},\ D=\begin{bmatrix}\lambda_1 & 0 & 0 \\0&\ddots&0\\0&0&\lambda_n\end{bmatrix}$
 
 We can also derive $A^k=VD^kV^{-1}$
 </Block>
@@ -437,9 +466,7 @@ Given $x(0)$, solve for $x(t)$ with the following steps:
 
     1. Solve for eigenpairs
     2. $xk = cve^{\lambda t} + \dots + cve^{\lambda t}$
-    3. Solve c by augmented matrix $\begin{amatrix}{3}
-v_1&\dots&v_n&x(0)
-\end{amatrix}$
+    3. Solve c by augmented matrix $\left[\begin{array}{ccc|c}v_1 & \dots & v_n & x(0)\end{array}\right]$
 
 
 ## Quadratic form
@@ -453,16 +480,20 @@ A matrix is symmetric if $A=A^T$
 
 
 <Block variant="knowledge" title="Linear to matrix quadratic">
+
 ```math
-Q(x) & =ax_1^2+bx_2^2+cx_3^2+dx_1x_2+ex_2x_3+fx_1x_3     \\
+\begin{aligned}
+Q(x) & =ax_1^2+bx_2^2+cx_3^2+dx_1x_2+ex_2x_3+fx_1x_3                                                     \\
 & =\begin{bmatrix}
 x_1 & x_2 & x_3
 \end{bmatrix}\begin{bmatrix}
-a & d/2 & f/2 \\d/2&b&e/2\\f/2&e/2&c
+a & \frac{d}{2} & \frac{f}{2} \\\frac{d}{2}&b&\frac{e}{2}\\\frac{f}{2}&\frac{e}{2}&c
 \end{bmatrix}\begin{bmatrix}
 x_1 \\x_2\\x_3
 \end{bmatrix}
+\end{aligned}
 ```
+
 </Block>
 
 

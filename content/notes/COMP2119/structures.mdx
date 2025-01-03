@@ -403,9 +403,12 @@ Where $h$ is the hash function and $k$ is the key.
 
 
 <Block variant="knowledge" title="Load factor">
-$
+```math
+
 \alpha = \frac{n}{m}
-$
+
+```
+
 Where $n$ is the number of items, and $m$ is the size of the table.
 </Block>
 
@@ -415,9 +418,12 @@ Where $n$ is the number of items, and $m$ is the size of the table.
 A hash function is a function that takes a key and returns an index. It should be in relation to the **size of the table** $m$.
 
 The most basic hash function is the **division method**:
-$
+```math
+
 h(k) = k \% prime
-$
+
+```
+
 A good value of $prime$ should be a **prime number** that is not close to a power of 2.
 </Block>
 

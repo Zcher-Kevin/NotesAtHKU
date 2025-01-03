@@ -21,12 +21,15 @@ $P(a\leq X\leq b)=P(X\leq b)-P(X\leq a-1)$
 ## Probability distribution functions
 
 A *p.d.f* is a continuous function that returns the probability of the given outcome. The following is an example of a p.d.f:
-$
+```math
+
 X\sim f(x) = \begin{cases}
 Kx^2 & 0 \leq x \leq 1  \\
 0    & \text{otherwise}
 \end{cases}
-$
+
+```
+
 
 <Block variant="primary" title="Using the function">
 $P(X=x)=0$\\
@@ -47,11 +50,14 @@ To obtain a *c.d.f* $X'\sim F(x)$where $P(X'=x) = P(X < x)$, all we have to do i
 F(X)=\int f(x)dx
 ```
 Using our example:
-$F(X)=\begin{cases}
+```math
+F(X)=\begin{cases}
 1   & x > 1     \\
 x^3 & 0 < x < 1 \\
 0   & x < 0     \\
-\end{cases}$
+\end{cases}
+```
+
 And to convert a c.d.f back to it's p.d.f, all we have to do is differentiate $F(x)$:
 ```math
 f(x)=\frac{d}{dx}F(x)
@@ -65,32 +71,29 @@ f(x)=\frac{d}{dx}F(x)
 
 
 |  |  |  |  |  |  |
-| :--- | ---: | :--- | :--- | :--- | :--- |
+| --- | --- | --- | --- | --- | --- |
 | Continuous | Discrete | Discrete | Discrete | Discrete | Discrete |
-| __Expo__nential | __Ber__noulli | __B__inomial | __Geo__metric | __N__egative __B__inomial | __Po__ssion |
+| **Expo**nential | **Ber**noulli | **B**inomial | **Geo**metric | **N**egative **B**inomial | **Po**ssion |
 | $Expo(\lambda)$ | $Ber(p)$ | $B(n, p)$ | $Geo(p)$ | $NB(n, p)$ | $Po(\lambda)$ |
 | $\lambda e^{-\lambda x}$ | $p$ if true, else $(1-p)$ | $\binom{n}{x} p^x(1-p)^{n-x}$ | $p(1-p)^{x-1}$ | $\binom{x-1}{n-1} p^n(1-p)^{x-n}$ | $\frac{\lambda^x}{x!} e^{-\lambda}$ |
 | $E=\lambda^{-1}$ | $E=p$ | $E=np$ | $E=\frac{1}{p}$ | $E=\frac{n}{p}$ | $E=\lambda$ |
 | $Var=\lambda^{-2}$ | $Var=p(1-p)$ | $Var=np(1-p)$ | $Var=\frac{1-p}{p2}$ | $Var=\frac{n(1-p)}{p2}$ | $Var=\lambda$ |
-|  |  |  |  |  |  |
 
 
 ### Usage cases
 
-
-
-    - Ber: Outcomes only $True$ or $False$
-    - B: $x$ successes in $n$
-    - Geo: $1$st success at $x$ tries
-    - NB: $n$th success at $x$ tries
-    - Po: $x$ successes in interval $\lambda$
+- Ber: Outcomes only $True$ or $False$
+- B: $x$ successes in $n$
+- Geo: $1$st success at $x$ tries
+- NB: $n$th success at $x$ tries
+- Po: $x$ successes in interval $\lambda$
 
 
 ### Normal distribution
 
 The __N__ormal distribution is given by the following formula (which you don't have to memorize):
 ```math
-X\sim N(\mu, \sigma^2)=\frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}},        \text{where }\underbrace{\mu}_{\text{mean}},\underbrace{\sigma^2}_{\text{variance}}
+X\sim N(\mu, \sigma^2)=\frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}},\quad\quad\text{where }\underbrace{\mu}_{\text{mean}},\underbrace{\sigma^2}_{\text{variance}}
 ```
 To calculate $P(X<x)$, we have to *standardize* our $N$ by $Z\sim N(0, 1)$, $P(X<x)=P(Z<\frac{x-\mu}{\sigma})$. Here $Z$ is the *standard normal variable*.
 
@@ -104,7 +107,7 @@ $Z_p$ gives the value $z$ in $P(Z<z)=p$
 <Block variant="primary" title="Critical interval">
 The critical interval is given by:
 ```math
-C.I.=[\bar{X}\pm Z_{\frac{C.L.+1}{2}}\times\frac{\sigma}{\sqrt{n}}],        \text{where }\underbrace{C.L.}_{\text{Confidence level}},\ \underbrace{\bar{X}}_{\text{Mean value}}
+C.I.=[\bar{X}\pm Z_{\frac{C.L.+1}{2}}\times\frac{\sigma}{\sqrt{n}}],\quad\quad\text{where }\underbrace{C.L.}_{\text{Confidence level}},\ \underbrace{\bar{X}}_{\text{Mean value}}
 ```
 Hence, we can derive that the critical interval width is:
 ```math

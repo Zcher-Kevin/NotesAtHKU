@@ -1,0 +1,9 @@
+{
+  "title": "IIMT2641",
+  "semester": "2025 Spring",
+  "description": "Introduction to business analytics ",
+  "root": true,
+  "icon": "ChartArea",
+  "pages": ["index"],
+  "wip": true
+}

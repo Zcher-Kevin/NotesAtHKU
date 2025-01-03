@@ -70,8 +70,10 @@ def convert_tex_to_mdx(t, course):
     t = re.sub(r"\\end{align\*}", r"\\end{aligned}\n```\n", t)
     # rule convert "\[...\]" to "```math\n...\n```", assuming "\[" is the first non-space character in the line. If not, convert to "$...$"
     t = re.sub(r"\n\s*\\\[(.*)\\\]", r"\n```math\n\1\n```", t)
-    t = re.sub(r"\\\[", r"$", t)
-    t = re.sub(r"\\\]", r"$", t)
+    t = re.sub(r"\n\s*\\\[", r"\n```math\n", t)
+    t = re.sub(r"\\\]", r"\n```\n", t)
+    # t = re.sub(r"\\\[", r"$", t)
+    # t = re.sub(r"\\\]", r"$", t)
     # rule fix parameter braces not escaped in math mode: ]{...} to ]\{...\}
     t = re.sub(r"\]{\\text{([^}]*)}}", r"]\{\\text{\1}\}", t)
     # rule escape all pipe characters inside a math environment
@@ -90,6 +92,12 @@ def convert_tex_to_mdx(t, course):
     # remove all \begin{table}... and \end{table}
     t = re.sub(r"\\begin{table}[^\n]*", "", t)
     t = re.sub(r"\\end{table}", "", t)
+
+    # add DONTREMOVE environments
+    t = re.sub(r"\\begin{array}", r"\\DONTREMOVEbegin{array}", t)
+    t = re.sub(r"\\begin{matrix}", r"\\DONTREMOVEbegin{matrix}", t)
+    t = re.sub(r"\\begin{bmatrix}", r"\\DONTREMOVEbegin{bmatrix}", t)
+
     # rule convert custom JSX block environments
     t = parse_tree_markup(t)
     # rule import code blocks from file paths in lstinputlisting

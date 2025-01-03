@@ -11,7 +11,33 @@ import {
   DocsPage,
   DocsTitle,
 } from "fumadocs-ui/page";
+import localFont from "next/font/local";
 import { notFound } from "next/navigation";
+
+const computerModern = localFont({
+  src: [
+    {
+      path: "fonts/cmunrm.woff",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "fonts/cmunti.woff",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "fonts/cmunbx.woff",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "fonts/cmunbi.woff",
+      weight: "700",
+      style: "italic",
+    },
+  ],
+});
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -50,9 +76,13 @@ export default async function Page(props: {
         }}
         lastUpdate={time ? new Date(time) : undefined}
       >
-        <DocsTitle>{page.data.title}</DocsTitle>
-        <DocsDescription>{page.data.description}</DocsDescription>
-        <DocsBody>
+        <DocsTitle className={computerModern.className}>
+          {page.data.title}
+        </DocsTitle>
+        <DocsDescription className={computerModern.className}>
+          {page.data.description}
+        </DocsDescription>
+        <DocsBody className={computerModern.className}>
           <MDX
             components={{
               ...defaultMdxComponents,

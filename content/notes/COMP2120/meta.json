@@ -1,0 +1,9 @@
+{
+  "title": "COMP2120",
+  "semester": "2025 Spring",
+  "description": "Computer Organization",
+  "root": true,
+  "icon": "Cpu",
+  "pages": ["index"],
+  "wip": true
+}

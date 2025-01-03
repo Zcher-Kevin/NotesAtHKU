@@ -1,0 +1,9 @@
+{
+  "title": "COMP2121",
+  "semester": "2025 Spring",
+  "description": "Discrete Mathematics",
+  "root": true,
+  "icon": "Omega",
+  "pages": ["index"],
+  "wip": true
+}

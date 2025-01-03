@@ -2,10 +2,12 @@
 title: Probabilities
 ---
 The formula for combinations, also known as the binomial coefficient, is given by:
+```math
 
-$
 \binom{n}{r} = \frac{n!}{r!(n-r)!}
-$
+
+```
+
 
 Which represents the number of ways to choose r items from a set of n distinct items without regard to their order.
 
@@ -34,25 +36,13 @@ Venn diagrams illustrate concepts like intersections, unions, which is a good wa
 
 In this example, two circles are drawn to represent sets A and B. The overlapping region is labeled as the intersection of sets A and B, denoted by A $\cap$ B.
 
-
-
-
-
-
-
-
-
-
-
-
-
+FIXME-ADD: Diagram
 
 ## Probability notation and event types
 
 
-
-| ![](./IMG/NOT.png) |
-| :--- | ---: |
+| ![](./IMG/NOT.png) | | |
+| :---: | :---: | :---: |
 | A and B | A or B | Not A |
 | Intersection | Union | Compliment |
 
@@ -75,8 +65,8 @@ $E(X^n)=\sum(x^n\cdot P(X=x))$ gives the expected value, which represents the me
 $Var(X)=E(X^2)-E(X)^2$ gives the variance, which is a measure of the variability of the random variable's outcomes.
 $E(X+Y)=E(X)+E(Y)$, which any addition / subtraction function within $E()$ can be expanded.\\\
 If $X$ and $Y$ are independent:
-$Var(X+Y) = Var(X) + Var(Y),         E(XY)    = E(X)\cdot E(Y)$\\\
-$for\ Y=aX+b:$ $E(Y)=aE(X)+b,         Var(Y)=a^2Var(X)$
+$Var(X+Y) = Var(X) + Var(Y),\quad\quad E(XY)    = E(X)\cdot E(Y)$\\\
+$for\ Y=aX+b:$ $E(Y)=aE(X)+b,\quad\quad Var(Y)=a^2Var(X)$
 
 
 
@@ -85,20 +75,22 @@ $for\ Y=aX+b:$ $E(Y)=aE(X)+b,         Var(Y)=a^2Var(X)$
 Joint random variables are in the form $P(X=x, Y=y)$. We can visualize the joint distribution in the following way:
 
 
-| $X \symbol{92}Y$ | $x_1$ | $x_2$ |  |
-| :--- | ---: | :--- | :--- |
+
+| $Y$\\$X$ | $x_1$ | $x_2$ | Sum |
+| --- | --- | --- | --- |
 | $y_1$ | $P(X=x_1, Y=y_1)$ | $P(X=x_2, Y=y_1)$ | $P(Y=y_1)$ |
 | $y_2$ | $P(X=x_1, Y=y_2)$ | $P(X=x_2, Y=y_2)$ | $P(Y=y_2)$ |
-|  | $P(X=x_1)$ | $P(X=x_2)$ |  |
-
-
-
+| Sum | $P(X=x_1)$ | $P(X=x_2)$ |  |
 
 Note that the sum of a column or row results in the corresponding variable's probability of outcome.
 
-$E(X+Y)   = \sum((x+y) P(X=x, Y=y))$\\
+<Block variant="definition" title="Expected values">
+
+$E(X+Y)   = \sum((x+y) P(X=x, Y=y))$
+
 $E((XY)^n) = \sum((xy)^n P(X=x, Y=y))$
 
+</Block>
 
 ## Random variables of random variables (outcomes)
 
@@ -114,5 +106,10 @@ E(\bar{X})=\frac{E(X_1)+\dots+E(X_n)}{n}=\frac{nE(X)}{n}
 Var(\bar{X})=\frac{Var(X_1)+\dots+Var(X_n)}{n^2}=\frac{nVar(X)}{n^2}
 ```
 
-$E(\bar{X})   = E(X)$\\
+<Block variant="definition" title="Expected value and variance">
+
+$E(\bar{X}) = E(X)$
+
 $Var(\bar{X}) = \frac{Var(X)}{n}$
+
+</Block>

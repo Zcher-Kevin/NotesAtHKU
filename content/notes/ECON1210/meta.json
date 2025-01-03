@@ -1,0 +1,9 @@
+{
+  "title": "ECON1210",
+  "semester": "2025 Spring",
+  "description": "Introductory microeconomics",
+  "root": true,
+  "icon": "Coins",
+  "pages": ["index"],
+  "wip": true
+}

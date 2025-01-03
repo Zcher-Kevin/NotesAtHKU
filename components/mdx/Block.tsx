@@ -42,7 +42,7 @@ export default function Block({
       <div
         className={`${STYLES[variant].head} -top-3 flex absolute items-center w-fit px-3 left-3 rounded-lg border-2   dark:border-none dark:py-[2px] dark:-translate-y-[2px]`}
       >
-        <h3 className="m-0 mr-2 text-base font-medium" id={href_id}>
+        <h3 className="m-0 mr-2 text-base font-bold" id={href_id}>
           {title}
         </h3>
         <NextLink href={`#${href_id}`}>

@@ -33,7 +33,7 @@ export default function CourseFile({
     offset: ["end end", "start start"],
     layoutEffect: false,
   });
-  const rotateX = useTransform(scrollYProgress, [0, 0.5, 1], [-45, -15, 0]);
+  const rotateX = useTransform(scrollYProgress, [0, 0.5, 1], [-50, -15, 0]);
 
   return (
     <Link href={`notes/${title}`}>
