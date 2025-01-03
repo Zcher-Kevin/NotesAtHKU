@@ -7,9 +7,9 @@ title: Structural analysis
 A **truss** is a structure that consists of *straight members* connected at their ends by *pin joints*.
 
 A triangular truss is a statically determinate structure, but a quadrangular truss is not.
-![](././img/quadtruss.png)
-![](././img/tritruss.png)
 
+<Inline><div className="max-w-80">![](././img/quadtruss.png)</div>
+<div className="max-w-24">![](././img/tritruss.png)</div></Inline>
 
 <Block variant="secondary" title="Zero-force members">
 The following are zero-force members given that **no external load or support reaction is applied to the joint**.
@@ -17,10 +17,13 @@ The following are zero-force members given that **no external load or support re
     - **2 non-collinear members** of a two-member-joint
     - **3rd member** of a three-member-joint, where the other two are collinear.
 Additionally, members that provide **no structural support against the applied load** are also considered to be zero-force members.
+
 Removing zero-force members allows us to simplify a truss structure.
 <BlockSep />
-![](././img/zero2.jpg)
-![](././img/zero3.jpg)
+<HLayout>
+<div className="max-w-80">![](././img/zero2.jpg)</div>
+<div className="max-w-80">![](././img/zero3.jpg)</div>
+</HLayout>
 </Block>
 
 
@@ -43,13 +46,13 @@ When we analyze a truss, we assume that forces are only applied at joints.
 </Block>
 
 
-
 <Block variant="primary" title="Sign convention of analysis">
 As we focus on the analysis of **internal forces acting on joints**, we always draw:
 
     - Tension forces $\to$ **pointing away** from the joint $\{\leftarrow\circ\boxed{\rightarrow\ T\ \leftarrow}\circ\rightarrow\}$
     - Compression forces $\to$ **pointing towards** the joint $\{\rightarrow\circ\boxed{\leftarrow\ C\ \rightarrow}\circ\leftarrow\}$
 During analysis, we always draw forces **pointing towards** the joint $\{\rightarrow\circ\leftarrow\}$, which means we treat **compression as positive**.
+
 We also treat **downward forces as positive** $\{+\downarrow\}$.
 </Block>
 

@@ -4,7 +4,9 @@ title: Derivatives
 
 <Block variant="primary" title="First principle">
 The first principle is the definition of the derivative of a function $f(x)$ at $x=a$:
-$f'(x) = \frac{d}{dx} f(x)=\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}$
+```math
+f'(x) = \frac{d}{dx} f(x)=\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}
+```
 Note the notation of *prime* ($'$), which denotes the derivative against $x$ for any function primed.
 </Block>
 
@@ -12,7 +14,9 @@ Note the notation of *prime* ($'$), which denotes the derivative against $x$ for
 
 <Block variant="secondary" title="Differentiability">
 The function is differentiable at $x=a$ if:
-$\lim_{x\to a^-}f'=\lim_{x\to a^+}f'$
+```math
+\lim_{x\to a^-}f'=\lim_{x\to a^+}f'
+```
 Use first principle if the function is cased.
 </Block>
 
@@ -32,19 +36,25 @@ Use first principle if the function is cased.
 
 <Block variant="secondary" title="Chain rule">
 Shorthand: **d**1x2 + **d**2x1
-$(u(v))'=u'(v)v'        \text{or}        \frac{dy}{dx}=\frac{dy}{du}\frac{du}{dx}$
+```math
+(u(v))'=u'(v)v'\quad\quad\text{or}\quad\quad\frac{dy}{dx}=\frac{dy}{du}\frac{du}{dx}
+```
 </Block>
 
 
 <Block variant="secondary" title="Product rule">
 Shorthand: **d** from outside to inside
-$(uv)' = uv' + vu'        \text{or}        \frac{d}{dx}(uv)=u\frac{dv}{dx}+v\frac{du}{dx}$
+```math
+(uv)' = uv' + vu'\quad\quad\text{or}\quad\quad\frac{d}{dx}(uv)=u\frac{dv}{dx}+v\frac{du}{dx}
+```
 </Block>
 
 
 <Block variant="secondary" title="Quotient rule">
 Shorthand: move lower **d** upper - **d** lower x upper, lower square
-$(\frac{u}{v})'=\frac{vu'-uv'}{v^2}        \text{or}        \frac{d}{dx}(\frac{u}{v})=\frac{v\frac{du}{dx}-u\frac{dv}{dx}}{v^2}$
+```math
+(\frac{u}{v})'=\frac{vu'-uv'}{v^2}\quad\quad\text{or}\quad\quad\frac{d}{dx}(\frac{u}{v})=\frac{v\frac{du}{dx}-u\frac{dv}{dx}}{v^2}
+```
 </Block>
 
 
@@ -76,7 +86,9 @@ $(\frac{u}{v})'=\frac{vu'-uv'}{v^2}        \text{or}        \frac{d}{dx}(\frac{u
 
 <Block variant="knowledge" title="Parametric differentiation">
 For a parametric equation $y=f(t)$ and $x=g(t)$:
-$\frac{dy}{dx}=\frac{dy}{dt}\div \frac{dx}{dt}$
+```math
+\frac{dy}{dx}=\frac{dy}{dt}\div \frac{dx}{dt}
+```
 </Block>
 
 
@@ -91,7 +103,9 @@ $f^{-1}(x): f(x)\leftrightarrow x$ (switch $x$ and $y$).
 
 <Block variant="secondary" title="Derivative of Inverse functions">
 At $c$, we first find $f'(x)$ and the value of $f^{-1}(c)$, then we apply the formula to find the value of $f^{-1'}(c)$:
-$f^{-1'}(c)=\frac{1}{f'(f^{-1}(c))}$
+```math
+f^{-1'}(c)=\frac{1}{f'(f^{-1}(c))}
+```
 $f^{-1}(c)$ can be found by solving $f(x)=c$.
 </Block>
 
@@ -101,45 +115,63 @@ $f^{-1}(c)$ can be found by solving $f(x)=c$.
 Differentiate all $xy$, add $y'$ behind all differentiations of $y$.
 <BlockSep />
 To find $y'$ for $y^2=x^2+\sin(xy)$:
+
 ```math
+\begin{aligned}
 y^2                                     & =x^2+\sin(xy)                      \\
 2yy'                                    & =\frac{d}{dx}(\sin(xy))            \\
 2yy'                                    & =2x+\cos(xy)(xy'+y)                \\
 \text{Then we simply collect terms of } & y'                                 \\
 y'                                      & =\frac{2x+y\cos(xy)}{2y-x\cos(xy)}
+\end{aligned}
 ```
+
 To find the second derivative $y''$, differentate the expression and substitute $y'$ back in.
 </Block>
 
 
 <Block variant="knowledge" title="Logarithmic differentiation">
 To differentiate a function to the power of another function, we can take the logarithm of the function, then differentiate.
+
 ```math
+\begin{aligned}
 (f^g)' & =(e^{g\ln f})         \\
 & = (g\ln f)'e^{g\ln f}
+\end{aligned}
 ```
+
 <BlockSep />
 To find $\frac{dy}{dx}$ for $y=x^x$:
+
 ```math
+\begin{aligned}
 y & =  e^{x\ln x}                    \\
 & = e^{x\ln x}(\ln x+x\frac{1}{x}) \\
 & = x^x(\ln x+1)
+\end{aligned}
 ```
+
 </Block>
 
 
 
 <Block variant="secondary" title="L'Hopital's rule">
-For any $a\in [\mathds{R}, \pm\infty]$, if $\lim_{x\to a}(\frac{f}{g})$ is in [indeterminate form](FIXME-sec:indeterminate) after substitution, we can conclude:
-$\lim_{x\to a}(\frac{f}{g})=\lim_{x\to a}(\frac{f'}{g'})$
+For any $a\in [\mathbb{R}, \pm\infty]$, if $\lim_{x\to a}(\frac{f}{g})$ is in [indeterminate form](FIXME-sec:indeterminate) after substitution, we can conclude:
+```math
+\lim_{x\to a}(\frac{f}{g})=\lim_{x\to a}(\frac{f'}{g'})
+```
 <BlockSep />
 To find $\lim_{x\to-\infty}xe^x$, we first check if the limit is indeterminate, then we can apply the rule:
+
 ```math
+\begin{aligned}
 \lim_{x\to-\infty}xe^x & \implies \infty\times0                                      \\
 \lim_{x\to-\infty}xe^x & = \lim_{x\to-\infty}\frac{x}{e^{-x}}                        \\
 & = \lim_{x\to-\infty}\frac{1}{-e^{-x}}\text{ (rule applied)} \\
 & = 0
+\end{aligned}
 ```
+
 </Block>
 
 
@@ -147,21 +179,29 @@ To find $\lim_{x\to-\infty}xe^x$, we first check if the limit is indeterminate, 
 ## Important theorems
 
 
-
-
 <Block variant="secondary" title="Mean value theorem (MVT)">
 For $f(x)$ that is *continuous* in $[a,b]$ and *differentiable* in $(a,b)$:
-$f'(c)=\frac{f(b)-f(a)}{b-a},     c\in(a,b)$
+```math
+f'(c)=\frac{f(b)-f(a)}{b-a},\quad c\in(a,b)
+```
 <BlockSep />
 The theorem tells us that, in described conditions, there must be a point $c$ where the slope of the *tangent line* is equal to the slope of the line from $a\to b$ (secant line).
-![](././img/mvt.png)
+
+
+<div className="max-w-92 mx-auto">![](././img/mvt.png)</div>
+
+
 </Block>
 
 
 <Block variant="secondary" title="Rolle's theorem">
 For $f(x)$ that is *continuous* in $[a,b]$ and *differentiable* in $(a,b)$:
-$\forall\ f(a)=f(b)\text{  there exists  }f'(c)=0,     c\in(a,b)$
-![](././img/rt.png)
+```math
+\forall\ f(a)=f(b)\text{  there exists  }f'(c)=0,\quad c\in(a,b)
+```
+
+<div className="max-w-72 mx-auto">![](././img/rt.png)</div>
+
 <BlockSep />
 For $F'=f$, if $F$ has 4 roots, then $f$ has 3 roots.
 </Block>
@@ -172,16 +212,16 @@ For $F'=f$, if $F$ has 4 roots, then $f$ has 3 roots.
 ## Extremum points
 
 
-
 <Block variant="primary" title="Critical and inflection points">
 A **critical point** is a point where $f'(x)=0$ or undefined, or the end-points of the domain if inclusive.
+
 An **inflection point** is a point where $f''(x)=0$ or undefined, that the [concavity](#sec-concavity) of the function changes.
 </Block>
 
 
-
 <Block variant="primary" title="Max/minimum points">
 The **absolute maximum/minimum points** are the points where the function has the largest/smallest value in the entire domain.
+
 The **local maximum/minimum points** are the points where the function has the largest/smallest value in a small interval around the point.
 </Block>
 
@@ -203,15 +243,15 @@ The **local maximum/minimum points** are the points where the function has the l
 
 
 
-
-
 <Block variant="primary" title="Concavity">
 Concavity is the direction of the curve, and can be described by the values of $f'$ and $f''$:
+
 
 | $f''$ | $-$ | $+$ | $+$ | $-$ |
 | :--- | ---: | :--- | :--- | :--- |
 | $f'$ | $-$ | $+$ | $-$ | $+$ |
 | $f$ | ![](././img/arrow.png) |
+
 
 Note: Arrows goes clock-wise.
 </Block>

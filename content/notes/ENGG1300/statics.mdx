@@ -7,7 +7,9 @@ title: Statics
 
 <Block variant="primary" title="The 3 equations of equilibrium">
 A rigid body is in equilibrium if:
-$\sum F_x=0,    \sum F_y=0,    \sum M_O=0$
+```math
+\sum F_x=0,    \sum F_y=0,    \sum M_O=0
+```
 Where $O$ is any point.
 </Block>
 
@@ -41,16 +43,16 @@ A member is a *straight* and *long* structural element that is subjected to axia
 ## Static systems
 
 
-
-
 <Block variant="primary" title="Supports and reaction forces">
 Each support will restrict the movement of the rigid body in a certain way. If a certain degree of freedom is restricted, a reaction force will be present to counteract the force that would have caused the movement.
+
 
 | **Support type** | **Restricted movement and reaction forces** | **Shape** |
 | :--- | ---: | :--- |
 | Fixed | x, y, r (moment) | Flat |
 | Pinned | x, y | Triangle |
 | Roller | y | Circle |
+
 
 </Block>
 
@@ -71,13 +73,17 @@ A static system is said to be **statically indeterminate** if the number of unkn
 
 
 <Block variant="secondary" title="Degree of indeterminacy (Trusses)">
-$I=m+r-2j$
+```math
+I=m+r-2j
+```
 Where $m$ is the number of members, $r$ is the number of reaction forces, $j$ is the number of internal hinges (circles).
 </Block>
 
 
 <Block variant="secondary" title="Degree of indeterminacy (Frames)">
-$I=3m+r-3n-j$
+```math
+I=3m+r-3n-j
+```
 
     1. $m$ is the number of members (intersecting beams are separate)
     2. $r$ is the number of reaction forces
@@ -97,9 +103,9 @@ $I=3m+r-3n-j$
 </Block>
 
 
-
 <Block variant="secondary" title="Distributed load">
 A *distributed load* $(w)$ is a force that is distributed over a length $(l)$, that has the unit $N/m$.
+
 The **resultant force** is the supposed area of the load. To consider the **moment** by a distributed load, we can treat the load as a *single force* acting at the **centroid** of the load.
 
     - Unifrom $\to$ $F=wl     @\frac{1}{2}l$

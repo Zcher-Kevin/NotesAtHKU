@@ -4,9 +4,9 @@ title: Preparing trial balances
 
 
 
-
 <Block variant="primary" title="Trial balance">
 An accounting report showing the closing balances of all general ledger accounts.
+
 Their purpose is to ensure that the __debits and credits are equal__ - to check for errors and help prepare financial statements.
 </Block>
 
@@ -24,24 +24,23 @@ Their purpose is to ensure that the __debits and credits are equal__ - to check 
 
 
 
-
 <Block variant="secondary" title="Adjusting our Trial Balance">
 In the account cycle, after preparing an unadjusted trial balance, we make adjustments to respect the [Accrual Basis of Accounting](FIXME-thm:accrual_basis) for different types of expense and revenues.
+
 This adjustment is necessary when the two sides of a transaction (remember [double-sided nature](FIXME-thm:debit_credit)) happens in a __different accounting period__. (So no adjustments necessary if same period)
 </Block>
 
 
 
-
-
-
 <Block variant="secondary" title="A typical transaction">
 In a transaction there are two parties: a buyer and a seller.
+
 Seller $\xrightleftharpoons[\text{cash}]\{\text{services}\}$ Buyer
+
 In the case of the **buyer**, the transaction will always be an **expense**.
+
 In the case of the **seller**, the transaction will always be **revenue**.
 </Block>
-
 
 
 
@@ -50,6 +49,7 @@ We need to categorize E&R as either **Prepayments** or **Accruals** before makin
 
     - **Prepayments**: services paid for before received (by buyer), also called **Deferrals**
     - **Accrued**: services received before paid for (by buyer)
+
 </Block>
 
 
@@ -76,50 +76,51 @@ Hence, there will be *4 titles* for the adjusting entries as follows, along with
 
 
 
-
-
 <Block variant="secondary" title="What the adjusting entry does">
 As we recorded our transaction on the cash basis initially, it **overstates** the corresponding E/R. The purpose of the adjusting entry is to **correct this overstatement** by converting the transaction to either **A/L**. This conversion moves the transaction to the [**permanent accounts**](FIXME-def:temp_perm), which carries forward to the next period for adjustment again.
+
 To determine if the overstated transaction is A/L:
 
     - **Asset (Dr)**: Future economic benefit
     - **Liability (Cr)**: Future economic sacrifice
-</Block>
 
+</Block>
 
 
 
 <Block variant="secondary" title="Releasing prepayments and accruals">
 As we record by the accrual basis, when we consume the / a part of the service, or the payment is made, we need to record the transaction accordingly. If only a part of the service is consumed, __calculate the consumed amount by time period__.
+
 This moves the transaction back to the [**temporary accounts**](FIXME-def:temp_perm).
 </Block>
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <Block variant="knowledge" title="Summary">
+
+
 
 | Dr | Cr | Cr | Dr |
 | :--- | ---: | :--- | :--- |
 | DE | DR | AE | AR |
 
+
 FIX-ADD: Diagram
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </Block>
 
 
@@ -151,28 +152,31 @@ The process of reducing the book value of a tangible fixed asset over time.
 
 
 
-
-
-
-
-
-
-
-
 <Block variant="knowledge" title="Recording depreciation expense">
+
+
 
 | **Date** | **Account** | **Dr** | **Cr** |
 | :--- | ---: | :--- | :--- |
 | Dec 31, 2023 | Depreciation expense | \$12 |  |
 |  | Accumulated depreciation |  | \$12 |
 
+
+
+
 Accumulated depreciation is a [**contra asset**](FIXME-def:contra), as it has a normal balance opposite to the asset. We record it like the following in the balance sheet:
+
+
+
+
+
 
 | **Assets** |  |
 | :--- | ---: |
 | Equipment | \$100 |
 | Accumulated depreciation | (12) |
 | **Total** | \$88 $\leftarrow$ **Book value** |
+
 
 Depreciation expense is an **operating expense**, as the depreciation occurs in the course of the business operations.
 </Block>
@@ -198,14 +202,19 @@ Before calculation, you need to identify *some* of the following quantities:
     - **(AD) Accumulated depreciation**: The total depreciation expense recorded for the asset up to the current period.
 
 
-
 <Block variant="secondary" title="Depreciation estimation methods">
+
+
+
+
+
 
 | *Method* | *Formula* | *Per period* |
 | :--- | ---: | :--- |
 | Straight-line | $\frac{C - RV}{UL}$ | Constant amount each period. |
 | Units-of-production | $(C - RV)\times\frac{P_A}{P_T}$ | Based on production level. |
 | Double-declining balance | $2\times\frac{C-AD}{UL}$ | Decreasing amount each period. |
+
 
 For the final year of double-declining balance, the depreciation must set the book value to residual value. Hence, the formula is $(C-RV)- AD$.
 </Block>
@@ -229,14 +238,18 @@ When an intangible asset is aquired, managers will decide if they have a **defin
 
 <Block variant="knowledge" title="Amortization expense">
 The value is usually calculated by the **straight-line method**, similar to depreciation but without $RV$:
-$\text{Amortization expense} = \frac{\text{C}}{\text{UL}}$
+```math
+\text{Amortization expense} = \frac{\text{C}}{\text{UL}}
+```
 </Block>
 
 
 
 <Block variant="knowledge" title="Impairment and impairment loss">
 Impairment is the reduction of an asset's value.
-$\text{Impairment loss} = \text{Carrying value} - \text{Fair value}$
+```math
+\text{Impairment loss} = \text{Carrying value} - \text{Fair value}
+```
 </Block>
 
 
@@ -264,7 +277,9 @@ When paying with a credit card, the merchant will be charged a fee by the credit
 
 <Block variant="secondary" title="Sales discounts">
 Discounts given to customers for early payment, called a **early repayment incentive**. For the following terms:
-$2/10, n/30 \implies \text{2\% discount if paid within 10 days, otherwise net due in 30 days}$
+```math
+2/10, n/30 \implies \text{2\% discount if paid within 10 days, otherwise net due in 30 days}
+```
 </Block>
 
 
@@ -275,9 +290,9 @@ Discounts given to customers for price discounts, or the total sales price of th
 
 
 
-
 <Block variant="knowledge" title="Presenting in income statement">
 We simply present as a [**contra revenue**](FIXME-def:contra) of **sales revenue**.
+
 
 | **Sales revenue** | \$1000 |
 | :--- | ---: |
@@ -321,30 +336,31 @@ Credit sales are *sales revenue* that **debit accounts receivable** (credit sale
 
 
 
-
-
-
-
-
-
-
-
 <Block variant="knowledge" title="Write-offs & estimating bad debt expense">
 We record an [**estimated**](FIXME-thm:bad_debt_est) bad debt expense at the end of the period of the credit sales as an adjusting entry.
+
+
+
 During the next period, we **write-off** the bad debt expense of the previous period, when we have **confirmed** that the customer will not pay, by deducting from **accounts receivable** to **allowance for doubtful accounts**.
+
+
+
 *A write-off has no effects on the **net income**, as it is already recorded as an expense in the previous period.*
+
 
     - End of period of sales: Allowance (**Cr**) $\rightarrow$ Bad debt expense (**Dr**)
     - Next period write-offs (confirmed bad debts): Accounts receivable (**Cr**) $\rightarrow$ Allowance (**Dr**)
+
 </Block>
-
-
-
 
 
 
 <Block variant="knowledge" title="Recoveries">
 When a customer who has a bad debt previously pays, we simply revert the write-off entry:
+
+
+
+
 
 | **Date** | **Account** | **Dr** | **Cr** |
 | :--- | ---: | :--- | :--- |
@@ -365,9 +381,10 @@ Bad debt expense adjustment = **Credit** sales revenue (minus returns and allowa
 
 
 
-
 <Block variant="secondary" title="Estimate bad debt by Aging method">
 We estimate the **ending balance** of the allowance by the age of receivables, and calculate the adjustment by finding the **difference** between the allowance's **current balance** (beg. bal. of allowance - write-offs) and the ending balance.
+
+
 
 | **Age of receivable** | **Amount** | **Estimated loss rate** | **Estimated loss** |
 | :--- | ---: | :--- | :--- |
@@ -388,9 +405,9 @@ Estimated ending balance of allowance $=$ Accounts receivables balance $\times$ 
 
 
 
-
 <Block variant="knowledge" title="Presenting in income statement">
 We present the allowance of doubtful accounts as a [**contra asset**](FIXME-def:contra) of **accounts receivable**.
+
 
 | **Accounts receivable** | \$1000 |
 | :--- | ---: |

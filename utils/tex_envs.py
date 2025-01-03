@@ -28,6 +28,9 @@ MAPPED_ENVIRONMENTS = [
     "acct-example",
 ]
 
+# Add a set of known environments for faster lookup
+KNOWN_ENVIRONMENTS = set(BLOCK_ENVIRONMENTS + [ENV_OLIST, ENV_LIST, "tabular"])
+
 
 def parse_tree_markup(input_text):
     lines = input_text.splitlines()
@@ -51,8 +54,11 @@ def parse_tree_markup(input_text):
         nonlocal list_level, current_block, previous_line, in_table, table_content, table_alignment, skip_content
         stripped = line.strip()
 
+        # Handle empty lines differently for blocks vs main content
         if not stripped:
-            if not in_table and not skip_content:
+            if current_block is not None and not skip_content:
+                current_block["content"].append("")
+            elif not in_table and not skip_content:
                 result.append("")
             return
 
@@ -133,6 +139,15 @@ def parse_tree_markup(input_text):
         elif stripped.startswith(END_TAG):
             # Handle closing tags (\end{NAME})
             tag = stripped[len(END_TAG) :].strip("{}")
+
+            # Only process known environments, pass through others
+            if tag not in KNOWN_ENVIRONMENTS:
+                if current_block is not None:
+                    current_block["content"].append(stripped)
+                else:
+                    result.append(stripped)
+                return
+
             if tag == "tabular" and in_table:
                 table_text = "\n".join(table_content)
                 md_table = convert_tabular_to_md(table_text, table_alignment)

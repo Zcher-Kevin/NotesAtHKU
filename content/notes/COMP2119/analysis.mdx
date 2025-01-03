@@ -41,14 +41,11 @@ The **rate of growth** of the **total amount of memory** an algorithm uses relat
 
 
 
-
 <Block variant="secondary" title="Growth rate / Complexity: The basis of asymptotic notations">
 We are defining a certain function $\mathbf{T(n)}$ to represent the **total number of operations** with respect to $\mathbf{n}$ (the size of the input).
+
 When we say $T(n)$ is $A$ of $(g(n))$ (or $T(n)\in A(g(n))$), we are saying that the **growth rate** of $T(n)$ is bounded by $A(g(n))$ under a specific mathematical inequality defined by $A$.
 </Block>
-
-
-
 
 
 
@@ -68,38 +65,37 @@ T(n) \sim c\cdot g(n)\ \forall\ n \geq n_0
 Note that the $\in$ is interchangable with $=$. The meaning does not really matter.
 <BlockSep />
 To prove non-strict boundaries, we need to show the existence of constants $c, n_0$ that satisfies the inequality.
+
 [Asym 1](FIXME-eg:asym_1) [Asym 2](FIXME-eg:asym_2) [Asym 3](FIXME-eg:asym_3)
 </Block>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 <Block variant="primary" title="Definition of all asymptotic notations">
+
+
+
+
+
+
+
+
+
+
+
 </Block>
-
-
-
-
-
 
 
 
 <Block variant="knowledge" title="Growth rate functions">
 We use the likeness of $g(n)$ to describe the complexity of $T(n)$. The following gives the common growth rate functions (increasing order of growth):
-```math
+
+$
 1 < \log n < \sqrt{n} < n < n\log n < n^2 < n^3 < 2^n < n! < n^n
-```
+$
+
 Note that the higher the growth rate, the more complex the algorithm.
+
 Note the following growth rate equivilencies:
 
     - $\log(n!)=\Theta(n\log(n))$ (prove not needed, related to [lower bound of sorting algorithms](FIXME-thm:lower_bound_sort))
@@ -108,18 +104,18 @@ Note the following growth rate equivilencies:
 
 
 
-
-
-
-
-
 <Block variant="secondary" title="Identifying asymptotic growths">
 *Non-strict*: Identify **the term with the highest growth rate** in $T(n)$ would be $g(n)$.
+
 *Strict*: Choose the **next / previous** growth rate function with reference to the list depending on if it's upper / lower.
+
 You can use the same logic to determine if some $f(n)$ is $A/a$ of $g(n)$.
+
 Note that as the defintions are specified by an **inequality**, there could be **multiple satisfying** $g(n)$ for the same $T(n)$ and all of them are valid. However, keep in mind the only useful $g(n)$ for analysis would be closest to the condition boundary.
+
 If the function functuates, there is not a consistent growth rate unless a boundary is specified.
 <BlockSep />
+
 [Iasym 1](FIXME-eg:iasym_1)
 </Block>
 
@@ -154,7 +150,7 @@ O(g)+O(g)=k\times O(g)=O(g)
 O(g)\times O(g)=O(g\times g)
 ```
 ```math
-O(g_1)+O(g_2)=O(g_2),     g_2 > g_1\text{ in terms of order of growth}
+O(g_1)+O(g_2)=O(g_2),\quad g_2 > g_1\text{ in terms of order of growth}
 ```
 </Block>
 
@@ -174,19 +170,19 @@ It should be acknowledged that each operation / line would take different amount
 Hence, $T(n)=O(1)+O(1)+O(1)+O(1)+O(n)+O(n)+O(n)+O(1)=O(n)$
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <Block variant="secondary" title="Typical growth rates and common occurance">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </Block>

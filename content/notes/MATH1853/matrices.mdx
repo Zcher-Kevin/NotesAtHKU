@@ -2,53 +2,272 @@
 title: Matrices
 ---
 Matrices are represented
+by capitial letters: $A\in R^{r\times c}$.
+$r \times c$ are the dimensions of a given matrix
+
 
+## Basic operations
 
 
+<Block variant="knowledge" title="Addition">
+Matrices can perform per-element addition if their dimensions match.
+<BlockSep />
+$\begin{bmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6
+\end{bmatrix} + \begin{bmatrix}
+6 & 5 & 4 \\
+3 & 2 & 1
+\end{bmatrix} = \begin{bmatrix}
+7 & 7 & 7 \\7 & 7 & 7
+\end{bmatrix}
+$
+</Block>
+
+
+<Block variant="knowledge" title="Scalar multiplication">
+Matrices can perform per-element multiplication with a scalar.
+<BlockSep />
+$\begin{bmatrix}
+1 & 2 & 3 \\3 & 2 & 1
+\end{bmatrix} \times 2 = \begin{bmatrix}
+2 & 4 & 6 \\6 & 4 & 2
+\end{bmatrix}$
+</Block>
+
+
+<Block variant="knowledge" title="Matrix-matrix multiplication">
+Matrices can only multiply if their __inner dimensions__ match, otherwise there will be no solution.
+
+If a matrix is multiplied by another matrix, each __element in the result matrix__ is the sum of it's corresponding __row in the original matrix__ performing per-element multiplication on it's corresponding __col in the applying matrix__
+
+<BlockSep />
+$\begin{bmatrix}
+1 & 2 \\3 & 4
+\end{bmatrix} \times \begin{bmatrix}
+1 & 2 \\3 & 4
+\end{bmatrix}=\begin{bmatrix}
+1\cdot 1 + 2 \cdot 3 & 1\cdot 2 + 2\cdot 4 \\3\cdot 1 + 4\cdot 3&3\cdot 2 + 4\cdot 4
+\end{bmatrix} = \begin{bmatrix}
+7 & 10 \\15 & 22
+\end{bmatrix}$
+</Block>
+
+
+<Block variant="knowledge" title="Transposition">
+The function $A^T$ transposes the matrix $A$. It swaps the rows and columns of a matrix.
+<BlockSep />
+$\begin{bmatrix}
+1 & 2 \\3&4
+\end{bmatrix}^T \equiv \begin{bmatrix}
+1 & 3 \\2&4
+\end{bmatrix}     \begin{bmatrix}
+1 & 2 & 3
+\end{bmatrix}^T \equiv \begin{bmatrix}
+1 \\2\\3
+\end{bmatrix}$
+</Block>
+
+
+
+## Solving linear systems
+
+
+<Block variant="knowledge" title="Identity matrix">
+The identity matrix of $I\in \mathbb{R}^{n\times n}$ with square dimensions is the matrix with diagonal elements of 1 and others 0.
+<BlockSep />
+$I\in \mathbb{R}^{3\times 3}=\begin{bmatrix}
+1 & 0 & 0 \\0&1&0\\0&0&1
+\end{bmatrix}$
+</Block>
+
+
+<Block variant="knowledge" title="Row-echelon form">
+A matrix with a bottom-left or top-right triangle of 0's (excluding the diagonal) is considered to be in row-echelon form.
+<BlockSep />
+$\begin{bmatrix}
+1 & 2 & 3 \\0&1&2\\0&0&1
+\end{bmatrix}\text{ and }\begin{bmatrix}
+1 & 0 & 0 \\1&2&0\\0&0&1
+\end{bmatrix}$ are both considered in row-echelon form
+</Block>
+
+
+
+<Block variant="knowledge" title="Augmented Matrix and Gaussian Elimination">
+Augmented matrices are an important tool to solve linear equations. The number of rows is equal to the number of variables in the equation.
+
+GE are operations by __rows__, performed on augmented matrices. The possible moves are:
+
+    1. Addition between rows ($R_1 + R_2$ adds row 2 to row 1, leaving row 2 unchanged)
+    2. Multiplication of a row by a scalar ($\frac{1}{2}R_1$)
+    3. Swapping rows ($R_1\leftrightarrow R_2$)
+</Block>
+
+
+
+### Strict variables
+
+Consider the following linear system. We can take the coefficients and write it into AM form as followed:
+$
+x_1 + 2x_2 = 3 \\
+2x_1 + 5x_2 = 10
+\end{matrix}\xRightarrow{\hspace{0.5cm}}
+1 & 2 & 3 \\ \underbrace{2}_{x_1} & \underbrace{5}_{x_2} & 10
+\end{amatrix}
+$
+
+Then, we perform GE on the created augmented matrix to make the left side row-echelon.
+$
+1 & 2 & 3 \\ 2 & 5 & 10
+\end{amatrix} \xrightarrow{R_2-2R_1}
+1 & 2 & 3 \\ 0 & 1 & 4
+\end{amatrix}
+$
+Deriving from the AM, we know:
+$
+x_1 + 2x_2 = 3 \\
+x_2 = 4
+\end{matrix}
+$
+So the solution is:
+$
+3-2\cdot 4 \\
+4
+\end{bmatrix}\equiv
+-5 \\
+4
+\end{bmatrix}
+$
 
 
+### Inconsistent systems
 
+We say a system is inconsistent if a full row of 0 on the left is equal to a non-zero number. We can also conclude that there are no solutions to the system. The following is an example of a system with no solutions:
+$
+x_1 + 2x_2 = 3 \\
+2x_1 + 4x_2 = 10
+\end{matrix}\xRightarrow{\hspace{0.5cm}}
+1 & 2 & 3 \\ 2 & 4 & 10
+\end{amatrix}\xrightarrow{R_2-2R_1}
+1 & 2 & 3 \\ \mathcolor{red}{0 & 0 & 4}
+\end{amatrix}
+$
 
 
+### Free variable systems
 
+Free variables are variables with their corresponding columns having **no leading 1s** before 0s in the augmented matrix. If a system has free variables, the solution exists in a space, defined by the general solution.
 
+Consider the following system with free variables, we can derive:
+$
+1 & 0 & \mathcolor{blue}{-5 & 0} & 8 & 3\\
+0 & 1 & \mathcolor{blue}{-4 & -1} & 0 & 6\\
+0 & 0 & \mathcolor{blue}{\underbrace{0}_{free} & \underbrace{0}_{free}} & 1 & 0
+\end{amatrix}\xRightarrow{\hspace{0.5cm}}\begin{matrix}
+x_1 -5x_3+8x_5 = 3 \\
+x_2-4x_3-x_4=6     \\
+x_5=0
+\end{matrix}$
+We can ignore the free variables, and substitute $x_5$ into both equations, deriving the general solution to be:
+$
+x=\begin{bmatrix}
+3+5x_3     \\
+6+x_4+4x_3 \\
+x_3        \\
+x_4        \\
+0
+\end{bmatrix}$
 
 
+## Matrix determinant
 
+Determinant is a property of a matrix, represented by $\|A\|$ or $det(A)$. Only square matrices have a determinant.
 
+### Finding the value of determinant
 
 
+<Block variant="knowledge" title="$det(A\in \mathbb{R}^{2\times 2})$">
+$for     A=\begin{bmatrix}
+a & b \\c&d
+\end{bmatrix},     |A| = ad - bc$
+</Block>
 
 
+<Block variant="knowledge" title="$det(A\in \mathbb{R}^{n\times n})$">
+Choose any row or column, then for each element, ignore their corresponding row and column to give the *co-factor* of the element.
 
+$det(A) = \sum(a\times det(\text{co-factor})\times (-1)^{r_a+c_a})$
 
+Where $a$ is an element from the picked row or column, and $r_a c_a$ are the row and column number of a
 
+<BlockSep />
 
+$|\begin{smallmatrix}1&2&3\\1&1&1\\3&2&1\end{smallmatrix}|=1|\begin{smallmatrix}
+1&1\\2&1
+\end{smallmatrix}|-2|\begin{smallmatrix}
+1&1\\3&1
+\end{smallmatrix}|+3|\begin{smallmatrix}
+1&1\\3&2
+\end{smallmatrix}|=0$
 
+</Block>
 
 
+<Block variant="knowledge" title="Determinant of row-echelon form matrices">
+Product of diagonal elements.
+$|\begin{smallmatrix}
+1&2&3\\0&2&3\\0&0&3
+\end{smallmatrix}|=1\cdot 2\cdot 3=6$
+</Block>
 
 
+### Determinant related properties
 
 
+    1. [Vector dependency](#sec-dep)
+    2. [Matrix inverse](#sec-inv)
+    3. [Matrix eigenpairs](#sec-eigen)
 
 
 
+## Vectors
 
+Vectors are matrices with a single column, represented by letters with an arrow above them. $\overrightarrow{v} = \begin{bmatrix}1 \\2\\3\end{bmatrix}$
 
 
+<Block variant="knowledge" title="Dot product">
+The dot product of two vectors $\vec{a}$ and $\vec{b}$ is essentially $\vec{a}^T\cdot\vec{b}$
+</Block>
 
 
+<Block variant="knowledge" title="Vector length">
+$\|\|\vec{v}\|\|$ gives the length of a vector. $||\begin{bmatrix}
+a & b & \dots
+\end{bmatrix}^T||=\sqrt[]{a^2 + b^2 + \dots}$
+</Block>
 
 
+<Block variant="knowledge" title="Unit vectors">
+They are vectors with the length of one. $\frac{\vec{v}}{\|\|\vec{v}\|\|}$ transforms the vector to a unit vector.
+</Block>
 
 
+<Block variant="primary" title="Vector dependency">
+If $|\begin{smallmatrix}
+v_1 & v_2 & \dots
+\end{smallmatrix}|=0$, the vectors are dependent of each other
+</Block>
 
 
 
+<Block variant="knowledge" title="Orthogonal projection">
 
+The *orthogonal projection* of $a$ onto $b$ is $proj_ba = (\frac{a^Tb}{b^Tb})b$.
 
+The component of $a$ perpendicular to $b$ is given by $a-proj_ba$
 
+FIXME-ADD: Projection
 
 
 
@@ -65,384 +284,203 @@ Matrices are represented
 
 
 
+</Block>
 
 
+<Block variant="primary" title="Orthonormal matrices">
+Orthonormal matrices have vector columns length 1, and which any product of two vectors is 0.
+For an orthonormal matrix $A$, $AA^T = I$
+</Block>
 
 
+<Block variant="knowledge" title="Expressing a vector as a linear combination">
+We can express a vector $\vec{v}$ as the *linear combination* of other vectors $a, b, \dots$ by:
 
+$v = proj_av + proj_bv + \dots$
+</Block>
 
 
+<Block variant="knowledge" title="Vector spans">
+Vectors have the same span if they are *linearly dependent*
 
+The dimension of $span(A)$ is given by the number of non-zero rows after GE
+</Block>
 
 
 
+## Matrix inverse
 
 
+Inverse is a property and function of a matrix, represented by $A^{-1}$
 
+<Block variant="primary" title="Matrix inversibility">
+The matrix has an inverse if $\|A\|\ne 0$, and that it is a square matrix.
+</Block>
 
 
+<Block variant="knowledge" title="$A^{-1} \in \mathbb{R}^{2\times 2}$">
+$A^{-1} = \frac{1}{|A|}\begin{bmatrix}
+d & -b \\-c &a
+\end{bmatrix}$
+</Block>
 
 
+<Block variant="knowledge" title="$A^{-1} \in \mathbb{R}^{n\times n}$">
+$\begin{amatrix}{1}
+A&I
+\end{amatrix}\xrightarrow{GE}\begin{amatrix}{1}
+I&A^{-1}
+\end{amatrix}$
+</Block>
 
 
 
+## Matrix eigenpairs
 
 
+Matrices have properties *eigenvalues* $\lambda_n$ and *eigenvectors* $v_n$. They must satisfy the condition $Av=\lambda v$, and has the following properties:
 
+    1. $\lambda_n$ and $v_n$ come in *pairs* (each value correspond to a vector)
+    2. Matrices can only have $\lambda_1, \lambda_2 \dots \lambda_n$ where $n$ is the smallest dimension of the matrix
+    3. An $v_n$ includes all vectors of its multiple, and is non-zero
+By convention, $\lambda_1 > \lambda_2 > \dots > \lambda_n$
 
+<Block variant="knowledge" title="Solving for eigenvalues">
+Note that we can rearrange the condition to $(A-I\lambda)v=0$, and into $\|A-I\lambda\| = 0$. Rearrange into polynomial equation and solve for $\lambda$ by first trial and error (if degree $> 2$) and then factorization.
+<BlockSep />
+The eigenvalues of $\begin{bmatrix}
+1 & 1 \\4&1
+\end{bmatrix}$ can be found by $|\begin{smallmatrix}
+1-\lambda&1\\4&1-\lambda
+\end{smallmatrix}|=0:    (1-\lambda)^2 - 4 = 0    \rightarrow    \lambda_1=3,\ \lambda_2=-1$
+</Block>
 
 
+<Block variant="primary" title="Algebratic and Geometric Multiplicity">
+**AM** is the number of times the value of $\lambda$ occur (e.g. $(1-\lambda)^2=0, \lambda_1=1$ has $AM=2$)
 
+**GM** is the size of nullspace (line of 0s) when plugging $\lambda$ into $(A-I\lambda)v=0$
+</Block>
 
 
+<Block variant="knowledge" title="Solving for eigenvectors">
+Plug each $\lambda$ into $(A-I\lambda)v=0$, perform GE, then let the deterministic variable(s) as 1.
+<BlockSep />
+For $\lambda_1=3$ and $A=\begin{bmatrix}
+1 & 1 & 1 \\1&1&1\\1&1&1
+\end{bmatrix}$:
 
+$(A-3\lambda)v=0 \xRightarrow{\hspace{0.5cm}} \begin{amatrix}{3}
+-2&1&1&0\\1&-2&1&0\\1&1&-2&0
+\end{amatrix}\xrightarrow{GE}\begin{amatrix}{3}
+-2&1&1&0\\0&-1&1&0\\\mathcolor{blue}{0&0&0&0}
+\end{amatrix}\begin{matrix}
+\ \\\ \\\mathcolor{blue}{GM=1}
+\end{matrix}$
 
+From the augmented matrix: $-2x_1+x_2+x_3=0,     -x_2+x_3=0$.
 
+As $x_3$ is in both equations, let $x_3=1$: $x_2=1, x_1=1\rightarrow v_1=\begin{bmatrix}1 \\1\\1\end{bmatrix}$
+</Block>
 
 
+<Block variant="knowledge" title="Solving for eigenvectors with $GM\ 2$">
+Find the other eigenvector with $v = z_2 - proj_{z_1}z_2$
+<BlockSep />
+For $v=\begin{bmatrix}
+-x_2-2x_3 \\x_2\\x_3
+\end{bmatrix}$, find the two solution forms as $z_1=\begin{bmatrix}
+-1 \\1\\0
+\end{bmatrix},\ z_2\begin{bmatrix}
+-2 \\0\\1
+\end{bmatrix}$
 
+Then let $z_1=v_1$, and solve for $v_2$ with $v_2=z_2-proj_{z_1}z_2=\begin{bmatrix}-2 \\0\\1\end{bmatrix} - \frac{2+0+0}{1+1+0}\begin{bmatrix}-1 \\1\\0\end{bmatrix}$
+</Block>
 
 
+Related properties:
 
 
+    1. [Diag](#sec-diag)
+    2. [Quad](#sec-quad)
+    3. [Diff](#sec-diff)
 
 
+## Matrix diagonalization
 
 
 
+<Block variant="primary" title="Condition">
+A matrix can only be diagonalized if all of it's eigenpairs has their $AM = GM$.
+</Block>
 
 
+<Block variant="knowledge" title="Eigendecomposition">
+```math
+A=VDV^{-1},    \text{where }V=\begin{bmatrix}
+v_1 \\\dots\\v_n
+\end{bmatrix},\ D=\begin{bmatrix}
+\lambda_1 & 0 & 0 \\0&\ddots&0\\0&0&\lambda_n
+\end{bmatrix}
+```
 
+We can also derive $A^k=VD^kV^{-1}$
+</Block>
 
 
 
+## Differential equations
 
 
+Given $x(0)$, solve for $x(t)$ with the following steps:
 
+    1. Solve for eigenpairs
+    2. $xk = cve^{\lambda t} + \dots + cve^{\lambda t}$
+    3. Solve c by augmented matrix $\begin{amatrix}{3}
+v_1&\dots&v_n&x(0)
+\end{amatrix}$
 
 
+## Quadratic form
 
 
+A quadratic equation can be written into the form $Q(x)=xAx^T$, where $A$ is a symmetric matrix.
 
+<Block variant="knowledge" title="Symmetric matrices">
+A matrix is symmetric if $A=A^T$
+</Block>
 
 
+<Block variant="knowledge" title="Linear to matrix quadratic">
+```math
+Q(x) & =ax_1^2+bx_2^2+cx_3^2+dx_1x_2+ex_2x_3+fx_1x_3     \\
+& =\begin{bmatrix}
+x_1 & x_2 & x_3
+\end{bmatrix}\begin{bmatrix}
+a & d/2 & f/2 \\d/2&b&e/2\\f/2&e/2&c
+\end{bmatrix}\begin{bmatrix}
+x_1 \\x_2\\x_3
+\end{bmatrix}
+```
+</Block>
 
 
+<Block variant="primary" title="Definitiveness of a quadratic">
+For $Q(x)=xAx^T$, considering the eigenvalues of $A$:
 
+    - $Q(x)$ is *positive definitive* if $\forall\lambda > 0$
+    - $Q(x)$ is *negative definitive* if $\forall\lambda < 0$
+    - $Q(x)$ is *indefinite* if otherwise
+    - $Q(x)$ is *p/n semi-definitive* if the conditions are inclusive (i.e. $\lambda \geq or \leq 0$)
 
+</Block>
 
 
+<Block variant="primary" title="Minimum and maximum values">
+$\lambda_{max} = max\{xAx^T:\|\|x\|\|=1\}$
 
+$\lambda_{min} = min\{xAx^T:\|\|x\|\|=1\}$
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Apply the corresponding $v\rightarrow x$ to find the min/max of $Q(x)$. Note that $\|\|x\|\|=1$ is a required restriction on $Q(x)$, otherwise its size would be infinite.
+</Block>

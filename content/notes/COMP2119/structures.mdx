@@ -22,17 +22,17 @@ We use $\Omega, \Theta, O$ to describe the best, average and worst case time com
 
 
 
-
 <Block variant="primary" title="Linear vs. Non-linear">
 A Linear Data Structure has each item only relates to it's front and back item.
+
 A Non-linear Data Structure has each item can relate to multiple other items.
 </Block>
 
 
 
-
 <Block variant="secondary" title="Abstract vs. Concrete data types">
 **Abstract data types** (ADT) is a concept which defines the operations that can be performed on a data structure, without specifying the implementation details.
+
 **Concrete data types** (CDT) is the implementation of the ADT.
 </Block>
 
@@ -70,9 +70,9 @@ Set number of items stored in *adjacent* memory locations. Identified by the fir
 
 
 
-
 <Block variant="knowledge" title="Node">
 A node is an item, which can be connected to other nodes by **edges**. In order to access an item in a node-based data structure, we have to traverse the nodes by following the edges.
+
 Nodes can be directional (one-way access) or non-directional (two-way access), and can have weights (values).
 </Block>
 
@@ -119,15 +119,15 @@ Example implementation: [Linked List Find Middle](FIXME-eg:linked_list_find_midd
 
 
 
-
-
-
 <Block variant="primary" title="Push pop & access">
+
 Stacks and queues are concepts that extend from a linear list of items.
+
 They have the following characteristics:
 
     - **Only one item can be accessed** at an instance of the data structure.
     - **Items cannot be inserted or removed** freely.
+
 In a stack / queue, **push / enqueue (in)** means adding an item, and **pop / dequeue (out)** means removing an item. Only the **out** item can be accessed.
 </Block>
 
@@ -170,89 +170,89 @@ Nodes which can connect to multiple other nodes. (Allow loops)
 **Implementations**:
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <Block variant="secondary" title="Adjacency matrix">
 A $n \times n$ matrix. $A[i]$ are the list of nodes that node $i$ is connected to.
+
 
     - **Space:** $O(n^2)$ - better for dense graphs (more edges).
     - **Access (check):** $O(1)$ for determining if there is a connection between two nodes.
     - **Access (process)**: $O(n^2)$ for processing all edges of the graph.
+
 <BlockSep />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </Block>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 <Block variant="secondary" title="Adjacency list">
 An array with $n$ items, each item in the array is a list of nodes that the current node is connected to.
 
+
     - **Space:** $O(n+m)$ - better for sparse graphs (less edges).
     - **Access (check):** $O(m)$ for determining if there is a connection between two nodes.
     - **Access (process)**: Better for sparse graphs as less than $n^2$ elements.
+
 <BlockSep />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </Block>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 <Block variant="secondary" title="Edge list">
 An array with $m$ items, each item is a tuple of the two nodes that the edge is connecting.
 <BlockSep />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </Block>
 
 
@@ -290,9 +290,9 @@ Visit the furthest nodes and backtrack.
 
 
 
-
 <Block variant="secondary" title="Priority queues">
 A priority queue is a queue where each item has a priority, and the item with the highest priority is accessed / removed first. The most common implementation is the **heap**.
+
 
     - **Access:** $O(1)$ (size, peek)
     - **Insertion:** $O(\log n)$ (enqueue, dequeue)
@@ -300,13 +300,13 @@ A priority queue is a queue where each item has a priority, and the item with th
 
 
 
-
-
 <Block variant="primary" title="Heap">
 A (max) heap is a binary tree where __each node has a value greater than or equal to its children__. The root node has the highest value.
 
+
     - **Max heap**: The root node has the highest value.
     - **Min heap**: The root node has the lowest value.
+
 Thouhg a tree-based data structure, we usually implement heaps as arrays, which is useful such as in the case of [heap sort](FIXME-def:heapsort).
 
     - Root at index 0
@@ -340,8 +340,6 @@ Heaps are especially useful for finding the largest and smallest elements. To fi
 
 
 
-
-
 <Block variant="knowledge" title="Merging sorted arrays">
 We can also use heaps to merge sorted arrays.
 
@@ -349,7 +347,9 @@ We can also use heaps to merge sorted arrays.
     2. Pop the min-heap to the result, and add the next element of the array that the popped element came from.
     3. Repeat until all elements are added.
 **Time complexity:** $O(n \log k)$ where $n$ is the total number of elements and $k$ is the number of arrays.
+
 We had inserted $n$ elements into the heap, and each insertion takes $O(\log k)$ time.
+
 **Space complexity:** $O(n+k)$ as the heap have at most $k$ elements, and result array has $n$ elements.
 </Block>
 
@@ -386,55 +386,40 @@ Nodes which has **one parent** and can connect to **multiple children**.
 
 
 
-
-
-
-
 <Block variant="primary" title="Hash table">
 **Dynamic set** of key-value pairs, where items are stored in an array with **fixed size**. To access an item, the index is found by a [hash function](#thm-hash-function).
+
 A **collision** occurs when $h(k_1) = h(k_2)$. We deal with it by different [methods](#thm-collision-resolution).
+
 
     - **Access:** $\Theta(1)$, $O(n)$
     - **Insertion & deletion:** $\Theta(1)$, $O(n)$
+
 Where $h$ is the hash function and $k$ is the key.
+
 *Note: Hash tables are a specific implementation of a dictionary. Each item in the hash table table is called a bucket or a slot*
 </Block>
 
 
 
-
-
 <Block variant="knowledge" title="Load factor">
-```math
+$
 \alpha = \frac{n}{m}
-```
+$
 Where $n$ is the number of items, and $m$ is the size of the table.
 </Block>
 
 
 
-
-
-
 <Block variant="secondary" title="Hash function">
 A hash function is a function that takes a key and returns an index. It should be in relation to the **size of the table** $m$.
+
 The most basic hash function is the **division method**:
-```math
+$
 h(k) = k \% prime
-```
+$
 A good value of $prime$ should be a **prime number** that is not close to a power of 2.
 </Block>
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -445,15 +430,26 @@ When $h(k_1) = h(k_2)$, we have a **collision**. We can resolve it by:
     - **Chaining**: Store items in the same slot by **appending** them to the linked list in the slot.
     - **Open addressing**: Store items in another slot.
 For opening addressing, we have the following implementations and the slot where the item is stored is:
+
+
+
+
+
+
+
+
+
+
+
 Where $i$ is the number of collisions.
 </Block>
 
 
 
 
-
 <Block variant="knowledge" title="Primary clustering">
 Primary clustering occurs in **open-addressing** hash tables that use **linear probing** for collision resolution, which can lead to clusters of occupied slots.
+
 This can lead to **longer search times** for items that are stored in the same cluster.
 </Block>
 

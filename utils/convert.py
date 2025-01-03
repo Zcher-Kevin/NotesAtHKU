@@ -23,9 +23,9 @@ def convert_tex_to_mdx(t, course):
 
     # --------- Basic conversion --------- #
     # rule convert \textbf{...} to **...**
-    t = re.sub(r"\\textbf{([^}]*)}", r"**\1**", t)
+    t = re.sub(r"\\textbf{([^}]*)}", lambda m: f"**{m.group(1).strip()}**", t)
     # rule convert \textit{...} and \emph{...} to *...*
-    t = re.sub(r"\\textit{([^}]*)}", r"*\1*", t)
+    t = re.sub(r"\\textit{([^}]*)}", lambda m: f"*{m.group(1).strip()}*", t)
     t = re.sub(r"\\emph{([^}]*)}", r"*\1*", t)
     # rule convert \underline{...} to __...__
     t = re.sub(r"\\underline{\\underline{([^}]*)}}", r"__\1__", t)
@@ -53,7 +53,6 @@ def convert_tex_to_mdx(t, course):
     ]
     for cmd in CMD_TO_REMOVE:
         t = re.sub(rf"\\{cmd}[^\n]*", "", t)
-    t = re.sub(r"\\quad", "    ", t)
     t = re.sub(r"\\rightarrowfill", "→", t)
     t = re.sub(r"\\arrayrulecolor{[^}]*}", "", t)
     # ------------- Sections ------------- #
@@ -67,10 +66,10 @@ def convert_tex_to_mdx(t, course):
     t = re.sub(r"\\note{([^}]*)}", r"\1", t)
     # --------------- Maths -------------- #
     # rule convert \begin{align*} and \end{align*} to ```math```
-    t = re.sub(r"\\begin{align\*}", r"```math", t)
-    t = re.sub(r"\\end{align\*}", r"```", t)
+    t = re.sub(r"\\begin{align\*}", r"\n```math\n\\DONTREMOVEbegin{aligned}", t)
+    t = re.sub(r"\\end{align\*}", r"\\end{aligned}\n```\n", t)
     # rule convert "\[...\]" to "```math\n...\n```", assuming "\[" is the first non-space character in the line. If not, convert to "$...$"
-    t = re.sub(r"^\s*\\\[(.*)\]", r"```math\n\1\n```", t)
+    t = re.sub(r"\n\s*\\\[(.*)\\\]", r"\n```math\n\1\n```", t)
     t = re.sub(r"\\\[", r"$", t)
     t = re.sub(r"\\\]", r"$", t)
     # rule fix parameter braces not escaped in math mode: ]{...} to ]\{...\}
@@ -95,6 +94,9 @@ def convert_tex_to_mdx(t, course):
     t = parse_tree_markup(t)
     # rule import code blocks from file paths in lstinputlisting
     t = parse_lstinputlisting(t, course)
+
+    # remove DONTREMOVE
+    t = re.sub(r"\\DONTREMOVE", r"\\", t)
 
     return t
 

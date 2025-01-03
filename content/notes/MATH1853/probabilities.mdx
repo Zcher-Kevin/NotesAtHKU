@@ -3,11 +3,9 @@ title: Probabilities
 ---
 The formula for combinations, also known as the binomial coefficient, is given by:
 
-```math
-
+$
 \binom{n}{r} = \frac{n!}{r!(n-r)!}
-
-```
+$
 
 Which represents the number of ways to choose r items from a set of n distinct items without regard to their order.
 
@@ -21,11 +19,11 @@ Probability measures the likelihood of an event happening. It assigns a numerica
 
 | **Set** | **Description** | **Example** |
 | :--- | ---: | :--- |
-| $\mathds{Z}$ | Integers | $-1,0,1$ |
-| $\mathds{N}$ | Natural | $0,1,2$ |
-| $\mathds{R}$ | Real | Any number $\frac{4}{7}, 0.1, 1, \pi$ |
-| $\mathds{Q}$ | Rational | Any number that can be expressed as a fraction $\frac{22}{7}$ |
-| $\mathds{C}$ | Complex | $a+bi$ |
+| $\mathbb{Z}$ | Integers | $-1,0,1$ |
+| $\mathbb{N}$ | Natural | $0,1,2$ |
+| $\mathbb{R}$ | Real | Any number $\frac{4}{7}, 0.1, 1, \pi$ |
+| $\mathbb{Q}$ | Rational | Any number that can be expressed as a fraction $\frac{22}{7}$ |
+| $\mathbb{C}$ | Complex | $a+bi$ |
 
 
 
@@ -59,7 +57,8 @@ In this example, two circles are drawn to represent sets A and B. The overlappin
 | Intersection | Union | Compliment |
 
 
-The probability of A given that B occurs: $P(A\ |\ B) = \frac{P(A\cup B)}{P(B)}$
+
+The probability of A given that B occurs: $P(A\ \|\ B) = \frac{P(A\cup B)}{P(B)}$
 
 A and B are said to be *independent* if $P(A) \times P(B) = P(A\cap B)$.
 
@@ -91,6 +90,7 @@ Joint random variables are in the form $P(X=x, Y=y)$. We can visualize the joint
 | $y_1$ | $P(X=x_1, Y=y_1)$ | $P(X=x_2, Y=y_1)$ | $P(Y=y_1)$ |
 | $y_2$ | $P(X=x_1, Y=y_2)$ | $P(X=x_2, Y=y_2)$ | $P(Y=y_2)$ |
 |  | $P(X=x_1)$ | $P(X=x_2)$ |  |
+
 
 
 

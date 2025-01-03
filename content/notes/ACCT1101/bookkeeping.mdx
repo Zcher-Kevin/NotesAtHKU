@@ -13,11 +13,10 @@ Bookkeeping is the process of recording transactions in a systematic way.
 
 
 
-
 <Block variant="primary" title="Accounts">
 An account stores all transactions related to a group of related items.
-</Block>
 
+</Block>
 
 
 
@@ -30,6 +29,7 @@ There are 6 types of accounts:
         - **R**evenue - Money you earn from selling stuff
         - **E**xpense - Costs of doing business
         - **D**ividend - Money given to owners
+
 R,E,D all feed into Equity. This will be further explored in [Financial Statements](FIXME-sec:financial_statements).
 </Block>
 
@@ -51,11 +51,11 @@ R,E,D all feed into Equity. This will be further explored in [Financial Statemen
 
 
 
-
-
 <Block variant="knowledge" title="Contra accounts">
 Contra accounts are accounts that have a normal balance **opposite** to the account type. The following is how we present them in a financial statement:
+
 <BlockSep />
+
 
 | **Assets** |  |
 | :--- | ---: |
@@ -153,35 +153,38 @@ The money you borrow from a bank.
 
 
 
-
 <Block variant="primary" title="The accounting equation">
-$A = L + E$
+```math
+A = L + E
+```
 This equation is based on the principle that **Stuff that you OWN = Stuff that you OWE**.
-</Block>
 
+</Block>
 
 
 
 <Block variant="secondary" title="Double-entry bookkeeping">
 From money to go to one account *(source)*, it must come from another *(destination)*. This is the *duality* of every transaction in accounting.
+
 $\uparrow$ **Debit (Dr)** is the term to describe the **destination** of money flow, whereas $\downarrow$ **Credit (Cr)** is the term to describe the **source** of money flow.
 </Block>
 
 
 
 
-
-
-
-
-
-
 <Block variant="knowledge" title="Categorizing transactions as Dr / Cr">
 We can categorize transactions as debits or credits by their accounts' type:
+
+
 Dr - Cr
+
+
 **DEALER**
+
 Dividend, Expense, Asset - Liability, Equity, Revenue
+
 They would be a Dr / Cr if their value was positive. Otherwise, they would be the other way around.
+
 *This is based on rearranging the accounting equation and expanding its terms.*
 </Block>
 
@@ -210,24 +213,24 @@ Amounts credited are usually **indented**.
 
 
 
-
-
-
-
-
-
-
 <Block variant="knowledge" title="T-accounts">
 T-account is a way to visualize an account. **Dr** goes on the left, **Cr** goes on the right. The closing balance is displayed on the corresponding side.
 <BlockSep />
-FIXME-ADD: T-account example
-</Block>
 
+FIXME-ADD: T-account example
+
+
+
+
+
+
+</Block>
 
 
 
 <Block variant="primary" title="General ledger">
 A general ledger is a collection / database of accounts that store all transactions for you. Each account has their own general ledger.
+
 </Block>
 
 
@@ -294,37 +297,41 @@ The shares bought back by the company from the public. This is a [contra](#def-c
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 <Block variant="secondary" title="Preferred stock">
 A special category of stocks. They have a *fixed dividend rate* which is *paid before common stockholders*. However, they do not have voting rights.
+
 The preferred stock holders offers two **dividend options**:
 
     1. **Current** - Paid in the current period, limits to before common stockholders
     2. **Cummulative** - Paid in the future if not paid in the current period. This amount is called **dividends in arrears**.
 Preferred stock has a **fixed dividend rate**, which is given by:
-$\text{**P**referred **D**ividends} = \text{Par value} \times \text{Dividend rate} \times \text{Number of shares}$
+```math
+\text{**P**referred **D**ividends} = \text{Par value} \times \text{Dividend rate} \times \text{Number of shares}
+```
 They have a separate par value from common stock.
+
 As their dividends are paid first:
-$\text{**C**ommon **D**ividends} = D - PD$
+```math
+\text{**C**ommon **D**ividends} = D - PD
+```
+
 <BlockSep />
+
 "Preferred stock: \$20 par value, 1\% rate, 1000 shares. Common stock: \$10 par value, 5000 shares." $\implies$ PD = $20 \times 1000 \times 0.1 = 2000$
+
 Consider a issurance of \$3000 dividends, for *current* preference:
+
 $\text{PD}=2000$,
+
 $\text{CD} = 3000 - \text{PD} = 1000$
+
 Consider a issurance of \$10000 dividends, for *cummulative* preference, dividends in arrears for 2 years:
+
 $\text{PD} = 2000 + 2000 * 2 = 6000$ (first 2000 is the current year's),
+
 $\text{CD} = 10000 - \text{PD} = 4000$
+
+
 </Block>
 
 
@@ -334,28 +341,29 @@ $\text{CD} = 10000 - \text{PD} = 4000$
 
 
 
-
-
-
-
-
-
 <Block variant="secondary" title="Sale of stock">
 When a stock is sold. Other than recording the stock issurance, we also need to record the <ColorBox color='pink'>**additional paid-in capital**</ColorBox> (APC) when the stock is sold for more than the [par value](#def-par_market).
+
 $\Delta$**C**ommon **S**tock = Stock Issurance = Number of shares $\times$ Par value
+
 $\Delta$**APC** = Value - Stock Issurance
+
 <BlockSep />
 "Issued 200m additional shares of \$0.01 par value for \$16m" $\implies\ \Delta$APC = 14m, $\Delta$CS = 2m
+
+
+
 *Example entry:*
+
+
 
 | Cash | \$16 |  |
 | :--- | ---: | :--- |
 | Common Stock |  | 2 |
 | Additional Paid-in Capital |  | 14 |
 
+
 </Block>
-
-
 
 
 
@@ -363,7 +371,11 @@ $\Delta$**APC** = Value - Stock Issurance
 When we declare a dividend, we **allocate money** to the owners from retained earnings.
 <BlockSep />
 "Declared dividends of \$2m"
+
+
 *Example entry:*
+
+
 
 | Retained earnings | \$2 |  |
 | :--- | ---: | :--- |
@@ -373,27 +385,31 @@ When we declare a dividend, we **allocate money** to the owners from retained ea
 
 
 
-
-
-
-
-
-
-
-
-
 <Block variant="secondary" title="Repurchase and reissurance of stock">
 When we *re*issure stock, we need to credit treasury stock instead of common stock, as we pull from our own stock. We also need to record the [additional paid-in capital](#def-sale_of_stock) when we sell the stock for more than its par value.
 <BlockSep />
 "Reacquired 10 shares of common stock when selling for \$14 per share." $\implies \Delta$Treasury = 140
+
+
+
 *Example entry:*
+
+
 
 | Treasury stock | \$140 |  |
 | :--- | ---: | :--- |
 | Cash |  | 140 |
 
+
+
+
 "Reissued 1 shares of treasury stock at \$13 per share" $\implies \Delta$APC = -1 (less than par value), $\Delta$Treasury = 14
+
+
+
 *Example entry:*
+
+
 
 | Cash | \$13 |  |
 | :--- | ---: | :--- |
@@ -480,9 +496,9 @@ They are assumptions because we do not know which physical units were sold.
 
 
 
-
 <Block variant="knowledge" title="Which assumption is better?">
 We must take into account for the **rise / drop in inventory prices during the period** when considering which assumption is better.
+
 In a period of **rising prices**:
 
     - FIFO - Higher net income (less COGS expenses)
@@ -498,26 +514,29 @@ In a period of **rising prices**:
 
 <Block variant="primary" title="Net realizable value">
 The actual of the inventory that the company can profit from.
-$NRV = \text{Selling price} - \text{Cost to sell}$
+```math
+NRV = \text{Selling price} - \text{Cost to sell}
+```
 </Block>
-
-
-
-
 
 
 
 <Block variant="secondary" title="Reporting Inventory at Lower of Cost or Net Realizable Value">
 We need to report inventory at its **minimum** of the *cost* or NRV. This is to prevent **overstating** the value of inventory.
+
 If $NRV < Cost$, the company would make a **“write-down” entry** of $(Cost - NRV) \times units$ to reduce the inventory balance to NRV. (As they are originally recorded at cost).
 <BlockSep />
 *Example: The company has 1000 units of inventory at \$10 each. The NRV is \$8.*
+
 The valuation used at the end of this period would be $1000 \times 8 = 8000$. As $NRV < Cost$, we need to make the following entry:
+
+
 
 | **Account** | **Dr** | **Cr** |
 | :--- | ---: | :--- |
 | COGS | 2000 |  |
 | $    $ Inventory |  | 2000 |
+
 
 $(10-8)\times1000=2000$
 </Block>
@@ -525,7 +544,6 @@ $(10-8)\times1000=2000$
 
 
 ## Reporting equipments
-
 
 
 
@@ -540,6 +558,8 @@ We include the following **acquisition costs** in the value of an equipment upon
 The act of inclusion is also called **capitalization**.
 <BlockSep />
 *Example: Soutwest Airlines purchased aircraft of \$20, and paid \$1 for transportation and \$2 for installation.*
+
+
 
 | **Account** | **Dr** | **Cr** |
 | :--- | ---: | :--- |
@@ -561,7 +581,6 @@ Some identifying characteristics of improvements are *large sums of money*, *lon
 
 
 
-
 <Block variant="secondary" title="Reporting asset disposal">
 
     1. Record **[depreciation** expense](FIXME-subsec:depreciation) of the item for this period
@@ -570,6 +589,9 @@ Some identifying characteristics of improvements are *large sums of money*, *lon
     4. Record "gain on sale of assets" (revenue) or "loss on sale of assets" (expense) by balancing the entry
 <BlockSep />
 *Example: Southwest Airlines sold flight equipment for \$11 cash at the end of its 17th year of use. The flight equipment originally cost \$30 and was depreciated using the straight-line method with zero residual value and a useful life of 25 years.*
+
+
+
 
 |  | **Account** | **Dr** | **Cr** |
 | :--- | ---: | :--- | :--- |
@@ -587,13 +609,13 @@ Some identifying characteristics of improvements are *large sums of money*, *lon
 
 
 
-
-
-
 <Block variant="knowledge" title="Change in estimates">
 If we change the estimates of the useful life or residual value of an asset, we need to **recalculate the net book value** of the asset.
+
 <BlockSep />
+
 *Example: Southwest Airlines spent \$200 improving the flight equipment of \$1000, changing the useful life of the flight equipment from 25 years to 30 years, with 0 residual value. It was in service for 2 years. Find the new net book value and calculate depreciation for this period.*
+
 Computation for change in estimates:
 
     - Original cost: \$1000
@@ -609,11 +631,12 @@ Depreciation expense: $\frac{1120}{30-2}=\$40$
 
 
 
-
 <Block variant="primary" title="Income tax">
 The tax that you pay on your income. It is calculated as a percentage of your income. We usually record it as **tax payable** until we actually pay the tax.
 <BlockSep />
 *Example: Southwest Airlines has a tax rate of 30\%. They earned \$1000 in revenue. Record the tax expense.*
+
+
 
 | **Account** | **Dr** | **Cr** |
 | :--- | ---: | :--- |

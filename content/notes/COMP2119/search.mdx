@@ -11,7 +11,6 @@ This could be **not true for organized data**, where we can **gain information**
 We will focus on searching algorithms on a **sorted list** in this section.
 
 
-
 <Block variant="primary" title="Jump search">
 Works by:
 
@@ -19,10 +18,9 @@ Works by:
     - If the element is greater than the target, go back to the previous jump
     - Linearly search the elements in the jump
 **Amount of comparisons** $=\frac{n}{\sqrt{n}} + \sqrt{n} - 1$
+
 **Time complexity:** $O(\sqrt{n})$
 </Block>
-
-
 
 
 
@@ -32,12 +30,11 @@ Works by:
     - Start at the middle of the list
     - If the element is greater than the target, search the left half
     - If the element is less than the target, search the right half
+
 **Time complexity:**  $O(\log n)$
+
 Remember that the middle must be recalculated each time.
 </Block>
-
-
-
 
 
 
@@ -46,7 +43,9 @@ An improved version of binary search. Instead of searching the middle, we search
 ```math
 \text{probe} = \text{low} + \frac{(\text{high} - \text{low})}{(\text{A[high]} - \text{A[low]})} \times (\text{target} - \text{A[low]})
 ```
+
 **Time complexity:** $\Theta(\log \log n) O(n)$
+
 **Note:** This is only effective when the data is **evenly distributed** (linear). Otherwise, it is not effective, such as when the data is exponential, resulting in $O(n)$ time complexity.
 </Block>
 
@@ -107,19 +106,19 @@ Remember, we always consider trees recursively.
 
 
 
-
 <Block variant="knowledge" title="The balance factor">
 ```math
 B(n)=\text{left.height} - \text{right.height}
 ```
+
 A perfectly balanced tree has $B(n)=0$.
 </Block>
 
 
 
-
 <Block variant="primary" title="AVL tree">
-A self-balancing binary search tree where $|{B(n)}|\leq 1$.
+A self-balancing binary search tree where $\|{B(n)}\|\leq 1$.
+
 **Self-balancing** means that when modifying the tree, it will **rotate** the tree to *fix imbalance*.
 </Block>
 
@@ -131,69 +130,69 @@ The time complexities for insert, search and delete in an AVL tree is $\Theta(\l
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <Block variant="secondary" title="Rotations">
 After inserting a node to the correct position, or deleting a node, the tree may become unbalanced. We need to check for imbalance for each processed node and **rotate** the tree to fix it.
+
 The following are two types of rotation:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Notice that they are **mirrored** of each other.
+
 Consider the following conditions of balance for each processed node for rotations:
+
+
+
+
+
+
+
+
+
+
+
+
 </Block>

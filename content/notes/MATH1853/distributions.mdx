@@ -21,13 +21,12 @@ $P(a\leq X\leq b)=P(X\leq b)-P(X\leq a-1)$
 ## Probability distribution functions
 
 A *p.d.f* is a continuous function that returns the probability of the given outcome. The following is an example of a p.d.f:
-```math
-
+$
 X\sim f(x) = \begin{cases}
 Kx^2 & 0 \leq x \leq 1  \\
 0    & \text{otherwise}
-
-```
+\end{cases}
+$
 
 <Block variant="primary" title="Using the function">
 $P(X=x)=0$\\
@@ -48,12 +47,11 @@ To obtain a *c.d.f* $X'\sim F(x)$where $P(X'=x) = P(X < x)$, all we have to do i
 F(X)=\int f(x)dx
 ```
 Using our example:
-```math
-F(X)=\begin{cases}
+$F(X)=\begin{cases}
 1   & x > 1     \\
 x^3 & 0 < x < 1 \\
 0   & x < 0     \\
-```
+\end{cases}$
 And to convert a c.d.f back to it's p.d.f, all we have to do is differentiate $F(x)$:
 ```math
 f(x)=\frac{d}{dx}F(x)

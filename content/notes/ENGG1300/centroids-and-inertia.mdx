@@ -6,18 +6,20 @@ title: Centroids and moment of inertia
 ## Centroids
 
 
-
-
 <Block variant="knowledge" title="Expression of centroids">
 We use $\bar{x}$ and $\bar{y}$ to denote the *centroid* of a shape. They are the horizontal and vertical distance about a given **reference axis**.
+
 The centroid is the **centre of mass** of the shape. For an axis that the shape is *symmetric about*, the centroid will be **on the axis**.
+
 The centroid is also known as the *first moment of area*.
 </Block>
 
 
 <Block variant="primary" title="Centroid of composite shapes">
 The centroid of a shape can be found by:
-$\bar{x}=\frac{\sum (A_i x_i)}{\sum A_i},     \bar{y}=\frac{\sum (A_i y_i)}{\sum A_i}$
+```math
+\bar{x}=\frac{\sum (A_i x_i)}{\sum A_i},     \bar{y}=\frac{\sum (A_i y_i)}{\sum A_i}
+```
 Where $A_i$ is the area of the composition shape, and $x_i, y_i$ are the distances of the composition shape's centroid from the reference axes.
 </Block>
 
@@ -27,45 +29,55 @@ Where $A_i$ is the area of the composition shape, and $x_i, y_i$ are the distanc
 ## Moment of inertia
 
 
-
 <Block variant="knowledge" title="The reference axis for moment of inertia">
 We measure the moment of inertia about a **reference axis**. This is because at different points, the moment of inertia will be different. (*Unlike the use of reference axes in centroids, where the reference axes is just relative*).
+
 For finding the moment of inertia at the centroid, we simply set the reference axis at the centroid.
 </Block>
 
 
 <Block variant="primary" title="Moment of inertia / Second moment of area">
 The moment of inertia is a measure of an object's resistance to changes in its rotation, about a reference axis. It is given by:
-$I_x=\int y^2\:dA,     I_y=\int x^2\:dA$
+```math
+I_x=\int y^2\:dA,     I_y=\int x^2\:dA
+```
 Where $x$ and $y$ are the distances from the axis. This units are $m^4$.
 </Block>
 
 
-
 <Block variant="secondary" title="Moment of inertia for rectangles">
 The moment of inertia for a rectangle is given by:
-$I_x=\frac{bh^3}{12},     I_y=\frac{hb^3}{12}$
+```math
+I_x=\frac{bh^3}{12},     I_y=\frac{hb^3}{12}
+```
 Where $b$ is the width of the rectangle, and $h$ is the height of the rectangle. This can be derived by the formulas above.
+
 It is important that the **direction** where $b$ extends is **parallel to the reference axis** (so width $\ne$ longest length)
 </Block>
 
 
 <Block variant="secondary" title="Moment of inertia for circles">
 The moment of inertia for a circle is given by:
-$I_x=I_y=\frac{\pi r^4}{4}$
+```math
+I_x=I_y=\frac{\pi r^4}{4}
+```
 Where $r$ is the radius of the circle.
 </Block>
 
 
 <Block variant="secondary" title="Parallel axis theorem">
 The moment of inertia about an axis parallel to a reference axis for a shape is given by:
-$I_{x'}=I_{x}+Ad^2$
+```math
+I_{x'}=I_{x}+Ad^2
+```
 Where $A$ is the area of the shape, and $d$ is the distance between the **reference axis** and the **parallel axis**.
 </Block>
 
 
 <Block variant="primary" title="Moment of inertia for composite shapes">
 The moment of inertia for a composite shape is simply the sum of the moments of inertia of the individual shapes **about the same axis**. This can be expressed as:
-$I_x=I_{x1\to\bar{y}} + I_{x2\to\bar{y}},     I_y=I_{y1\to\bar{x}} + I_{y2\to\bar{x}}$
-Related: [Bending stress](FIXME-sec:bendingstress)
+```math
+I_x=I_{x1\to\bar{y}} + I_{x2\to\bar{y}},     I_y=I_{y1\to\bar{x}} + I_{y2\to\bar{x}}
+```
+Related: [Bending stress](bending-and-stress)
 </Block>

@@ -3,10 +3,12 @@ title: Examples & questions bank
 ---
 
 
-
 <Block variant="example" title="">
+
 Solving a recurrence relation with subsitution method [Solve Re](FIXME-thm:solve_re)
+
 ```math
+\begin{aligned}
 (\text{lvl }1):\ f(n)   & =2f(n-1)+1             \\
 (\text{lvl }2):\ f(n-1) & =2f(n-2)+1             \\
 \uparrow\ f(n)          & =2(2f(n-2)+1)+1        \\
@@ -18,16 +20,19 @@ f(1) = f(n-k)           & =1 \implies k=n-1      \\
 \therefore f(n)         & =2^{n-1}f(1)+2^{n-1}-1 \\
 & =2\times2^{n-1}-1      \\
 & =2^n-1
+\end{aligned}
 ```
+
 </Block>
 
 
 
-
-
 <Block variant="example" title="">
+
 Proving with MI [Mi](FIXME-def:mi)
+
 ```math
+\begin{aligned}
 & \text{Prove } f(n) = 1\cdot2^1 + 2\cdot2^2 + \cdots + n\cdot2^n = (n-1) \cdot 2^{n+1} + 2 \\
 & \text{Base case: } n = 1                                                                  \\
 \text{LHS:\ }         & f(1) = 1\cdot2^1 = 2                                                                      \\
@@ -41,75 +46,90 @@ f(k+1):\ \text{LHS\ } & = f(k) + (k+1)\cdot2^{k+1}                              
 & = ((k+1)-1) \cdot 2^{(k+1)+1} + 2                                                         \\
 & = \text{RHS}                                                                              \\
 \therefore\           & \text{Statement holds true }\forall\ n > 0
+\end{aligned}
 ```
+
+
 </Block>
 
 
 
-
-
-
 <Block variant="example" title="Disproving Big O notation} [Asym](FIXME-def:asym)">
+
+
 Consider $T(n) = 3n^3 + 1$, to show that $T(n) \neq O(n^2)$:
+
 ```math
+\begin{aligned}
 3n^3 + 1           & \leq c \cdot n^2 & \forall\ n \geq n_0 \\
 3n^3 + 1           & \leq c\cdot n^2  & \forall\ n \geq 2   \\
 3n + \frac{1}{n^2} & \leq c           & \forall\ n \geq 2   \\
+\end{aligned}
 ```
+
 As this expression cannot hold true for all $n \geq 2$ for a specific $c$ value, we can conclude that $T(n) \neq O(n^2)$.
+
 (Example: if $c = 10$ the equation does not hold when let's say $n = 100$)
 </Block>
 
 
 
-
-
-
 <Block variant="example" title="Proving Little o notation} [Asym](FIXME-def:asym)">
+
+
 To show that $T(n) \in o(n^4)$:
+
 ```math
+\begin{aligned}
 3n^3 + 1                    & < c \cdot n^4 & \forall\ n \geq n_0 \\
 \frac{3}{n} + \frac{1}{n^4} & < c           & \forall\ n \geq n_0 \\
+\end{aligned}
 ```
+
 As this express can hold true for any $c > 0$ with sufficiently large $n_0$, we can conclude that $T(n) \in o(n^4)$.
+
 (Example: if $c = 1$ the equation holds with $n_0 = 100$)
 </Block>
 
 
 
-
-
-
-
 <Block variant="example" title="Proving Big Theta notation} [Asym](FIXME-def:asym)">
+
+
 Consider $T(n)=4n^2$, to show that $T(n) \in \Theta(0.5n^2+10n+20)$:
+
 We know that $T(n) \leq c_2 \cdot (0.5n^2 + 10n + 20)$ for $c_2 = 8$ easily.
+
 Consider the lower bound:
+
 ```math
+\begin{aligned}
 4n^2          & \geq c_1 \cdot (0.5n^2 + 10n + 20) & \forall\ n \geq n_0                \\
 n^2           & \geq 0.5n^2 + 10n + 20             & \forall\ n \geq n_0, c_1 = \frac14 \\
 n^2 - 10n -20 & \geq 0                             & \forall\ n \geq n_0                \\
+\end{aligned}
 ```
+
 Therefore we can simply take $n_0 = 10$ and $c_1 = \frac14, c_2=8$ to satisfy the definition of big Theta.
 </Block>
 
 
 
-
-
-
-
 <Block variant="example" title="">
+
 Identifying asymptotic growths [Iasym](FIXME-thm:iasym)
-*Example 1: *$T(n)=3n^3+1\implies O(n^3)\ \Omega(n^3)\ \Theta(n^3)\ o(n^4)\ \omega(n^2)$
-*Example 2: *$n^2 \in O(2^n)$ ($n^2 \leq 2^n$ order of growth. This is one of the many satisfying $g(n)$. The useful $g(n)$ would be: $n^2 \in O(n^2)$)
-*Example 3: *$n\log n \in \Omega(e^{\log n})$  ($n\log n \geq n$)
+
+*Example 1:*$T(n)=3n^3+1\implies O(n^3)\ \Omega(n^3)\ \Theta(n^3)\ o(n^4)\ \omega(n^2)$
+
+*Example 2:*$n^2 \in O(2^n)$ ($n^2 \leq 2^n$ order of growth. This is one of the many satisfying $g(n)$. The useful $g(n)$ would be: $n^2 \in O(n^2)$)
+
+*Example 3:*$n\log n \in \Omega(e^{\log n})$  ($n\log n \geq n$)
 </Block>
 
 
 
-
 <Block variant="example" title="">
+
 Example implementation of reversing a linked list [Linked List Reverse](FIXME-thm:linked_list_reverse)
 </Block>
 
@@ -135,8 +155,8 @@ def find_middle_node(head):
 ```
 
 
-
 <Block variant="example" title="">
+
 Example implementation of finding the middle node of a linked list [Linked List Find Middle](FIXME-thm:linked_list_find_middle)
 </Block>
 
@@ -162,8 +182,8 @@ def find_middle_node(head):
 ```
 
 
-
 <Block variant="example" title="">
+
 Example implementation of BFS [Graph Bfs](FIXME-thm:graph_bfs)
 </Block>
 
@@ -184,39 +204,39 @@ def bfs(mtx, start):
 ```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <Block variant="example" title="">
+
 Example of finding the average number of slots inspected for unsuccessful search of built hash table with resolution method double hashing [Collision-Hash Unsuccessful Average Slots Inspected](FIXME-thm:collision-hash_unsuccessful_average_slots_inspected)
-$m = 5,     h(k) = k \mod 5$ with double hashing $f(i) = i \cdot h'(k),     h'(k) = 2 - (k \mod 2)$.
+
+$m = 5,\quad h(k) = k \mod 5$ with double hashing $f(i) = i \cdot h'(k),\quad h'(k) = 2 - (k \mod 2)$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Therefore the average is $\frac{(4+1+3+1+2)+(2+1+2+1+3)}{5\times 2} = 2$
 </Block>
 
 
 
-
 <Block variant="example" title="">
+
 Example of implementation of selection sort. [Sort Summary](FIXME-subsec:sort_summary)
 </Block>
 
@@ -233,8 +253,8 @@ function selection_sort(array):
 ```
 
 
-
 <Block variant="example" title="">
+
 Example of implementation of bubble sort. [Sort Summary](FIXME-subsec:sort_summary)
 </Block>
 
@@ -252,8 +272,8 @@ function bubble_sort(array, n):
 ```
 
 
-
 <Block variant="example" title="">
+
 Example of implementation of insertion sort. [Sort Summary](FIXME-subsec:sort_summary)
 </Block>
 
@@ -271,8 +291,8 @@ function insertion_sort(array):
 ```
 
 
-
 <Block variant="example" title="">
+
 Example of implementation of heap sort. [Sort Summary](FIXME-subsec:sort_summary)
 </Block>
 
@@ -288,8 +308,8 @@ function heap_sort(array):
 ```
 
 
-
 <Block variant="example" title="">
+
 Example of implementation of merge sort. [Sort Summary](FIXME-subsec:sort_summary)
 </Block>
 
@@ -314,8 +334,8 @@ function merge_sort(array):
 ```
 
 
-
 <Block variant="example" title="">
+
 Example of implementation of quick sort. [Sort Summary](FIXME-subsec:sort_summary)
 </Block>
 
@@ -343,8 +363,8 @@ function quick_sort(array):
 ```
 
 
-
 <Block variant="example" title="">
+
 Example of implementation of count sort. [Sort Summary](FIXME-subsec:sort_summary)
 </Block>
 
@@ -367,8 +387,8 @@ function counting_sort(array):
 ```
 
 
-
 <Block variant="example" title="">
+
 Example of implementation of radix sort. [Sort Summary](FIXME-subsec:sort_summary)
 </Block>
 

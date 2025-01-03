@@ -9,11 +9,11 @@ Solves a problem by breaking it down into smaller instances of the same problem.
     2. **Recursive Case(s)**: More complex instances of the problem that are solved by breaking them down and making recursive calls.
 
 
-
-
 <Block variant="knowledge" title="Tower of Hanoi">
-**Goal: **Move $n$ disks from peg $A \implies C$ using peg $B$.
-**Rules: **Only one disk can be moved at a time, and a disk can only be placed on top of a larger disk.
+**Goal:**Move $n$ disks from peg $A \implies C$ using peg $B$.
+
+**Rules:**Only one disk can be moved at a time, and a disk can only be placed on top of a larger disk.
+
 We define the problem as $H(num, from, to, via)$:
 
     1. Move top $n-1$ disks $A \implies B$ via $C$: $H(n-1, A, B, C)$
@@ -30,10 +30,9 @@ We define the problem as $H(num, from, to, via)$:
 <Block variant="primary" title="Recurrence relation / equation">
 A mathematical equation which is defined in terms of itself.
 ```math
-f(n)=\begin{cases}    1&n=1\\2f(n-1)+1&n>1\end{cases}
+f(n)=\begin{cases}\quad1&n=1\\2f(n-1)+1&n>1\end{cases}
 ```
 </Block>
-
 
 
 
@@ -47,6 +46,7 @@ We "solve" a recurrence relation by finding a closed-form expression for $f(n)$ 
     5. Subsitute $k$ back into the generalization
 <BlockSep />
 [Solve Re 1](FIXME-eg:solve_re_1)
+
 </Block>
 
 
@@ -54,7 +54,7 @@ We "solve" a recurrence relation by finding a closed-form expression for $f(n)$ 
 <Block variant="knowledge" title="Relevant mathematics">
 
     1. Geometric series: $S_n = a(1 + r + r^2 + \cdots + r^{n-1}) = a\frac{r^n - 1}{r-1}$
-    2. Arithmetic series: $S_n = n(\frac{a_1+a_n}{2}),     n=\text{number of terms}, a=\text{first / last term}$
+    2. Arithmetic series: $S_n = n(\frac{a_1+a_n}{2}),\quad n=\text{number of terms}, a=\text{first / last term}$
     3. Factorial: $n! = n \times (n-1) \times (n-2) \times \cdots \times 1$
     4. Falling factorial: $n^{__k__} = n(n-1)(n-2)\cdots(n-k+1)=\frac{n!}{(n-k)!}$
     5. Logarithm: $a^k=b\implies k=\log_a b$
@@ -63,24 +63,22 @@ We "solve" a recurrence relation by finding a closed-form expression for $f(n)$ 
 
 
 
-
-
 <Block variant="secondary" title="The master theorem">
 The master theorem can give us the order of growth (Big Theta) of a recurrence relation.
-For $T(n) = a\cdot T(\frac{n}{b}) + f(n),     T(1) = c,     a, c > 0,\ b > 1,\ f(n)\in \Theta(n^k),\ d\geq 0$, we have:
-```math
-T(n) = \begin{cases}
+
+For $T(n) = a\cdot T(\frac{n}{b}) + f(n),\quad T(1) = c,\quad a, c > 0,\ b > 1,\ f(n)\in \Theta(n^k),\ d\geq 0$, we have:
+$T(n) = \begin{cases}
 \Theta(n^{\log_b a}) & \text{if } a > b^k \\
 \Theta(n^k \log n)   & \text{if } a = b^k \\
 \Theta(n^k)          & \text{if } a < b^k
-```
+\end{cases}$
 <BlockSep />
+
 </Block>
 
 
 
 ## Mathematical induction
-
 
 
 
@@ -91,4 +89,5 @@ A method of mathematical proof that proves a statement for all natural numbers.
     2. **Inductive step**: Assume the statement is true for $n$, then prove it is also true for $n+1$.
 <BlockSep />
 [Mi 1](FIXME-eg:mi_1)
+
 </Block>

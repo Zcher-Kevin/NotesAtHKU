@@ -14,7 +14,9 @@ An object will remain at rest or in uniform motion unless acted upon by a force.
 
 <Block variant="primary" title="Newton's second law">
 The acceleration of an object is directly proportional to the net force acting on it, and inversely proportional to its mass.
-$\sum F=ma$
+```math
+\sum F=ma
+```
 </Block>
 
 
@@ -27,7 +29,9 @@ For every action, there is an equal and opposite reaction. This gives rises to f
 
 <Block variant="knowledge" title="Friction">
 Friction is a force that opposes the motion of an object. It is given by:
-$F_f=\mu N$
+```math
+F_f=\mu N
+```
 Where $\mu$ is the coefficient of friction and $N$ is the normal force experienced by the object.
 </Block>
 
@@ -57,12 +61,13 @@ For a person in an elevator accelerating upwards at $a$, the inertia force is $m
 <Block variant="secondary" title="Motion equations">
 The following are the equations of motion:
 
-    - **Average velocity: **$v=\frac{ds_t}{dt}$
-    - **Average acceleration: **$a=\frac{dv_t}{dt}$
-    - $s=ut+\frac{1}{2}at^2$
-    - $v=u+at$
-    - $v^2=u^2+2as$
-    - $s=\frac{(v+u)t}{2}$
+- **Average velocity:** $v=\frac{ds_t}{dt}$
+- **Average acceleration:** $a=\frac{dv_t}{dt}$
+- $s=ut+\frac{1}{2}at^2$
+- $v=u+at$
+- $v^2=u^2+2as$
+- $s=\frac{(v+u)t}{2}$
+
 Where $v$ is the final velocity, $u$ is the initial velocity, $a$ is the acceleration, $t$ is the time, and $s$ is the displacement.
 </Block>
 
@@ -71,13 +76,14 @@ Where $v$ is the final velocity, $u$ is the initial velocity, $a$ is the acceler
 <Block variant="secondary" title="Circular  motion">
 The following are the equations of motion for circular motion:
 
-    - $\omega = \frac{\Delta\theta}{\Delta t}=\frac{2\pi r}{t} = \frac{v_t}{r}$
-    - $v_t = r\omega$
-    - $a_c = r\omega^2 = \frac{v_t^2}{r}$
-    - $a_t = r a_c$
-    - $F_c = \frac{mv_t^2}{r} = ma_c$
-    - **Total acceleration: **$a_{to} = \sqrt{a_t^2+a_c^2}$
-    - **Accelerating cylinder/disk: **$F = \frac12mra,\ Fr=Ia_c$
+- $\omega = \frac{\Delta\theta}{\Delta t}=\frac{2\pi r}{t} = \frac{v_t}{r}$
+- $v_t = r\omega$
+- $a_c = r\omega^2 = \frac{v_t^2}{r}$
+- $a_t = r a_c$
+- $F_c = \frac{mv_t^2}{r} = ma_c$
+- **Total acceleration:** $a_{to} = \sqrt{a_t^2+a_c^2}$
+- **Accelerating cylinder/disk:** $F = \frac12mra,\ Fr=Ia_c$
+
 $I_{disk}=\frac12mr^2$
 <BlockSep />
 $\omega$ is the angular velocity, which describes change in angle over time\\
@@ -96,9 +102,13 @@ The direction of the angular velocity is given by the right-hand rule. If the fi
 
 <Block variant="knowledge" title="Instantaneous center of zero velocity">
 The instantaneous center of zero velocity is the point on a rotating object that has zero velocity. The velocity is perpendicular to the radius (edge) at that point.
-![](././img/ic.png)
+
+<div className="max-w-96 mx-auto">![](././img/ic.png)</div>
+
 The velocity at any point is given by:
-$v=\omega d$
+```math
+v=\omega d
+```
 Where $d$ is the distance from the IC.
 </Block>
 
@@ -110,30 +120,41 @@ Where $d$ is the distance from the IC.
 
 <Block variant="primary" title="Momentum and conservation of momentum">
 Momentum is the product of an object's mass and velocity. It is a vector quantity.
-$p=mv$
+```math
+p=mv
+```
 The principle of conservation of momentum states that the total momentum of a system remains constant if no external forces act on it.
-$F_{ext}=0\ ?\ p=\text{const}$
+```math
+F_{ext}=0\ ?\ p=\text{const}
+```
 The angular momentum about a point $O$ is given by:
-$H_O=Iw=mv_i\times r$
+```math
+H_O=Iw=mv_i\times r
+```
 </Block>
 
 
 
 <Block variant="secondary" title="Coefficient of restitution">
 The coefficient of restitution is a measure of how much kinetic energy is conserved in a collision. It is given by:
-$e=\|\frac{v_{2}-v_{1}}{u_{1}-u_{2}}\|$
+```math
+e=|\frac{v_{2}-v_{1}}{u_{1}-u_{2}}|
+```
 Where $v_{1}$ and $v_{2}$ are the final velocities, and $u_{1}$ and $u_{2}$ are the initial velocities.
 
-    - $e=1$ is a perfectly elastic collision
-    - $e=0$ is a perfectly inelastic collision
-    - $0<e<1$ is a (partially) elastic collision
+- $e=1$ is a perfectly elastic collision
+- $e=0$ is a perfectly inelastic collision
+- $0<e<1$ is a (partially) elastic collision
+
 </Block>
 
 
 
 <Block variant="primary" title="Impulse (impact)">
 Impulse is the change in momentum of an object. It is given by:
-$\Delta p=F\Delta t$
+```math
+\Delta p=F\Delta t
+```
 </Block>
 
 
@@ -159,7 +180,9 @@ Where $A$ is the amplitude. $\phi$ represents the angle of which the motion star
 
 <Block variant="primary" title="Natural frequency">
 The natural frequency of a spring mass system is the frequency at which the system oscillates when displaced from equilibrium.
-$w_0=\sqrt{\frac{k}{m}}$
+```math
+w_0=\sqrt{\frac{k}{m}}
+```
 Where $f$ is the frequency, $k$ is the spring constant, and $m$ is the mass.
 </Block>
 
@@ -171,7 +194,9 @@ Where $f$ is the frequency, $k$ is the spring constant, and $m$ is the mass.
 
 <Block variant="primary" title="Hooke's law">
 Hooke's law states that the force required to extend or compress a spring is directly proportional to the extension or compression.
-$F=-kx$
+```math
+F=-kx
+```
 Where $F$ is the force, $k$ is the spring constant, and $x$ is the extension or compression.
 </Block>
 
@@ -179,7 +204,9 @@ Where $F$ is the force, $k$ is the spring constant, and $x$ is the extension or 
 
 <Block variant="primary" title="Damping & damping coefficient">
 Damping is the process of reducing the amplitude of an oscillation. It is given by:
-$F_d=-cv$
+```math
+F_d=-cv
+```
 Where $F_d$ is the damping force, $c$ is the **damping coefficient**, and $v$ is the velocity.
 </Block>
 
@@ -187,12 +214,14 @@ Where $F_d$ is the damping force, $c$ is the **damping coefficient**, and $v$ is
 
 <Block variant="secondary" title="Critical damping">
 Critical damping is the minimum amount of damping required to prevent oscillation. It is given by:
-$c_{crit}=2\sqrt{mk}$
+```math
+c_{crit}=2\sqrt{mk}
+```
 The following gives the cases of damping:
 
-    - **Underdamping: **$c<c_{crit}$
-    - **Overdamping: **$c>c_{crit}$
-    - **Critical damping: **$c=c_{crit}$
+- **Underdamping:** $c<c_{crit}$
+- **Overdamping:** $c>c_{crit}$
+- **Critical damping:** $c=c_{crit}$
 Critical damping gives the fastest return to equilibrium.
 </Block>
 
@@ -204,7 +233,9 @@ Critical damping gives the fastest return to equilibrium.
 
 <Block variant="primary" title="Work">
 Work done is the energy required to move an object. It is given by:
-$W=Fd$
+```math
+W=Fd
+```
 </Block>
 
 
@@ -212,20 +243,25 @@ $W=Fd$
 <Block variant="secondary" title="Energy">
 The following are the types of energy:
 
-    - **Kinetic: **$E_k=\frac{1}{2}mv^2$
-    - **Gravitational potential: **$E_{GP}=mgh$
-    - **Elastic potential: **$E_{EP}=\frac{1}{2}kx^2$
-    - **Friction: ** $E_{f}=F_f\times d=\mu Nd$
-    - **Rotational: ** $E_{r}=\frac{1}{2}Iw^2=\frac14mv_t^2$
+- **Kinetic:** $E_k=\frac{1}{2}mv^2$
+- **Gravitational potential:** $E_{GP}=mgh$
+- **Elastic potential:** $E_{EP}=\frac{1}{2}kx^2$
+- **Friction:** $E_{f}=F_f\times d=\mu Nd$
+- **Rotational:** $E_{r}=\frac{1}{2}Iw^2=\frac14mv_t^2$
+
 The energy of a spring-mass system is given by:
-$E=E_k+E_{EP}$
+```math
+E=E_k+E_{EP}
+```
 </Block>
 
 
 
 <Block variant="secondary" title="Conversation of energy">
 The principle of conservation of energy states that the total energy of a system remains constant if no external forces act on it.
-$F_{ext}=0\ ?\ E=\text{const}$
+```math
+F_{ext}=0\ ?\ E=\text{const}
+```
 This means in a system, energy is converted from one form to another. Use this fact to solve for unknowns.
 </Block>
 
@@ -233,13 +269,17 @@ This means in a system, energy is converted from one form to another. Use this f
 
 <Block variant="primary" title="Power">
 Power is the rate at which work is done. It is given by:
-$P=\frac{W}{t}$
+```math
+P=\frac{W}{t}
+```
 </Block>
 
 
 
 <Block variant="secondary" title="Power and acceleration">
 The power required to accelerate an object is given by:
-$P=Fv$
+```math
+P=Fv
+```
 Where $F$ is the force, and $v$ is the velocity.
 </Block>

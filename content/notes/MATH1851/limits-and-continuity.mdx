@@ -5,10 +5,15 @@ title: Limits and Continuity
 
 ## Introduction to the concept of limit
 
+<div className="w-full flex gap-2 flex-wrap lg:flex-nowrap">
+<div >
 We can conceptualize that the limit of a function $f(x)$ is $L$ as $x$ approaches $c$, given that we can make $f(x)$ *as close to $L$ as we want* for all $x$ sufficiently close to $a$, from both sides, *without actually letting $x$ be $a$*. We can write this as:
-$\lim_{x\to a}f(x)=L$
-
-![](./img/Lim.jpg)
+```math
+\lim_{x\to a}f(x)=L
+```
+</div>
+<div>![](./img/Lim.jpg)</div>
+</div>
 
 
 ## One-sided limits
@@ -19,21 +24,25 @@ There are two sides that $x$ can tend to a number. We can write it as $x\to n^-$
 ## Existence of limits
 
 
-
 <Block variant="secondary" title="Condition for limit to exist">
 The limit for a function $f(x)$ only exists if and only if:
-$\lim_{x\to a^+}f(x)=\lim_{x\to a^-}f(x)$
+```math
+\lim_{x\to a^+}f(x)=\lim_{x\to a^-}f(x)
+```
 WARNING: If the **limit is** $\mathbf{\infty}$ it **doesn't exist**.
+
 </Block>
 
-
+<div className="w-full flex gap-2 flex-wrap lg:flex-nowrap items-center">
+<div >
 For this example, when $x\to 0^-, y\to -\infty$.
 
 Similarly, as $x\to 0^+, y\to +\infty$.
 
 Hence, we can conclude that the limit for this function as $x\to 0$ doesn't exist.
-
-![](./img/lim3.jpg)
+</div>
+<div className="w-72">![](./img/lim3.jpg)</div>
+</div>
 
 
 ## Continuity
@@ -41,7 +50,9 @@ Hence, we can conclude that the limit for this function as $x\to 0$ doesn't exis
 
 <Block variant="primary" title="Continuity">
 A function $f(x)$ is *continuous* at $x=a$ if:
-$\mathop {\lim }\limits_{x \to a} f\left( x \right) = f\left( a \right)$
+```math
+\mathop {\lim }\limits_{x \to a} f\left( x \right) = f\left( a \right)
+```
 </Block>
 
 
@@ -55,9 +66,9 @@ For $f,g$ continuous at $c$, the following are also continuous at $c$:
 </Block>
 
 
-
 <Block variant="secondary" title="Intermediate value theorem (IVT)">
 If a function $f$ is continuous on $[a, b]$, there is a number $c$ in $[a, b]$ where $f(c)$ in $[f(a), f(b)]$.
+
 We use the IVT by first finding $f(a)$ and $f(b)$, then apply the rule.
 <BlockSep />
 To prove that there is a root, we can use the IVT by showing there is a **change of sign** between the interval given.
@@ -71,8 +82,10 @@ To prove that there is a root, we can use the IVT by showing there is a **change
 
 <Block variant="primary" title="Indeterminate forms">
 Indeterminate forms are forms that cannot be solved by simply substituting the value of $x$ into the function. They are:
-$\frac{0}{0},    \frac{\infty}{\infty},    0\cdot\infty,    \infty-\infty,    \infty^0,    1^\infty,    \infty^0$
-Note that $\infty + \infty = \infty$. Related: [L'Hopital's rule](FIXME-sec:lhr)
+```math
+\frac{0}{0},    \frac{\infty}{\infty},    0\cdot\infty,    \infty-\infty,    \infty^0,    1^\infty,    \infty^0
+```
+Note that $\infty + \infty = \infty$. Related: [L'Hopital's rule](derivatives#l'hopital's-rule)
 </Block>
 
 
@@ -93,54 +106,64 @@ We can use these laws to break a limit into separate limits, and compute that wa
 
 <Block variant="secondary" title="Limit of a polynomial">
 For the limit of a polynomial $p(x)$:
-$lim_{x\to a}p(x)=p(a)$
+```math
+lim_{x\to a}p(x)=p(a)
+```
 This can be proven easily with the limit laws above.
 </Block>
 
 
-
 <Block variant="knowledge" title="Techniques to compute limits">
 To solve for limits, we have to get the expression to the right form - a polynomial, for us to substitute our limit value into the function.
+
 To do this, often we have to **factorize** or **rationalize**.
 </Block>
 
 
-
-
 <Block variant="knowledge" title="Limits of composite functions">
 For the limit of a composite function $\lim_{x\to a}f(g(x))$, where $f$ is **not** continuous at $g(a)$, we find $b$ as $x\to a,g\to b$, and then find $\lim_{x\to b}f(x)$ at that value.
+
 The following explains some common cases:
 
     1. $x\to a^-, g\to g(a)^-$
     2. $x\to a^-, -x\to -a^+$
+
 For $y=\lim_{x\to a}f(x)^{g(x)}$, we can the logarithm to simplify the function, and determine $\lim_{x\to a}\ln y$ and find $\lim_{x\to a}y=e^{\lim_{x\to a}\ln y}$.
 </Block>
 
 
 <Block variant="knowledge" title="Limits of square roots">
 To solve for limits of square roots, we can multiply by the conjugate to rationalize the function.
-$\lim_{x\to a}f(x)+\sqrt{g(x)}=\lim_{x\to a}\frac{f^2(x)-g(x)}{f(x)-\sqrt{g(x)}}$
+```math
+\lim_{x\to a}f(x)+\sqrt{g(x)}=\lim_{x\to a}\frac{f^2(x)-g(x)}{f(x)-\sqrt{g(x)}}
+```
 </Block>
 
 
 
 <Block variant="secondary" title="The squeeze / sandwich theorem">
 Suppose $f(x)\le g(x) \le h(x)$ in the range $[a, b]$, for $c$ in $[a, b]$:
-$\lim_{x\to c}f \le \lim_{x\to c}g \le \lim_{x\to c}h$
+```math
+\lim_{x\to c}f \le \lim_{x\to c}g \le \lim_{x\to c}h
+```
 We will make use of the fact that the limits can be equal to solve for the limit of $g(x)$.
-</Block>
 
+<BlockSep />
 
-
-
-<Block variant="example" title="">
-Squeezing a function
 When we can't seem to factorize a function, we can try squeezing it between two other functions.
-$\lim_{x\to 0}x^2\cos\frac{1}{x}$
+```math
+\lim_{x\to 0}x^2\cos\frac{1}{x}
+```
 We know the limits of the function $\cos \frac{1}{x}$, so we can start from there.
-$\text{Given that }x\ne 0, -1\le \cos \frac{1}{x} \le 1$
-$\text{Multiplying }x^2\text{ on both sides},-x^2\le \cos x^2\frac{1}{x} \le x^2$
-$\text{As }\lim_{x\to 0}\pm x^2=0,    \text{we can conclude that }\lim_{x\to 0}x^2\cos\frac{1}{x}=0$
+```math
+\text{Given that }x\ne 0, -1\le \cos \frac{1}{x} \le 1
+```
+```math
+\text{Multiplying }x^2\text{ on both sides},-x^2\le \cos x^2\frac{1}{x} \le x^2
+```
+```math
+\text{As }\lim_{x\to 0}\pm x^2=0,    \text{we can conclude that }\lim_{x\to 0}x^2\cos\frac{1}{x}=0
+```
 </Block>
 
 
@@ -150,29 +173,36 @@ $\text{As }\lim_{x\to 0}\pm x^2=0,    \text{we can conclude that }\lim_{x\to 0}x
 
 <Block variant="knowledge" title="Determining infinite limits">
 If $f(x)$ gets (negatively) arbitrarily large when $x$ approaches $a$, we can say:
-$\lim_{x\to a}f(x)=(-)\infty$
+```math
+\lim_{x\to a}f(x)=(-)\infty
+```
 After we know that the limit *may* be infinity, we then have to make sure that *the limit is the same from both sides*, so that the limit is actually $\infty$. We can do so by plugging numbers which are approaching the limit from both sides.
 </Block>
 
 
 
-<Block variant="example" title="">
-Infinite limit exists
-$\lim_{x\to 0}\frac{6}{x^2}$
-$\text{Consider both}\ \lim_{x\to 0^-}\frac{6}{x^2},\lim_{x\to 0^+}\frac{6}{x^2}:$
-$\lim_{x\to 0}\frac{6}{x^2}=\infty$
+<HLayout>
+<Block variant="example" title="Infinite limit exists">
+```math
+\lim_{x\to 0}\frac{6}{x^2}
+```
+```math
+\text{Consider both}\ \lim_{x\to 0^-}\frac{6}{x^2},\lim_{x\to 0^+}\frac{6}{x^2}:
+```
+```math
+\lim_{x\to 0}\frac{6}{x^2}=\infty
+```
 </Block>
-
-
-
-
-<Block variant="example" title="">
-Infinite limit doesn't exist
-$\lim_{x\to 4}\frac{3}{(4-x)^3}$
+<Block variant="example" title="Infinite limit doesn't exist">
+```math
+\lim_{x\to 4}\frac{3}{(4-x)^3}
+```
 Checking both sides, we can conclude that the limit doesn't exist, as:
-$\lim_{x\to 4^+}\frac{3}{(4-x)^3}=-\infty,    \lim_{x\to 4^-}\frac{3}{(4-x)^3}=\infty$
+```math
+\lim_{x\to 4^+}\frac{3}{(4-x)^3}=-\infty,    \lim_{x\to 4^-}\frac{3}{(4-x)^3}=\infty
+```
 </Block>
-
+</HLayout>
 
 
 ## Limits at infinity
@@ -189,40 +219,45 @@ Note the following operations:
 
 <Block variant="knowledge" title="Determining limits of infinity">
 It is not hard to see that, for rational numbers $n$:
-$\lim_{x\to\pm\infty}\frac{k}{x^n}=0$
+```math
+\lim_{x\to\pm\infty}\frac{k}{x^n}=0
+```
 The easiest way to determine the limit would be to *factorize* the function so that we can use the fact above.
 </Block>
 
 
 <Block variant="secondary" title="Determining limits of infinity of polynomials">
 Using the above fact, we can see that for a polynomial $p(x)$ with degree $n$ and largest coefficient $a_n$:
-$\lim_{x\to\pm\infty}p(x)=a_nx^n$
+```math
+\lim_{x\to\pm\infty}p(x)=a_nx^n
+```
 Which means we can *only consider the largest term in a polynomial* for limits of infinity.
 </Block>
 
 
+<Block variant="example" title="Indeterminate forms by substitution of infinity">
 
-<Block variant="example" title="">
-Indeterminate forms by substitution of infinity
 Substituting $\infty$ into the function gives $\infty-\infty-\infty$, which is indeterminate. Hence, we must factorize it.
 ```math
-\lim_{x\to\infty}2x^4-x^2-8x & =\lim_{x\to\infty}[x^4(2-\frac{1}{x^2}-\frac{8}{x^3})] \\
+\begin{aligned}\lim_{x\to\infty}2x^4-x^2-8x & =\lim_{x\to\infty}[x^4(2-\frac{1}{x^2}-\frac{8}{x^3})] \\
 & =\infty\times 2                                        \\
 & =\infty
+\end{aligned}
 ```
 Or we can just simply use the theorem above and consider $\lim_{x\to\infty}2x^4$ only to give $\infty$.
 </Block>
 
 
+<Block variant="example" title="Factor polynomials limit to infinity">
 
-<Block variant="example" title="">
-Factor polynomials limit to infinity
-We can simply consider the largest terms on each side and give the final answer easily.
+We can simply cbonsider the largest terms on each side and give the final answer easily.
 ```math
+\begin{aligned}
 \lim_{x \to -\infty } \frac{{\sqrt {3{x^2} + 6} }}{{5 - 2x}} & =\lim_{x \to -\infty }\frac{\sqrt{3x^2}}{-2x}                           \\
 & =\lim_{x \to -\infty }\frac{\sqrt{3}|x|}{-2x} \leftarrow \sqrt{x^2}=|x| \\
 & =\lim_{x \to -\infty }\frac{-\sqrt{3}}{-2} \leftarrow |c|,c<0=-c        \\
 & =\frac{\sqrt{3}}{2}
+\end{aligned}
 ```
 Note that, as we are considering the negative limit of infinity, we need to add - to the abs sign on line 3.
 </Block>
@@ -235,13 +270,17 @@ Note that, as we are considering the negative limit of infinity, we need to add 
 
 <Block variant="primary" title="Vertical asymptotes">
 $f$ will have v-asymptotes at $x=a$ if any $\pm$ is true:
-$\lim_{x\to a^\pm}f(x)=\pm\infty$
+```math
+\lim_{x\to a^\pm}f(x)=\pm\infty
+```
 </Block>
 
 
 <Block variant="primary" title="Horizontal asymptotes">
 $f$ will have h-asymptotes at $y=L$ if any $\pm$ is true:
-$\lim_{x\to\pm\infty}f(x)=L$
+```math
+\lim_{x\to\pm\infty}f(x)=L
+```
 </Block>
 
-Related: [Graphing functions](FIXME-sec:graph)
+Related: [Graphing functions](derivatives#determining-shape-of-graph)
