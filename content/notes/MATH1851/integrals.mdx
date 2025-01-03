@@ -78,11 +78,11 @@ Some properties of summation:
 
 <Block variant="knowledge" title="Overview">
 
-    - By [**substitution**](#sec-intsub): “sub $g(x)\to u$, find $du$ and replace all functions of $x(dx)$ with $u(du)$”
-    - By [**part**](#sec-intpart): “$\int ab=a\int b-\int (a'\times \int b)$”
+    - By [**substitution**](#integration-by-substitution): “sub $g(x)\to u$, find $du$ and replace all functions of $x(dx)$ with $u(du)$”
+    - By [**part**](#integration-by-parts): “$\int ab=a\int b-\int (a'\times \int b)$”
     - By **joining recurring parts**: “$\int ab=f(ab)+\int ab\to 2\int ab = f(ab)$”
     - By **partial fractions**: “$\frac{k}{f(x)g(x)}=\frac{A}{f(x)}+\frac{B}{g(x)}$”
-    - By [**trigonometric identities**](#sec-inttrigo)
+    - By [**trigonometric identities**](#trigo-identities-substitution-tips)
     - By **multiplying fractions by one**: “Multiplying $\frac{\sec^2x}{\sec^2x}$ to fit trigo form”
 </Block>
 
@@ -137,21 +137,23 @@ b'a      & = (ab)' - a'b                   \\
 <Block variant="knowledge" title="Trigo-identities substitution tips">
 Use the following trigonometric identities to simplify the integral:
 
-    - $\sin^2x+\cos^2x=1$
-    - $\sin^2x=\frac{1-\cos2x}{2}$
-    - $\cos^2x=\frac{1+\cos2x}{2}$
-    - $2\sin x\cos x=\sin2x$
-    - $\cos2x=\cos^2x-\sin^2x$
-    - $\sec^2x=1+\tan^2x$
-    - $\csc^2x=1+\cot^2x$
+- $\sin^2x+\cos^2x=1$
+- $\sin^2x=\frac{1-\cos2x}{2}$
+- $\cos^2x=\frac{1+\cos2x}{2}$
+- $2\sin x\cos x=\sin2x$
+- $\cos2x=\cos^2x-\sin^2x$
+- $\sec^2x=1+\tan^2x$
+- $\csc^2x=1+\cot^2x$
+
 Use the following substitutions for similar expressions:
-$
+```math
 \text{Expressions of the form }
+\begin{cases}
 a^2-f(x)^2 & \to f(x)=a\sin\theta \\
 a^2+f(x)^2 & \to f(x)=a\tan\theta \\
 f(x)^2-a^2 & \to f(x)=a\sec\theta \\
 \end{cases}
-$
+```
 Remember that this uses *integration by substitution*, so we need to find $dx$ in terms of $\theta$.
 </Block>
 
@@ -164,9 +166,9 @@ A 3D shape formed by rotating a *region* around an axis.
 <BlockSep />
 A region is defined by 2 curves and an interval:
 
-    1. The vertical region bounded by an outer cruve $R(x)$ and an inner curve $r(x)$.
-    2. The inner curve is $y=0$ for the region bounded by the $x$-axis.
-    3. The horizontal region is bounded by an interval $x:\ [a, b]$
+1. The vertical region bounded by an outer cruve $R(x)$ and an inner curve $r(x)$.
+2. The inner curve is $y=0$ for the region bounded by the $x$-axis.
+3. The horizontal region is bounded by an interval $x:\ [a, b]$
 
 Note that for the methods below, the terms $x$ and $y$ can be *switched* to fit the problem.
 

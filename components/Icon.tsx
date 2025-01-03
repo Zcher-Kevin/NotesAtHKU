@@ -6,14 +6,14 @@ interface IconProps {
   size?: number | string;
 }
 
-const Icon: React.FC<IconProps> = ({ name, color, size }) => {
+const Icon: React.FC<IconProps> = ({ name, color, size, ...props }) => {
   const LucideIcon = icons[name as keyof typeof icons] as LucideIcon;
 
   if (!LucideIcon) {
     return null;
   }
 
-  return <LucideIcon color={color} size={size} />;
+  return <LucideIcon color={color} size={size} {...props} />;
 };
 
 export default Icon;

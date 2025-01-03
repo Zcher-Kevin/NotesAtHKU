@@ -9,10 +9,10 @@
     "---Contents---",
     "limits-and-continuity",
     "derivatives",
-    "integrals",
     "trigo-review",
+    "integrals",
     "polar",
     "ode"
   ],
-  "wip": true
+  "wip": false
 }

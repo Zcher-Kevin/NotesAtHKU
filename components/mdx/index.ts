@@ -4,6 +4,7 @@ import Block from "./Block";
 import BlockSep from "./BlockSep";
 import ColorBox from "./ColorBox";
 import HLayout from "./HLayout";
+import Icon from "./Icon";
 import Inline from "./Inline";
 import Welcome from "./Welcome";
 
@@ -15,6 +16,7 @@ const mdxComponents = {
   ColorBox,
   ACCTExample,
   Inline,
+  Icon,
   a: A,
 };
 
