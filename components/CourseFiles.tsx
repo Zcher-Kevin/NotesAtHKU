@@ -38,6 +38,7 @@ function getSortedFiles() {
   readDirectory(directoryPath);
 
   return jsonFiles.sort((a, b) => {
+    // sort by year, season, and title
     const [yearA, seasonA] = a.semester.split(" ");
     const [yearB, seasonB] = b.semester.split(" ");
 
@@ -45,6 +46,10 @@ function getSortedFiles() {
       return parseInt(yearA) - parseInt(yearB);
     }
 
-    return seasonA === "Spring" ? -1 : 1;
+    if (seasonA !== seasonB) {
+      return seasonA === "Spring" ? -1 : 1;
+    }
+
+    return a.title.localeCompare(b.title);
   });
 }
