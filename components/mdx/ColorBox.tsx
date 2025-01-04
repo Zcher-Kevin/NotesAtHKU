@@ -7,7 +7,10 @@ interface ColorBoxProps {
 
 export default function ColorBox({ color, children }: ColorBoxProps) {
   return (
-    <span style={{ backgroundColor: color }} className="p-[2px] w-fit inline">
+    <span
+      className="inline p-1 text-black rounded-sm w-fit"
+      style={{ backgroundColor: color }}
+    >
       {children}
     </span>
   );

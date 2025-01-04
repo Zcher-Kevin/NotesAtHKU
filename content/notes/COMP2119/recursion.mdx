@@ -35,13 +35,13 @@ f(n)=\begin{cases}\quad1&n=1\\2f(n-1)+1&n>1\end{cases}
 <Block variant="secondary" title="Solve a recurrence relation - subsitution method">
 We "solve" a recurrence relation by finding a closed-form expression for $f(n)$ in terms of $n$.
 
-    1. Expand the relation as $f(n)$ to 3 levels
-    2. Observe the pattern of $f(n)$
-    3. Generalize the pattern in terms of the level $k$
-    4. Using the base case to define $k$ in terms of $n$
-    5. Subsitute $k$ back into the generalization
+1. Expand the relation as $f(n)$ to 3 levels
+2. Observe the pattern of $f(n)$
+3. Generalize the pattern in terms of the level $k$
+4. Using the base case to define $k$ in terms of $n$
+5. Subsitute $k$ back into the generalization
 <BlockSep />
-[Solve Re 1](FIXME-eg:solve_re_1)
+[Example](solve-recurrence-relation-with-substitution-method)
 
 </Block>
 
@@ -49,12 +49,12 @@ We "solve" a recurrence relation by finding a closed-form expression for $f(n)$ 
 
 <Block variant="knowledge" title="Relevant mathematics">
 
-    1. Geometric series: $S_n = a(1 + r + r^2 + \cdots + r^{n-1}) = a\frac{r^n - 1}{r-1}$
-    2. Arithmetic series: $S_n = n(\frac{a_1+a_n}{2}),\quad n=\text{number of terms}, a=\text{first / last term}$
-    3. Factorial: $n! = n \times (n-1) \times (n-2) \times \cdots \times 1$
-    4. Falling factorial: $n^{(k)} = n(n-1)(n-2)\cdots(n-k+1)=\frac{n!}{(n-k)!}$
-    5. Logarithm: $a^k=b\implies k=\log_a b$
-    6. Logarithm property: $k^{\log a} = a^{\log k}$
+1. Geometric series: $S_n = a(1 + r + r^2 + \cdots + r^{n-1}) = a\frac{r^n - 1}{r-1}$
+2. Arithmetic series: $S_n = n(\frac{a_1+a_n}{2}),\quad n=\text{number of terms}, a=\text{first / last term}$
+3. Factorial: $n! = n \times (n-1) \times (n-2) \times \cdots \times 1$
+4. Falling factorial: $n^{(k)} = n(n-1)(n-2)\cdots(n-k+1)=\frac{n!}{(n-k)!}$
+5. Logarithm: $a^k=b\implies k=\log_a b$
+6. Logarithm property: $k^{\log a} = a^{\log k}$
 </Block>
 
 
@@ -70,23 +70,16 @@ T(n) = \begin{cases}
 \Theta(n^k)          & \text{if } a < b^k
 \end{cases}
 ```
-
-<BlockSep />
-
 </Block>
 
-
-
 ## Mathematical induction
-
-
 
 <Block variant="primary" title="Mathematical induction">
 A method of mathematical proof that proves a statement for all natural numbers.
 
-    1. **Base case**: Prove the statement for the first natural number in the statement's range.
-    2. **Inductive step**: Assume the statement is true for $n$, then prove it is also true for $n+1$.
+1. **Base case**: Prove the statement for the first natural number in the statement's range.
+2. **Inductive step**: Assume the statement is true for $n$, then prove it is also true for $n+1$.
 <BlockSep />
-[Mi 1](FIXME-eg:mi_1)
+[Example](question-examples#proving-with-mathematical-induction)
 
 </Block>

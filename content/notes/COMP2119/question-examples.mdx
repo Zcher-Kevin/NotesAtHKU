@@ -2,10 +2,11 @@
 title: Examples & questions bank
 ---
 
+## Recursion
 
-<Block variant="example" title="">
+<Block variant="example" title="Solve recurrence relation with substitution method">
 
-Solving a recurrence relation with subsitution method [Solve Re](FIXME-thm:solve_re)
+[Reference section](recursion#solve-a-recurrence-relation---subsitution-method)
 
 ```math
 \begin{aligned}
@@ -27,9 +28,9 @@ f(1) = f(n-k)           & =1 \implies k=n-1      \\
 
 
 
-<Block variant="example" title="">
+<Block variant="example" title="Proving with Mathematical Induction">
 
-Proving with MI [Mi](FIXME-def:mi)
+[Reference section](recursion#mathematical-induction)
 
 ```math
 \begin{aligned}
@@ -48,14 +49,12 @@ f(k+1):\ \text{LHS\ } & = f(k) + (k+1)\cdot2^{k+1}                              
 \therefore\           & \text{Statement holds true }\forall\ n > 0
 \end{aligned}
 ```
-
-
 </Block>
 
+## Algorithm Analysis
 
-
-<Block variant="example" title="Disproving Big O notation} [Asym](FIXME-def:asym)">
-
+<Block variant="example" title="Disproving Big O notation">
+[Reference section](analysis#general-definition-of-asymptotic-notations)
 
 Consider $T(n) = 3n^3 + 1$, to show that $T(n) \neq O(n^2)$:
 
@@ -74,8 +73,8 @@ As this expression cannot hold true for all $n \geq 2$ for a specific $c$ value,
 
 
 
-<Block variant="example" title="Proving Little o notation} [Asym](FIXME-def:asym)">
-
+<Block variant="example" title="Proving Little o notation">
+[Reference section](analysis#general-definition-of-asymptotic-notations)
 
 To show that $T(n) \in o(n^4)$:
 
@@ -93,8 +92,8 @@ As this express can hold true for any $c > 0$ with sufficiently large $n_0$, we 
 
 
 
-<Block variant="example" title="Proving Big Theta notation} [Asym](FIXME-def:asym)">
-
+<Block variant="example" title="Proving Big Theta notation">
+[Reference section](analysis#general-definition-of-asymptotic-notations)
 
 Consider $T(n)=4n^2$, to show that $T(n) \in \Theta(0.5n^2+10n+20)$:
 
@@ -115,9 +114,9 @@ Therefore we can simply take $n_0 = 10$ and $c_1 = \frac14, c_2=8$ to satisfy th
 
 
 
-<Block variant="example" title="">
+<Block variant="example" title="Identifying asymptotic growths">
 
-Identifying asymptotic growths [Iasym](FIXME-thm:iasym)
+[Reference section](analysis#identifying-asymptotic-growths)
 
 *Example 1:*$T(n)=3n^3+1\implies O(n^3)\ \Omega(n^3)\ \Theta(n^3)\ o(n^4)\ \omega(n^2)$
 
@@ -126,14 +125,39 @@ Identifying asymptotic growths [Iasym](FIXME-thm:iasym)
 *Example 3:*$n\log n \in \Omega(e^{\log n})$  ($n\log n \geq n$)
 </Block>
 
+## Data Structures
 
+<Block variant="example" title="Reverse a linked list psuedocode">
 
-<Block variant="example" title="">
+Example implementation of reversing a linked list. [Reference section](structures#reversing-a-linked-list)
 
-Example implementation of reversing a linked list [Linked List Reverse](FIXME-thm:linked_list_reverse)
+```python
+def reverse_linked_list(head):
+    prev = None
+    current = head
+    while current:
+        next = current.next
+        current.next = prev
+        prev = current
+        current = next
+    return prev
+
+def find_middle_node(head):
+    slow = head
+    fast = head
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+    return slow
+
+```
 </Block>
 
-```python, firstline=1, lastline=9
+
+<Block variant="example" title="Find middle node of a linked list psuedocode">
+
+Example implementation of finding the middle node of a linked list. [Reference section](structures#hare-and-tortoise-algorithm)
+```python
 def reverse_linked_list(head):
     prev = None
     current = head
@@ -154,38 +178,13 @@ def find_middle_node(head):
 
 ```
 
-
-<Block variant="example" title="">
-
-Example implementation of finding the middle node of a linked list [Linked List Find Middle](FIXME-thm:linked_list_find_middle)
 </Block>
 
-```python, firstline=11, lastline=17
-def reverse_linked_list(head):
-    prev = None
-    current = head
-    while current:
-        next = current.next
-        current.next = prev
-        prev = current
-        current = next
-    return prev
-
-def find_middle_node(head):
-    slow = head
-    fast = head
-    while fast and fast.next:
-        slow = slow.next
-        fast = fast.next.next
-    return slow
-
-```
 
 
-<Block variant="example" title="">
+<Block variant="example" title="BFS psuedocode">
 
-Example implementation of BFS [Graph Bfs](FIXME-thm:graph_bfs)
-</Block>
+Example implementation of BFS. [Reference section](structures#breadth-first-search-(bfs))
 
 ```python
 def bfs(mtx, start):
@@ -202,44 +201,24 @@ def bfs(mtx, start):
                 q.enqueue(x)  # put in queue
                 qd.append(x)   # mark as queued
 ```
+</Block>
 
 
-<Block variant="example" title="">
 
-Example of finding the average number of slots inspected for unsuccessful search of built hash table with resolution method double hashing [Collision-Hash Unsuccessful Average Slots Inspected](FIXME-thm:collision-hash_unsuccessful_average_slots_inspected)
+<Block variant="example" title="Unsuccessful search">
+
+Example of finding the average number of slots inspected for unsuccessful search of built hash table with resolution method double hashing. [Reference section](structures#finding-the-average-number-of-slots-inspected-for-unsuccessful-search)
 
 $m = 5,\quad h(k) = k \mod 5$ with double hashing $f(i) = i \cdot h'(k),\quad h'(k) = 2 - (k \mod 2)$.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 Therefore the average is $\frac{(4+1+3+1+2)+(2+1+2+1+3)}{5\times 2} = 2$
 </Block>
 
+## Sorting
 
+<Block variant="example" title="Selection sort psuedocode">
 
-<Block variant="example" title="">
-
-Example of implementation of selection sort. [Sort Summary](FIXME-subsec:sort_summary)
-</Block>
-
+Example of implementation of selection sort. [Sort Summary](sort#summary)
 ```python
 function selection_sort(array):
     for i in array:
@@ -251,13 +230,12 @@ function selection_sort(array):
     return A
 
 ```
-
-
-<Block variant="example" title="">
-
-Example of implementation of bubble sort. [Sort Summary](FIXME-subsec:sort_summary)
 </Block>
 
+
+<Block variant="example" title="Bubble sort psuedocode">
+
+Example of implementation of bubble sort. [Sort Summary](sort#summary)
 ```python
 function bubble_sort(array, n): 
     for i in 0 to n - 1:
@@ -270,13 +248,13 @@ function bubble_sort(array, n):
         # if no two elements were swapped, the array is sorted
     return A
 ```
-
-
-<Block variant="example" title="">
-
-Example of implementation of insertion sort. [Sort Summary](FIXME-subsec:sort_summary)
 </Block>
 
+
+
+<Block variant="example" title="Insertion sort psuedocode">
+
+Example of implementation of insertion sort. [Sort Summary](sort#summary)
 ```python
 function insertion_sort(array):
     for i in array after 0:
@@ -289,11 +267,13 @@ function insertion_sort(array):
     
             
 ```
+</Block>
 
 
-<Block variant="example" title="">
 
-Example of implementation of heap sort. [Sort Summary](FIXME-subsec:sort_summary)
+<Block variant="example" title="Heap sort psuedocode">
+
+Example of implementation of heap sort. [Sort Summary](sort#summary)
 </Block>
 
 ```python
@@ -308,11 +288,9 @@ function heap_sort(array):
 ```
 
 
-<Block variant="example" title="">
+<Block variant="example" title="Merge sort psuedocode">
 
-Example of implementation of merge sort. [Sort Summary](FIXME-subsec:sort_summary)
-</Block>
-
+Example of implementation of merge sort. [Sort Summary](sort#summary)
 ```python
 function merge_sort(array):
     function merge(A1, A2):
@@ -332,13 +310,13 @@ function merge_sort(array):
 
     return merge(left, right)
 ```
-
-
-<Block variant="example" title="">
-
-Example of implementation of quick sort. [Sort Summary](FIXME-subsec:sort_summary)
 </Block>
 
+
+
+<Block variant="example" title="Quick sort psuedocode">
+
+Example of implementation of quick sort. [Sort Summary](sort#summary)
 ```python
 function quick_sort(array):
     function partition(array):
@@ -361,13 +339,13 @@ function quick_sort(array):
     quickSort(array before pivot)
     quickSort(array after pivot)
 ```
-
-
-<Block variant="example" title="">
-
-Example of implementation of count sort. [Sort Summary](FIXME-subsec:sort_summary)
 </Block>
 
+
+
+<Block variant="example" title="Count sort psuedocode">
+
+Example of implementation of count sort. [Sort Summary](sort#summary)
 ```python
 function counting_sort(array):
     k = max(array) # O(n)
@@ -385,13 +363,13 @@ function counting_sort(array):
     
     return result
 ```
-
-
-<Block variant="example" title="">
-
-Example of implementation of radix sort. [Sort Summary](FIXME-subsec:sort_summary)
 </Block>
 
+
+
+<Block variant="example" title="Radix sort psuedocode">
+
+Example of implementation of radix sort. [Sort Summary](sort#summary)
 ```python
 function radix_sort(array, b=10):
     function countin_sort_exp(i):
@@ -418,5 +396,5 @@ function radix_sort(array, b=10):
 
     for i from 0 to d - 1:
         counting_sort_exp(i)
-
 ```
+</Block>

@@ -66,44 +66,36 @@ Note that the $\in$ is interchangable with $=$. The meaning does not really matt
 <BlockSep />
 To prove non-strict boundaries, we need to show the existence of constants $c, n_0$ that satisfies the inequality.
 
-[Asym 1](FIXME-eg:asym_1) [Asym 2](FIXME-eg:asym_2) [Asym 3](FIXME-eg:asym_3)
+[Prove ex. 1](question-examples#disproving-big-o-notation) [Prove ex. 2](question-examples#proving-little-o-notation) [Prove ex. 3](question-examples#proving-big-theta-notation)
 </Block>
 
 
 
 <Block variant="primary" title="Definition of all asymptotic notations">
-
-
-
-
-
-
-
-
-
-
+| Notation | Condition | Asymptotic boundary | Name |
+| --- | --- | --- | --- |
+| $O(g)$ | $T(n) \htmlClass{text-red-500}{\leq} c\cdot g(n)$ | Upper | Big O |
+| $\Omega(g)$ | $T(n) \htmlClass{text-red-500}{\geq} c\cdot g(n)$ | Lower | Big Omega |
+| $\Theta(g)$ | $ c_1\cdot g(n)\htmlClass{text-red-500}{\leq} T(n) \htmlClass{text-red-500}{\leq} c_2\cdot g(n)$ | Tight | Big Theta / Order of growth |
+| $o(g)$ | $T(n) \htmlClass{text-red-500}{<} c\cdot g(n)$ | Strictly upper | Little o |
+| $\omega(g)$ | $T(n) \htmlClass{text-red-500}{>} c\cdot g(n)$ | Strictly lower | Little omega |
 
 </Block>
-
 
 
 <Block variant="knowledge" title="Growth rate functions">
 We use the likeness of $g(n)$ to describe the complexity of $T(n)$. The following gives the common growth rate functions (increasing order of growth):
 ```math
-
 1 < \log n < \sqrt{n} < n < n\log n < n^2 < n^3 < 2^n < n! < n^n
-
 ```
-
 
 Note that the higher the growth rate, the more complex the algorithm.
 
 Note the following growth rate equivilencies:
 
-    - $\log(n!)=\Theta(n\log(n))$ (prove not needed, related to [lower bound of sorting algorithms](FIXME-thm:lower_bound_sort))
-    - $\Theta(\log_2n)=\Theta(\log_{10}n)$ as $\log_2n = \frac{\log n}{\log 2} = c\times\log n$
+- $\log(n!)=\Theta(n\log(n))$ (prove not needed, related to [lower bound of sorting algorithms](sort#lower-bound-(worse-case)-of-comparison-based-sorting))
+- $\Theta(\log_2n)=\Theta(\log_{10}n)$ as $\log_2n = \frac{\log n}{\log 2} = c\times\log n$
 </Block>
-
 
 
 <Block variant="secondary" title="Identifying asymptotic growths">
@@ -118,7 +110,7 @@ Note that as the defintions are specified by an **inequality**, there could be *
 If the function functuates, there is not a consistent growth rate unless a boundary is specified.
 <BlockSep />
 
-[Iasym 1](FIXME-eg:iasym_1)
+[Example](question-examples#identifying-asymptotic-notations)
 </Block>
 
 
@@ -133,8 +125,8 @@ The straight forward way is to find the closed-form expression and identify the 
 
 <Block variant="knowledge" title="Useful growth rates">
 
-    - **Sum of square series**: $\sum_{i=1}^{k}f(n, i)^2\in \Theta(n^3)$
-    - **Sum of series**: $\sum_{i=1}^{k}f(n, i)\in \Theta(n^2)$
+- **Sum of square series**: $\sum_{i=1}^{k}f(n, i)^2\in \Theta(n^3)$
+- **Sum of series**: $\sum_{i=1}^{k}f(n, i)\in \Theta(n^2)$
 </Block>
 
 
@@ -161,10 +153,10 @@ Our goal is to examine how the runtime grows with respect to the input size. Con
 
 ```python
 # 1
-for num in arr:                     # n
-if num > max_val:               # n
-max_val = num               # n
-return max_val                      # 1
+for num in arr:         # n
+if num > max_val:       # n
+max_val = num           # n
+return max_val          # 1
 ```
 
 It should be acknowledged that each operation / line would take different amounts of time to compute. However, as we are interested in the runtime $T(n)$'s growth rate, we can treat all operations to take $1$ unit of time.
@@ -174,17 +166,12 @@ Hence, $T(n)=O(1)+O(1)+O(1)+O(1)+O(n)+O(n)+O(n)+O(1)=O(n)$
 
 <Block variant="secondary" title="Typical growth rates and common occurance">
 
-
-
-
-
-
-
-
-
-
-
-
-
+| Growth | Occurrence |
+| --- | --- |
+| $1$ | Statements that run a set number of times with no respect to the input size |
+| $\log n$ | Algorithms that solve a big problem by transformation into a series of smaller problems, cutting the problem size by some constant fraction at each step. |
+| $n$ | "for" loops that have $n$ amount of iterations per program run |
+| $n\log n$ | Algorithms that solve a problem by breaking it up into smaller sub-problems, solving them independently, and then combining the solutions. |
+| $n^k$ | Nested "for" loops that have $n$ amount of iterations per program run |
 
 </Block>

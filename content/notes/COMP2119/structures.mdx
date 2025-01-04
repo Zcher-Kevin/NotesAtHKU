@@ -9,9 +9,9 @@ A data structure is a way to group & store data in a computer, and have pros and
 <Block variant="knowledge" title="Operations">
 A data structure has the following operations:
 
-    - **Access**
-    - **Insertion & deletion**
-    - **Search**
+- **Access**
+- **Insertion & deletion**
+- **Search**
 </Block>
 
 
@@ -40,18 +40,18 @@ A Non-linear Data Structure has each item can relate to multiple other items.
 The following is an overview of the ADTs that is dicussed in the course:
 
 
-    - [Core-Implementations](#subsec-core-implementations)
-        - **Arrays**
-        - **Nodes / linked list**
-    - Structure types
-        - [Linear-Structures](#subsec-linear-structures)
-            - **Linked list**
-            - **Stack**
-            - **Queues**
-        - [Nonlinear-Structures](#subsec-nonlinear-structures)
-            - **Trees**
-            - **Graphs**
-            - **Hash tables**
+- [Core-Implementations](#core-implementations)
+    - **Arrays**
+    - **Nodes / linked list**
+- Structure types
+    - [Linear-Structures](#linear-structures)
+        - **Linked list**
+        - **Stack**
+        - **Queues**
+    - [Nonlinear-Structures](#non-linear-structures)
+        - **Trees**
+        - **Graphs**
+        - **Hash tables**
 
 
 ## Core implementations
@@ -64,8 +64,8 @@ The following ADTs can be used to implement other data structures that will be i
 <Block variant="primary" title="Array / Direct access table">
 Set number of items stored in *adjacent* memory locations. Identified by the first item.
 
-    - **Access:** Simple access by index. $O(1)$
-    - **Insertion & deletion:** Slow, as it involves shifting the surrounding items and creating a new array. $O(n)$
+- **Access:** Simple access by index. $O(1)$
+- **Insertion & deletion:** Slow, as it involves shifting the surrounding items and creating a new array. $O(n)$
 </Block>
 
 
@@ -81,8 +81,8 @@ Nodes can be directional (one-way access) or non-directional (two-way access), a
 <Block variant="primary" title="Linked list">
 Nodes that are connected to the next node. Identified by the first node.
 
-    - **Access:** Slow, as we have to traverse the list from the start. $O(n)$
-    - **Insertion & deletion:** Fast, as we only need to change the pointers of the neighbouring nodes. $O(1)$
+- **Access:** Slow, as we have to traverse the list from the start. $O(n)$
+- **Insertion & deletion:** Fast, as we only need to change the pointers of the neighbouring nodes. $O(1)$
 </Block>
 
 
@@ -90,12 +90,12 @@ Nodes that are connected to the next node. Identified by the first node.
 <Block variant="secondary" title="Reversing a linked list">
 We can reverse a linked list in $O(n)$ time by iterating through the list and reversing the direction of the edges using three pointers:
 
-    - Make current node point to previous node
-    - Save previous node
-    - Move to next node
-    - Repeat
+- Make current node point to previous node
+- Save previous node
+- Move to next node
+- Repeat
 <BlockSep />
-Example implementation: [Linked List Reverse](FIXME-eg:linked_list_reverse)
+[Ex. psuedocode](question-examples#reverse-a-linked-list-psuedocode)
 </Block>
 
 
@@ -108,7 +108,7 @@ We can find the middle node of a linked list in $O(n)$ time by using two pointer
     - Move the other pointer two nodes at a time
     - When the fast pointer reaches the end, the slow pointer will be at the middle
 <BlockSep />
-Example implementation: [Linked List Find Middle](FIXME-eg:linked_list_find_middle)
+[Ex. psuedocode](question-examples#find-middle-node-of-a-linked-list-psuedocode)
 </Block>
 
 
@@ -116,17 +116,14 @@ Example implementation: [Linked List Find Middle](FIXME-eg:linked_list_find_midd
 
 ## Linear structures
 
-
-
-
 <Block variant="primary" title="Push pop & access">
 
 Stacks and queues are concepts that extend from a linear list of items.
 
 They have the following characteristics:
 
-    - **Only one item can be accessed** at an instance of the data structure.
-    - **Items cannot be inserted or removed** freely.
+- **Only one item can be accessed** at an instance of the data structure.
+- **Items cannot be inserted or removed** freely.
 
 In a stack / queue, **push / enqueue (in)** means adding an item, and **pop / dequeue (out)** means removing an item. Only the **out** item can be accessed.
 </Block>
@@ -135,35 +132,31 @@ In a stack / queue, **push / enqueue (in)** means adding an item, and **pop / de
 
 <Block variant="primary" title="Stacks & Queues">
 
-    - **Stack**: *First In, First Out (FIFO)*.
-    - **Queue**: *Last In, First Out (LIFO)*.
+- **Stack**: *First In, First Out (FIFO)*.
+- **Queue**: *Last In, First Out (LIFO)*.
 **Accessing** out items is $O(1)$. Accessing / operating on other items is $O(n)$.
 </Block>
 
 
-Priority queues are a special type of queue, know more about them in the [Heaps](#subsubsec-heaps) section.
+Priority queues are a special type of queue, know more about them in the [Heaps](#heaps) section.
 
 
 ## Non-linear structures
 
-
-
-
 ### Graph
-
 
 
 <Block variant="primary" title="Graph">
 Nodes which can connect to multiple other nodes. (Allow loops)
 
-    - **Directed**: Only one direction is allowed.
-    - **Undirected**: Both directions are allowed.
-    - **Weighted**: Each edge has a weight.
-    - **Unweighted**: Each edge has no weight.
-    - **Number of nodes:** $n$
-    - **Number of edges:** $m$
-    - **Degree of node:** $d$ Number of edges connected to the node.
-    - **Maximum degree of graph:** $d_{max}$ Maximum degree of all nodes.
+- **Directed**: Only one direction is allowed.
+- **Undirected**: Both directions are allowed.
+- **Weighted**: Each edge has a weight.
+- **Unweighted**: Each edge has no weight.
+- **Number of nodes:** $n$
+- **Number of edges:** $m$
+- **Degree of node:** $d$ Number of edges connected to the node.
+- **Maximum degree of graph:** $d_{max}$ Maximum degree of all nodes.
 </Block>
 
 
@@ -180,23 +173,7 @@ A $n \times n$ matrix. $A[i]$ are the list of nodes that node $i$ is connected t
 
 <BlockSep />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div className="flex items-center justify-center gap-4"><div className="w-52">![graph](./img/graph.png)</div> $\left[\begin{matrix}0 & 1 & 0 \\1 & 0 & 1 \\0 & 1 & 0 \\\end{matrix}\right]$</div>
 
 </Block>
 
@@ -212,22 +189,7 @@ An array with $n$ items, each item in the array is a list of nodes that the curr
 
 <BlockSep />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div className="flex items-center justify-center gap-4"><div className="w-52">![graph](./img/graph.png)</div> $[[2],[1,3],[2]]$</div>
 
 </Block>
 
@@ -237,21 +199,7 @@ An array with $n$ items, each item in the array is a list of nodes that the curr
 An array with $m$ items, each item is a tuple of the two nodes that the edge is connecting.
 <BlockSep />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div className="flex items-center justify-center gap-4"><div className="w-52">![graph](./img/graph.png)</div> $[(0,1),(1,2)]</div>
 
 </Block>
 
@@ -266,28 +214,15 @@ Visits nodes at the increasing order of distance from the starting node.
     - Repeat until queue is empty, visit queue node
     - Add unqueued adjacent nodes to queue and mark as queued.
 <BlockSep />
-Example implementation: [Graph Bfs](FIXME-eg:graph_bfs)
+Example implementation: [Graph Bfs](question-examples#bfs-psuedocode)
 </Block>
-
-
-
-
 
 <Block variant="secondary" title="Depth-first search (DFS)">
 Visit the furthest nodes and backtrack.
 </Block>
 
 
-
-
-
-
-
-
-
 ### Heaps
-
-
 
 
 <Block variant="secondary" title="Priority queues">
@@ -307,7 +242,7 @@ A (max) heap is a binary tree where __each node has a value greater than or equa
     - **Max heap**: The root node has the highest value.
     - **Min heap**: The root node has the lowest value.
 
-Thouhg a tree-based data structure, we usually implement heaps as arrays, which is useful such as in the case of [heap sort](FIXME-def:heapsort).
+Thouhg a tree-based data structure, we usually implement heaps as arrays, which is useful such as in the case of [heap sort](sort#heap-sort).
 
     - Root at index 0
     - Left child at $2i + 1$
@@ -387,9 +322,9 @@ Nodes which has **one parent** and can connect to **multiple children**.
 
 
 <Block variant="primary" title="Hash table">
-**Dynamic set** of key-value pairs, where items are stored in an array with **fixed size**. To access an item, the index is found by a [hash function](#thm-hash-function).
+**Dynamic set** of key-value pairs, where items are stored in an array with **fixed size**. To access an item, the index is found by a [hash function](#hash-function).
 
-A **collision** occurs when $h(k_1) = h(k_2)$. We deal with it by different [methods](#thm-collision-resolution).
+A **collision** occurs when $h(k_1) = h(k_2)$. We deal with it by different [methods](#collision-resolution).
 
 
     - **Access:** $\Theta(1)$, $O(n)$
@@ -404,9 +339,7 @@ Where $h$ is the hash function and $k$ is the key.
 
 <Block variant="knowledge" title="Load factor">
 ```math
-
 \alpha = \frac{n}{m}
-
 ```
 
 Where $n$ is the number of items, and $m$ is the size of the table.
@@ -419,38 +352,29 @@ A hash function is a function that takes a key and returns an index. It should b
 
 The most basic hash function is the **division method**:
 ```math
-
 h(k) = k \% prime
-
 ```
 
 A good value of $prime$ should be a **prime number** that is not close to a power of 2.
 </Block>
 
 
-
-
-<Block variant="secondary" title="Collision & resolution">
+<Block variant="secondary" title="Collision resolution">
 When $h(k_1) = h(k_2)$, we have a **collision**. We can resolve it by:
 
-    - **Chaining**: Store items in the same slot by **appending** them to the linked list in the slot.
-    - **Open addressing**: Store items in another slot.
+- **Chaining**: Store items in the same slot by **appending** them to the linked list in the slot.
+- **Open addressing**: Store items in another slot.
 For opening addressing, we have the following implementations and the slot where the item is stored is:
 
-
-
-
-
-
-
-
-
+| Method            | Slot                       |
+|---|---|
+| Linear probing    | $A[h(k) + i]$              |
+| Quadratic probing | $A[h(k) + i^2]$            |
+| Double hashing    | $A[h(k) + i \cdot h'(k)]$  |
 
 
 Where $i$ is the number of collisions.
 </Block>
-
-
 
 
 <Block variant="knowledge" title="Primary clustering">
@@ -459,42 +383,36 @@ Primary clustering occurs in **open-addressing** hash tables that use **linear p
 This can lead to **longer search times** for items that are stored in the same cluster.
 </Block>
 
-
-
 <Block variant="secondary" title="Finding the average number of slots inspected for unsuccessful search">
 General steps:
 
-    1. For each slot, assume a collision and resolve until an empty slot is found, and count the steps (no. of slots inspected). We usually count nil slots as well.
-    2. Sum and divide by $m$
+1. For each slot, assume a collision and resolve until an empty slot is found, and count the steps (no. of slots inspected). We usually count nil slots as well.
+2. Sum and divide by $m$
 Notes:
 
-    - For double hashing, we **must consider the second hash function**. In other resolution methods, we already assumed a collision so the first hash function does not matter. Refer to example for detailed steps.
+- For double hashing, we **must consider the second hash function**. In other resolution methods, we already assumed a collision so the first hash function does not matter. Refer to example for detailed steps.
 <BlockSep />
-Example: [Hash Unsuccessful Double Hashing](FIXME-eg:hash_unsuccessful_double_hashing)
+[Example](question-examples#unsuccessful-search)
 </Block>
-
-
 
 
 <Block variant="secondary" title="Finding the average number of slots inspected for successful search">
 General steps:
 
-    1. For each slot, count the number of items in the slot.
-    2. Sum and divide by $m$
+1. For each slot, count the number of items in the slot.
+2. Sum and divide by $m$
 </Block>
-
-
 
 <Block variant="knowledge" title="Averages and spaces">
 For chaining:
 
-    - $S_n=1+\frac{a}{2}$
-    - $U_n=\alpha$
-    - Space $=mp_s+n(p_s+e_s)$
+- $S_n=1+\frac{a}{2}$
+- $U_n=\alpha$
+- Space $=mp_s+n(p_s+e_s)$
 For open addressing:
 
-    - $S_n=\frac12(1+\frac{1}{1-\alpha})$
-    - $U_n=\frac12(1+\frac{1}{(1-\alpha)^2})$
-    - Space $=ne_s$
+- $S_n=\frac12(1+\frac{1}{1-\alpha})$
+- $U_n=\frac12(1+\frac{1}{(1-\alpha)^2})$
+- Space $=ne_s$
 Where $S_n$ is the average number of slots inspected, $U_n$ is the average number of slots inspected for successful search, $m$ is the size of the table, $n$ is the number of items, $p_s$ is the space for a pointer, $e_s$ is the space for an element, and $\alpha$ is the load factor.
 </Block>

@@ -14,9 +14,9 @@ We will focus on searching algorithms on a **sorted list** in this section.
 <Block variant="primary" title="Jump search">
 Works by:
 
-    - Access linearly every floor($\sqrt{n}$) elements
-    - If the element is greater than the target, go back to the previous jump
-    - Linearly search the elements in the jump
+- Access linearly every floor($\sqrt{n}$) elements
+- If the element is greater than the target, go back to the previous jump
+- Linearly search the elements in the jump
 **Amount of comparisons** $=\frac{n}{\sqrt{n}} + \sqrt{n} - 1$
 
 **Time complexity:** $O(\sqrt{n})$
@@ -66,8 +66,8 @@ This is built upon the idea of binary search.
 <Block variant="primary" title="Binary search tree (BST)">
 A binary tree (two child nodes per node) that satisfies the following properties:
 
-    - Left node: key $\leq$ root.key
-    - Right node: key $>$ root.key
+- Left node: key $\leq$ root.key
+- Right node: key $>$ root.key
 The height of a BST is $\log n$.
 </Block>
 
@@ -76,8 +76,8 @@ The height of a BST is $\log n$.
 <Block variant="secondary" title="Time complexities">
 Consider the height of a BST:
 
-    - Min height: $\log_2 n + 1$
-    - Max height: $n$ (All nodes are in a straight line)
+- Min height: $\log_2 n + 1$
+- Max height: $n$ (All nodes are in a straight line)
 We can then conclude the time complexities for insert, search and delete is: $\Theta(\log n) O(n)$
 </Block>
 
@@ -86,19 +86,21 @@ We can then conclude the time complexities for insert, search and delete is: $\T
 <Block variant="secondary" title="Traversal methods">
 The following are three recursive methods to traverse a tree:
 
-    - Pre-order: root$\to$left$\to$right
-    - In-order: left$\to$root$\to$right
-    - Post-order: left$\to$right$\to$root
+- Pre-order: root$\to$left$\to$right
+- In-order: left$\to$root$\to$right
+- Post-order: left$\to$right$\to$root
+
 Where you access the root and **recursively** trasverse the left and right subtrees. When we consider trees, we always think recursively. These are all **DFS** methods.
 </Block>
 
 
 To search for a node in a BST, we can simply captialized on the properties of the tree:
 
-    1. Start at the root
-    2. If the key is less than the root, go left
-    3. If the key is greater than the root, go right
-    4. Return if equal
+1. Start at the root
+2. If the key is less than the root, go left
+3. If the key is greater than the root, go right
+4. Return if equal
+
 Remember, we always consider trees recursively.
 
 
@@ -135,64 +137,22 @@ After inserting a node to the correct position, or deleting a node, the tree may
 
 The following are two types of rotation:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![Rotations](./img/rotations.png)
 
 Notice that they are **mirrored** of each other.
 
 Consider the following conditions of balance for each processed node for rotations:
 
-
-
-
-
-
-
-
-
-
+```python
+l = node.left
+r = node.right
+if B(node) > 1:
+    if B(l) < 0: rotateLeft(l)
+    rotateRight(node)
+if B(node) < -1:
+    if B(r) > 0: rotateRight(r)
+    rotateLeft(node)
+```
 
 
 </Block>
