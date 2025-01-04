@@ -8,8 +8,8 @@ export const { docs, meta } = defineDocs({
 
 export default defineConfig({
   mdxOptions: {
-    remarkPlugins: [remarkMath],
+    remarkPlugins: [[remarkMath, { trust: true }]],
     // Place it at first so that it won't be changed by syntax highlighter
-    rehypePlugins: (v) => [rehypeKatex, ...v],
+    rehypePlugins: (v) => [[rehypeKatex, { trust: true }], ...v],
   },
 });

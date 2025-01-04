@@ -5,7 +5,6 @@ Matrices are represented
 by capitial letters: $A\in R^{r\times c}$.
 $r \times c$ are the dimensions of a given matrix
 
-
 ## Basic operations
 
 
@@ -37,9 +36,9 @@ $\begin{bmatrix}
 
 
 <Block variant="knowledge" title="Matrix-matrix multiplication">
-Matrices can only multiply if their __inner dimensions__ match, otherwise there will be no solution.
+Matrices can only multiply if their <u>inner dimensions</u> match, otherwise there will be no solution.
 
-If a matrix is multiplied by another matrix, each __element in the result matrix__ is the sum of it's corresponding __row in the original matrix__ performing per-element multiplication on it's corresponding __col in the applying matrix__
+If a matrix is multiplied by another matrix, each <u>element in the result matrix</u> is the sum of it's corresponding <u>row in the original matrix</u> performing per-element multiplication on it's corresponding <u>col in the applying matrix</u>
 
 <BlockSep />
 $\begin{bmatrix}
@@ -97,7 +96,7 @@ $\begin{bmatrix}
 <Block variant="knowledge" title="Augmented Matrix and Gaussian Elimination">
 Augmented matrices are an important tool to solve linear equations. The number of rows is equal to the number of variables in the equation.
 
-GE are operations by __rows__, performed on augmented matrices. The possible moves are:
+GE are operations by <u>rows</u>, performed on augmented matrices. The possible moves are:
 
     1. Addition between rows ($R_1 + R_2$ adds row 2 to row 1, leaving row 2 unchanged)
     2. Multiplication of a row by a scalar ($\frac{1}{2}R_1$)
@@ -173,7 +172,7 @@ x_1 + 2x_2 = 3 \\
 1 & 2 & 3 \\ 2 & 4 & 10
 \end{array}\right]\xrightarrow{R_2-2R_1}
 \left[\begin{array}{cc|c}
-1 & 2 & 3 \\ \htmlClass{text-red}{0 & 0 & 4}
+1 & 2 & 3 \\ \htmlClass{text-red-500}{0} & \htmlClass{text-red-500}{0} & \htmlClass{text-red-500}{4}
 \end{array}\right]
 
 ```
@@ -188,9 +187,9 @@ Consider the following system with free variables, we can derive:
 ```math
 
 \left[\begin{array}{cccc|c}
-1 & 0 & \htmlClass{text-blue}{-5                    & 0}                     & 8 & 3 \\
-0 & 1 & \htmlClass{text-blue}{-4                    & -1}                    & 0 & 6 \\
-0 & 0 & \htmlClass{text-blue}{\underbrace{0}_{free} & \underbrace{0}_{free}} & 1 & 0
+1 & 0 & \htmlClass{text-blue-500}{-5} & \htmlClass{text-blue-500}{0} & 8 & 3 \\
+0 & 1 & \htmlClass{text-blue-500}{-4} & \htmlClass{text-blue-500}{-1} & 0 & 6 \\
+0 & 0 & \htmlClass{text-blue-500}{\underbrace{0}_{free}} & \htmlClass{text-blue-500}{\underbrace{0}_{free}} & 1 & 0
 \end{array}\right]\xRightarrow{\hspace{0.5cm}}\begin{matrix}
 x_1 -5x_3+8x_5 = 3 \\
 x_2-4x_3-x_4=6     \\
@@ -219,14 +218,14 @@ Determinant is a property of a matrix, represented by $\|A\|$ or $det(A)$. Only 
 ### Finding the value of determinant
 
 
-<Block variant="knowledge" title="$det(A\in \mathbb{R}^{2\times 2})$">
+<Block variant="knowledge" title="The determinant of a 2 times 2 matrix">
 $for\quad A=\begin{bmatrix}
 a & b \\c&d
 \end{bmatrix},\quad |A| = ad - bc$
 </Block>
 
 
-<Block variant="knowledge" title="$det(A\in \mathbb{R}^{n\times n})$">
+<Block variant="knowledge" title="The determinant of a n times n matrix">
 Choose any row or column, then for each element, ignore their corresponding row and column to give the *co-factor* of the element.
 
 $det(A) = \sum(a\times det(\text{co-factor})\times (-1)^{r_a+c_a})$
@@ -256,12 +255,9 @@ $|\begin{smallmatrix}
 
 ### Determinant related properties
 
-
-    1. [Vector dependency](#sec-dep)
-    2. [Matrix inverse](#sec-inv)
-    3. [Matrix eigenpairs](#sec-eigen)
-
-
+1. [Vector dependency](#vector-dependency)
+2. [Matrix inverse](#matrix-inverse)
+3. [Matrix eigenpairs](#matrix-eigenpairs)
 
 ## Vectors
 
@@ -302,22 +298,7 @@ The *orthogonal projection* of $a$ onto $b$ is $proj_ba = (\frac{a^Tb}{b^Tb})b$.
 
 The component of $a$ perpendicular to $b$ is given by $a-proj_ba$
 
-FIXME-ADD: Projection
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div className="mx-auto w-80">![](./img/proj.png)</div>
 
 </Block>
 
@@ -353,14 +334,14 @@ The matrix has an inverse if $\|A\|\ne 0$, and that it is a square matrix.
 </Block>
 
 
-<Block variant="knowledge" title="$A^{-1} \in \mathbb{R}^{2\times 2}$">
+<Block variant="knowledge" title="Finding the inverse of a 2 times 2 matrix">
 $A^{-1} = \frac{1}{|A|}\begin{bmatrix}
 d & -b \\-c &a
 \end{bmatrix}$
 </Block>
 
 
-<Block variant="knowledge" title="$A^{-1} \in \mathbb{R}^{n\times n}$">
+<Block variant="knowledge" title="Finding the inverse of a n times n matrix">
 $\left[\begin{array}{c|c}
 A & I
 \end{array}\right]\xrightarrow{GE}\left[\begin{array}{c|c}
@@ -408,9 +389,9 @@ For $\lambda_1=3$ and $A=\begin{bmatrix}
 $(A-3\lambda)v=0 \xRightarrow{\hspace{0.5cm}} \left[\begin{array}{ccc|c}
 -2 & 1 & 1 & 0 \\1&-2&1&0\\1&1&-2&0
 \end{array}\right]\xrightarrow{GE}\left[\begin{array}{ccc|c}
--2 & 1 & 1 & 0 \\0&-1&1&0\\\htmlClass{text-blue}{0&0&0&0}
+-2 & 1 & 1 & 0 \\0&-1&1&0\\\htmlClass{text-blue-500}{0}&\htmlClass{text-blue-500}{0}&\htmlClass{text-blue-500}{0}&\htmlClass{text-blue-500}{0}
 \end{array}\right]\begin{matrix}
-\ \\\ \\\htmlClass{text-blue}{GM=1}
+\ \\\ \\\htmlClass{text-blue-500}{GM=1}
 \end{matrix}$
 
 From the augmented matrix: $-2x_1+x_2+x_3=0,\quad -x_2+x_3=0$.
@@ -419,7 +400,7 @@ As $x_3$ is in both equations, let $x_3=1$: $x_2=1, x_1=1\rightarrow v_1=\begin{
 </Block>
 
 
-<Block variant="knowledge" title="Solving for eigenvectors with $GM\ 2$">
+<Block variant="knowledge" title="Solving for eigenvectors with GM 2">
 Find the other eigenvector with $v = z_2 - proj_{z_1}z_2$
 <BlockSep />
 For $v=\begin{bmatrix}
@@ -437,9 +418,9 @@ Then let $z_1=v_1$, and solve for $v_2$ with $v_2=z_2-proj_{z_1}z_2=\begin{bmatr
 Related properties:
 
 
-    1. [Diag](#sec-diag)
-    2. [Quad](#sec-quad)
-    3. [Diff](#sec-diff)
+1. [Diag](#matrix-diagonalization)
+2. [Quad](#quadratic-form)
+3. [Diff](#differential-equations)
 
 
 ## Matrix diagonalization
@@ -483,7 +464,7 @@ A matrix is symmetric if $A=A^T$
 
 ```math
 \begin{aligned}
-Q(x) & =ax_1^2+bx_2^2+cx_3^2+dx_1x_2+ex_2x_3+fx_1x_3                                                     \\
+Q(x) & =ax_1^2+bx_2^2+cx_3^2+dx_1x_2+ex_2x_3+fx_1x_3 \\
 & =\begin{bmatrix}
 x_1 & x_2 & x_3
 \end{bmatrix}\begin{bmatrix}
@@ -500,10 +481,10 @@ x_1 \\x_2\\x_3
 <Block variant="primary" title="Definitiveness of a quadratic">
 For $Q(x)=xAx^T$, considering the eigenvalues of $A$:
 
-    - $Q(x)$ is *positive definitive* if $\forall\lambda > 0$
-    - $Q(x)$ is *negative definitive* if $\forall\lambda < 0$
-    - $Q(x)$ is *indefinite* if otherwise
-    - $Q(x)$ is *p/n semi-definitive* if the conditions are inclusive (i.e. $\lambda \geq or \leq 0$)
+- $Q(x)$ is *positive definitive* if $\forall\lambda > 0$
+- $Q(x)$ is *negative definitive* if $\forall\lambda < 0$
+- $Q(x)$ is *indefinite* if otherwise
+- $Q(x)$ is *p/n semi-definitive* if the conditions are inclusive (i.e. $\lambda \geq or \leq 0$)
 
 </Block>
 

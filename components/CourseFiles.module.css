@@ -14,6 +14,14 @@
     black 90%,
     transparent
   );
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 48px;
+  padding-top: 24px;
+  overflow-y: scroll;
+  height: 200px;
+  position: relative;
 }
 
 .cf {
@@ -28,19 +36,39 @@
   transition: opacity 0.2s ease-in-out, right 0.2s ease-in-out;
 }
 
-.cf:hover .arrow {
-  opacity: 1;
-  right: 24px;
-}
-
 .tag {
-  opacity: 0;
   position: absolute;
-  right: 0px;
-  transition: opacity 0.2s ease-in-out, right 0.2s ease-in-out;
+  right: 12px;
+  top: 12px;
+  font-size: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
 }
 
-.cf:hover .tag {
-  opacity: 1;
-  right: 60px;
+@screen md {
+  .cf_container {
+    height: 320px;
+  }
+
+  .tag {
+    right: 24px;
+    top: unset;
+    border-radius: 6px;
+    padding: 4px 16px;
+    font-size: 12px;
+    line-height: 16px;
+    width: unset;
+    height: unset;
+    transition: right 0.2s ease-in-out;
+  }
+
+  .cf:hover .tag {
+    right: 60px;
+  }
+
+  .cf:hover .arrow {
+    opacity: 1;
+    right: 24px;
+  }
 }

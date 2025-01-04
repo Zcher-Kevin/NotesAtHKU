@@ -1,6 +1,6 @@
 import { baseOptions } from "@/app/layout.config";
 import { source } from "@/lib/source";
-import { DocsLayout, type DocsLayoutProps } from "fumadocs-ui/layouts/docs";
+import { DocsLayout, type DocsLayoutProps } from "fumadocs-ui/layouts/notebook";
 import type { ReactNode } from "react";
 
 const docsOptions: DocsLayoutProps = {
@@ -27,7 +27,8 @@ const docsOptions: DocsLayoutProps = {
                   backgroundColor: `hsla(0, 100%, 75%, 0.3)`,
                 }}
               >
-                WIP
+                {/* @ts-ignore */}
+                {meta.data.semester.slice(2)}
               </div>
             </div>
           ) : (

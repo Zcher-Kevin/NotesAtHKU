@@ -1,0 +1,5 @@
+.grid {
+  transform: perspective(1000px) rotateX(45deg);
+  mask-image: linear-gradient(to bottom, transparent, black);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black);
+}

@@ -1,18 +1,24 @@
 ---
 title: Probabilities
 ---
+
+<Block variant="knowledge" title="Combinations">
 The formula for combinations, also known as the binomial coefficient, is given by:
 ```math
-
 \binom{n}{r} = \frac{n!}{r!(n-r)!}
-
 ```
-
-
 Which represents the number of ways to choose r items from a set of n distinct items without regard to their order.
+</Block>
 
+<Block variant="primary" title="Pascal's rule">
 Pascal's rule is given by $\binom{n+1}{r}=\binom{n}{r}+\binom{n}{r-1}$
-Probability measures the likelihood of an event happening. It assigns a numerical value between 0 and 1 to an event, where 0 represents an impossible event and 1 indicates a certain event.\\For example, the probability of flipping a fair coin and getting heads is 0.5, as there are two equally likely outcomes (heads or tails).\\The key to understanding probabilities (or anything else) is practice.
+</Block>
+
+Probability measures the likelihood of an event happening. It assigns a numerical value between 0 and 1 to an event, where 0 represents an impossible event and 1 indicates a certain event.
+
+For example, the probability of flipping a fair coin and getting heads is 0.5, as there are two equally likely outcomes (heads or tails).
+
+The key to understanding probabilities (or anything else) is practice.
 
 
 ## Infinite sets
@@ -28,45 +34,71 @@ Probability measures the likelihood of an event happening. It assigns a numerica
 | $\mathbb{C}$ | Complex | $a+bi$ |
 
 
-
-
 ## Venn diagrams
 
+<div className="w-full flex gap-4 flex-wrap md:flex-nowrap">
+<div >
 Venn diagrams illustrate concepts like intersections, unions, which is a good way to visualize probabilities. The overlapping regions indicate elements that belong to multiple sets, while non-overlapping regions represent elements unique to specific sets.
 
 In this example, two circles are drawn to represent sets A and B. The overlapping region is labeled as the intersection of sets A and B, denoted by A $\cap$ B.
+</div>
+<div className="lg:min-w-72 md:min-w-60 w-60">![](./img/vennn.png)</div>
+</div>
 
-FIXME-ADD: Diagram
+
+
 
 ## Probability notation and event types
 
-
-| ![](./IMG/NOT.png) | | |
+| ![](./IMG/AND.png) | ![](./IMG/OR.png) | ![](./IMG/NOT.png) | 
 | :---: | :---: | :---: |
 | A and B | A or B | Not A |
 | Intersection | Union | Compliment |
 
 
-
+<Block variant="primary" title="Conditional probabilities">
 The probability of A given that B occurs: $P(A\ \|\ B) = \frac{P(A\cup B)}{P(B)}$
+</Block>
 
+
+
+<Block variant="primary" title="Independent events">
 A and B are said to be *independent* if $P(A) \times P(B) = P(A\cap B)$.
 
 Being independent means that the probability of an event *has no influence on the other*
+</Block>
+
 
 
 ## Random variables
 
-Random variables are denoted with capital letters $X$\\
-The possible outcomes are denoted with regular letters $x$\\
+
+<Block variant="knowledge" title="Notation">
+Random variables are denoted with capital letters $X$
+
+The possible outcomes are denoted with regular letters $x$
+
 Probability that the outcome of $X$ is $x$ is denoted by $P(X=x)$
+</Block>
+
+
+<Block variant="primary" title="Expected value and Variance">
 $E(X^n)=\sum(x^n\cdot P(X=x))$ gives the expected value, which represents the mean value (outcome) of the random variable.
 
 $Var(X)=E(X^2)-E(X)^2$ gives the variance, which is a measure of the variability of the random variable's outcomes.
-$E(X+Y)=E(X)+E(Y)$, which any addition / subtraction function within $E()$ can be expanded.\\\
+</Block>
+
+
+<Block variant="primary" title="Operations of E(X) and Var(X)">
+$E(X+Y)=E(X)+E(Y)$, which any addition / subtraction function within $E()$ can be expanded.
+
 If $X$ and $Y$ are independent:
-$Var(X+Y) = Var(X) + Var(Y),\quad\quad E(XY)    = E(X)\cdot E(Y)$\\\
+
+$Var(X+Y) = Var(X) + Var(Y),\quad\quad E(XY)    = E(X)\cdot E(Y)$
+
 $for\ Y=aX+b:$ $E(Y)=aE(X)+b,\quad\quad Var(Y)=a^2Var(X)$
+
+</Block>
 
 
 
@@ -76,21 +108,25 @@ Joint random variables are in the form $P(X=x, Y=y)$. We can visualize the joint
 
 
 
-| $Y$\\$X$ | $x_1$ | $x_2$ | Sum |
-| --- | --- | --- | --- |
+| $Y, X$ | $x_1$ | $x_2$ | Sum |
+| :---: | :---: | :---: | :---: |
 | $y_1$ | $P(X=x_1, Y=y_1)$ | $P(X=x_2, Y=y_1)$ | $P(Y=y_1)$ |
 | $y_2$ | $P(X=x_1, Y=y_2)$ | $P(X=x_2, Y=y_2)$ | $P(Y=y_2)$ |
 | Sum | $P(X=x_1)$ | $P(X=x_2)$ |  |
 
+
+
+
 Note that the sum of a column or row results in the corresponding variable's probability of outcome.
 
-<Block variant="definition" title="Expected values">
 
+<Block variant="primary" title="Expected value">
 $E(X+Y)   = \sum((x+y) P(X=x, Y=y))$
 
 $E((XY)^n) = \sum((xy)^n P(X=x, Y=y))$
-
 </Block>
+
+
 
 ## Random variables of random variables (outcomes)
 
@@ -106,10 +142,9 @@ E(\bar{X})=\frac{E(X_1)+\dots+E(X_n)}{n}=\frac{nE(X)}{n}
 Var(\bar{X})=\frac{Var(X_1)+\dots+Var(X_n)}{n^2}=\frac{nVar(X)}{n^2}
 ```
 
-<Block variant="definition" title="Expected value and variance">
 
-$E(\bar{X}) = E(X)$
+<Block variant="primary" title="Expected value and Variance">
+$E(\bar{X})   = E(X)$
 
 $Var(\bar{X}) = \frac{Var(X)}{n}$
-
 </Block>

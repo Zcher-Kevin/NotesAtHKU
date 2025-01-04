@@ -2,7 +2,7 @@
 
 import { REPO } from "@/constants";
 import { AnimatePresence, motion } from "framer-motion";
-import { MessageCircleMore, PenLine, X } from "lucide-react";
+import { PenLine, X } from "lucide-react";
 import { useState } from "react";
 import styles from "./FAB.module.css";
 import Giscus from "./Giscus";
@@ -74,7 +74,7 @@ export default function FAB({
         {isOpen ? (
           <X size={28} className="text-white dark:text-black" />
         ) : (
-          <MessageCircleMore size={28} className="text-white dark:text-black" />
+          <PenLine size={28} className="text-white dark:text-black" />
         )}
       </motion.button>
     </>

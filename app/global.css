@@ -10,3 +10,32 @@
   overflow-x: scroll;
   overflow-y: hidden;
 }
+
+.HKU {
+  background: linear-gradient(
+    90deg,
+    #019cd5 25%,
+    #02b38d 35%,
+    #02b38d 65%,
+    #ef4022 75%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+article {
+  li {
+    margin: 0 !important;
+  }
+
+  table {
+    background-color: hsl(var(--card) / 0.4) !important;
+    width: unset !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  th {
+    background-color: hsl(var(--muted) / 0.4) !important;
+  }
+}

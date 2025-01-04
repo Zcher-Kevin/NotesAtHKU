@@ -1,39 +1,45 @@
 ---
 title: Probability distributions
 ---
-A *continuous* random variable has probabilities the area under its curve. Hence, $P(X=n)$ for any outcome $n$ is $0$. A *discrete* random variables have specific probabilities assigned to an outcome.\\\
+A *continuous* random variable has probabilities the area under its curve. Hence, $P(X=n)$ for any outcome $n$ is $0$. A *discrete* random variables have specific probabilities assigned to an outcome.
+
 
 <Block variant="knowledge" title="Operation on continous ranges">
-$P(X<x)=P(X\leq x)$\\
-$P(X>x)=1 - P(X<x)$\\
+$P(X<x)=P(X\leq x)$
+
+$P(X>x)=1 - P(X<x)$
+
 $P(a\leq X\leq b)=P(X<b)-P(X<a)$
 </Block>
 
 
 
 <Block variant="knowledge" title="Operation on discrete ranges">
-$P(X<x)=P(X\leq x-1)$\\
-$P(X>x)=1-P(X\leq x)$\\
+$P(X<x)=P(X\leq x-1)$
+
+$P(X>x)=1-P(X\leq x)$
+
 $P(a\leq X\leq b)=P(X\leq b)-P(X\leq a-1)$
 </Block>
+
 
 
 ## Probability distribution functions
 
 A *p.d.f* is a continuous function that returns the probability of the given outcome. The following is an example of a p.d.f:
 ```math
-
 X\sim f(x) = \begin{cases}
 Kx^2 & 0 \leq x \leq 1  \\
 0    & \text{otherwise}
 \end{cases}
-
 ```
 
 
 <Block variant="primary" title="Using the function">
-$P(X=x)=0$\\
-$P(a<X<b)=P(a\leq X\leq b)=\int_{a}^{b}f(x)dx$\\\
+$P(X=x)=0$
+
+$P(a<X<b)=P(a\leq X\leq b)=\int_{a}^{b}f(x)dx$
+
 Note that $\int_{\infty}^{-\infty}f(x)dx = 1$, as the total probability of any event is 1. This condition *must be true* for $f(x)$ to be a valid p.d.f. Hence for the example $K=3$
 </Block>
 
@@ -71,9 +77,9 @@ f(x)=\frac{d}{dx}F(x)
 
 
 |  |  |  |  |  |  |
-| --- | --- | --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- | :--- | :--- |
 | Continuous | Discrete | Discrete | Discrete | Discrete | Discrete |
-| **Expo**nential | **Ber**noulli | **B**inomial | **Geo**metric | **N**egative **B**inomial | **Po**ssion |
+| <u>Expo</u>nential | <u>Ber</u>noulli | <u>B</u>inomial | <u>Geo</u>metric | <u>N</u>egative <u>B</u>inomial | <u>Po</u>ssion |
 | $Expo(\lambda)$ | $Ber(p)$ | $B(n, p)$ | $Geo(p)$ | $NB(n, p)$ | $Po(\lambda)$ |
 | $\lambda e^{-\lambda x}$ | $p$ if true, else $(1-p)$ | $\binom{n}{x} p^x(1-p)^{n-x}$ | $p(1-p)^{x-1}$ | $\binom{x-1}{n-1} p^n(1-p)^{x-n}$ | $\frac{\lambda^x}{x!} e^{-\lambda}$ |
 | $E=\lambda^{-1}$ | $E=p$ | $E=np$ | $E=\frac{1}{p}$ | $E=\frac{n}{p}$ | $E=\lambda$ |
@@ -91,7 +97,7 @@ f(x)=\frac{d}{dx}F(x)
 
 ### Normal distribution
 
-The __N__ormal distribution is given by the following formula (which you don't have to memorize):
+The <u>N</u>ormal distribution is given by the following formula (which you don't have to memorize):
 ```math
 X\sim N(\mu, \sigma^2)=\frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}},\quad\quad\text{where }\underbrace{\mu}_{\text{mean}},\underbrace{\sigma^2}_{\text{variance}}
 ```
@@ -99,7 +105,8 @@ To calculate $P(X<x)$, we have to *standardize* our $N$ by $Z\sim N(0, 1)$, $P(X
 
 
 <Block variant="knowledge" title="Reading the Z-table">
-For $P(Z<z)=p$, to find $p$, locate the header and leftmost column in the z-table such that their *sum* is $z$. The corresponding intersecting cell is $p$.\\
+For $P(Z<z)=p$, to find $p$, locate the header and leftmost column in the z-table such that their *sum* is $z$. The corresponding intersecting cell is $p$.
+
 $Z_p$ gives the value $z$ in $P(Z<z)=p$
 </Block>
 

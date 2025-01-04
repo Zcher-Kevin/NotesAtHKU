@@ -11,7 +11,7 @@ The *modulus*: $\|z\|=\sqrt{a^2+b^2}$
 
 The *conjugate*: $conj(z) = \hat{z} = a-bi$
 
-
+The *argument*: $arg(z) = \theta = 2tan^{-1}(\frac{b}{a+\|z\|})$
 </Block>
 
 
@@ -25,7 +25,7 @@ This represents the point on a circle with radius $r$, at the angle $\theta$.
 
 
 <Block variant="knowledge" title="Euler's formula">
-
+$re^{i\theta}=r(\cos\theta+i\sin\theta)$.
 
 Using the formula, we can easily derive:
 
@@ -62,7 +62,8 @@ Given a complex function $f(z)$ and a set of complex numbers $D=\{g(z)\in \mathb
 
 
     1. Find $f(D)$ by finding $f(g(z))$
-    2. Let $f(g(z))$ be $x'+y'i$, then solve for $x$ and $y$ in terms of $x'$ and $y'$ \\(Note that $g(z)$ and $h(z)$ are functions of $x+yi$)
+    2. Let $f(g(z))$ be $x'+y'i$, then solve for $x$ and $y$ in terms of $x'$ and $y'$\
+(Note that $g(z)$ and $h(z)$ are functions of $x+yi$)
     3. Substitute your $x$ and $y$ to $f(D)$, so that all unknowns are in terms of $x'$ and $y'$
     4. Rearrange $h(z)$ to solve the shape of the image
 

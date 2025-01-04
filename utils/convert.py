@@ -28,8 +28,8 @@ def convert_tex_to_mdx(t, course):
     t = re.sub(r"\\textit{([^}]*)}", lambda m: f"*{m.group(1).strip()}*", t)
     t = re.sub(r"\\emph{([^}]*)}", r"*\1*", t)
     # rule convert \underline{...} to __...__
-    t = re.sub(r"\\underline{\\underline{([^}]*)}}", r"__\1__", t)
-    t = re.sub(r"\\underline{([^}]*)}", r"__\1__", t)
+    t = re.sub(r"\\underline{\\underline{([^}]*)}}", r"<u>\1</u>", t)
+    t = re.sub(r"\\underline{([^}]*)}", r"<u>\1</u>", t)
     # rule convert \tcblower to <BlockSep />
     t = re.sub(r"\\tcblower", r"<BlockSep />", t)
     # rule convert \includegraphics[...]{path} to ![](./path)

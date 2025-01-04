@@ -12,10 +12,7 @@ export default function CourseFiles({
 }) {
   const containerRef = useRef(null);
   return (
-    <div
-      className={`flex flex-col w-full px-4 pt-6 overflow-y-scroll h-64 lg:h-80 relative ${className} ${styles.cf_container}`}
-      ref={containerRef}
-    >
+    <ul className={` ${className} ${styles.cf_container}`} ref={containerRef}>
       {sortedFiles.map((jsonData: CourseFileProps, index: number) => (
         <CourseFile
           key={`course-${index}`}
@@ -24,10 +21,12 @@ export default function CourseFiles({
           wip={jsonData.wip}
           semester={jsonData.semester}
           description={jsonData.description}
-          index={index}
           containerRef={containerRef}
+          index={index}
         />
       ))}
-    </div>
+      <CourseFile spacer containerRef={containerRef} />
+      <CourseFile spacer containerRef={containerRef} />
+    </ul>
   );
 }
