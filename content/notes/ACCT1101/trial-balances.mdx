@@ -10,10 +10,23 @@ An accounting report showing the closing balances of all general ledger accounts
 Their purpose is to ensure that the __debits and credits are equal__ - to check for errors and help prepare financial statements.
 </Block>
 
-
-
-
 <ACCTExample title="Example Trial Balance">
+<span className="text-center">
+
+**XYZ Corporation**  
+**Trial Balance**  
+For the period ended December 31, 2025  
+(In millions of dollars)
+
+</span>
+
+<div className="-mt-8">
+| **Account**    | **Debit** | **Credit** |
+| ---           | ---       | ---        |
+| Cash           | $1,000    |            |
+| Common Stock   |           | $1,000     |
+| **Total**      | $2,000    | $2,000     |
+</div>
 </ACCTExample>
 
 
@@ -25,9 +38,9 @@ Their purpose is to ensure that the __debits and credits are equal__ - to check 
 
 
 <Block variant="secondary" title="Adjusting our Trial Balance">
-In the account cycle, after preparing an unadjusted trial balance, we make adjustments to respect the [Accrual Basis of Accounting](FIXME-thm:accrual_basis) for different types of expense and revenues.
+In the account cycle, after preparing an unadjusted trial balance, we make adjustments to respect the [Accrual Basis of Accounting](accounting#accural-method-of-accounting) for different types of expense and revenues.
 
-This adjustment is necessary when the two sides of a transaction (remember [double-sided nature](FIXME-thm:debit_credit)) happens in a __different accounting period__. (So no adjustments necessary if same period)
+This adjustment is necessary when the two sides of a transaction (remember [double-sided nature](bookkeeping#double-entry-bookkeeping)) happens in a __different accounting period__. (So no adjustments necessary if same period)
 </Block>
 
 
@@ -35,7 +48,7 @@ This adjustment is necessary when the two sides of a transaction (remember [doub
 <Block variant="secondary" title="A typical transaction">
 In a transaction there are two parties: a buyer and a seller.
 
-Seller $\xrightleftharpoons[\text{cash}]\{\text{services}\}$ Buyer
+Seller $\xrightleftharpoons[\text{cash}]{\text{services}}$ Buyer
 
 In the case of the **buyer**, the transaction will always be an **expense**.
 
@@ -47,42 +60,33 @@ In the case of the **seller**, the transaction will always be **revenue**.
 <Block variant="primary" title="Categorizing E&R as prepayments / accruals">
 We need to categorize E&R as either **Prepayments** or **Accruals** before making an adjusting entry as part of the analysis.
 
-    - **Prepayments**: services paid for before received (by buyer), also called **Deferrals**
-    - **Accrued**: services received before paid for (by buyer)
+- **Prepayments**: services paid for before received (by buyer), also called **Deferrals**
+- **Accrued**: services received before paid for (by buyer)
 
 </Block>
 
-
 Hence, there will be *4 titles* for the adjusting entries as follows, along with examples:
 
-    - **Deferred Expense** (A, Dr)\\
+- **Deferred Expense** (A, Dr)\
 *Example*: As a buyer, you drive a car. Your car warranty is for a year, but you pay for it the year prior. The service (car warranty) is paid for before received, hence, this is a prepaid expense.
-
-
-
-    - **Deferred Revenue** (L, Cr)\\
+- **Deferred Revenue** (L, Cr)\
 *Example*: As a seller, you sell car warranty. The service (car warranty) is paid for by the customer before it becomes active in the next year, hence, this is a deferred (prepaid) revenue.
-
-
-
-    - **Accrued Expense** (L, Cr)\\
+- **Accrued Expense** (L, Cr)\
 *Example*: As a buyer, you consume water. Water bills are paid every 3 months, but you use water every month and your accounting period is a month. The service (water) is received before paying for by the customer, hence, this is an accrued expense.
-
-
-
-    - **Accrued Revenue** (A, Dr)\\
+- **Accrued Revenue** (A, Dr)\
 *Example*: As a seller, you provide water. The service (water) is provided before paying for by the customer, hence, this is an accrued revenue.
 
 
 
 
 <Block variant="secondary" title="What the adjusting entry does">
-As we recorded our transaction on the cash basis initially, it **overstates** the corresponding E/R. The purpose of the adjusting entry is to **correct this overstatement** by converting the transaction to either **A/L**. This conversion moves the transaction to the [**permanent accounts**](FIXME-def:temp_perm), which carries forward to the next period for adjustment again.
+
+As we recorded our transaction on the cash basis initially, it **overstates** the corresponding E/R. The purpose of the adjusting entry is to **correct this overstatement** by converting the transaction to either **A/L**. This conversion moves the transaction to the [**permanent accounts**](closing-entries#categorizing-accounts-as-temporary-/-permanent), which carries forward to the next period for adjustment again.
 
 To determine if the overstated transaction is A/L:
 
-    - **Asset (Dr)**: Future economic benefit
-    - **Liability (Cr)**: Future economic sacrifice
+- **Asset (Dr)**: Future economic benefit
+- **Liability (Cr)**: Future economic sacrifice
 
 </Block>
 
@@ -91,56 +95,84 @@ To determine if the overstated transaction is A/L:
 <Block variant="secondary" title="Releasing prepayments and accruals">
 As we record by the accrual basis, when we consume the / a part of the service, or the payment is made, we need to record the transaction accordingly. If only a part of the service is consumed, __calculate the consumed amount by time period__.
 
-This moves the transaction back to the [**temporary accounts**](FIXME-def:temp_perm).
+This moves the transaction back to the [**temporary accounts**](closing-entries#categorizing-accounts-as-temporary-/-permanent).
 </Block>
-
-
-
-
-<Block variant="knowledge" title="Summary">
-
-
-
-| Dr | Cr | Cr | Dr |
-| :--- | ---: | :--- | :--- |
-| DE | DR | AE | AR |
-
-
-FIX-ADD: Diagram
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</Block>
-
-
-
 
 <ACCTExample title="Example Adjusting Entry (Prepaid Expense)">
+We make the following adjusting entry for car warranty (example above) that we paid for in the month prior.
+
+<JournalEntry
+    entries={[
+        {
+            date: "Dec 31, 2023",
+            debit: [["Prepaid expense", "$12"]],
+            credit: [["Cash", "$12"]],
+        },
+    ]}
+/>
+
+Then each month, we will make the following adjusting entry to recognize the usage of the prepaid expense and release it gradually.
+
+<JournalEntry
+    entries={[
+        {
+            date: "XXX 31, 2024",
+            debit: [["Utility expense", "$1"]],
+            credit: [["Prepaid expense", "$1"]],
+        },
+    ]}
+/>
 </ACCTExample>
 
 
 
 <ACCTExample title="Example Adjusting Entry (Accrued Expense)">
+We make the following adjusting entry for water bills (example above) in the first and second month. By the history average, we assume each month costs around \$1000.
+
+Remember that *accrued expense* is a **liability**, as it would be a future economic sacrifice.
+
+<JournalEntry
+    entries={[
+        {
+            date: "Jan 31, 2023",
+            debit: [["Utility expense", "$1"]],
+            credit: [["Accrued expense", "$1"]],
+            note: "(Water bills accrued)",
+        },
+        {
+            date: "Feb 28, 2023",
+            debit: [["Utility expense", "$1"]],
+            credit: [["Accrued expense", "$1"]],
+            note: "(Water bills accrued)",
+        },
+    ]}
+/>
+
+We get the receipt for the water bills at the end of the third month. It was \$4. We record the utility expense and cash usage accordingly, then release the accrued expense.
+
+<JournalEntry
+    entries={[
+        {
+            date: "Mar 31, 2023",
+            debit: [["Utility expense", "$4"]],
+            credit: [["Cash", "$4"]],
+            note: "(Water bills payment)",
+        },
+        {
+            date: "Mar 31, 2023",
+            debit: [["Accrued expense", "$2"]],
+            credit: [["Utility expense", "$2"]],
+            note: "(Release accrued expense)",
+        },
+    ]}
+/>
+
 </ACCTExample>
 
 
 
 
 ## Depreciation
-
-
-
 
 ### Recording as adjusting entry
 
@@ -154,22 +186,19 @@ The process of reducing the book value of a tangible fixed asset over time.
 
 <Block variant="knowledge" title="Recording depreciation expense">
 
+Example:
 
+<JournalEntry
+    entries={[
+        {
+            date: "Dec 31, 2023",
+            debit: [["Depreciation expense", 12]],
+            credit: [["Accumulated depreciation", 12]],
+        },
+    ]}
+/>
 
-| **Date** | **Account** | **Dr** | **Cr** |
-| :--- | ---: | :--- | :--- |
-| Dec 31, 2023 | Depreciation expense | \$12 |  |
-|  | Accumulated depreciation |  | \$12 |
-
-
-
-
-Accumulated depreciation is a [**contra asset**](FIXME-def:contra), as it has a normal balance opposite to the asset. We record it like the following in the balance sheet:
-
-
-
-
-
+Accumulated depreciation is a [**contra asset**](bookkeeping#contra-accounts), as it has a normal balance opposite to the asset. We record it like the following in the balance sheet:
 
 | **Assets** |  |
 | :--- | ---: |
@@ -194,12 +223,12 @@ The expense that is recorded **each period** over the useful life of the asset.
 
 Before calculation, you need to identify *some* of the following quantities:
 
-    - **(C) Cost**: The initial cost of the asset.
-    - **(RV) Residual value**: The estimated value of the asset at the end of its useful life.
-    - **(UL) Useful life**: The estimated number of years the asset will be used.
-    - **(P$_T$) Total production**: The total number of units the asset will produce over its useful life.
-    - **(P$_A$) Annual production**: The number of units the asset will produce in a year.
-    - **(AD) Accumulated depreciation**: The total depreciation expense recorded for the asset up to the current period.
+- **(C) Cost**: The initial cost of the asset.
+- **(RV) Residual value**: The estimated value of the asset at the end of its useful life.
+- **(UL) Useful life**: The estimated number of years the asset will be used.
+- **(P$_T$) Total production**: The total number of units the asset will produce over its useful life.
+- **(P$_A$) Annual production**: The number of units the asset will produce in a year.
+- **(AD) Accumulated depreciation**: The total depreciation expense recorded for the asset up to the current period.
 
 
 <Block variant="secondary" title="Depreciation estimation methods">
@@ -210,7 +239,7 @@ Before calculation, you need to identify *some* of the following quantities:
 
 
 | *Method* | *Formula* | *Per period* |
-| :--- | ---: | :--- |
+| :--- | --- | :--- |
 | Straight-line | $\frac{C - RV}{UL}$ | Constant amount each period. |
 | Units-of-production | $(C - RV)\times\frac{P_A}{P_T}$ | Based on production level. |
 | Double-declining balance | $2\times\frac{C-AD}{UL}$ | Decreasing amount each period. |
@@ -220,7 +249,7 @@ For the final year of double-declining balance, the depreciation must set the bo
 </Block>
 
 
-Related: [Asset disposal](FIXME-subsec:asset_disposal)
+Related: [Asset disposal](bookkeeping#reporting-asset-disposal)
 
 
 ## Amortization
@@ -262,11 +291,11 @@ Impairment is the reduction of an asset's value.
 ### Net sales revenue
 
 
-When considering the net sales revenue, we need to recognize some of the following deductions. They are not expenses, but a [**contra revenue**](FIXME-def:contra) of **credit sales revenue**.
+When considering the net sales revenue, we need to recognize some of the following deductions. They are not expenses, but a [**contra revenue**](bookkeeping#contra-accounts) of **credit sales revenue**.
 
 The following are three common contra accounts of sales revenue. When they occur, we **debit** the contra revenue account and **credit** sales revenue.
 
-These discounts **should not include** the [capitalized](FIXME-subsec:equipments) costs.
+These discounts **should not include** the [capitalized](bookkeeping#reporting-maintenance-and-improvements-of-equipment) costs.
 
 
 <Block variant="secondary" title="Credit card discount">
@@ -291,7 +320,7 @@ Discounts given to customers for price discounts, or the total sales price of th
 
 
 <Block variant="knowledge" title="Presenting in income statement">
-We simply present as a [**contra revenue**](FIXME-def:contra) of **sales revenue**.
+We simply present as a [**contra revenue**](bookkeeping#contra-accounts) of **sales revenue**.
 
 
 | **Sales revenue** | \$1000 |
@@ -325,7 +354,7 @@ An expense account for the amount of money that is not likely to be paid. There 
 
 
 <Block variant="primary" title="Account: Allowance for doubtful accounts">
-An [**contra account**](FIXME-def:contra) for the **accounts receivable** to estimate the amount of money that will not be paid.
+An [**contra account**](bookkeeping#contra-accounts) for the **accounts receivable** to estimate the amount of money that will not be paid.
 </Block>
 
 
@@ -337,19 +366,17 @@ Credit sales are *sales revenue* that **debit accounts receivable** (credit sale
 
 
 <Block variant="knowledge" title="Write-offs & estimating bad debt expense">
-We record an [**estimated**](FIXME-thm:bad_debt_est) bad debt expense at the end of the period of the credit sales as an adjusting entry.
+We record an **estimated**bad debt expense at the end of the period of the credit sales as an adjusting entry.
 
 
 
 During the next period, we **write-off** the bad debt expense of the previous period, when we have **confirmed** that the customer will not pay, by deducting from **accounts receivable** to **allowance for doubtful accounts**.
 
 
-
 *A write-off has no effects on the **net income**, as it is already recorded as an expense in the previous period.*
 
-
-    - End of period of sales: Allowance (**Cr**) $\rightarrow$ Bad debt expense (**Dr**)
-    - Next period write-offs (confirmed bad debts): Accounts receivable (**Cr**) $\rightarrow$ Allowance (**Dr**)
+- End of period of sales: Allowance (**Cr**) $\rightarrow$ Bad debt expense (**Dr**)
+- Next period write-offs (confirmed bad debts): Accounts receivable (**Cr**) $\rightarrow$ Allowance (**Dr**)
 
 </Block>
 
@@ -358,14 +385,15 @@ During the next period, we **write-off** the bad debt expense of the previous pe
 <Block variant="knowledge" title="Recoveries">
 When a customer who has a bad debt previously pays, we simply revert the write-off entry:
 
-
-
-
-
-| **Date** | **Account** | **Dr** | **Cr** |
-| :--- | ---: | :--- | :--- |
-| Dec 31, 2023 | Cash | \$12 |  |
-|  | Allowance for doubtful accounts |  | \$12 |
+<JournalEntry
+    entries={[
+        {
+            date: "Dec 31, 2023",
+            debit: [["Cash", 12]],
+            credit: [["Allowance for doubtful accounts", 12]],
+        },
+    ]}
+/>
 
 </Block>
 
@@ -376,18 +404,18 @@ When a customer who has a bad debt previously pays, we simply revert the write-o
 
 
 <Block variant="secondary" title="Estimate bad debt by Percentage of sales">
+
 Bad debt expense adjustment = **Credit** sales revenue (minus returns and allowances) $\times$ *Historial* loss rate
 </Block>
 
 
 
 <Block variant="secondary" title="Estimate bad debt by Aging method">
+
 We estimate the **ending balance** of the allowance by the age of receivables, and calculate the adjustment by finding the **difference** between the allowance's **current balance** (beg. bal. of allowance - write-offs) and the ending balance.
 
-
-
 | **Age of receivable** | **Amount** | **Estimated loss rate** | **Estimated loss** |
-| :--- | ---: | :--- | :--- |
+| :--- | :--- | :--- | :--- |
 | 0-30 days | \$1000 | 1\% | \$10 |
 | 31-60 days | \$2000 | 2\% | \$40 |
 | 61-90 days | \$1500 | 3\% | __\$45__ |
@@ -406,7 +434,7 @@ Estimated ending balance of allowance $=$ Accounts receivables balance $\times$ 
 
 
 <Block variant="knowledge" title="Presenting in income statement">
-We present the allowance of doubtful accounts as a [**contra asset**](FIXME-def:contra) of **accounts receivable**.
+We present the allowance of doubtful accounts as a [**contra asset**](bookkeeping#contra-accounts) of **accounts receivable**.
 
 
 | **Accounts receivable** | \$1000 |

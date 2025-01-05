@@ -106,10 +106,17 @@ export async function generateMetadata(props: {
 }) {
   const params = await props.params;
   const page = source.getPage(params.slug);
+  const courseCode = params.slug?.join("/").split("/")[0] || "";
   if (!page) notFound();
 
+  const pageTitle = page.data.title;
+  let title = pageTitle + " | " + courseCode;
+  if (pageTitle.endsWith("HKU")) {
+    title = courseCode;
+  }
+
   return {
-    title: page.data.title,
+    title,
     description: page.data.description,
   };
 }

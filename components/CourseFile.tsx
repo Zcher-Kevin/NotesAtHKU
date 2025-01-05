@@ -74,12 +74,12 @@ export default function CourseFile({
     >
       <Link
         href={`notes/${title}`}
-        className={`py-5 px-6 lg:py-6 w-full -mb-5 flex gap-4 items-center cursor-pointer transition-colors border border-fd-popover-foreground rounded-lg bg-fd-muted hover:bg-fd-accent hover:text-fd-accent-foreground justify-between ${styles.cf}`}
+        className={`py-5 px-6 md:py-6 w-full -mb-5 flex gap-4 items-center cursor-pointer transition-colors border border-fd-popover-foreground rounded-lg bg-fd-muted hover:bg-fd-accent hover:text-fd-accent-foreground justify-between ${styles.cf}`}
       >
         <Icon name={icon || "House"} size={32} />
-        <div className="flex flex-col items-center w-full lg:mt-1 lg:flex-row lg:gap-4 justify-left ">
+        <div className="flex flex-col items-center w-full md:mt-1 md:flex-row md:gap-4 justify-left ">
           <h3 className="text-xl font-semibold">{title}</h3>
-          <p className="text-xs lg:text-sm">{description}</p>
+          <p className="text-xs md:text-sm">{description}</p>
         </div>
         {wip ? (
           <div className={`text-white bg-red-500 ${styles.tag}`}>WIP</div>

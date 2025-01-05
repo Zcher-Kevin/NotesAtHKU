@@ -2,19 +2,15 @@
 title: Bookkeeping
 ---
 
-
 Bookkeeping is the process of recording transactions in a systematic way.
 
 *For convenience, in the notes "you" refers to "the company"*
-\end{small}
-
 
 ## Identifying transactions
 
 
-
-
 <Block variant="primary" title="Accounts">
+
 An account stores all transactions related to a group of related items.
 
 </Block>
@@ -24,44 +20,39 @@ An account stores all transactions related to a group of related items.
 <Block variant="secondary" title="The 6 types of accounts">
 There are 6 types of accounts:
 
-    - **A**sset - Stuff you own
-    - **L**iability - Stuff you owe 3rd parties
-    - **E**quity (Stockholders' Equity) - Stuff for owners
-        - **R**evenue - Money you earn from selling stuff
-        - **E**xpense - Costs of doing business
-        - **D**ividend - Money given to owners
+- **A**sset - Stuff you own
+- **L**iability - Stuff you owe 3rd parties
+- **E**quity (Stockholders' Equity) - Stuff for owners
+    - **R**evenue - Money you earn from selling stuff
+    - **E**xpense - Costs of doing business
+    - **D**ividend - Money given to owners
 
-R,E,D all feed into Equity. This will be further explored in [Financial Statements](FIXME-sec:financial_statements).
+R,E,D all feed into Equity. This will be further explored in [Financial Statements](financial-statements).
 </Block>
-
-
 
 <Block variant="knowledge" title="Current vs non-current A&L">
 
-    - **Current A&L** - Due within 1 year
-    - **Non-current A&L** - Stuff that stays with you for more than 1 year
+- **Current A&L** - Due within 1 year
+- **Non-current A&L** - Stuff that stays with you for more than 1 year
 </Block>
 
 
 
 <Block variant="knowledge" title="Operating vs non-operating R&E">
 
-    - **Operating** - Central focus of business
-    - **Non-operating** - Not related to the main business
+- **Operating** - Central focus of business
+- **Non-operating** - Not related to the main business
 </Block>
 
 
 
 <Block variant="knowledge" title="Contra accounts">
+
 Contra accounts are accounts that have a normal balance **opposite** to the account type. The following is how we present them in a financial statement:
 
 <BlockSep />
 
-
-| **Assets** |  |
-| :--- | ---: |
-| Accounts receivable | \$10 |
-| \quad Less: Allowance for doubtful accounts | (\$1) |
+<JournalEntry entries={[{ debit: [['Accounts receivable', 10]], credit: [['Allowance for doubtful accounts', 1]] }]} />
 
 </Block>
 
@@ -75,7 +66,7 @@ Contra accounts are accounts that have a normal balance **opposite** to the acco
 
 
 |  | **A** | **L** |
-| :--- | ---: | :--- |
+| :--- | :--- | :--- |
 | **C** | Cash | Accounts Payable |
 |  | Short-Term Investments | Accrued Expenses Payable |
 |  | Accounts Receivable | Notes Payable |
@@ -98,22 +89,18 @@ Contra accounts are accounts that have a normal balance **opposite** to the acco
 
 
 | **Equity** |
-| :--- | ---: |
+| :--- |
 | Common Stock **(CS)** |
 | Retained Earnings **(RE)** |
 | Additional Paid-in Capital |
 | Treasury Stock |
 
 
-
-
-[Learn more](#subsec-stockholder) about Stockholder's Equity.
-
-
+[Learn more](#reporting-and-intepreting-stockholders-equity) about Stockholder's Equity.
 
 
 |  | **Revenue** | **Expenses** |
-| :--- | ---: | :--- |
+| :--- | :--- | :--- |
 | **O** | Sales Revenue | Cost of Goods Sold (COGS) |
 |  | Service Revenue | Depreciation expense |
 |  |  | Wages expense |
@@ -127,34 +114,28 @@ Contra accounts are accounts that have a normal balance **opposite** to the acco
 
 
 
-
-
 <Block variant="knowledge" title="Cash and cash equivalents">
+
 The most liquid assets that can be **quickly converted to cash**. We usually group these into a single *cash* account.
 </Block>
-
 
 
 <Block variant="knowledge" title="Notes Receivable / Payable">
 The money you own / owe with an interest rate.
 <BlockSep />
+
 *Example 1:* You borrowed \$1000 from a bank. (Payable)
 </Block>
-
-
 
 
 <Block variant="knowledge" title="Debts">
 The money you borrow from a bank.
 </Block>
 
-
-
 ## Preparing journal entries
 
-
-
 <Block variant="primary" title="The accounting equation">
+
 ```math
 A = L + E
 ```
@@ -165,9 +146,11 @@ This equation is based on the principle that **Stuff that you OWN = Stuff that y
 
 
 <Block variant="secondary" title="Double-entry bookkeeping">
+
 From money to go to one account *(source)*, it must come from another *(destination)*. This is the *duality* of every transaction in accounting.
 
 $\uparrow$ **Debit (Dr)** is the term to describe the **destination** of money flow, whereas $\downarrow$ **Credit (Cr)** is the term to describe the **source** of money flow.
+
 </Block>
 
 
@@ -176,54 +159,50 @@ $\uparrow$ **Debit (Dr)** is the term to describe the **destination** of money f
 <Block variant="knowledge" title="Categorizing transactions as Dr / Cr">
 We can categorize transactions as debits or credits by their accounts' type:
 
+<span className="text-center w-full block text-sm">Dr - Cr</span>
 
+<span className="text-center w-full text-lg block">**DEA LER**</span>
 
-Dr - Cr
-
-
-**DEALER**
-
-Dividend, Expense, Asset - Liability, Equity, Revenue
+<span className="text-center w-full block">Dividend, Expense, Asset - Liability, Equity, Revenue</span>
 
 They would be a Dr / Cr if their value was positive. Otherwise, they would be the other way around.
 
 *This is based on rearranging the accounting equation and expanding its terms.*
 </Block>
 
-
-
 <Block variant="primary" title="Journal entry">
 A record of a transaction in the journal <u>during the accounting period</u>. The following is the format:
 
-    - Date
-    - Account
-    - Description
+- Date
+- Account
+- Description
+
 Amounts credited are usually **indented**.
 </Block>
 
 
-
-
 <ACCTExample title="Example Journal Entry">
+<JournalEntry
+    entries={[
+        {
+            date: "Jan 1, 2023",
+            debit: [['Cash', 1]],
+            credit: [['Common Stock', 1]],
+            note: "To record the issuance of common stock for cash"
+        }
+    ]}
+/>
 </ACCTExample>
 
 
-
-
 ## Posting to general ledger
-
-
 
 
 <Block variant="knowledge" title="T-accounts">
 T-account is a way to visualize an account. **Dr** goes on the left, **Cr** goes on the right. The closing balance is displayed on the corresponding side.
 <BlockSep />
 
-FIXME-ADD: T-account example
-
-
-
-
+<div className="mx-auto w-96">![t-account](./img/t.png)</div>
 
 
 </Block>
@@ -235,18 +214,23 @@ A general ledger is a collection / database of accounts that store all transacti
 
 </Block>
 
-
-
-
 <ACCTExample title="Example General Ledger">
+
+| **Cash** | | | | |
+| --- | --- | --- | --- | --- |
+| Date | Description | Debit | Credit | Balance |
+| Jan 1 | Issuance of stock | \$1,000 | | \$1,000 |
+| | Ending Balance | | | \$1,000 |
+
+| **Common Stock** | | | | |
+| --- | --- | --- | --- | --- |
+| Date | Description | Debit | Credit | Balance |
+| Jan 1 | Issuance of stock | | \$1,000 | \$1,000 |
+| | Ending Balance | | | \$1,000 |
+
 </ACCTExample>
 
-
-
-
 ## Reporting and intepreting Stockholder's Equity
-
-
 
 Corporate businesses has an advantage over proprietorships of the ease of participation in ownership. This is done through the issuance of **common stock**. Owners of common stock are known as *stockholders / shareholders*.
 
@@ -258,24 +242,21 @@ Corporate businesses has an advantage over proprietorships of the ease of partic
 
 Stockholders have the following benefits:
 
-
-    - Voice in management
-    - Dividends
-    - Claim of assets upon liquidation of company
+- Voice in management
+- Dividends
+- Claim of assets upon liquidation of company
 
 
 ### Authorized, issue and outstanding shares
 
-
 The following are the categorization of stocks:
 
-
-    - Authorized - Max. number that can be sold
-        - Issued - Sold to the public
-            - <ColorBox color='pink'>**Common stock**</ColorBox> - Currently held by the public (Outstanding stock)
-            - <ColorBox color='pink'>**Treasury stock**</ColorBox> - Bought back by the company from the public
-            - [Preferred stock](#def-preferred_stock)
-        - Unissued - Never been sold
+- Authorized - Max. number that can be sold
+    - Issued - Sold to the public
+        - <ColorBox color='pink'>**Common stock**</ColorBox> - Currently held by the public (Outstanding stock)
+        - <ColorBox color='pink'>**Treasury stock**</ColorBox> - Bought back by the company from the public
+        - [Preferred stock](#preferred-stock)
+    - Unissued - Never been sold
 
 
 <Block variant="primary" title="Common stock">
@@ -283,20 +264,17 @@ The shares currently held by public.
 </Block>
 
 
-
 <Block variant="primary" title="Treasury stock">
-The shares bought back by the company from the public. This is a [contra](#def-contra)-equity account, as can be thought of as being opposite to common stock.
+The shares bought back by the company from the public. This is a [contra](#contra-accounts)-equity account, as can be thought of as being opposite to common stock.
 </Block>
 
 
 
 <Block variant="knowledge" title="Par vs market value">
 
-    - **Par value** - The minimum price of the stock
-    - **Market value** - The price of the stock in the market
+- **Par value** - The minimum price of the stock
+- **Market value** - The price of the stock in the market
 </Block>
-
-
 
 
 <Block variant="secondary" title="Preferred stock">
@@ -304,17 +282,18 @@ A special category of stocks. They have a *fixed dividend rate* which is *paid b
 
 The preferred stock holders offers two **dividend options**:
 
-    1. **Current** - Paid in the current period, limits to before common stockholders
-    2. **Cummulative** - Paid in the future if not paid in the current period. This amount is called **dividends in arrears**.
+1. **Current** - Paid in the current period, limits to before common stockholders
+2. **Cummulative** - Paid in the future if not paid in the current period. This amount is called **dividends in arrears**.
+
 Preferred stock has a **fixed dividend rate**, which is given by:
 ```math
-\text{**P**referred **D**ividends} = \text{Par value} \times \text{Dividend rate} \times \text{Number of shares}
+\text{\textbf{P}referred \textbf{D}ividends} = \text{Par value} \times \text{Dividend rate} \times \text{Number of shares}
 ```
 They have a separate par value from common stock.
 
 As their dividends are paid first:
 ```math
-\text{**C**ommon **D**ividends} = D - PD
+\text{\textbf{C}ommon \textbf{D}ividends} = D - PD
 ```
 
 <BlockSep />
@@ -344,7 +323,7 @@ $\text{CD} = 10000 - \text{PD} = 4000$
 
 
 <Block variant="secondary" title="Sale of stock">
-When a stock is sold. Other than recording the stock issurance, we also need to record the <ColorBox color='pink'>**additional paid-in capital**</ColorBox> (APC) when the stock is sold for more than the [par value](#def-par_market).
+When a stock is sold. Other than recording the stock issurance, we also need to record the <ColorBox color='pink'>**additional paid-in capital**</ColorBox> (APC) when the stock is sold for more than the [par value](#par-vs-market-value).
 
 
 $\Delta$**C**ommon **S**tock = Stock Issurance = Number of shares $\times$ Par value
@@ -354,17 +333,16 @@ $\Delta$**APC** = Value - Stock Issurance
 <BlockSep />
 "Issued 200m additional shares of \$0.01 par value for \$16m" $\implies\ \Delta$APC = 14m, $\Delta$CS = 2m
 
-
-
 *Example entry:*
 
-
-
-| Cash | \$16 |  |
-| :--- | ---: | :--- |
-| \quad Common Stock |  | 2 |
-| \quad Additional Paid-in Capital |  | 14 |
-
+<JournalEntry
+    entries={[
+        {
+            debit: [['Cash', 16]],
+            credit: [['Common Stock', 2], ['Additional Paid-in Capital', 14]]
+        }
+    ]}
+/>
 
 </Block>
 
@@ -375,14 +353,16 @@ When we declare a dividend, we **allocate money** to the owners from retained ea
 <BlockSep />
 "Declared dividends of \$2m"
 
-
 *Example entry:*
 
-
-
-| Retained earnings | \$2 |  |
-| :--- | ---: | :--- |
-| \quad Dividends payable |  | 2 |
+<JournalEntry
+    entries={[
+        {
+            debit: [['Retained earnings', 2]],
+            credit: [['Dividends payable', 2]]
+        }
+    ]}
+/>
 
 </Block>
 
@@ -399,30 +379,32 @@ When we *re*issure stock, we need to credit treasury stock instead of common sto
 
 
 
-| Treasury stock | \$140 |  |
-| :--- | ---: | :--- |
-| \quad Cash |  | 140 |
-
-
-
+<JournalEntry
+    entries={[
+        {
+            debit: [['Treasury stock', 140]],
+            credit: [['Cash', 140]]
+        }
+    ]}
+/>
 
 "Reissued 1 shares of treasury stock at \$13 per share" $\implies \Delta$APC = -1 (less than par value), $\Delta$Treasury = 14
 
-
-
 *Example entry:*
 
-
-
-| Cash | \$13 |  |
-| :--- | ---: | :--- |
-| Additional paid-in capital | 1 |  |
-| \quad Treasury |  | 14 |
+<JournalEntry
+    entries={[
+        {
+            debit: [['Cash', 13], ['Additional paid-in capital', 1]],
+            credit: [['Treasury stock', 14]]
+        }
+    ]}
+/>
 
 </Block>
 
 
-These concepts make up the [statement of stockholder's equity](FIXME-sec:statement_se).
+These concepts make up the [statement of stockholder's equity](financial-statements#statement-of-stockholders-equity).
 
 
 ## Reporting inventories & COGS
@@ -459,41 +441,129 @@ There are two ways we can record COGS and inventory in an according period:
 
 
 <ACCTExample title="Example to compare the two inventory systems">
+<div className="flex flex-wrap">
+    <div className="w-full md:w-1/2 px-2">
+        <p className="font-bold">Perpetual System:</p>
+        <p className="mt-4">When we restock our inventory:</p>
+        <JournalEntry
+            entries={[
+                {
+                    date: "Jan 1, 2023",
+                    debit: [[<ColorBox color='lime'>Inventory</ColorBox>, "1"]],
+                    credit: [["Cash", "1"]],
+                },
+            ]}
+        />
+        <p className="mt-4">When we make a sale:</p>
+        <JournalEntry
+            entries={[
+                {
+                    date: "Jan 2, 2023",
+                    debit: [["Cash", "2"]],
+                    credit: [["Sales Revenue", "2"]],
+                    note: "To record the sale of goods",
+                },
+                {
+                    date: "Jan 2, 2023",
+                    debit: [["Cost of Goods Sold", <ColorBox color='yellow'>1</ColorBox>]],
+                    credit: [[<ColorBox color='lime'>Inventory</ColorBox>, "1"]],
+                    note: "Update real-time",
+                },
+            ]}
+        />
+    </div>
+    <div className="w-full md:w-1/2 px-2">
+        <p className="font-bold">Periodic System:</p>
+        <p className="mt-4">When we restock our inventory:</p>
+        <JournalEntry
+            entries={[
+                {
+                    date: "Jan 1, 2023",
+                    debit: [[<ColorBox color='lime'>Purchases</ColorBox>, "1"]],
+                    credit: [["Cash", "1"]],
+                },
+            ]}
+        />
+        <p className="mt-4">When we make a sale:</p>
+        <JournalEntry
+            entries={[
+                {
+                    date: "Jan 2, 2023",
+                    debit: [["Cash", "2"]],
+                    credit: [["Sales Revenue", "2"]],
+                    note: "To record the sale of goods",
+                },
+            ]}
+        />
+        <p className="mt-4">At the end of the period:</p>
+        <JournalEntry
+            entries={[
+                {
+                    date: "Dec 31, 2023",
+                    debit: [["Inventory", "1"]],
+                    credit: [[<ColorBox color='lime'>Purchases</ColorBox>, "1"]],
+                    note: "Update inventory restock first",
+                },
+                {
+                    date: "Dec 31, 2023",
+                    debit: [["Cost of Goods Sold", <ColorBox color='yellow'>1</ColorBox>]],
+                    credit: [["Inventory", "1"]],
+                    note: "Update COGS after"
+                },
+            ]}
+        />
+    </div>
+</div>
 </ACCTExample>
 
 
 
-The difference between the COGS and the revenue will reflect the profit accordingly when we produce the [income statement](FIXME-sec:income_statement).
+The difference between the COGS and the revenue will reflect the profit accordingly when we produce the [income statement](financial-statements#income-statement).
 
 The above example assumes that the <ColorBox color='yellow'>cost of inventory</ColorBox> is the same for each unit on every restock, which is not always the case.
 
 
 <Block variant="secondary" title="Inventory cost flow table">
-Reflects the changes in inventory during an accounting period, with the total cost of good sold depending on [cost flow assumptions](#thm-cost_flow).
+Reflects the changes in inventory during an accounting period, with the total cost of good sold depending on [cost flow assumptions](#cost-flow-assumptions).
 </Block>
 
 
 
 
 <ACCTExample title="Example of inventory cost flow table">
-</ACCTExample>
+During the period, the following transactions occurred:
 
+1. 1/1: First purchase of goods 100 units at \$1 each
+2. 1/2: Restocked 200 units by \$400
+3. 1/3: Sold 150 units for \$450
+
+| Date        | Action                  | Quantity | Unit cost | Total cost                               |
+| :---        | :---                    | :---     | :---      | :---                                     |
+| Jan 1, 2023 | Opening                 | 100      | \$1       | \$100                                    |
+| Jan 2, 2023 | Purchase                | 200      | \$2       | \$400                                    |
+|             | Goods available for sale| 300      | /         | \$500                                    |
+| Jan 3, 2023 | Sale                    | (150)    | /         | (<ColorBox color='yellow'>?</ColorBox>) $\leftarrow$ *COGS* |
+|             | Ending inventory        | 150      | /         | \$500 - ?                                |
+
+*<ColorBox color='yellow'>?</ColorBox> COGS depends on the [cost flow assumptions](#cost-flow-assumptions).*
+
+</ACCTExample>
 
 
 
 <Block variant="secondary" title="Cost flow assumptions">
 To determine the COGS when we purchased the goods at different costs, we can use the following assumptions:
 
-    - **FIFO** - First In, First Out
-    - **LIFO** - Last In, First Out
-    - **AVCO** - Average cost of all units (Total cost / Available units)
-    - **Specific Identification** - Ratio / quantity specified
+- **FIFO** - First In, First Out
+- **LIFO** - Last In, First Out
+- **AVCO** - Average cost of all units (Total cost / Available units)
+- **Specific Identification** - Ratio / quantity specified
 They are assumptions because we do not know which physical units were sold.
 <BlockSep />
 
-    1. <ColorBox color='yellow'>?</ColorBox>$\ =1(100)+2(50)=200$
-    2. <ColorBox color='yellow'>?</ColorBox>$\ =2(100)+1(50)=250$
-    3. <ColorBox color='yellow'>?</ColorBox>$\ =\frac{500}{300}(150)=250$
+1. <ColorBox color='yellow'>?</ColorBox>$\ =1(100)+2(50)=200$
+2. <ColorBox color='yellow'>?</ColorBox>$\ =2(100)+1(50)=250$
+3. <ColorBox color='yellow'>?</ColorBox>$\ =\frac{500}{300}(150)=250$
 </Block>
 
 
@@ -533,12 +603,14 @@ If $NRV < Cost$, the company would make a **“write-down” entry** of $(Cost -
 
 The valuation used at the end of this period would be $1000 \times 8 = 8000$. As $NRV < Cost$, we need to make the following entry:
 
-
-
-| **Account** | **Dr** | **Cr** |
-| :--- | ---: | :--- |
-| COGS | 2000 |  |
-| $\quad$ Inventory |  | 2000 |
+<JournalEntry
+    entries={[
+        {
+            debit: [['COGS', 2000]],
+            credit: [['Inventory', 2000]]
+        }
+    ]}
+/>
 
 
 $(10-8)\times1000=2000$
@@ -564,10 +636,14 @@ The act of inclusion is also called **capitalization**.
 
 
 
-| **Account** | **Dr** | **Cr** |
-| :--- | ---: | :--- |
-| Equipment | \$23 |  |
-| $\quad$ Cash |  | \$23 |
+<JournalEntry
+    entries={[
+        {
+            debit: [['Equipment', 23]],
+            credit: [['Cash', 23]]
+        }
+    ]}
+/>
 
 </Block>
 
@@ -577,8 +653,8 @@ The act of inclusion is also called **capitalization**.
 
 <Block variant="secondary" title="Reporting maintenance and improvements of equipment">
 
-    - **Maintenance** - Expense
-    - **Improvements** - Capitalized
+- **Maintenance** - Expense
+- **Improvements** - Capitalized
 Some identifying characteristics of improvements are *large sums of money*, *longer useful life*, and *increased efficiency*.
 </Block>
 
@@ -586,26 +662,32 @@ Some identifying characteristics of improvements are *large sums of money*, *lon
 
 <Block variant="secondary" title="Reporting asset disposal">
 
-    1. Record **[depreciation** expense](FIXME-subsec:depreciation) of the item for this period
-    2. Calculate and write-off **accumulated depreciation** for this item
-    3. Record the disposal of the asset by crediting it
-    4. Record "gain on sale of assets" (revenue) or "loss on sale of assets" (expense) by balancing the entry
+1. Record [**depreciation** expense](trial-balances#ecording-depreciation-expense) of the item for this period
+2. Calculate and write-off **accumulated depreciation** for this item
+3. Record the disposal of the asset by crediting it
+4. Record "gain on sale of assets" (revenue) or "loss on sale of assets" (expense) by balancing the entry
 <BlockSep />
 *Example: Southwest Airlines sold flight equipment for \$11 cash at the end of its 17th year of use. The flight equipment originally cost \$30 and was depreciated using the straight-line method with zero residual value and a useful life of 25 years.*
 
 
 
 
-|  | **Account** | **Dr** | **Cr** |
-| :--- | ---: | :--- | :--- |
-| 1. | Depreciation expense | \$1.2 |  |
-|  | $\quad$ Accumulated depreciation |  | \$1.2 |
-|  | (${30}/{25}=1.2$) |  |  |
-| 2. | Cash | \$11 |  |
-|  | Accumulated depreciation | 20.4 |  |
-|  | $\quad$ Equipment |  | 30 |
-|  | $\quad$ Gain on sale of assets |  | 1.4 |
-|  | ($1.2 \times 17=20.4$) |  |  |
+<JournalEntry
+    entries={[
+        {
+            debit: [['Depreciation expense', 1.2]],
+            credit: [['Accumulated depreciation', 1.2]],
+            date: '1.',
+            note: 'Depreciation expense for the period'
+        },
+        {
+            debit: [['Cash', 11], ['Accumulated depreciation', 20.4]],
+            credit: [['Equipment', 30], ['Gain on sale of assets', 1.4]],
+            date: '2.',
+            note: 'Sale of equipment'
+        }
+    ]}
+/>
 
 </Block>
 
@@ -621,11 +703,12 @@ If we change the estimates of the useful life or residual value of an asset, we 
 
 Computation for change in estimates:
 
-    - Original cost: \$1000
-    - Less: Accumulated depreciation: $\frac{1000}{25}\times2=\$80$
-    - Improvement capitalized cost: \$200
-    - **New cost**: \$1120
-Depreciation expense: $\frac{1120}{30-2}=\$40$
+- Original cost: \$1000
+- Less: Accumulated depreciation: $\frac{1000}{25}\times 2= $\$$80$
+- Improvement capitalized cost: \$200
+- **New cost**: \$1120
+
+Depreciation expense: $\frac{1120}{30-2}= $\$$40$
 </Block>
 
 
@@ -641,9 +724,14 @@ The tax that you pay on your income. It is calculated as a percentage of your in
 
 
 
-| **Account** | **Dr** | **Cr** |
-| :--- | ---: | :--- |
-| Income tax expense | \$300 |  |
-| $\quad$ Income tax payable |  | \$300 |
+<JournalEntry
+    entries={[
+        {
+            debit: [['Income tax expense', 300]],
+            credit: [['Income tax payable', 300]]
+        }
+    ]}
+/>
+
 
 </Block>

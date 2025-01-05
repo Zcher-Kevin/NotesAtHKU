@@ -1,5 +1,6 @@
 # conversion working dir
 /utils/working/
+/convert
 pandoc
 
 # deps

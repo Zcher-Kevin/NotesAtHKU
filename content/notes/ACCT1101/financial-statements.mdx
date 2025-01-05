@@ -15,17 +15,19 @@ The benefits of providing finanical information should outweigh its costs.
 <Block variant="knowledge" title="Formatting">
 The following are the <u>required</u> headers and footers for financial statements:
 
-    - Name of the company
-    - Title (type of statement)
-    - Specific date covered (At December 31, 2025)
-    - Unit of measure (In millions of dollars)
-    - Bottom: *The notes are an integral part of the financial statements.*
+- Name of the company
+- Title (type of statement)
+- Specific date covered (At December 31, 2025)
+- Unit of measure (In millions of dollars)
+- Bottom: *The notes are an integral part of the financial statements.*
+
 Some conventions for styling:
 
-    - Dollar sign for first and total amounts
-    - Line above sub-totals
-    - Double underline for totals
-    - Brackets for negative numbers
+- Dollar sign for first and total amounts
+- Line above sub-totals
+- Double underline for totals
+- Bracket
+s for negative numbers
 </Block>
 
 
@@ -44,9 +46,9 @@ We can build financial statements by referencing your adjusted trial balance.
 <Block variant="secondary" title="Extended accounting equation">
 The following equations are based on the definition of the individual items:
 
-**A**ssets = **L**iabilities + **E**quity
-
 *Retained Earnings* = **R**evenue - **E**xpenses
+
+**A**ssets = **L**iabilities + **E**quity
 
 $\Delta$**E**quity = *Retained Earnings* - **D**ividends
 
@@ -54,9 +56,9 @@ $\Delta$**E**quity = *Retained Earnings* - **D**ividends
 
 These relationships & equations are demonstrated in their respective financial statements:
 
-    1. [Balance Sheet](#sec-balance_sheet)
-    2. [Income Statement](#sec-income_statement)
-    3. [Statement Se](#sec-statement_se)
+1. [Income Statement](#income-statement)
+1. [Balance Sheet](#balance-sheet)
+1. [Statement of Stockholder's Equity](#statement-of-stockholders-equity)
 
 </Block>
 
@@ -66,22 +68,103 @@ These relationships & equations are demonstrated in their respective financial s
 
 
 
-Principle: [**RE** = **R** - **E**](#thm-relations)
+Principle: [**RE** = **R** - **E**](#relations-between-account-types)
 
 Reports profit / loss <u>over a period of time</u>. *Income before / after taxes must be displayed separately*
 
 
 
 <ACCTExample title="Example Income Statement (Classified by Operating & Non-operating)">
+<span className="text-center">
+    <strong>XYZ Corporation</strong><br />
+    <strong>Income Statement</strong><br />
+    For the Year Ended December 31, 2025<br />
+    (In millions of dollars)
+</span>
+
+<div className="flex justify-between">
+    <span>Sales Revenue</span>
+    <span className="underline">$5</span>
+</div>
+<ul className="list-none pl-0">
+    <li className="flex justify-between">
+        <span>Less: Credit card discounts</span>
+        <span>(1)</span>
+    </li>
+    <li className="flex justify-between">
+        <span>Less: Cost of goods sold</span>
+        <span>(1)</span>
+    </li>
+</ul>
+<div className="flex justify-between">
+    <span>Gross profit</span>
+    <span>3</span>
+</div>
+
+<strong>Operating Expenses</strong>
+<ul className="list-none pl-0">
+    <li className="flex justify-between">
+        <span>Supplies Expense</span>
+        <span>$1</span>
+    </li>
+    <li className="flex justify-between">
+        <span>Loss on sale of assets</span>
+        <span className="underline">1</span>
+    </li>
+</ul>
+<div className="flex justify-between">
+    <span>Total operating expenses</span>
+    <span>2</span>
+</div>
+
+<div className="flex justify-between">
+    <span><strong>Income from operations</strong></span>
+    <span className="underline underline-double">$1</span>
+</div>
+
+<strong>Other items:</strong>
+<ul className="list-none pl-0">
+    <li className="flex justify-between">
+        <span>Interest Revenue</span>
+        <span>$3</span>
+    </li>
+    <li className="flex justify-between">
+        <span>Dividend Expense</span>
+        <span className="underline">1</span>
+    </li>
+</ul>
+<div className="flex justify-between">
+    <span><strong>Income before taxes</strong></span>
+    <span className="underline underline-double">$3</span>
+</div>
+
+<div className="flex justify-between">
+    <span>Tax Expense</span>
+    <span className="underline">1</span>
+</div>
+
+<div className="flex justify-between">
+    <span><strong>Net Income</strong></span>
+    <span className="underline underline-double">$2</span>
+</div>
+
+<div className="flex justify-between">
+    <span>Earnings per share (2 million shares)</span>
+    <span className="underline underline-double">$1</span>
+</div>
+
+<p className="text-sm italic mt-4">
+    The notes are an integral part of these financial statements. (Operating revenue can simplify be "Sales Revenue" as there is only one item, but expanded for clarity.)
+</p>
 </ACCTExample>
 
 
 
 <Block variant="knowledge" title="Key items of the Income Statement">
 
-    - Operating R&E $\rightarrow$ Income from operations
-    - Other Revenue / Expense $\rightarrow$ Income before taxes
-    - Tax Expense $\rightarrow$ Net Income & EPS
+- Operating R&E $\rightarrow$ Income from operations
+- Other Revenue / Expense $\rightarrow$ Income before taxes
+- Tax Expense $\rightarrow$ Net Income & EPS
 </Block>
 
 
@@ -99,8 +182,8 @@ The difference between **Sales Revenue** and **Cost of Goods Sold**.
 Principles:
 
 
-    - [Beginning **CS** + **Stock Issurance** = Ending **CS**](FIXME-def:sale_of_stock)
-    - [Beginnging **RE** + **NI** - **D** = Ending **RE**](#thm-relations)
+- [Beginning **CS** + **Stock Issurance** = Ending **CS**](bookkeeping#sale-of-stock)
+- [Beginnging **RE** + **NI** - **D** = Ending **RE**](#relations-between-account-types)
 
 
 Reports changes in stockholder's equity over a period of time.
@@ -109,6 +192,25 @@ Reports changes in stockholder's equity over a period of time.
 
 
 <ACCTExample title="Example Statement of Stockholder's Equity">
+<span className="text-center">
+    <strong>XYZ Corporation</strong><br />
+    <strong>Statement of Stockholder's Equity</strong><br />
+    For the Year Ended December 31, 2025<br />
+    (In millions of dollars)
+</span>
+<div className="-mt-8">
+|                                        | **CS** | **RE** | **APC** | **Total** |
+|---|---|---|---|---|
+| **Balance, January 1, 2025**           | \$50    | \$100   | \$2      | \$152      |
+| Net Income                             | --     | 25     | --      | 25        |
+| Dividends                              | --     | (10)   | --      | (10)      |
+| Stock Issuance                         | 20     | --     | 2       | 22        |
+| **Balance, December 31, 2025**         | \$70    | \$115   | \$4      | \$189      |
+</div>
+
+<p className="text-sm italic mt-4">
+    The notes are an integral part of these financial statements.
+</p>
 </ACCTExample>
 
 
@@ -119,26 +221,142 @@ Reports changes in stockholder's equity over a period of time.
 
 
 
-Principle: [**A** = **L** + **E**](#thm-relations)
+Principle: [**A** = **L** + **E**](#relations-between-account-types)
 
-The balance sheet is prepared **after creating the [Closing Entries**](FIXME-sec:closing_entries**).
+The balance sheet is prepared **after creating the [Closing Entries](closing-entries)**.
 
-Reports the financial position of a company at a <u>specific point in time</u>. Helpful for demonstrating the [current ratio](FIXME-def:current_ratio).
+Reports the financial position of a company at a <u>specific point in time</u>. 
 
 
 
-<ACCTExample title="**Total Liabilities and Stockholders' Equity**">
+<ACCTExample title="Example Balance Sheet (Classified by Current & Non-current)">
+
+<span className="text-center">
+    <strong>XYZ Corporation</strong><br />
+    <strong>Balance Sheet</strong><br />
+    At December 31, 2025<br />
+    (In millions of dollars)
+</span>
+
+<div className="flex flex-wrap justify-between mt-4">
+    <div className="w-full md:w-1/2 mb-4 md:mb-0 md:pr-4">
+        <strong>Assets</strong><br />
+        Current Assets:
+        <ul className="list-none pl-0">
+            <li className="flex justify-between">
+                <span>Cash and Cash Equivalents</span>
+                <span>$14</span>
+            </li>
+            <li className="flex justify-between">
+                <span>Accounts Receivable</span>
+                <span>3</span>
+            </li>
+            <li className="flex justify-between">
+                <span>Inventory</span>
+                <span className="underline">7</span>
+            </li>
+        </ul>
+        <div className="flex justify-between">
+            <span>Total Current Assets</span>
+            <span>24</span>
+        </div>
+
+        Non-Current Assets:
+
+        <ul className="list-none pl-0">
+            <li className="flex justify-between">
+                <span>Property, Plant, and Equipment</span>
+                <span>35</span>
+            </li>
+            <li className="flex justify-between">
+                <span>Intangible Assets</span>
+                <span className="underline">5</span>
+            </li>
+        </ul>
+        <div className="flex justify-between">
+            <span>Total Non-Current Assets</span>
+            <span>40</span>
+        </div>
+        <div className="flex justify-between">
+            <span><strong>Total Assets</strong></span>
+            <span className="underline underline-double">$64</span>
+        </div>
+    </div>
+
+    <div className="w-full md:w-1/2">
+        <strong>Liabilities and Stockholders' Equity</strong><br />
+        Current Liabilities:
+        <ul className="list-none pl-0">
+            <li className="flex justify-between">
+                <span>Accounts Payable</span>
+                <span>$4</span>
+            </li>
+            <li className="flex justify-between">
+                <span>Short-term Debt</span>
+                <span>2</span>
+            </li>
+        </ul>
+        <div className="flex justify-between">
+            <span>Total Current Liabilities</span>
+            <span className="underline">6</span>
+        </div>
+
+        Non-Current Liabilities:
+        <ul className="list-none pl-0">
+            <li className="flex justify-between">
+                <span>Long-term Debt</span>
+                <span>20</span>
+            </li>
+            <li className="flex justify-between">
+                <span>Deferred Tax Liabilities</span>
+                <span className="underline">5</span>
+            </li>
+        </ul>
+        <div className="flex justify-between">
+            <span>Total Non-Current Liabilities</span>
+            <span>25</span>
+        </div>
+        <div className="flex justify-between">
+            <span>Total Liabilities</span>
+            <span className="underline">31</span>
+        </div>
+
+        Stockholders' Equity:
+        <ul className="list-none pl-0">
+            <li className="flex justify-between">
+                <span>Common Stock</span>
+                <span>20</span>
+            </li>
+            <li className="flex justify-between">
+                <span>Less: Treasury stock</span>
+                <span>(4)</span>
+            </li>
+            <li className="flex justify-between">
+                <span>Retained Earnings</span>
+                <span className="underline">17</span>
+            </li>
+        </ul>
+        <div className="flex justify-between">
+            <span>Total Stockholders' Equity</span>
+            <span>33</span>
+        </div>
+        <div className="flex justify-between">
+            <span><strong>Total Liabilities and Stockholders' Equity</strong></span>
+            <span className="underline underline-double">$64</span>
+        </div>
+    </div>
+</div>
+
+
+<p className="text-sm italic mt-4">
+    The notes are an integral part of these financial statements.
+</p>
 </ACCTExample>
-
-
-
 
 It is called a **balance sheet** because the **left side** (assets) is equal to the **right side** (liabilities + equity).
 
 
 ## Cash flow statement
-
-
 
 ### Cash flows
 
@@ -147,9 +365,10 @@ It is called a **balance sheet** because the **left side** (assets) is equal to 
 <Block variant="secondary" title="Identifying types of cash flows activities">
 The following is a general way to categorize cash flows:
 
-    - **Financing**: Changes in shares, borrowing money or repayment of long term debt
-    - **Investing**: The purchase / sale of long-term assets that sit outside of the businessses' core operations
-    - **Operating**: Revenue generating activities of a business
+- **Financing**: Changes in shares, borrowing money or repayment of long term debt
+- **Investing**: The purchase / sale of long-term assets that sit outside of the businessses' core operations
+- **Operating**: Revenue generating activities of a business
+
 An entry has **no effect** on cash flow if it doesn't involve cash.
 
 The direction of cash flow: cash is **debited** (cash outflow) or **credited** (cash inflow).
@@ -160,8 +379,8 @@ The direction of cash flow: cash is **debited** (cash outflow) or **credited** (
 ### Information needed for preparing cash flow statement
 
 
-    - *Comparative* balance sheets (showing current and previous years)
-    - Income statement
+- *Comparative* balance sheets (showing current and previous years)
+- Income statement
 
 
 ### Preparing statement with indirect method
@@ -172,25 +391,148 @@ Principle: Calculate cash flows and check with the change in cash balance.
 We generally use **indirect** method, which is more convenient to prepare. The only difference between the indirect and direct method is the operating activities section. We're just going to focus on the indirect method.
 
 We can calculate the **cash flow from operating activities by**:
-```math
-\text{Net Income} + \text{Non-cash expenses + \text{Gain/Loss on sale of non-current A}} - \Delta\text{cA&cL}
-```
+
+<span className="w-full text-center">
+    <ColorBox color="lime">Net Income</ColorBox> + 
+    <ColorBox color="pink">Non-cash expenses + Gain/Loss on sale of non-current A</ColorBox> -
+    <ColorBox color="yellow">$\Delta$cA & cL</ColorBox>
+</span>
+
 Which we will do inside the statement. The general steps to prepare the statement are:
 
-    - Calculate change and label type of cash flow (FIO) on the balance sheet, as well as for any additional information
-    - Identify the non-cash expenses (depreciation, amortization)
-    - Identify if there are any gains or losses on the sale of non-current assets
-    - Use the changes in [O] and **reverse their effects** on the cash flow statement\\
+- Calculate change and label type of cash flow (FIO) on the balance sheet, as well as for any additional information
+- Identify the non-cash expenses (depreciation, amortization)
+- Identify if there are any gains or losses on the sale of non-current assets
+- Use the changes in [O] and **reverse their effects** on the cash flow statement\
 (e.g. $\uparrow A \rightarrow -ve,\quad\downarrow L \rightarrow -ve$ )
-
-    - Fill in the rest
+- Fill in the rest
 
 Note that we use **payments** and **proceeds** for financing activities to describe cash outflows and inflows, respectively.
 
 
-
-
 <ACCTExample title="Example Statement of Cash Flow">
+
+<span className="text-center">
+    <strong>XYZ Corporation</strong><br />
+    <strong>Statement of Cash Flows</strong><br />
+    For the Year Ended December 31, 2025<br />
+    (In millions of dollars)
+</span>
+
+<div className="mt-4">
+    <strong>Cash flows from operating activities</strong>
+    <ul className="list-none pl-0">
+        <li className="flex justify-between">
+            <span className="colorbox-lime">Net Income</span>
+            <span>$2</span>
+        </li>
+        <li className="flex justify-between">
+            <span className="colorbox-pink">Adjustments for non-cash items:</span>
+        </li>
+        <ul className="list-none pl-4">
+            <li className="flex justify-between">
+                <span>Depreciation Expense</span>
+                <span>1</span>
+            </li>
+            <li className="flex justify-between">
+                <span>Amortization Expense</span>
+                <span>1</span>
+            </li>
+            <li className="flex justify-between">
+                <span>Loss on Sale of Equipment</span>
+                <span>1</span>
+            </li>
+        </ul>
+        <li className="flex justify-between">
+            <span className="colorbox-yellow">Changes in current asset and liabilities:</span>
+        </li>
+        <ul className="list-none pl-4">
+            <li className="flex justify-between">
+                <span>Increase in Accounts Receivable</span>
+                <span>(1)</span>
+            </li>
+            <li className="flex justify-between">
+                <span>Decrease in Inventory</span>
+                <span>2</span>
+            </li>
+            <li className="flex justify-between">
+                <span>Increase in Accounts Payable</span>
+                <span className="underline">1</span>
+            </li>
+        </ul>
+    </ul>
+    <div className="flex justify-between">
+        <span>Net cash used by operating activities</span>
+        <span>7</span>
+    </div>
+
+    <strong>Cash flows from investing activities</strong>
+    <ul className="list-none pl-0">
+        <li className="flex justify-between">
+            <span>Acquisition of businesses</span>
+            <span>(5)</span>
+        </li>
+        <li className="flex justify-between">
+            <span>Purchase of Equipment</span>
+            <span>(5)</span>
+        </li>
+        <li className="flex justify-between">
+            <span>Sale of Equipment</span>
+            <span className="underline">2</span>
+        </li>
+    </ul>
+    <div className="flex justify-between">
+        <span>Net cash used in investing activities</span>
+        <span>(8)</span>
+    </div>
+
+    <strong>Cash flows from financing activities</strong>
+    <ul className="list-none pl-0">
+        <li className="flex justify-between">
+            <span>Issuance of Common Stock</span>
+            <span>4</span>
+        </li>
+        <li className="flex justify-between">
+            <span>Payment of Dividends</span>
+            <span>(1)</span>
+        </li>
+        <li className="flex justify-between">
+            <span>Payments on revolving line of bank credit</span>
+            <span>(1)</span>
+        </li>
+        <li className="flex justify-between">
+            <span>Purchases of treasury stock</span>
+            <span>(1)</span>
+        </li>
+        <li className="flex justify-between">
+            <span>Proceeds from stock issued under share-based compensation plans</span>
+            <span className="underline">1</span>
+        </li>
+    </ul>
+    <div className="flex justify-between">
+        <span>Net cash used by financing activities</span>
+        <span>2</span>
+    </div>
+
+    <div className="flex justify-between">
+        <span><strong>Net increase (decrease) in cash</strong></span>
+        <span className="underline underline-double">$1</span>
+    </div>
+
+    <div className="flex justify-between">
+        <span>Cash at beginning of period</span>
+        <span>13</span>
+    </div>
+
+    <div className="flex justify-between">
+        <span>Cash at end of period</span>
+        <span>14</span>
+    </div>
+
+    <p className="text-sm italic mt-4">
+        The notes are an integral part of these financial statements.
+    </p>
+</div>
 </ACCTExample>
 
 
@@ -200,7 +542,7 @@ Note that we use **payments** and **proceeds** for financing activities to descr
 
 Note the importance of the order of creation of the statements as listed:
 
-    1. Income Statement: Provides the **Net Income** $\downarrow$
-    2. Statement of Stockholder's Equity: Provides the **Ending RE** $\downarrow$
-    3. Balance Sheet: Provides the **Ending A, L, E** to compare with the previous year $\downarrow$
-    4. Statement of Cash Flows:
+1. Income Statement: Provides the **Net Income** $\downarrow$
+2. Statement of Stockholder's Equity: Provides the **Ending RE** $\downarrow$
+3. Balance Sheet: Provides the **Ending A, L, E** to compare with the previous year $\downarrow$
+4. Statement of Cash Flows:

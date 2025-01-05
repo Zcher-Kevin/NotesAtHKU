@@ -6,6 +6,7 @@ import ColorBox from "./ColorBox";
 import HLayout from "./HLayout";
 import Icon from "./Icon";
 import Inline from "./Inline";
+import JournalEntry from "./JournalEntry";
 import Welcome from "./Welcome";
 
 const mdxComponents = {
@@ -17,6 +18,7 @@ const mdxComponents = {
   ACCTExample,
   Inline,
   Icon,
+  JournalEntry,
   a: A,
 };
 

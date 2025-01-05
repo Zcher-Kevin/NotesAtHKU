@@ -8,18 +8,15 @@ title: Closing Entries
 A permanent account carries balance forward to the next period, while a temporary account resets to zero at the end of the period.
 
 
+<span className="text-center w-full text-sm block">Temp - Perm</span>
 
+<span className="text-center w-full text-lg block">**RED ALE**</span>
 
-Temp - Perm
-
-
-**RED ALE**
-
-Revenue, Expense, Dividend - Asset, Liability, Equity
+<span className="text-center w-full block">Revenue, Expense, Dividend - Asset, Liability, Equity</span>
 
 
 <BlockSep />
-*Related:* [Adjusting entry](FIXME-thm:adjusting_entry)
+*Related:* [Adjusting entry](trial-balances#posting-adjusting-entries)
 </Block>
 
 
@@ -27,10 +24,33 @@ Revenue, Expense, Dividend - Asset, Liability, Equity
 <Block variant="primary" title="Closing entries">
 Entry to reset temporary accounts to zero by transferring their balances to **Retained Earnings**.
 
-The entry is created after the [Income Statement](FIXME-sec:income_statement), and before the [Balance Sheet](FIXME-sec:balance_sheet), as otherwise there will be nothing to display.
+The entry is created after the [Income Statement](financial-statements#income-statement), and before the [Balance Sheet](financial-statements#balance-sheet), as otherwise there will be nothing to display.
 </Block>
 
 
 
 <ACCTExample title="Example Closing Entry">
+Considering the following adjusted trial balance at the end of the period:
+
+|**Account** | **Debit** | **Credit** |
+|--- | --- | --- |
+|Cash | \$5 |  |
+|Revenue |  | \$15 |
+|Expense | \$5 |  |
+|Dividends | \$5 |  |
+|**Total** | \$15 | \$15 |
+
+We make the following closing entry:
+
+<JournalEntry entries={[
+    {
+        date: "Dec 31, 2023",
+        debit: [["Revenue", "$15"]],
+        credit: [
+            ["Retained Earnings", "$5"],
+            ["Expense", "$5"],
+            ["Dividends", "$5"]
+        ],
+    }
+]} />
 </ACCTExample>

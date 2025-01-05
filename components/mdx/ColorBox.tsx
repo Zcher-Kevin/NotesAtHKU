@@ -7,11 +7,14 @@ interface ColorBoxProps {
 
 export default function ColorBox({ color, children }: ColorBoxProps) {
   return (
-    <span
-      className="inline p-1 text-black rounded-sm w-fit"
-      style={{ backgroundColor: color }}
-    >
-      {children}
-    </span>
+    <div className="relative inline-block w-fit">
+      <span className="relative px-1 py-[1px] rounded-sm" style={{ zIndex: 1 }}>
+        {children}
+      </span>
+      <div
+        className="absolute inset-0 rounded-sm opacity-50"
+        style={{ backgroundColor: color, zIndex: 0 }}
+      ></div>
+    </div>
   );
 }

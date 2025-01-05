@@ -68,13 +68,19 @@ export default function FAB({
       </AnimatePresence>
       <motion.button
         whileTap={{ scale: 0.8 }}
-        className="fixed z-50 p-6 bg-black rounded-full shadow-lg dark:bg-white bottom-4 right-4 lg:bottom-8 lg:right-8"
+        className="fixed z-50 p-4 bg-black rounded-full shadow-lg lg:p-6 dark:bg-white bottom-4 right-4 lg:bottom-8 lg:right-8"
         onClick={toggleView}
       >
         {isOpen ? (
-          <X size={28} className="text-white dark:text-black" />
+          <X
+            size={28}
+            className="text-white scale-80 dark:text-black lg:scale-100"
+          />
         ) : (
-          <PenLine size={28} className="text-white dark:text-black" />
+          <PenLine
+            size={28}
+            className="text-white scale-80 dark:text-black lg:scale-100"
+          />
         )}
       </motion.button>
     </>
