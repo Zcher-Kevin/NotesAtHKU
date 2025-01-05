@@ -57,6 +57,14 @@ export default function CourseFile({
         rotateZ: 0,
         transformPerspective: 700,
       }}
+      initial={
+        index !== undefined && index < 5 ? { opacity: 0, y: 50 } : undefined
+      }
+      animate={
+        index !== undefined && index < 5
+          ? { opacity: 1, y: 0, transition: { delay: (index || 0) * 0.1 } }
+          : undefined
+      }
       whileHover={{
         rotateX: 0,
         y: -15,

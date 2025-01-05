@@ -12,25 +12,25 @@ const docsOptions: DocsLayoutProps = {
       transform(option, node) {
         const meta = source.getNodeMeta(node);
         if (!meta) return option;
-        // @ts-ignore
+        // @ts-expect-error New property
         const isWip = meta.data.wip;
 
         return {
           ...option,
           title: isWip ? (
-            <div className="flex items-center">
-              <p className="text-sm font-medium">{meta.data.title}</p>
-              <div
+            <span className="flex items-center">
+              <span className="text-sm font-medium">{meta.data.title}</span>
+              <span
                 className="px-2 ml-2 rounded-md bg-gradient-to-t from-fd-background/80"
                 style={{
                   color: `#F15550`,
                   backgroundColor: `hsla(0, 100%, 75%, 0.3)`,
                 }}
               >
-                {/* @ts-ignore */}
+                {/* @ts-expect-error New property */}
                 {meta.data.semester.slice(2)}
-              </div>
-            </div>
+              </span>
+            </span>
           ) : (
             meta.data.title
           ),
