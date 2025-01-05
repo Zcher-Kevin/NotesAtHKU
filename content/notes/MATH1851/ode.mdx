@@ -1,6 +1,9 @@
 ---
-title: First Order Differential Equations
+title: Orinary Differential Equations
 ---
+
+## First Order Differential Equations
+
 Differential equations are equations that involve a function and its derivatives.
 
 <Block variant="primary" title="Order of differential equations">
@@ -13,7 +16,7 @@ Where $y'_n$ is the nth derivative of $y$ with respect to $x$. The highest degre
 
 
 
-## Solving linear 1st-ODEs
+### Solving linear 1st-ODEs
 
 
 <Block variant="primary" title="Linear differential equations">
@@ -46,7 +49,7 @@ We can solve a separable equation as followed, given a **particular solution** o
 
 
 
-## Solving non-linear 1st-ODEs
+### Solving non-linear 1st-ODEs
 
 
 <Block variant="primary" title="Bernoulli's equation">
@@ -80,7 +83,7 @@ After substitution, we will get a **separable equation** after the substitution,
 
 
 
-## Exact equations
+### Exact equations
 
 
 <Block variant="knowledge" title="Partial derivatives">
@@ -133,12 +136,10 @@ Hence, the solution would be:
 </Block>
 
 
----
-title: Second Order Differential Equations
----
+## Second Order Differential Equations
 
 
-## Solving homogeneous linear 2nd-ODEs
+### Solving homogeneous linear 2nd-ODEs
 
 
 
@@ -173,14 +174,14 @@ ax^2y''+bxy'+cy=0\quad:\quad y=x^\lambda\implies a(\lambda^2-\lambda)+b\lambda+c
 ```
 The general solutions is similar to that of the homogeneous 2nd-ODEs, but with **all terms of $x\to \ln x$**:
 
-    1. $e^{\lambda x}\to x^\lambda$
-    2. $e^{\lambda x}\to x^\lambda,\quad x\to \ln x$
-    3. $e^{\alpha x}\to x^\alpha,\quad \beta x \to \beta \ln x$
+1. $e^{\lambda x}\to x^\lambda$
+2. $e^{\lambda x}\to x^\lambda,\quad x\to \ln x$
+3. $e^{\alpha x}\to x^\alpha,\quad \beta x \to \beta \ln x$
 </Block>
 
 
 
-## Solving non-homogeneous linear 2nd-ODEs
+### Solving non-homogeneous linear 2nd-ODEs
 
 
 <Block variant="primary" title="Constant coefficient Non-homogeneous 2nd-ODEs">
@@ -206,9 +207,10 @@ Where $Y_p$ is a **particular solution** of $y$. To solve for $Y_p$, we can use 
 <Block variant="secondary" title="Method of undetermined coefficients">
 To solve for $Y_p$ for a non-homogeneous 2nd-ODE, let $Y_p$ as the following if $g(x)$ consists of:
 
-    - $e^{ax}\to Y_p=Ae^{ax}$
-    - $\sin x\text{ and / or }\cos x\to Y_p=A\sin x+B\cos x$
-    - $x^n\to Y_p=Ax^n=A_nx^n+A_{n-1}x^{n-1}+\dots+A_0$ (polynomial of degree $n$)
+- $e^{ax}\to Y_p=Ae^{ax}$
+- $\sin x\text{ and / or }\cos x\to Y_p=A\sin x+B\cos x$
+- $x^n\to Y_p=Ax^n=A_nx^n+A_{n-1}x^{n-1}+\dots+A_0$ (polynomial of degree $n$)
+
 Important things to note:
 
 $\blacktriangleright $ If $g(x)$ is a product of multiple components, **$Y_p$ is the product of the different results**.
@@ -238,9 +240,7 @@ If $Y_p$ consists of a non-constant term that exists in $Y_c$, we simply discard
 </Block>
 
 
----
-title: Solving ODEs with Laplace Transforms
----
+## Solving ODEs with Laplace Transforms
 
 <Block variant="primary" title="Laplace transform">
 The Laplace transform is a technique used to solve linear ODEs with constant coefficients. The Laplace transform of a function $f(t)$ is defined as:
@@ -255,8 +255,8 @@ Where $s$ is a complex number.
 <Block variant="secondary" title="Properties of Laplace transforms">
 The following are some properties of Laplace transforms:
 
-    - $\mathcal{L}\{f+g\} = \mathcal{L}\{f\}+\mathcal{L}\{g\}$
-    - $\mathcal{L}\{kf\} = k\mathcal{L}\{f\}$
+- $\mathcal{L}\{f+g\} = \mathcal{L}\{f\}+\mathcal{L}\{g\}$
+- $\mathcal{L}\{kf\} = k\mathcal{L}\{f\}$
 </Block>
 
 
@@ -308,9 +308,10 @@ You basically think backwards like how you'd do intergration sometimes. Remember
 <Block variant="knowledge" title="Partial fractions">
 A fraction can be decomposed into partial fractions if the degree of the numerator is **less than the degree of the denominator**. If not, then perform **long division** first.
 
-    1. $\frac{f(x)}{g(x)h(x)} = \frac{A}{g(x)} + \frac{B}{h(x)}$
-    2. $\frac{f(x)}{g^2(x)h(x)} = \frac{A}{g(x)} + \frac{B}{g^2(x)} + \frac{C}{h(x)}$
-    3. $\frac{f(x)}{(x^2+1)} = \frac{Ax+B}{x^2+1}$
+1. $\frac{f(x)}{g(x)h(x)} = \frac{A}{g(x)} + \frac{B}{h(x)}$
+2. $\frac{f(x)}{g^2(x)h(x)} = \frac{A}{g(x)} + \frac{B}{g^2(x)} + \frac{C}{h(x)}$
+3. $\frac{f(x)}{(x^2+1)} = \frac{Ax+B}{x^2+1}$
+
 We can solve for $A$, $B$, and $C$ by multiplying the denominator (to make left side $f(x)$ only) and solving for the numerator.
 </Block>
 
@@ -319,8 +320,8 @@ We can solve for $A$, $B$, and $C$ by multiplying the denominator (to make left 
 <Block variant="primary" title="Solving ODEs with Laplace transforms">
 To solve a linear ODE with constant coefficients using Laplace transforms:
 
-    1. Take the Laplace transform of both sides of ODE ($y(t) \to Y(s)$)
-    2. Solve for the Laplace transform of the function $Y(s)$
-    3. Convert $Y(s)$ into partial fractions
-    4. Find the inverse Laplace transform of the function ($Y(s)\to y(t)$)
+1. Take the Laplace transform of both sides of ODE ($y(t) \to Y(s)$)
+2. Solve for the Laplace transform of the function $Y(s)$
+3. Convert $Y(s)$ into partial fractions
+4. Find the inverse Laplace transform of the function ($Y(s)\to y(t)$)
 </Block>

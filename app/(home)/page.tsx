@@ -9,8 +9,8 @@ import styles from "./page.module.css";
 export default function HomePage() {
   return (
     <>
-      <main className="flex flex-col items-center justify-center flex-grow w-full h-screen max-w-3xl px-6 mx-auto text-center">
-        <h1 className="mb-4 text-3xl font-extrabold tracking-wide sm:text-5xl md:text-6xl lg:leading-tight lg:text-7xl">
+      <main className="flex flex-col items-center justify-center flex-grow w-full h-screen max-w-3xl px-6 mx-auto text-center -m-14">
+        <h1 className="mb-4 text-4xl font-extrabold tracking-wide sm:text-5xl md:text-6xl lg:leading-tight lg:text-7xl">
           <span className="relative whitespace-nowrap">
             <svg
               aria-hidden="true"
@@ -26,8 +26,8 @@ export default function HomePage() {
         </h1>
         <p className="mb-12">Hand-typed notes by students, for students.</p>
         <CourseFiles className="mb-12" />
-        <div className="flex items-center gap-4">
-          <p className="text-left opacity-80">
+        <div className="flex items-center gap-2 md:gap-4">
+          <p className="text-sm text-left opacity-80 md:text-base">
             Interested in sharing your notes?
           </p>
           <Link href={REPO}>
@@ -35,12 +35,14 @@ export default function HomePage() {
           </Link>
         </div>
       </main>
-      <Grid
-        lineThickness={0.5}
-        rows={15}
-        columns={15}
-        className={`absolute w-screen aspect-video bottom-0 text-fd-foreground opacity-40 ${styles.grid}`}
-      />
+      <div className="absolute top-0 left-0 w-screen h-screen overflow-hidden pointer-events-none">
+        <Grid
+          lineThickness={0.5}
+          rows={15}
+          columns={15}
+          className={`absolute w-screen aspect-video bottom-0 text-fd-foreground opacity-40 ${styles.grid}`}
+        />
+      </div>
       <section className="relative z-10 grid grid-cols-1 py-10 mx-auto mt-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-7xl max-sm:p-0 max-sm:mx-0 max-sm:w-full">
         <B icon={<Rewind />} title="Background">
           Notes@HKU was created to provide a centralized platform for students
@@ -63,7 +65,11 @@ export default function HomePage() {
           unnecessary details, making their study sessions more efficient and
           effective.
         </B>
-        <B icon={<Github />} title="Contributions welcome!" className="">
+        <B
+          icon={<Github />}
+          title="Contributions welcome!"
+          className="border-r-0"
+        >
           Contributions are welcomed! It can be as easy as leaving a comment
           about inaccurate information or as involved as submitting a pull
           request to add new notes!
@@ -91,7 +97,7 @@ function B({
       className={`relative flex flex-col py-10 text-left border-r group/feature border-neutral-800 dark:border-neutral-800 ${className}`}
       {...props}
     >
-      <div className="absolute inset-0 w-full h-full transition duration-200 opacity-0 pointer-events-none group-hover/feature:opacity-100 bg-gradient-to-t from-neutral-800 to-transparent"></div>
+      <div className="absolute inset-0 w-full h-full transition duration-200 opacity-0 pointer-events-none group-hover/feature:opacity-100 bg-gradient-to-t from-neutral-300 dark:from-neutral-800 to-transparent"></div>
       <div className="relative z-10 px-10 mb-4">{icon}</div>
       <div className="relative z-10 px-10 mb-2 text-lg font-bold">
         <div className="absolute inset-y-0 left-0 w-1 h-6 transition-all duration-200 origin-center rounded-tr-full rounded-br-full group-hover/feature:h-8 bg-neutral-700 group-hover/feature:bg-white"></div>
