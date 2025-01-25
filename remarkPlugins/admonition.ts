@@ -42,6 +42,7 @@ export function remarkAdmonition(): Transformer<Root, Root> {
 
       if (match) {
         open = i;
+        const base_indent = nodes[i].position?.start?.column || 0;
 
         attributes.push({
           type: "mdxJsxAttribute",
@@ -58,10 +59,8 @@ export function remarkAdmonition(): Transformer<Root, Root> {
 
         let j = i + 1;
         for (; j < nodes.length; j++) {
-          // console.log("PROCESSING -----");
-          // console.dir(nodes[j], { depth: 10 });
           const col = nodes[j].position?.start?.column || 0;
-          if (col < 4) {
+          if (col < 4 + base_indent) {
             // if not indented
             end = j;
             break;
