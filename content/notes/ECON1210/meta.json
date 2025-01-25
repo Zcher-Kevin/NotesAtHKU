@@ -4,6 +4,6 @@
   "description": "Introductory microeconomics",
   "root": true,
   "icon": "Coins",
-  "pages": ["index"],
+  "pages": ["index", "cost-and-benefit"],
   "wip": true
 }

@@ -1,0 +1,92 @@
+---
+title: Cost and Benefit
+---
+
+When taking an action $n$, benefit is your **gain**, and cost is your **loss** by choosing that action. We *ignore* all costs that are not related to choosing the action.
+
+!!! tip "Economic surplus and opportunity cost"
+
+    Economic surplus, or net benefit, for taking an action $n$ is given by: $ES(n) = B(n) - C(n)$.
+
+    **Opportunity cost** is the cost of choosing one action $n$ over another ($n_2$):
+
+    $OC(n) = C(n) + ES(n_2)$
+
+    The economic surplus of choosing $n$ over $n_2$ is:
+
+    ```math
+    ES(n) = B(n) - OC(n)
+    ```
+
+!!! note "Sunk cost"
+
+    The cost that has already been incurred and **cannot be recovered**.
+
+    **Ignore sunk cost when making decisions**, always look forward.
+
+!!! info "Decision by margin"
+
+    Marginal benefit/cost ($MB,MC$) means **additional** gain/loss from taking one more unit of action $n$.
+
+    **Only take action when $MB \geq MC$.**
+
+    $MX(n) = TX(n) - TX(n-1),\quad X\in\{B,C\}$, for integer $n$ and $T$ being total.
+
+    If the unit of action is continous, the value $MX$ will be given.
+
+    Net margin: $NM(n) = MB(n) - MC(n)$
+
+!!! info "Cost-benefit principle"
+
+    A rational person:
+    - **Only take action when $ES \geq 0$**
+    - **Best action is when $ES$ is maximized**
+
+    We can make decisions about finding the **optimal** number of units to take between two or more actions by **equalizing** the net margins.
+
+    !!! eg "2023 Summer Midterm Q3"
+
+        To allocate 29 hours of tasks between A & B to minimize cost, whose costs are:
+
+        | Cost   | Formula            |
+        |--------|--------------------|
+        | avg. A | $AC(n) = 330 + 1.5n$ | 
+        | mar. A | $MC(n) = 330 + 3n$ | 
+        | avg. B | $AC(m) = 270 + 2.5m$ |
+        | mar. B | $MC(m) = 270 + 5m$ |
+
+        We need to find $n$ and $m$ such that $n + m = 29$ and the marginal costs are equalized, i.e., $MC_A(n) = MC_B(m)$. This is due to the cost-benefit principle: equalizing the net margins.
+        
+        ```math
+        \begin{align*}
+        MC_A(n) &= MC_B(m) \\
+        330 + 3n &= 270 + 5m \\
+        3n - 5m &= -60,\quad\text{substitute $n = 29 - m$} \\
+        3(29 - m) - 5m &= -60 \\
+        m = 18.375&,\quad n = 10.625
+        \end{align*}
+        ```
+
+    !!! eg "Example: Workers"
+
+        To allocate 4 workers fix items in places A & B, where the number of items repaired:
+        | n. workers | fixed A | fixed B |
+        |---|---|---|
+        |1|70|40|
+        |2|80|60|
+        |3|89|79|
+        |4|98|97|
+
+        First convert the benefit table to marginal benefit table:
+        | n. workers | fixed A | fixed B |
+        |---|---|---|
+        |1|70|40|
+        |2|10|20|
+        |3|9|19|
+        |4|9|18|
+
+        Then, we simply decide where workers go by choosing highest marginal benefit:
+
+        $70\rightarrow 40\rightarrow 20\rightarrow 19\implies n_A = 1, n_B = 3$
+        
+    
