@@ -1,4 +1,4 @@
-import { buttonVariants } from "@/components/button";
+import { buttonVariants } from "@/components/Button";
 import { Separator } from "@/components/Seperator";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { REPO } from "@/constants";
