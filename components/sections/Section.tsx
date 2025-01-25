@@ -27,8 +27,8 @@ export default function Section() {
           title="Contributions welcome!"
           className="border-r-0"
         >
-          We love contributions! Whether it's just a comment about something
-          that's off or a full-on pull request to add new notes, every bit
+          We love contributions! Whether it{"'"}s just a comment about something
+          that{"'"}s off or a full-on pull request to add new notes, every bit
           helps!
         </B>
       </div>

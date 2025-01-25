@@ -35,14 +35,6 @@ interface TextAnimateProps extends MotionProps {
    */
   delay?: number;
   /**
-   * The duration of the animation
-   */
-  duration?: number;
-  /**
-   * Custom motion variants for the animation
-   */
-  variants?: Variants;
-  /**
    * The element type to render
    */
   as?: ElementType;
@@ -54,10 +46,6 @@ interface TextAnimateProps extends MotionProps {
    * Whether to start animation when component enters viewport
    */
   startOnView?: boolean;
-  /**
-   * Whether to animate only once
-   */
-  once?: boolean;
   /**
    * The animation preset to use
    */
@@ -148,7 +136,7 @@ const defaultItemAnimationVariants: Record<
     container: defaultContainerVariants,
     item: {
       hidden: { opacity: 0, filter: "blur(10px)", y: 20 },
-      show: (delay: number) => ({
+      show: () => ({
         opacity: 1,
         filter: "blur(0px)",
         y: 0,
@@ -174,7 +162,7 @@ const defaultItemAnimationVariants: Record<
     container: defaultContainerVariants,
     item: {
       hidden: { opacity: 0, filter: "blur(10px)", y: -20 },
-      show: (delay: number) => ({
+      show: () => ({
         opacity: 1,
         filter: "blur(0px)",
         y: 0,
@@ -307,13 +295,10 @@ const defaultItemAnimationVariants: Record<
 export function TextAnimate({
   children,
   delay = 0,
-  duration = 0.3,
-  variants,
   className,
   segmentClassName,
   as: Component = "p",
   startOnView = true,
-  once = false,
   by = "word",
   animation = "fadeIn",
   staggerTime = 0.05,

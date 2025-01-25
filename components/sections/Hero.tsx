@@ -45,7 +45,7 @@ export default function Hero() {
             </Link>
           </div>
           <h1 className="h1">Open notes for HKU students</h1>
-          <p className="mb-16">
+          <p className="mb-16 md:text-lg">
             <b>10+ </b>
             <TextAnimate animation={"blurInUp"} as="span" staggerTime={0.02}>
               open source, hand-typed notes for various courses by students, for

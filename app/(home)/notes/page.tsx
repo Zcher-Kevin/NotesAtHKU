@@ -76,7 +76,6 @@ export default async function Page() {
         numSquares={30}
         maxOpacity={0.2}
         duration={1}
-        repeatDelay={0}
         strokeDasharray={"10 10"}
         className={cn(
           "[mask-image:linear-gradient(to_bottom,white,transparent,transparent)] "
