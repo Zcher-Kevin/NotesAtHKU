@@ -12,7 +12,7 @@ export interface CourseFileProps {
   semester?: string;
   wip?: boolean;
   icon?: string;
-  containerRef: React.MutableRefObject<any>;
+  containerRef?: React.MutableRefObject<any>;
   spacer?: boolean;
   index?: number;
 }

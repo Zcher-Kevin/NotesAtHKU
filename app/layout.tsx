@@ -1,15 +1,12 @@
 import getSortedFiles from "@/lib/getSortedFiles";
 import { baseUrl, createMetadata } from "@/lib/metadata";
 import { RootProvider } from "fumadocs-ui/provider";
+import { GeistSans } from "geist/font/sans";
 import "katex/dist/katex.css";
-import { Geist } from "next/font/google";
 import type { ReactNode } from "react";
 import "./global.css";
 
-const font = Geist({
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  subsets: ["latin"],
-});
+const font = GeistSans;
 
 export const metadata = createMetadata({
   title: {
