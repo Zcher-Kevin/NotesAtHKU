@@ -4,9 +4,15 @@ import React from "react";
 
 interface BlockProps {
   title: string;
-  variant: "primary" | "secondary" | "knowledge";
+  variant: string;
   children: React.ReactNode;
 }
+
+const ADMONITION_MAPPING = {
+  tip: "primary",
+  info: "secondary",
+  note: "knowledge",
+};
 
 const STYLES = {
   primary: {
@@ -32,15 +38,22 @@ export default function Block({
   variant = "knowledge",
   children,
 }: BlockProps) {
-  variant = variant in STYLES ? variant : "knowledge";
+  const activeVariant: keyof typeof STYLES =
+    variant in STYLES
+      ? (variant as keyof typeof STYLES)
+      : (variant as keyof typeof ADMONITION_MAPPING) in ADMONITION_MAPPING
+      ? (ADMONITION_MAPPING[
+          variant as keyof typeof ADMONITION_MAPPING
+        ] as keyof typeof STYLES)
+      : "knowledge";
   const href_id = title.replace(/\s+/g, "-").toLowerCase();
 
   return (
     <div
-      className={`rounded-xl px-4 relative pt-1 mt-8 mb-6 ${STYLES[variant].body} border-2  dark:bg-opacity-50`}
+      className={`rounded-xl px-4 relative pt-1 mt-8 mb-6 ${STYLES[activeVariant].body} border-2  dark:bg-opacity-50`}
     >
       <div
-        className={`${STYLES[variant].head} -top-3 flex absolute items-center w-fit max-w-[calc(100%-1.5rem)] px-3 left-3 right-3 rounded-lg border-2 dark:border-none dark:py-[2px] dark:-translate-y-[2px] overflow-x-auto whitespace-nowrap`}
+        className={`${STYLES[activeVariant].head} -top-3 flex absolute items-center w-fit max-w-[calc(100%-1.5rem)] px-3 left-3 right-3 rounded-lg border-2 dark:border-none dark:py-[2px] dark:-translate-y-[2px] overflow-x-auto whitespace-nowrap`}
       >
         <h4 className="w-full m-0 mr-2 text-base font-bold" id={href_id}>
           {title}
