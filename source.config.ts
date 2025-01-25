@@ -1,6 +1,7 @@
 import { defineConfig, defineDocs } from "fumadocs-mdx/config";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
+import { remarkAdmonition } from "./remarkPlugins/admonition";
 
 export const { docs, meta } = defineDocs({
   dir: "content/notes",
@@ -8,7 +9,7 @@ export const { docs, meta } = defineDocs({
 
 export default defineConfig({
   mdxOptions: {
-    remarkPlugins: [[remarkMath, { trust: true, strict: "ignore" }]],
+    remarkPlugins: [remarkAdmonition, remarkMath],
     // Place it at first so that it won't be changed by syntax highlighter
     rehypePlugins: (v) => [
       [rehypeKatex, { trust: true, strict: "ignore" }],
