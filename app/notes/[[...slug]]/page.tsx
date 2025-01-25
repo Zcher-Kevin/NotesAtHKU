@@ -1,8 +1,8 @@
 import FAB from "@/components/FAB";
 import mdxComponents from "@/components/mdx";
 import { REPO_BRANCH, REPO_NAME, REPO_OWNER } from "@/constants";
+import { getGithubLastEdit } from "@/lib/git-edit";
 import { source } from "@/lib/source";
-import { getGithubLastEdit } from "fumadocs-core/server";
 import { ImageZoom } from "fumadocs-ui/components/image-zoom";
 import defaultMdxComponents from "fumadocs-ui/mdx";
 import {
@@ -50,11 +50,16 @@ export default async function Page(props: {
 
   const MDX = page.data.body;
 
-  const time = await getGithubLastEdit({
-    owner: REPO_OWNER,
-    repo: REPO_NAME,
-    path: `content/notes/${page.file.path}`,
-  });
+  let time = undefined;
+
+  if (process.env.ENV != "dev") {
+    time = await getGithubLastEdit({
+      owner: REPO_OWNER,
+      repo: REPO_NAME,
+      path: `content/notes/${page.file.path}`,
+      token: process.env.PROD_GITHUB_TOKEN || "",
+    });
+  }
 
   return (
     <>
