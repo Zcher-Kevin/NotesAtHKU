@@ -4,6 +4,6 @@
   "description": "Computer Organization",
   "root": true,
   "icon": "Cpu",
-  "pages": ["index"],
+  "pages": ["index", "evolution", "digital-logic"],
   "wip": true
 }
