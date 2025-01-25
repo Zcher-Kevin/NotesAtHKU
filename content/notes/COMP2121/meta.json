@@ -4,6 +4,6 @@
   "description": "Discrete Mathematics",
   "root": true,
   "icon": "Omega",
-  "pages": ["index"],
+  "pages": ["index", "..."],
   "wip": true
 }
