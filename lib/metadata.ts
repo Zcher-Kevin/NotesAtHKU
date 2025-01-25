@@ -8,6 +8,7 @@ export function createMetadata(override: Metadata): Metadata {
       title: override.title ?? undefined,
       description: override.description ?? undefined,
       url: REPO,
+      images: "/banner.png",
       siteName: "Notes@HKU",
       ...override.openGraph,
     },
