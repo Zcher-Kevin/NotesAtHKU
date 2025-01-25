@@ -1,9 +1,19 @@
 import fs from "fs";
 import path from "path";
 
-export default function getSortedFiles() {
+export interface MetaData {
+  title: string;
+  semester: string;
+  description: string;
+  root: boolean;
+  icon: string;
+  pages: string[];
+  wip: boolean;
+}
+
+export default function getSortedFiles(): MetaData[] {
   const directoryPath = path.join(process.cwd(), "content/notes");
-  const jsonFiles: any[] = [];
+  const jsonFiles: MetaData[] = [];
 
   function readDirectory(directory: string) {
     const files = fs.readdirSync(directory);
@@ -16,7 +26,7 @@ export default function getSortedFiles() {
         readDirectory(fullPath);
       } else if (file === "meta.json") {
         const fileContents = fs.readFileSync(fullPath, "utf8");
-        const jsonData = JSON.parse(fileContents);
+        const jsonData: MetaData = JSON.parse(fileContents);
         if (jsonData.title) {
           jsonFiles.push(jsonData);
         }
