@@ -41,7 +41,6 @@ export function remarkAdmonition(): Transformer<Root, Root> {
       const match = text.match(re);
 
       if (match) {
-        if (open !== -1) throw new Error("Nested callout is not supported");
         open = i;
 
         attributes.push({
@@ -63,6 +62,7 @@ export function remarkAdmonition(): Transformer<Root, Root> {
           // console.dir(nodes[j], { depth: 10 });
           const col = nodes[j].position?.start?.column || 0;
           if (col < 4) {
+            // if not indented
             end = j;
             break;
           }
@@ -85,7 +85,7 @@ export function remarkAdmonition(): Transformer<Root, Root> {
         type: "mdxJsxFlowElement",
         name: "Block",
         attributes,
-        children: nodes.slice(open + 1, end),
+        children: replaceNodes(nodes.slice(open + 1, end)),
       } as RootContent,
       ...replaceNodes(nodes.slice(end)),
     ];
