@@ -1,3 +1,4 @@
+import CustomSearchDialog from "@/components/Search";
 import getSortedFiles from "@/lib/getSortedFiles";
 import { baseUrl, createMetadata } from "@/lib/metadata";
 import { RootProvider } from "fumadocs-ui/provider";
@@ -22,7 +23,8 @@ export default function Layout({ children }: { children: ReactNode }) {
   const sortedFiles = getSortedFiles();
   const tags = sortedFiles.map((file) => ({
     name: file.title,
-    value: file.title, // assuming file has a value property
+    value: file.title,
+    icon: file.icon,
   }));
 
   return (
@@ -30,8 +32,8 @@ export default function Layout({ children }: { children: ReactNode }) {
       <body className="flex flex-col min-h-screen">
         <RootProvider
           search={{
+            SearchDialog: CustomSearchDialog,
             options: {
-              defaultTag: "",
               tags,
             },
           }}
