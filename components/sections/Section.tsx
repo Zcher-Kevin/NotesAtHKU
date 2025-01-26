@@ -35,7 +35,7 @@ export default function Section() {
       <FlickeringGrid
         className={cn(
           "[mask-image:linear-gradient(to_bottom,white,transparent,transparent)] " +
-            "absolute inset-0 z-0 size-full"
+            "absolute inset-0 -z-10 size-full"
         )}
         squareSize={10}
         gridGap={5}

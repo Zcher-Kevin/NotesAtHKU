@@ -13,6 +13,8 @@ interface MagicCardProps extends React.HTMLAttributes<HTMLDivElement> {
   gradientOpacity?: number;
   gradientFrom?: string;
   gradientTo?: string;
+  gradientFromDark?: string;
+  gradientToDark?: string;
 }
 
 export function MagicCard({
@@ -24,6 +26,8 @@ export function MagicCard({
   gradientOpacity = 0.8,
   gradientFrom = "#9E7AFF",
   gradientTo = "#FE8BBB",
+  gradientFromDark,
+  gradientToDark,
 }: MagicCardProps) {
   const { theme } = useTheme();
   const uGradientColor = autoGradientColor
@@ -34,6 +38,10 @@ export function MagicCard({
   const cardRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(-gradientSize);
   const mouseY = useMotionValue(-gradientSize);
+  const uGradientFrom =
+    theme === "dark" && gradientFromDark ? gradientFromDark : gradientFrom;
+  const uGradientTo =
+    theme === "dark" && gradientToDark ? gradientToDark : gradientTo;
 
   const handleMouseMove = useCallback(
     (e: MouseEvent) => {
@@ -106,8 +114,8 @@ export function MagicCard({
         style={{
           background: useMotionTemplate`
             radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px,
-              ${gradientFrom}, 
-              ${gradientTo}, 
+              ${uGradientFrom}, 
+              ${uGradientTo}, 
               hsl(var(--border)) 100%
             )
           `,

@@ -137,6 +137,10 @@ article {
   @apply mb-8 relative max-w-[43.5rem] text-balance font-semibold tracking-tighter text-5xl sm:text-7xl md:text-7xl lg:text-7xl;
 }
 
+details summary::-webkit-details-marker {
+  display: none;
+}
+
 /* @layer base {
   * {
     @apply border-border;

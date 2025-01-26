@@ -11,7 +11,7 @@ export async function getUpdatedFilesInLast5Days(): Promise<string[]> {
 
   const headers = {
     Accept: "application/vnd.github.v3+json",
-    // Authorization: `Bearer ${token}`, // Personal Access Token
+    Authorization: `Bearer ${process.env.PROD_GITHUB_TOKEN}`, // Personal Access Token
   };
 
   const fetchOptions = {

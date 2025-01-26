@@ -1,6 +1,7 @@
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 import Icon from "./Icon";
-import { BorderBeamCard } from "./ui/border-beam";
+import { FlickeringGrid } from "./ui/flickering-grid";
 import { MagicCard } from "./ui/magic-card";
 
 interface CourseCardParams {
@@ -18,15 +19,39 @@ export default function CourseCard({
   isCompleted,
   updates,
 }: CourseCardParams) {
-  const CardWrapper = updates ? BorderBeamCard : MagicCard;
+  const COLORS = {
+    notCompleted: {
+      gradientFrom: "#ff4e22",
+      gradientTo: "#ff8522",
+    },
+    completed: {
+      gradientFromDark: "#FFFFFF",
+      gradientFrom: "#000000",
+      gradientToDark: "#FDFDFD",
+      gradientTo: "#131313",
+    },
+  };
 
   return (
     <Link href={`/notes/${title.toUpperCase()}`}>
-      <CardWrapper
+      <MagicCard
         className="cursor-pointer"
-        gradientTo={!isCompleted && !updates ? "#ff8522" : undefined}
-        gradientFrom={!isCompleted && !updates ? "#ff4e22" : undefined}
-        duration={updates ? 5 : undefined}
+        gradientTo={
+          isCompleted
+            ? COLORS.completed.gradientTo
+            : COLORS.notCompleted.gradientTo
+        }
+        gradientFrom={
+          isCompleted
+            ? COLORS.completed.gradientFrom
+            : COLORS.notCompleted.gradientFrom
+        }
+        gradientFromDark={
+          isCompleted ? COLORS.completed.gradientFromDark : undefined
+        }
+        gradientToDark={
+          isCompleted ? COLORS.completed.gradientToDark : undefined
+        }
       >
         <div className="flex-grow mx-5 my-4 ">
           <div className="flex items-center w-full mb-2">
@@ -41,13 +66,26 @@ export default function CourseCard({
               </div>
             )}
             {updates && (
-              <div className="flex items-center px-2 text-orange-500 bg-orange-500/30 rounded-xl">
+              <div className="flex items-center px-2 text-green-500 bg-green-100 dark:bg-green-900 rounded-xl">
                 <span className="text-nowrap">Updated recently</span>
               </div>
             )}
           </div>
         </div>
-      </CardWrapper>
+        {updates && (
+          <FlickeringGrid
+            className={cn(
+              "[mask-image:linear-gradient(to_top_left,white,transparent,transparent)] " +
+                "absolute inset-0 -z-10 size-full bottom-0 right-0 "
+            )}
+            squareSize={6}
+            gridGap={3}
+            color="#23f24c"
+            maxOpacity={0.5}
+            flickerChance={0.1}
+          />
+        )}
+      </MagicCard>
     </Link>
   );
 }
