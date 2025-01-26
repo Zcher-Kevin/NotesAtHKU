@@ -4,7 +4,7 @@ import remarkMath from "remark-math";
 import { remarkAdmonition } from "./remarkPlugins/admonition";
 
 export const { docs, meta } = defineDocs({
-  dir: "content/notes",
+  dir: "content/",
 });
 
 export default defineConfig({

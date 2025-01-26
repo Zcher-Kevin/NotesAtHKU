@@ -8,6 +8,11 @@ import Icon from "./Icon";
 import Inline from "./Inline";
 import JournalEntry from "./JournalEntry";
 import Welcome from "./Welcome";
+/* ---------------- - --------------- */
+import { ImageZoom } from "fumadocs-ui/components/image-zoom";
+import defaultMdxComponents from "fumadocs-ui/mdx";
+import { Steps } from "../Steps";
+import { Card, Cards } from "./Cards";
 
 const mdxComponents = {
   Block,
@@ -19,7 +24,14 @@ const mdxComponents = {
   Inline,
   Icon,
   JournalEntry,
+  Steps,
   a: A,
 };
 
-export default mdxComponents;
+export const components = {
+  ...defaultMdxComponents,
+  ...mdxComponents,
+  Cards,
+  Card,
+  img: (props: any) => <ImageZoom {...(props as any)} />,
+};

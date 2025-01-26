@@ -1,6 +1,6 @@
 import { icons, LucideIcon } from "lucide-react";
 
-interface IconProps {
+interface IconProps extends React.SVGProps<SVGSVGElement> {
   name: string;
   color?: string;
   size?: number | string;

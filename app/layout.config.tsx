@@ -24,5 +24,10 @@ export const baseOptions: BaseLayoutProps = {
       url: "/notes",
       active: "nested-url",
     },
+    {
+      text: "Contribution Guide",
+      url: "/contribute",
+      active: "nested-url",
+    },
   ],
 };

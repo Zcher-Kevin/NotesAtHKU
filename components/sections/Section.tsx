@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { Blocks, Flame, Github, Rewind } from "lucide-react";
-import { GridPattern } from "../ui/grid-pattern";
+import { FlickeringGrid } from "../ui/flickering-grid";
 
 export default function Section() {
   return (
@@ -32,14 +32,16 @@ export default function Section() {
           helps!
         </B>
       </div>
-      <GridPattern
-        width={100}
-        height={100}
-        x={-1}
-        y={-1}
+      <FlickeringGrid
         className={cn(
-          "[mask-image:linear-gradient(to_bottom,white,transparent,transparent)] "
+          "[mask-image:linear-gradient(to_bottom,white,transparent,transparent)] " +
+            "absolute inset-0 z-0 size-full"
         )}
+        squareSize={10}
+        gridGap={5}
+        color="#6B7280"
+        maxOpacity={0.3}
+        flickerChance={0.1}
       />
     </section>
   );

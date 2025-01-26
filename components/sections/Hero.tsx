@@ -1,7 +1,6 @@
 import { buttonVariants } from "@/components/Button";
 import { Separator } from "@/components/Seperator";
 import { TextAnimate } from "@/components/ui/text-animate";
-import { REPO } from "@/constants";
 import { cn } from "@/lib/utils";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
@@ -75,7 +74,7 @@ export default function Hero() {
               <ChevronRight className="ml-1 transition-all duration-300 ease-out size-4 shrink-0 group-hover:translate-x-1" />
             </Link>
             <Link
-              href={REPO}
+              href={"/contribute/"}
               className={cn(
                 buttonVariants({
                   size: "lg",
