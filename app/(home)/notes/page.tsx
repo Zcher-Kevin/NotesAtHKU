@@ -5,6 +5,7 @@ import getSortedFiles, { MetaData } from "@/lib/getSortedFiles";
 import { getUpdatedFilesInLast5Days } from "@/lib/getUpdates";
 import { cn } from "@/lib/utils";
 import { Album } from "lucide-react";
+import React from "react";
 
 interface GroupedCourses {
   [key: string]: MetaData[];
@@ -43,32 +44,32 @@ export default async function Page() {
         </p>
 
         <Steps variant="bar">
-          {Object.entries(groupedCourses).map(([semester, courses]) => (
-            <>
-              <Step>
-                {semester}{" "}
-                <span className="ml-2 text-sm font-light opacity-40">
-                  ({courses.length})
-                </span>
-              </Step>
-              <div className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-2 lg:grid-cols-3">
-                {courses.map((course) => (
-                  <CourseCard
-                    key={course.title}
-                    title={course.title}
-                    description={course.description}
-                    icon={course.icon}
-                    isCompleted={!course.wip}
-                    updates={updatedFiles.some((file) =>
-                      file.includes(
-                        course.title.toLowerCase().replace(/\s+/g, "-")
-                      )
-                    )}
-                  />
-                ))}
-              </div>
-            </>
-          ))}
+          {Object.entries(groupedCourses)
+            .reverse()
+            .map(([semester, courses]) => (
+              <React.Fragment key={semester}>
+                <Step>
+                  {semester}{" "}
+                  <span className="ml-2 text-sm font-light opacity-40">
+                    ({courses.length})
+                  </span>
+                </Step>
+                <div className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-2 lg:grid-cols-3">
+                  {courses.map((course) => (
+                    <CourseCard
+                      key={course.title}
+                      title={course.title}
+                      description={course.description}
+                      icon={course.icon}
+                      isCompleted={!course.wip}
+                      updates={updatedFiles.some((file) =>
+                        file.includes(course.title.toUpperCase())
+                      )}
+                    />
+                  ))}
+                </div>
+              </React.Fragment>
+            ))}
         </Steps>
       </div>
 
