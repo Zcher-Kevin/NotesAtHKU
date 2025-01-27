@@ -4,6 +4,6 @@
   "description": "Introduction to business analytics ",
   "root": true,
   "icon": "ChartArea",
-  "pages": ["index"],
+  "pages": ["index", "probabilities", "decision-analysis"],
   "wip": true
 }

@@ -1,0 +1,58 @@
+---
+title: Decision Analysis
+---
+
+**Analytics** is the science of building models that help us make better decisions.
+
+- **Descriptive** amaytics: identify patterns in data.
+- **Predictive** analytics: forecast future trends.
+
+## Decision making
+
+Six Steps in Decision Making
+- Clearly define the problem (Goal to achieve)
+- List the possible alternatives
+- Identify the possible outcomes or states of nature
+- List the payoff of each alternative in each state of nature
+- Select one of the decision theory models
+- Apply the model and make your decision
+
+!!! note "Types of decision making environments"
+    
+    Decisions can be made under different conditions:
+
+    - **Certainty**: all information is known.
+    - **Risk**: probabilities of outcomes are known.
+    - **Uncertainty**: probabilities of outcomes are not known.
+
+## Decision making under risk
+
+Consider the following example:
+
+| State of Nature | Favorable Market (Profit in $) | Unfavorable Market (Profit in $) | EMV ($) |
+| :---: | :---: | :---: | :---: |
+| Construct a large plant | 200,000 | -180,000 | -9,000 |
+| Construct a small plant | 100,000 | -20,000 | 34,000 |
+| Do nothing | 0 | 0 | 0 |
+| Probability | 0.45 | 0.55 | |
+
+| Metric | Shorthand | Formula |
+| :---: | :---: | :---: |
+| Expected Monetary Value | EMV | $\sum\text{Payoff}\times\text{Probability}$ |
+| Expected Value with Perfect Information | EVwPI | $\sum\text{Best Payoff}\times\text{Probability}$ |
+| Expected Value of Perfect Information | EVPI | $EVwPI - \max\{EMV\}$ |
+
+We want to maximize the $EMV$ under risk. Hence we choose "Construct a small plant".
+
+Given the opportunity, to decide if we should pay a price for additional information, we have to evaulate $P \leq EVPI$. 
+
+Given the price of $P = 65,000$:
+```math
+\begin{align*}
+    EVwPI = 0.45 \times 200,000 &= 90,000\\
+    EVPI = 90,000 - 34,000 &= 56,000\\
+    P &\gt EVPI
+\end{align*}
+```
+
+Therefore, we should not pay for additional information.
