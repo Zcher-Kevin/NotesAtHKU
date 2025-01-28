@@ -1,7 +1,6 @@
-import { Link } from "lucide-react";
+import { ChevronRight, Link } from "lucide-react";
 import NextLink from "next/link";
 import React from "react";
-import BlockSep from "./BlockSep";
 
 interface BlockProps {
   title: string;
@@ -39,6 +38,11 @@ export default function Block({
   variant = "knowledge",
   children,
 }: BlockProps) {
+  if (variant === "eg") {
+    // used as example inside block.
+    return <CollapsibleExample title={title}>{children}</CollapsibleExample>;
+  }
+
   const activeVariant: keyof typeof STYLES =
     variant in STYLES
       ? (variant as keyof typeof STYLES)
@@ -48,16 +52,6 @@ export default function Block({
         ] as keyof typeof STYLES)
       : "knowledge";
   const href_id = title.replace(/\s+/g, "-").toLowerCase();
-
-  if (variant === "eg") {
-    // used as example inside block.
-    return (
-      <>
-        <BlockSep title={title} />
-        <div>{children}</div>
-      </>
-    );
-  }
 
   return (
     <div
@@ -75,5 +69,26 @@ export default function Block({
       </div>
       {children}
     </div>
+  );
+}
+function CollapsibleExample({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <details className="my-2 group">
+      <summary className="flex items-center cursor-pointer">
+        <ChevronRight
+          size={16}
+          className="mr-2 transition-transform group-open:rotate-90"
+        />
+        <span className="mr-2">{title}</span>
+        <div className="flex-grow border-t border-fd-foreground" />
+      </summary>
+      <div className="mt-2">{children}</div>
+    </details>
   );
 }

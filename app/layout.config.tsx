@@ -19,10 +19,15 @@ export const baseOptions: BaseLayoutProps = {
   },
   githubUrl: REPO,
   links: [
-    // {
-    //   text: "Notes",
-    //   url: "/notes",
-    //   active: "nested-url",
-    // },
+    {
+      text: "Browse Notes",
+      url: "/notes",
+      active: "nested-url",
+    },
+    {
+      text: "Contribution Guide",
+      url: "/contribute",
+      active: "nested-url",
+    },
   ],
 };

@@ -1,10 +1,8 @@
 import FAB from "@/components/FAB";
-import mdxComponents from "@/components/mdx";
+import { components } from "@/components/mdx";
 import { REPO_BRANCH, REPO_NAME, REPO_OWNER } from "@/constants";
+import { getGithubLastEdit } from "@/lib/git-edit";
 import { source } from "@/lib/source";
-import { getGithubLastEdit } from "fumadocs-core/server";
-import { ImageZoom } from "fumadocs-ui/components/image-zoom";
-import defaultMdxComponents from "fumadocs-ui/mdx";
 import {
   DocsBody,
   DocsDescription,
@@ -43,18 +41,23 @@ export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
 }) {
   const params = await props.params;
-  const page = source.getPage(params.slug);
-  const path = `apps/docs/content/docs/${page?.file.path}`;
+  const pagePath = params?.slug ? ["notes", ...params.slug] : ["notes"];
+  const page = source.getPage(pagePath);
   const currentCourseCode = params.slug?.join("/").split("/")[0] || "";
   if (!page) notFound();
 
   const MDX = page.data.body;
 
-  const time = await getGithubLastEdit({
-    owner: REPO_OWNER,
-    repo: REPO_NAME,
-    path: `content/notes/${page.file.path}`,
-  });
+  let time = undefined;
+
+  if (process.env.ENV != "dev") {
+    time = await getGithubLastEdit({
+      owner: REPO_OWNER,
+      repo: REPO_NAME,
+      path: `content/notes/${page.file.path}`,
+      token: process.env.PROD_GITHUB_TOKEN || "",
+    });
+  }
 
   return (
     <>
@@ -69,7 +72,7 @@ export default async function Page(props: {
           repo: REPO_NAME,
           owner: REPO_OWNER,
           sha: REPO_BRANCH,
-          path,
+          path: page.file.path,
         }}
         article={{
           className: "max-sm:pb-16",
@@ -83,13 +86,7 @@ export default async function Page(props: {
           {page.data.description}
         </DocsDescription>
         <DocsBody className={computerModern.className}>
-          <MDX
-            components={{
-              ...defaultMdxComponents,
-              ...mdxComponents,
-              img: (props) => <ImageZoom {...(props as any)} />,
-            }}
-          />
+          <MDX components={components} />
         </DocsBody>
       </DocsPage>
       <FAB currentCourseCode={currentCourseCode} />
@@ -105,7 +102,8 @@ export async function generateMetadata(props: {
   params: Promise<{ slug?: string[] }>;
 }) {
   const params = await props.params;
-  const page = source.getPage(params.slug);
+  const pagePath = params?.slug ? ["notes", ...params.slug] : ["notes"];
+  const page = source.getPage(pagePath);
   const courseCode = params.slug?.join("/").split("/")[0] || "";
   if (!page) notFound();
 

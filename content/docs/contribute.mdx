@@ -1,0 +1,184 @@
+---
+title: Contribution Guide
+icon: HandHeart
+---
+import {REPO, REPO_OWNER, REPO_NAME} from "@/constants";
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+
+Hi! First of all, thanks for wanting to contribute to Notes@HKU!
+
+You can contribute in a number of ways:
+
+<Cards>
+<Card title="Adding new content" icon="PencilLine">
+Contribute by adding new notes or sections to existing notes to expand the knowledge base.
+</Card>
+<Card title="Fix inconsistencies in existing notes" icon="PencilRuler">
+Help improve the quality of notes by fixing any inconsistencies or errors in the content.
+</Card>
+<Card title="Fix incorrect information" icon="Crosshair">
+Ensure the accuracy of the notes by correcting any incorrect information.
+</Card>
+<Card title="Fix typos & fluency" icon="Croissant">
+Enhance the readability of the notes by fixing any typos, grammatical errors or suggest improvements in the fluency of the content.
+</Card>
+</Cards>
+
+The following guide will help you get started. If you are unfamiliar with Github, you can also simply leave a comment on the website!
+
+## Information about formatting
+
+---
+
+### File structure
+
+If you are planning to edit a page, you can click on "Edit on Github" at the bottom of each page, or click the Pen icon then "Edit note on Github". This will take you to the file on Github.
+
+All notes are stored in the <a href={`${REPO}/tree/master/content/notes/`}>notes</a> folder. Each note is stored in a folder with the same name as the note. The folder contains the following files:
+
+1. `*.mdx` - A page of the note. The name of the file is the url / slug of the page.
+1. `meta.json` - Contains metadata about the note. When adding new pages, you must update the `pages` array in this file.
+
+### Markdown syntax
+
+The site supports [Github flavored markdown](https://guides.github.com/features/mastering-markdown/).
+
+In addition to standard markdown, we also support [MDX](https://mdxjs.com/), which allows you to use JSX components in markdown. The following are some advanced features that you can use:
+
+<Accordions>
+
+<Accordion title="KaTeX (math)">
+
+You can write math equations using KaTeX. For inline math, use `$` and for block math, use `$$` or `math` code block.
+
+``````mdx
+$e^{i\pi} + 1 = 0$
+
+$$1+2=3$$
+
+```math
+1+2=3
+```
+``````
+
+!!! eg "Results"
+
+    The above code will render as:
+
+    $e^{i\pi} + 1 = 0$
+
+    $$1+2=3$$
+
+    ```math
+    1+2=3
+    ```
+
+</Accordion>
+
+<Accordion title="Images">
+Please place your images in `/public/img/COURSECODE` folder, and use them as:
+```mdx
+![Alt text](/img/COURSECODE/image.png)
+```
+</Accordion>
+
+<Accordion title="JSX (html) components with Tailwind classes">
+
+```mdx
+<div className="bg-blue-100 p-4 rounded-lg">
+  Hello
+</div>
+```
+
+!!! eg "Results"
+
+    The above code will render as:
+
+    <div className="bg-blue-500/50 p-4 rounded-lg">
+        Hello
+    </div>
+
+</Accordion>
+
+<Accordion title="Admonitions">
+
+Valid types are `note`, `info`, `tip`, `eg`, `example`.
+
+| type    | description                           |
+| ------- | ------------------------------------- |
+| note    | Useful information                    |
+| info    | Useful concepts                       |
+| tip     | Theorems, definitions and key items   |
+| eg      | Examples at the end of an admonitions |
+| example | Examples outside of admonitions       |
+
+```mdx
+!!! info "Title of card"
+
+    Content (remember to indent & keep empty line above!)
+
+    !!! eg "Examples"
+
+        You can put examples here.
+```
+
+!!! info "Title of card"
+
+    Content (remember to indent & keep empty line above!)
+
+    !!! eg "Examples"
+
+        You can put examples here.
+
+</Accordion>
+
+<Accordion title="Custom components">
+
+You can add custom components and use them in notes. First create a `tsx` component in `components/mdx/` folder, then update `components/mdx/index.ts` to export the component.
+
+</Accordion>
+
+</Accordions>
+
+## Working and submitting changes
+
+---
+
+Contribution requires an understanding of Github and Git. If you are unfamiliar with Git, you can also leave a comment on the website!
+
+<Steps>
+
+### Fork & clone this repository
+Go to our <a href={REPO}>Github repository</a> and click on the "Fork" button in the top right corner. This will create a copy of the repository in your Github account. Then, clone the repository to your local machine by clicking "Code" and copying the URL.
+
+```bash
+git clone YOUR_URL
+```
+
+### Create or edit content
+
+We recommend using VSCode with a markdown preview extension to edit the notes. Change file association by `Change language mode -> Markdown` to enable markdown preview. Use the [Markdown Admonitions](https://marketplace.visualstudio.com/items?itemName=TomasDahlqvist.markdown-admonitions) and [Markdown+Math](https://marketplace.visualstudio.com/items?itemName=goessner.mdmath) extensions to view math and admonitions in the preview.
+
+Some guide on writing notes:
+
+1. Keep notes concise, clear and to the point. Keep only necessary context.
+2. Use headings and subheadings to structure the notes.
+3. Always use [admonitions](#advanced-mdx) to contain concepts, examples and useful information. Only write context, transitional sentences and less important information outside of admonitions.
+
+### Push changes to your fork
+
+After you have made changes, commit them and push them to your fork.
+
+```bash
+git add .
+git commit -m "Your message"
+git push
+```
+
+### Create a pull request
+
+Head to your fork on Github and click on `Pull request -> New pull request`. Make sure the base repository is `{REPO_OWNER}/{REPO_NAME}` and the base branch is `dev`. Compare changes and create a pull request.
+
+I'll review the changes and merge them if they look good!
+
+</Steps>
