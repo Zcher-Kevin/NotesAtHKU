@@ -4,6 +4,12 @@
   "description": "Introductory microeconomics",
   "root": true,
   "icon": "Coins",
-  "pages": ["index", "cost-and-benefit", "---Answer bank---", "ab-1"],
+  "pages": [
+    "index",
+    "cost-and-benefit",
+    "comparative-advantage",
+    "---Answer bank---",
+    "ab-1"
+  ],
   "wip": true
 }
