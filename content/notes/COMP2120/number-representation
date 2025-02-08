@@ -1,0 +1,87 @@
+---
+title: Number Representation
+---
+
+## Value representation
+
+Computers have finite number of bits to represent numbers (e.g. $2^32$ for 32-bit).
+
+- **Overflow**: When the result of an operation is too large to be represented in the number of bits available.
+- **Underflow**: When the result of an operation is too small to be represented in the number of bits available.
+
+!!! tip "Radix number systems"
+
+    A position number system. Each digit $a_i$ is multiplied by the base $r$ raised to the power of its position $i$.
+
+    ```math
+    (a_na_{n-1}...a_1a_0)_r
+    ```
+
+!!! info "Radix-r to radix-10"
+
+    ```math
+    \text{Base 10 value} = \sum_{i=0}^{n-1} a_i \times r^i
+    ```
+
+!!! info "Radix-10 to radix-2"
+
+    **Integer part**: Repeatedly **divide** by 2 and record the **remainder**.
+
+    !!! eg "Example"
+
+        ```math
+        \begin{align*}
+            11 \div 2 &= 5 \text{ remainder } 1 \\
+            5 \div 2 &= 2 \text{ remainder } 1 \\
+            2 \div 2 &= 1 \text{ remainder } 0 \\
+            1 \div 2 &= 0 \text{ remainder } 1 \\
+            \text{Binary} &= 1011
+        \end{align*}
+        ```
+
+    **Fractional part**: Repeatedly **multiply** by 2 and record the **integer** part.
+
+    !!! eg "Example"
+
+        ```math
+        \begin{align*}
+            0.25 \times 2 &= 0.5 \text{ integer } 0 \\
+            0.5 \times 2 &= 1.0 \text{ integer } 1 \\
+            \text{Binary} &= 0.01
+        \end{align*}
+        ```
+
+    Conversion for $r=2^{n}$ can be done replacing division by $2$ with division by $2^n$.
+
+## Sign representation
+
+A function $f(b)$ represents the value of a binary number $b$ based on the sign representation.
+
+!!! note "Excess K"
+
+    Uses a **Sign bit**: 0 for positive, 1 for negative. The excess $K$ is added to the value to represent the sign.
+
+    - **Range**: $-K$ to $2^n - 1 - K$ where $n$ is the number of bits.
+    - Top half is positive, bottom half is negative.
+
+    ```math
+    f(b)=b-K
+    ```
+
+    !!! eg "Example"
+
+        - **Excess 127**: $-1$ is represented as $126$.
+        - **Excess 128**: $-1$ is represented as $127$.
+
+!!! note "One's complement"
+
+    Saves the leftmost bit for the sign. The binary representation is inverted for negative numbers.
+
+    - **Range**: $-2^{n-1}+1$ to $2^{n-1}-1$.
+
+    ```math
+    f(b)=\begin{cases}
+        b & \text{if } b \geq 0 \\
+        2^n-1-b & \text{if } b < 0
+    \end{cases}
+    ```
