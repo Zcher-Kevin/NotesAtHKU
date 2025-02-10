@@ -2,6 +2,8 @@
 title: Power of Trade and Comparative Advantage
 ---
 
+NOTE: INCOMPLETE. UPDATE WHEN REVIEW.
+
 ## Advantages
 
 !!! info "Absolute advantage"
@@ -12,39 +14,18 @@ title: Power of Trade and Comparative Advantage
 
     A producer has a comparative advantage in producing a good if the **opportunity cost** of producing that good is **lower** than that of another producer.
 
-    The opportunity cost comparatively *of producing a good* is given by:
+    Consider goods $G_1,G_2$, which takes costs $C$ to produce, or can be produced $U$ units in a period of time. The opportunity cost comparatively *of producing G* is given by:
 
     ```math
-    C : C_a\\
-    \text{Cost of producing good} : \max\{\text{Cost of producing an alternative good}\}\\
+    OC_{G_1} = \frac{C_1}{C_2} = \frac{U_2}{U_1},\quad(G_2\text{ per }G_1)
     ```
-    ```math
-    U : U_a\\
-    \max\{\text{Units producable of alternative good}\} : \text{Units producable of good}
-    ```
-
-    We can produce vastly more if we each specialize in what we are best at and trade with each other.
-
-    !!! eg "Unit requirements table"
-
-        | Producer | Good 1 | Good 2 |
-        |----------|--------|--------|
-        | A        | 3      | 4      |
-        | B        | 2      | 1      |
-
-        ```math
-        OC_{A,1} = \frac34 = 0.75\\
-        OC_{B,1} = \frac21 = 2\\
-        OC_{A,1} < OC_{B,1} \implies A \text{ has comparative advantage in producing Good 1}\\
-        \therefore \text{A should produce Good 1 and B should produce Good 2}
-        ```
 
 !!! tip "Terms of trade (TOT)"
 
     The ratio at which one good can be exchanged for another, which determines the gains of each producer.
 
     ```math
-    TOT = n\ (\text{Good}_1 : \text{Good}_2)
+    TOT = n
     ```
 
     ```math
@@ -52,14 +33,16 @@ title: Power of Trade and Comparative Advantage
         \text{Gain from trade for producer of 1} &= C_1 - TOT^{-1} \cdot C_2\\
         
         \text{Gain from trade for producer of 2} &= C_2 - TOT \cdot C_1\\
-
-        \text{Best TOT for producer of 1} &\Rightarrow C_2 - TOT \cdot C_1 = 0\\
-
-        \text{Best TOT for producer of 2} &\Rightarrow C_1 - TOT^{-1} \cdot C_2 = 0
     \end{align*}
     ```
 
-    The admissible $TOT$ is the range of values that trade will occur in, which should be the range of values between the best TOT of producers.
+    The admissible $TOT$ is the range of values that trade will occur in: $TOT\in \{\min\{OC\},\max\{OC\}\}$
+
+    Note as TOT and OC are ratios, make sure they refer to the same good per unit.
+
+!!! tip "Specialisation"
+
+    Specialisation is the act of producing only one good, which can be done when a producer has a comparative advantage in producing that good.
 
 ## Production possibilities
 
@@ -80,15 +63,13 @@ title: Power of Trade and Comparative Advantage
 
     Use the $PPC$ formula to find the amount of goods produced given amount of the other good by substitution.
 
-    To find the amount of goods produced, given a proportion constraint $p=G_1:G_2$, plot $G_1 = p\cdot G_2$ and find the intersection with the PPC.
+    To find the amount of goods produced, given a **proportion constraint** $p=G_1:G_2$, plot $G_1 = p\cdot G_2$ and find the **intersection** with the PPC.
 
 !!! tip "PPC of many producers"
 
     To construct the PPC of multiple producers, we **arrange the curves from lowest to highest opportunity cost (slope)** and connect each ends.
 
     The curve will be **concave** due to the **increasing opportunity cost** of producing more of a good.
-
-    For the economy, the admissible $TOT \in \{\min\{OC\},\max\{OC\}\}$
 
 !!! note "Economic growth"
 
@@ -100,14 +81,17 @@ title: Power of Trade and Comparative Advantage
 
 ## World trade
 
+!!! note "World Terms of Trade"
 
-!!! tip "Consumption Possibilities Curve (CPC)"
+    The world terms of trade can be given by the price of goods, or a ratio.
+
+!!! info "Consumption Possibilities Curve (CPC)"
 
     In a closed economy, $CPC = PPC$ as the economy can only consume what it produces.
 
     In an open economy, $CPC > PPC$ as the economy can consume what it produces and what it imports.
 
-    Given a world economy of \$p_1 G_1 and \$p_2 G_2, find the CPC by:
+    Given a world economy of \$$p_1$ for $G_1$ and \$$p_2$ for $G_2$, find the CPC by:
     1. Find income by iterating through intersection points of PPCs and axes. Income is given by $I_i = p_1 G_{1i} + p_2 G_{2i}$
     2. Choose highest income $I$
     3. $CPC : G_1 = -\frac{p_2}{p_1} \cdot G_2 + I$

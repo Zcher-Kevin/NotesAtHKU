@@ -4,7 +4,7 @@ title: Decision Analysis
 
 **Analytics** is the science of building models that help us make better decisions.
 
-- **Descriptive** amaytics: identify patterns in data.
+- **Descriptive** analytics: identify patterns in data.
 - **Predictive** analytics: forecast future trends.
 
 ## Decision making
@@ -170,4 +170,58 @@ Six Steps in Decision Making
     We can plot the $EMV$ as a function of $p$ to find the range of $p$ in which we should take an action, or use an equality to find the changeover point.
 
 ## Decision trees
+
+We can use a decision tree to visualize the decision-making process. 
+
+The following are parts of the tree:
+- $\square$ **Decision nodes**: Where decisions are made.
+- $\bigcirc$ **State-of-Nature nodes**: Where probabilities are assigned.
+- $\triangle$ **Payoff nodes**: Where payoffs are assigned.
+- **Branches**: Represent the possible outcomes.
+
 ![](../../../public/img/IIMT2641/tree.png)
+
+!!! info "Finding the best decision"
+
+    The goal of a decision tree is to find the best choice to make. We can backtrack, start by finding the $EMV$ of each $\bigcirc$ leaves. Travelling upwards, pick the decision at $\square$ that maximizes $EMV$,and assign that $EMV$ to the $\square$. Continue until the root node.
+
+    !!! eg "Example"
+
+        Consider the following example tree:
+
+        ![](../../../public/img/IIMT2641/tree2.png)
+
+        Starting from the leaves:
+
+        $EMV_E = EMV_D = 21600\times.05+16800\times.25+12000\times.4+6000\times.25=11580$
+
+        For $\square C$, we choose "Accept Offer" as $14000>11580$.
+
+        $EMV_B = 0.6\times14000+0.4\times11580=13032$
+
+        For $\square A$, we choose "Reject Offer" as $12000<13032$.
+
+        Hence, best decision is to reject John's offer, and accept Vanessa's offer if presented.
+
+```mermaid
+graph LR
+    A[Start: Decision - Produce Suds-Away?] -->|Do Not Produce| B[Outcome: $0 No Loss or Gain]
+    A -->|Produce Without Test| C[Market Outcome]
+
+    C -->|Strong Market 30%| D[Profit: +$18M]
+    C -->|Weak Market 70%| E[Loss: -$8M]
+
+    A -->|Conduct Market Survey $2.4M| F[Survey Outcome]
+
+    F -->|Positive Test| G[Decision - Produce Suds-Away?]
+    G -->|Do Not Produce| H[Outcome: -$2.4M Survey Cost]
+    G -->|Produce| I[Market Outcome After Positive Test]
+    I -->|Strong Market 90%| J[Profit: +$18M - $2.4M]
+    I -->|Weak Market 10%| K[Loss: -$8M - $2.4M]
+
+    F -->|Negative Test| L[Decision - Produce Suds-Away?]
+    L -->|Do Not Produce| M[Outcome: -$2.4M Survey Cost]
+    L -->|Produce| N[Market Outcome After Negative Test]
+    N -->|Strong Market 20%| O[Profit: +$18M - $2.4M]
+    N -->|Weak Market 80%| P[Loss: -$8M - $2.4M]
+```
