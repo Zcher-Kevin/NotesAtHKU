@@ -46,19 +46,53 @@ We should use the **SOP** form if the function is mostly 1s, and **POS** form if
 
 !!! tip "Sum of Products (SOP)"
 
-    Uses the OR operation to sum multiple AND terms. Each AND term is called a **minterm** and represents a unique combination of variables that produce a true output (1) for the function.
+    Express boolean function as OR of AND terms.
 
-    For example, the boolean function $F(A, B, C)$ can be expressed in SOP form as:
-    $$ F(A, B, C) = \overline{A}BC + A\overline{B}C + AB\overline{C} $$
+    !!! eg "Convert truth table to boolean expression"
+
+        | a | b | c | P |
+        |---|---|---|---|
+        | 0 | 0 | 0 | 0 |
+        | 0 | 0 | 1 | 1 |
+        | 0 | 1 | 0 | 1 |
+        | 0 | 1 | 1 | 0 |
+        | 1 | 0 | 0 | 1 |
+        | 1 | 0 | 1 | 1 |
+        | 1 | 1 | 0 | 0 |
+        | 1 | 1 | 1 | 1 |
+
+        ```math
+        \begin{align*}
+            P(a, b, c) &= \overline{a}\overline{b}c + \overline{a}b\overline{c} + a\overline{b}\overline{c} + a\overline{b}c + abc\\
+            & = \overline{a}\overline{b}c + \overline{a}b\overline{c} + a\overline{b}(\overline{c}+c) + abc\\
+            & = \overline{a}\overline{b}c + \overline{a}b\overline{c} + a\overline{b} + abc\\
+        \end{align*}
+        ```
 
 !!! tip "Product of Sums (POS)"
 
-    Uses the AND operation to multiply multiple OR terms. Each OR term is called a **maxterm** and represents a unique combination of variables that produce a false output (0) for the function.
+    Express boolean function as AND of OR terms.
 
-    For example, the boolean function $F(A, B, C)$ can be expressed in POS form as:
-    $$ F(A, B, C) = (\overline{A} + \overline{B} + C)(A + \overline{B} + \overline{C})(A + B + C) $$
+    !!! eg "Convert truth table to boolean expression"
 
-    Both SOP and POS forms are useful for simplifying and implementing boolean functions in digital logic circuits.
+        | a | b | c | P |
+        |---|---|---|---|
+        | 0 | 0 | 0 | 0 |
+        | 0 | 0 | 1 | 1 |
+        | 0 | 1 | 0 | 1 |
+        | 0 | 1 | 1 | 0 |
+        | 1 | 0 | 0 | 1 |
+        | 1 | 0 | 1 | 1 |
+        | 1 | 1 | 0 | 0 |
+        | 1 | 1 | 1 | 1 |
+
+        ```math
+        \begin{align*}
+            P(a, b, c) &=  (a + b + c)(a + \overline{b} + \overline{c})(\overline{a} + \overline{b} + c)(\overline{a} + \overline{b} + \overline{c})\\
+        \end{align*}
+        ```
+
+!!! info "Karmaugh Map"
 
 !!! info "Half adder"
 

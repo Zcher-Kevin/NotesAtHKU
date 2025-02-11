@@ -1,0 +1,19 @@
+---
+title: Proofs
+---
+
+## Rules of Inference
+
+Proofs are valid arguments to show the truth of statement. **Valid arguments** are a sequence of statements that end with a conclusion, where each conclusions follows the truth of preceding statements. We need to use **rules of inference** to show the validity of the argument.
+
+!!! tip "Basis Rules"
+
+    | Name | Tautology | Example | 
+    | --- | --- | --- |
+    | Modus Ponens | $(p \land (p \rightarrow q)) \rightarrow q$ | If it is raining, then the ground is wet, it is raining, therefore the ground is wet |
+    | Modus Tollens | $((p \rightarrow q) \land \neg q) \rightarrow \neg p$ | If it is raining, then the ground is wet, the ground is not wet, therefore it is not raining |
+    | Hypothetical Syllogism | $((p \rightarrow q) \land (q \rightarrow r)) \rightarrow (p \rightarrow r)$ | If it is raining, then the ground is wet, if the ground is wet, then the plants are watered, therefore if it is raining, then the plants are watered |
+    | Disjunctive Syllogism | $(p \lor q) \land \neg p \rightarrow q$ | Either it is raining or the ground is wet, it is not raining, therefore the ground is wet |
+    | Addition | $p \rightarrow (p \lor q)$ | If it is raining, then it is raining or the ground is wet |
+    | Simplification | $(p \land q) \rightarrow p$ | If it is raining and the ground is wet, then it is raining |
+    | Resolution | $((p \lor q) \land (\neg p \lor r)) \rightarrow q \lor r$ | Either it is raining or the ground is wet, it is not raining or the plants are watered, therefore the ground is wet or the plants are watered |
