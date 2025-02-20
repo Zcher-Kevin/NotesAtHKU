@@ -1,0 +1,72 @@
+---
+title: Sets and relations
+---
+
+!!! note "Tuples vs. Sets"
+
+    **Tuples** are ordered collections of elements, whereas **sets** are unordered.
+    
+    For example: $(1,2)$ is different from $(2,1)$, but $\{1,2\}$ is the same as $\{2,1\}$.
+
+!!! info "Set notation"
+
+    | Symbol | Meaning | Example | 
+    | --- | --- | --- |
+    | $\emptyset$ | Empty set | $\emptyset$ |
+    | $U$ | Universal set | Everything | 
+    | $\{\emptyset\}$ | Singleton set | $\{\emptyset\}$ |
+    | $\{a,b,c\}$ | Set with elements | $\{0,1,2\}$ |
+    | $\in$ | Element of | $1 \in \{0,1,2\}$ |
+    | $\notin$ | Not an element of | $3 \notin \{0,1,2\}$ |
+    | $\subset$ | Subset | $\{0,1\}\subset\{0,1,2\}$ |
+    | $\|S\|$ | Cardinality | $\|\{0,1,2\}\| = 3, S=\{a,S\}, \|S\|=2$ |
+    | $\cup$ | Union | $\{0,1\}\cup\{1,2\} = \{0,1,2\}$ |
+    | $\cap$ | Intersection | $\{0,1\}\cap\{1,2\} = \{1\}$ |
+    | $\times$ | Cartesian product | $\{0,1\}\times\{1,2\} = \{(0,1),(0,2),(1,1),(1,2)\}$ |
+    | $\setminus$ or $-$ | Set difference | $\{0,1,2\}-\{1\} = \{0,2\}$ |
+    | $\overline{S}$ | Complement | $\overline{\{0,1,2\}} = U-\{0,1,2\}$ |
+    | $\bigcup_{i=n}^{m} S_i$ | Generalized union (n->m) | $\bigcup_{i=1}^{n}S_i = S_1\cup S_2\cup\ldots\cup S_n$ |
+    | $\bigcap_{i=n}^{m} S_i$ | Generalized intersection (n->m) | $\bigcap_{i=1}^{n}S_i = S_1\cap S_2\cap\ldots\cap S_n$ |
+
+
+!!! tip "Power set"
+
+    $\mathcal{P}(\{1,2\})=\{\emptyset, \{1\}, \{2\}, \{1,2\}\}$
+    
+    $\|\mathcal{P}(S)\|=2^{\|S\|}$
+
+    Special cases:
+
+    - The power set of the empty set is the set containing the empty set: $\mathcal{P}(\emptyset)=\{\emptyset\}$. 
+    - $\mathcal{P}(\mathcal{P}(\emptyset)) = \mathcal{P}(\{\emptyset\}) = \{\emptyset,\{\emptyset\}\}$
+
+!!! tip "Set builder"
+
+    $S=\{x | P(x)\}$ means that $S$ is the set of all $x$ such that $P(x)$ is true.
+
+    For example, $\{x | x \in \mathbb{N}, x < 5\} = \{0,1,2,3,4\}$
+
+!!! note "Number sets"
+
+    | Symbol | Set | Values | 
+    | --- | --- | --- |
+    | $\mathbb{N}$ | Natural numbers | $0, 1, 2, 3, \ldots$ |
+    | $\mathbb{Z}$ | Integers | $\ldots, -2, -1, 0, 1, 2, \ldots$ |
+    | $\mathbb{Q}$ | Rational numbers | $\frac{a}{b}$ where $a, b \in \mathbb{Z}$ |
+    | $\mathbb{R}$ | Real numbers | $-0.1, \pi, \sqrt{2}$ |
+    | $\mathbb{C}$ | Complex numbers | $a + bi$ where $a, b \in \mathbb{R}$ |
+
+### Venn Diagrams
+
+<div className="w-full flex gap-4 flex-wrap md:flex-nowrap">
+<div >
+Venn diagrams illustrate concepts like intersections, unions, which is a good way to visualize probabilities. The overlapping regions indicate elements that belong to multiple sets, while non-overlapping regions represent elements unique to specific sets.
+
+In this example, two circles are drawn to represent sets A and B. The overlapping region is labeled as the intersection of sets A and B, denoted by A $\cap$ B.
+</div>
+<div className="lg:min-w-72 md:min-w-60 w-60">
+
+![](../../../public/img/COMP2121/venn.png)
+
+</div>
+</div>

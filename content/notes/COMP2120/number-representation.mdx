@@ -161,32 +161,36 @@ Represent a floating point binary number as long bits.
         ```
     
     Note that the range of $e$ is $1\rightarrow254$ for Binary32. $0$ and $255$ are reserved for special cases.
-    
 !!! info "Representable numbers"
 
-    The range of floating point numbers is limited by the number of bits used for the significand and exponent. For Binary32:
+    The range of floating point numbers is limited by the number of bits used for the significand and exponent. 
+    
+    For a given format with $E.bits$ exponent bits, $F.bits$ significand bits and $s=\begin{cases}1 & \text{if special case for 0 and } 2^e-1 \\ 0 & \text{otherwise}\end{cases}$:
 
     * **Range**: 
-        * All values: $\pm(1.f)\cdot2^{e-127}$
+        * Bias value: $b=2^{E.bits-1}-1$
+        * All values: $\pm(1.f)\cdot2^{e-b}$
         * Use smallest values: 
             ```math
             \begin{align*}
-                f=0_2, e=1 \implies& \pm 1.0\cdot 2^{-126}\\ =& \pm2^{-126}
+                f=0_2, e=s \implies& \pm 1.0\cdot 2^{s-b}\\ 
+                =& \pm2^{s-b}
             \end{align*}
             ```
         * Use largest values: 
             ```math
             \begin{align*}
-                f=111\dots_2 (\text{length: }32-1-8=23) \rightarrow 1.111... =&\ 1 + 0.1 + 0.01 + \dots + 2^{-23}\\
-                =&\ 2-2^{-23}\ (\text{geometry series})\\ 
-                e=254 \implies& \pm(2-2^{-23})\cdot2^{127}\\
+                f=111\dots_2 (\text{length: }F.bits) \rightarrow 1.111... =&\ 1 + 0.1 + 0.01 + \dots + 2^{-F.bits}\\
+                =&\ 2-2^{-F.bits}\ (\text{geometry series})\\ 
+                e=2^{E.bits}-1-s \implies& \pm(2-2^{-F.bits})\cdot2^{2^{E.bits}-1-s-(2^{E.bits-1}-1)}\\
+                = & \pm(2-2^{-F.bits})\cdot2^{2^{E.bits-1}-2^{E.bits}-s}
                 
             \end{align*}
             ```
-        * $\therefore \text{Value} \in \pm[2^{-126},(2-2^{-23})\cdot2^{127}]$
+        * $\therefore \text{Value} \in \pm[2^{s-b},(2-2^{-F.bits})\cdot2^{2^{E.bits-1}-2^{E.bits}-s}]$
     * **Spacing**:
         * Represented numbers are **unevenly spaced** as spacing depends on exponent, which scales logarithmically.
-        * Spacing grows as we go further from 0 as scaling factor of $2^{e-127}$.
+        * Spacing grows as we go further from 0 as scaling factor of $2^{e-(2^{E.bits-1}-1)}$.
 
 ## Operations
 
@@ -211,7 +215,7 @@ Represent a floating point binary number as long bits.
       1011..
      1011...
     -------- (Sum vertical)
-    10001111 - 143
+    10001111 - (-143)
     ```
     Result is negative: $10001111_2 \rightarrow 01110000_2 \rightarrow 01110001_2 = -143$
     
