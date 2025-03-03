@@ -1,0 +1,70 @@
+---
+title: Single Variable Linear Regression
+---
+
+!!! tip "Simple regression model"
+
+    The population model of y with one **predictor** variable x is given by:
+
+    ```math
+    y = \beta_0 + \beta_1 x
+    ```
+
+    where:
+    - $\beta_0$ is the y-intercept
+    - $\beta_1$ is the slope
+
+    we can express the model as a regression function:
+
+    ```math
+    E[y|x] = \beta_0 + \beta_1 x
+    ```
+
+    where $E[y|x]$ is the expected value of y given x. From the *straight-line* formula, $\beta_0$ is the y-intercept and $\beta_1$ is the slope of the line.
+
+!!! tip "Estimated regression function"
+
+    Estimates the regression model with n observations (x_i, y_i)
+
+    ```math
+    \hat{y} = \hat{\beta_0} + \hat{\beta_1} x
+    ```
+
+    where:
+    - $\hat{\beta_0}$ is the estimated y-intercept
+    - $\hat{\beta_1}$ is the estimated slope
+
+!!! info "Residuals"
+
+    The difference between the observed value of the dependent variable and the predicted value.
+
+    ```math
+    e_i = y_i - \hat{y_i}
+    ```
+
+!!! note "Sum of Squared Errors (SSE)"
+
+    ```math
+    SSE = \sum_{i=1}^{n} (y_i - \hat{y_i})^2
+    ```
+
+!!! note "Total Sum of Squares (SST)"
+
+    ```math
+    SST = \sum_{i=1}^{n} (\hat{y_i} - \bar{y})^2
+    ```
+
+    where:
+    - $\bar{y}$ is the mean of the dependent variable
+
+!!! tip "Coefficient of Determination"
+
+    The coefficient of determination, $R^2$, is a measure of how well the model fits the data.
+
+    ```math
+    R^2 = 1 - \frac{SSE}{SST}
+    ```
+
+    where:
+    - SSR is the sum of squared residuals
+    - SST is the total sum of squares
