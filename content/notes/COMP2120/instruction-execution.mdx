@@ -79,12 +79,124 @@ WHAT IS 2 WORD????
 
 ## Execution cycle
 
+!!! info "Instruction Address Calculation (IAC)"
+
+    - To determine the address of the next instruction, this address is usually stored in a special register called the **Program Counter (PC)**.
+    - The **PC** is automatically incremented during the execution cycle.
+    - If the instruction is 4 bytes and the memory is byte-addressable, **add 4** to the previous address.
+    - For a two-word instruction:
+        - The second word is pointed to by the **PC**.
+        - The **PC** is incremented again after reading the second word so that it points to the next instruction.
+    - **Explicit and Implicit Reference**:
+    - In most cases, the next instruction reference is implicit.
+    - Explicit reference happens for instructions involving transfer of control, such as **goto**, **if-then-else**, or **function calls**.
 
 
-Address calculation IAC
 
-Operand fetch (registers, memory)
+!!! info "Instruction Fetch (IF)"
 
-Operand write back
+    - The instruction is fetched from memory using the address given by the **PC**.
+    - Sequence of operations:
+    - **MAR ← PC**: The **Memory Address Register (MAR)** is loaded with the address from **PC**.
+    - **IR ← mem[MAR]**: The **Instruction Register (IR)** is loaded with the content of memory at the location specified by **MAR**.
+    - **Key Registers**:
+    - **MAR**: Holds the address for the memory operation.
+    - **mem[MAR]**: Refers to the content of memory at the location specified by **MAR**.
+    - **IR**: Holds the instruction to be executed.
 
-Interrupt handling
+
+
+!!! info "Instruction Decode"
+
+    - Instructions are represented in a 32-bit binary pattern, e.g., `0000 0110 0000 0000 1111 1111 0000 0100`.
+    - The leftmost 8 bits represent the operation (e.g., ADD).
+    - The subsequent 8 bits represent operand locations (e.g., 2 source operands and 1 destination operand).
+    - The **Control Unit** decodes the operations and sets up the required data movement or processing.
+    - The decoded operations are dispatched by the control unit at the appropriate time during execution.
+
+
+
+!!! info "Operand Address Calculation"
+
+    - Operands can be located in either **Memory** or **Registers** (inside the CPU):
+    - **Registers**:
+        - Referenced by register number (e.g., `R11` for register 11).
+        - No calculation is needed for registers.
+    - **Memory**:
+        - Requires an address for the operand.
+        - Sometimes the actual address is not provided, and a calculation may be needed (e.g., `address = content of register 10 + A`).
+        - The **ALU** may be used for address calculations (e.g., ADD or SUB operations).
+
+
+
+!!! info "Operand Fetch"
+
+    - Operands are fetched into temporary registers inside the CPU for **data movement**.
+    - Most operations require two source operands:
+    - If an operand is in memory:
+        - Move the calculated address to **MAR**.
+        - Perform a memory read: **MBR ← mem[MAR]**.
+        - The **Memory Buffer Register (MBR)** holds the result of the memory read, which is then moved to a temporary register.
+    - If an operand is in a register:
+        - Read it directly from the **Register File (RF)** using the register number as the address.
+
+
+
+!!! info "Operand Fetch — Registers"
+
+    - Example: `ADD R4, R5, R6`
+    - The address of the first operand (`R4`) is fed to the **Register File (RF)**, and an RF read is performed.
+    - The data is moved via the system bus to input 1 of the **ALU**.
+    - Similarly, the address of the second operand (`R5`) is fed to the RF, and the data is moved to input 2 of the ALU.
+
+
+
+!!! info "Operand Fetch — Memory"
+
+    - Example: Two-word instruction `0x0600ff04 0000003c`:
+    - Addresses for these words could be 300 and 304.
+    - For the instruction `LD 0x0000003c, R4`:
+        - After fetching the instruction, the **PC** points to the next word (`0x0000003c`).
+        - Read this address from memory:
+        - **MAR ← PC**: Load PC's content into MAR.
+        - **MBR ← mem[MAR]**: Read memory, storing the result (`0x0000003c`) in MBR.
+    - If `0x0000003c` is an address (not the operand itself), perform another memory read:
+    - **MAR ← MBR**: Use MBR's content as the new address.
+    - **MBR ← mem[MAR]**: Read memory again to fetch the operand.
+
+
+
+!!! info "Execute"
+
+    - Perform the **Arithmetic/Logic operation** for the instruction:
+    - Source operands are retrieved from temporary storage inside the CPU.
+    - These values are fed to the **Arithmetic-Logic Unit (ALU)** for data processing.
+    - The output of the ALU is stored in a temporary register.
+
+
+
+!!! info "Operand Write Back"
+
+    - If the destination operand is in a **register**:
+    - Move the data from the ALU output to the input of the **Register File (RF)**.
+    - Perform an RF write using the address from byte 3 of the instruction.
+    - If the destination operand is in **memory**:
+    - Calculate the address (if needed).
+    - Move the data to **MBR**.
+    - Write back to memory: **mem[MAR] ← MBR**.
+
+
+
+!!! info "Interrupt"
+
+    - Interrupts allow the CPU to stop the current instruction execution and attend to other tasks, improving efficiency:
+    - Example scenarios:
+        - Immediate attention needed for I/O operations (e.g., data from the network).
+        - Time-sharing systems where the CPU is shared among multiple programs.
+    - **How Interrupts Work**:
+    - I/O devices generate an interrupt signal to the CPU.
+    - During processing, the system remembers the current program's state (e.g., register values).
+    - After serving the interrupt, the system restores the state and resumes execution.
+    - Interrupt handlers can be:
+    - **Hardware Interrupts**.
+    - **Software Interrupts** (operating system level).

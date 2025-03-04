@@ -1,0 +1,35 @@
+---
+title: Functions
+---
+
+!!! tip "Definition of functions"
+
+    For non-empty sets $A$ and $B$, a "function $f$ from $A$ to $B$" is a relation from $A$ to $B$ such that for each $a \in A$, there is exactly one $b \in B$ such that $(a, b) \in f$. 
+    
+    We write $f: A \to B$ to denote that $f$ is a function from $A$ to $B$.
+
+!!! info "Terminologies"
+
+    For $f: A \to B, \quad f(a) = b$:
+
+    - **Domain**: $A$
+    - **Codomain**: $B$
+    - $b$ is the **image** of $a$ under $f$
+    - $a$ is a **preimage** of $b$ under $f$
+    - The **Range** is the specific set of codomains that were assigned. It is always a **subset** of the codomain.
+
+    - $f: A \to \mathbb{R}$ is a **real-valued function**
+    - $f: A \to \mathbb{Z}$ is an **integer-valued function**
+
+!!! tip "Combining functions"
+
+    Combination of functions by addition or multiplication retain the same domain and codomain, i.e. $f_1,f_2: A \to B \implies (f_1 + f_2), (f_1 \cdot f_2): A \to B$
+
+!!! note "Functions of a Subset"
+
+    For $f: A\to B, \quad S \subseteq A$, the **image of S under f** is:
+
+    ```math
+    f(S) = \{y\ |\ \exists x \in S, f(x) = y\}
+    ```
+

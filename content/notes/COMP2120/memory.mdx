@@ -1,0 +1,307 @@
+---
+title: Memory
+---
+
+## Memory hierarchy
+ 
+Memory is a bottleneck for faster performance as it is much slower than the CPU.
+
+The ideal memory is fast, cheap, and large. However, no single  technology provides all three.  
+
+!!! info "Memory Hierarchy Overview"
+	- **Hierarchy Properties**:  
+		- **Decreasing cost per bit** as you go down the hierarchy.  
+		- **Increasing capacity** at lower levels.  
+		- **Increasing access time** at lower levels.  
+		- **Decreasing frequency of access** by the processor at lower levels.  
+
+	- **CPU Interaction with Memory**:  
+		- The CPU reads memory by providing an address and waiting for data.  
+		- The memory hierarchy (e.g., cache or virtual memory) is invisible to the CPU as long as the interface remains consistent.
+
+	- **Goals of Memory Hierarchy**:  
+		- Achieve cost efficiency by using minimal high-level memory and more lower-level memory.  
+		- Achieve speed close to higher levels (e.g., cache memory).  
+		- Data is copied from lower levels to higher levels when needed, eventually reaching the topmost level.
+
+
+
+!!! info "Principle of Locality"
+
+	- **Program Memory Access Patterns**:  
+		A program does not reference memory uniformly.  
+		- **Temporal Locality**: Recently referenced memory (e.g., instructions in a loop) is likely to be accessed again soon.  
+		- **Spatial Locality**: Memory addresses near one another (e.g., array elements) are accessed together.  
+
+	- **Impact on Performance**: Future memory accesses can be served from higher levels (e.g., cache), improving speed.
+
+
+
+!!! info "Characteristics of Memory Systems"
+- **Memory Locations**:  
+  - **Inside the processor**: CPU registers.  
+  - **Inside the CPU chip**: On-chip cache memory.  
+  - **On the motherboard**: Cache memory and main memory.  
+  - **External memory**: Secondary storage like hard disks or SSDs.
+
+- **Physical Types of Memory**:  
+  - **Semiconductor**: RAM, cache.  
+  - **Magnetic**: Disks, tapes.  
+  - **Optical**: CDs, DVDs, magneto-optical storage.
+
+- **Key Characteristics**:  
+  - **Volatile**: Data is lost when power is off.  
+  - **Non-volatile**: Data persists without power.  
+  - **Erasable/Non-erasable**: Determines whether data can be rewritten.
+
+
+
+!!! info "Memory Capacity"
+- Measured in megabytes (MB) or gigabytes (GB).  
+- Systems may address memory by word (e.g., 32-bit or 64-bit words).  
+- **Byte Addressable Memory**: Each address corresponds to 1 byte.  
+  - A 32-bit word occupies 4 addresses.
+
+
+
+!!! info "Memory Byte Ordering"
+- **Multi-byte Data**:  
+  - A word (e.g., 4 bytes) can have different byte ordering:  
+    - **Big Endian**: Left-to-right ordering (e.g., IBM mainframes).  
+    - **Little Endian**: Right-to-left ordering (e.g., Intel processors).
+
+
+
+!!! info "Unit of Transfer"
+- **Unit of Data Transfer**:  
+  - Memory transfer is often block-based (e.g., 4KB blocks) rather than word-based.  
+  - The CPU accesses data word-by-word from cache memory, not directly from main memory.
+
+
+
+!!! info "Memory Access Methods"
+- **Sequential Access**: Data is accessed in sequence (e.g., tapes).  
+- **Random Access**: Data is accessed directly by address (e.g., arrays).  
+- **Associative Access**: Data is accessed by content, commonly used in cache memory.
+
+
+
+!!! info "Random Access Memory (RAM)"
+- **Dynamic RAM (DRAM)**:  
+  - Uses transistors to store electric charges.  
+  - Requires periodic refreshing to prevent data loss.  
+  - Slower and cheaper than static RAM.  
+  - Commonly used in main memory.  
+
+- **Static RAM (SRAM)**:  
+  - Stores data using logic gates (latches).  
+  - No refreshing needed.  
+  - Faster and more expensive than DRAM.  
+  - Used in cache memory.
+
+
+
+!!! info "ROM: Read-Only Memory"
+- **ROM Characteristics**:  
+  - Non-volatile memory for storing permanent data like system boot programs.  
+  - Types:  
+    - **PROM**: Programmable ROM, written once electrically.  
+    - **EPROM**: Erasable PROM, erased using UV light.  
+    - **EEPROM**: Electrically Erasable PROM, erased/reprogrammed electrically.
+
+
+
+!!! info "Flash Memory"
+- **Flash Memory Characteristics**:  
+  - Non-volatile, read-mostly memory.  
+  - Faster than EEPROM for writing.  
+  - Common uses: handheld devices, mobile phones, SSDs, and BIOS storage.  
+  - **Limitations**: Limited number of write cycles.
+
+
+
+!!! info "Memory Performance Metrics"
+- **Access Time**: Time to perform a read/write operation.  
+- **Memory Cycle Time**: Access time + transfer time between two memory accesses.  
+- **Transfer Rate**: Speed of data transfer, influenced by bus width.  
+  - Example: A 64-bit memory bus can transfer data twice as fast as a 32-bit bus.  
+
+- **Burst Mode**: After the initial access, subsequent data transfers are faster (e.g., transferring 4 words from memory to cache).
+
+
+
+!!! info "Two-Level Memory Performance Example"
+- **Scenario**:  
+  - Lower level memory access time: `T2 = 0.1μs`.  
+  - Upper level memory access time: `T1 = 0.01μs`.  
+  - 95% of data found at the upper level (hit rate).  
+  - Average access time:  
+    ```
+    0.95 × 0.01 + 0.05 × (0.1 + 0.01) = 0.015μs
+    ```
+  - Performance is closer to the faster upper level.
+
+
+
+!!! info "Error Detection and Correction"
+- **Sources of Errors**: Voltage spikes, electromagnetic interference, cosmic rays, power issues.  
+- **Parity Bits**:  
+  - A parity bit ensures the number of 1s is even (even parity) or odd (odd parity).  
+  - Detects 1-bit errors but requires more bits for error correction.  
+
+- **Error Correction Codes (ECC)**:  
+  - Example: Hamming code for error correction.
+
+ 
+
+This format organizes the content into easily digestible blocks with clear titles for better readability and understanding.
+
+## Cache Memory
+
+Below is the restructured content, separated into clear blocks with appropriate titles for better readability and understanding:
+
+
+
+!!! info "Introduction: Cache Memory Overview"
+- CPU Cycle Time: 0.25ns (4GHz); motherboard clock < 10ns (> 100MHz).
+- Primary Memory Cycle Time: 50–60ns (memory access time).
+- Cache Memory bridges the gap using Static RAM, which is faster than Dynamic RAM.
+- Access time for cache on the motherboard: ~10ns; on-chip cache: <1ns.
+- Cache Memory is transparent to the program/user.
+
+
+
+!!! info "Cache and Main Memory"
+- Cache acts as an intermediate layer between the CPU and main memory.
+- Cache stores frequently accessed memory blocks for faster retrieval.
+
+
+
+!!! info "Cache Organization"
+- Memory and cache are divided into equal-sized blocks (cache lines).
+- When a memory block is accessed, the entire block is moved into the cache.
+- Subsequent accesses to the block retrieve it from the cache instead of main memory.
+- Cache uses the block number from main memory for addressing, not direct cache address.
+- If a cache is full, a block is replaced to make space for a new block (replacement policy).
+- Multi-level cache follows the same principles as single-level cache.
+
+
+
+!!! info "Cache Read Operation"
+- **RA (Read Address):** Specifies the memory address to read.
+- Determines:
+  - Which word in the block?
+  - Which block in the cache?
+
+
+
+!!! info "Elements of Cache Design: Cache Size"
+- Larger caches tend to be slower but reduce cache misses.
+- Larger caches are more expensive.
+- **Principle of Diminishing Returns:** Beyond an optimal size, increasing cache size offers minimal performance improvement.
+- Typical Cache Sizes:
+  - **L1 Cache:** 64KB–2MB
+  - **L2 Cache:** 256KB–8MB
+  - **L3 Cache:** 4MB–64MB
+
+
+
+!!! info "Address Mapping Basics"
+- **Address Format Design:**
+  - Requires block number, word/byte number, and cache line number.
+- **Address Breakdown:**
+  - CPU outputs a 32-bit address.
+  - Block size = \( b \), one block contains \( b \) bytes.
+  - Address breakdown:
+    - Block Address = \( \text{Addr} / b \)
+    - Offset within the block = \( \text{Addr} \% b \)
+  - If \( b = 2^n \):
+    - Offset = rightmost \( n \)-bits of the address.
+    - Block Address = remaining bits of the address.
+
+
+
+!!! info "Fully Associative Cache"
+- **Mapping:**
+  - No specific cache line number; uses only tag and offset.
+  - Each main memory block can be loaded into any cache line.
+- **Advantages:**
+  - Flexible block replacement; higher hit ratio.
+- **Disadvantages:**
+  - Simultaneous examination of every cache line’s tag is required, which is computationally expensive.
+
+
+
+!!! info "Direct-Mapped Cache"
+- **Mapping:**
+  - Each main memory block maps to one specific cache line.
+  - Cache Line Number \( i = j \mod m \), where \( m \) = number of cache lines.
+- **Address Breakdown:**
+  - Tag: \( s - r \) bits
+  - Line Number: \( r \) bits
+  - Offset: \( w \) bits
+- **Example:**
+  - For address `[A7B4]`:
+    - Tag: 5 bits
+    - Line Number: 7 bits
+    - Offset: 4 bits
+  - Locate cache line, check tag match for a cache hit. Otherwise, load the block into cache.
+- **Advantages:**
+  - Simple, fast, and inexpensive.
+- **Disadvantages:**
+  - Multiple memory blocks may map to the same cache line, causing cache misses.
+
+
+
+!!! info "k-Way Set Associative Cache"
+- **Overview:**
+  - Combines strengths of direct-mapped and fully associative caches.
+  - Cache divided into sets, each containing \( k \)-cache lines.
+  - Common configurations: 2-way to 8-way set associative.
+- **Mapping:**
+  - Cache set number \( i = j \mod v \), where \( v \) = number of sets.
+  - A memory block maps to a specific cache set, with \( k \) possible lines.
+- **Advantages:**
+  - Fewer misses compared to direct-mapped caches.
+- **Disadvantages:**
+  - Slightly slower due to selection logic for matching blocks.
+- **Empirical Results:**
+  - Increasing the number of lines per set beyond 8 offers minimal performance improvement. 2-way set associative is the most common.
+
+
+
+!!! info "Analogy: Cache Memory"
+- **University Analogy:**
+  - 100,000 students (main memory size) with IDs 00000–99999.
+  - Central storeroom = main memory; records stored in boxes (blocks).
+  - Each box contains 10 records:
+    - Box Number = \( \text{ID} / 10 \)
+    - Record Position = \( \text{ID} \% 10 \)
+  - Cache Memory = President’s Office:
+    - Stores 1,000 records (100 boxes).
+    - A box from the storeroom is moved to the office (cache) as needed.
+- **Efficiency Improvements:**
+  - Divide students into faculties (sets).
+  - Assign boxes based on \( \text{Box Number} \% \text{# of Faculties} \).
+  - Check only boxes within the relevant faculty instead of searching all boxes.
+
+
+
+!!! info "Binary Address Mapping Example"
+- **Assumptions:**
+  - Address \( A \): 32-bit.
+  - Block Size: 128 bytes (\( 2^7 \)).
+  - Cache: 64KB, 2-way set associative.
+- **Calculations:**
+  - Block Number \( B = A / 128 \) (leftmost 25 bits).
+  - Offset \( R = A \% 128 \) (rightmost 7 bits).
+  - Number of sets = \( 64 \times 1024 / (128 \times 2) = 256 = 2^8 \).
+  - Set Number \( S \): rightmost 8 bits of block number.
+- **Tag, Set, Offset Breakdown:**
+  - Tag: 17 bits
+  - Set Number \( S \): 8 bits
+  - Offset \( R \): 7 bits
+
+
+
+This reformatted version organizes the content into logical blocks, making it easier to follow and understand. Let me know if you need further clarification!

@@ -4,6 +4,13 @@
   "description": "Discrete Mathematics",
   "root": true,
   "icon": "Omega",
-  "pages": ["index", "propositional-logic", "predicate-logic", "proofs"],
+  "pages": [
+    "index",
+    "propositional-logic",
+    "predicate-logic",
+    "proofs",
+    "sets-and-relations",
+    "functions"
+  ],
   "wip": true
 }

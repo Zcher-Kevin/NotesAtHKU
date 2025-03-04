@@ -9,7 +9,8 @@
     "evolution",
     "digital-logic",
     "number-representation",
-    "instruction-execution"
+    "instruction-execution",
+    "memory"
   ],
   "wip": true
 }
