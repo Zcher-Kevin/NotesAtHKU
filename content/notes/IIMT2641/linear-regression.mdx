@@ -1,10 +1,17 @@
 ---
-title: Single Variable Linear Regression
+title: Linear Regression
 ---
+
+## Single variable linear regression
+
+!!! tip "Dependent and independent variables"
+
+    - **Dependent variable**: The variable we are trying to predict (y)
+    - **Independent variable**: The variable we are using to make predictions (x)
 
 !!! tip "Simple regression model"
 
-    The population model of y with one **predictor** variable x is given by:
+    The population model of y with one **independent** variable x is given by:
 
     ```math
     y = \beta_0 + \beta_1 x
@@ -68,3 +75,20 @@ title: Single Variable Linear Regression
     where:
     - SSR is the sum of squared residuals
     - SST is the total sum of squares
+
+
+## Multiple variable linear regression
+
+!!! tip "Multiple regression model"
+
+    The population model of y with k independent variables is given by:
+
+    ```math
+    y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + \beta_k x_k
+    ```
+
+    where:
+    - $y$ is the dependent variable
+    - $x_1, x_2, ..., x_k$ are the independent variables
+    - $\beta_0$ is the y-intercept
+    - $\beta_1, \beta_2, ..., \beta_k$ are the slopes

@@ -77,6 +77,10 @@ title: Elasticity
     ```
     The price elasticity is always $b$.
 
+    !!! eg "Example"
+
+        If John would purchase \$10 of a good regardless of the price, then $\eta_d = -1$, and the revenue is constant at \$10.
+
 !!! tip "Determinants of the Price Elasticity of Demand"
 
     | Determinants (increase) | Elasticity | Explaination |
@@ -109,6 +113,14 @@ title: Elasticity
 
     The value of cross-price elasticity of demand can [deduce the relationship between goods](supply-and-demand/#comparative-characteristics).
 
+Questions might give you a demand relation for two goods, and asks for the above elasticities. They are in the form of:
+
+```math
+Q_A = c - \frac{\Delta Q_A}{\Delta P_A}P_A + \frac{\Delta Q_A}{\Delta P_B}P_B + \frac{\Delta Q_A}{\Delta I}I
+```
+
+If the quantities are under logarithm, the elasticity is the coefficient of the price, income or cross-price term.
+
 <Collapsible title="Example usage">
 
 Given the demand for good $x$ and $y$ satefies the following relation:
@@ -126,11 +138,29 @@ However, we can deduce that $x$ is a **normal** good as $I\uparrow\rightarrow Q_
 
 </Collapsible>
 
+<Collapsible title="Example usage 2">
+
+Given the demand for good $x$ and $y$ satefies the following relation:
+
+```math
+Q_A = 609.8 - 3P_A + 1.7 P_B - 2.8 I
+```
+
+To find the income elasticity, notice the coefficient of $I$ would be $\frac{\Delta Q_A}{\Delta I}$. Therefore, income elasticity = $-2.8 \times \frac{I}{Q_A}$, given the values of $Q_A$ and $I$.
+
+</Collapsible>
+
 ## Price elasticity of supply
 
 !!! note "PES Definition"
 
     The **price elasticity of supply** $\eta_s$ is a measure of responsiveness of quantity supplied to a change in price. The equations are **identical** to the [price elasticity of demand](#formulas).
+
+    The **marginal cost** of production can be **directly** intepreted as the supply curve.
+
+    !!! eg "Example"
+
+        If $MC(q) = 2q$, then the supply curve is $P = 2Q_s$.
 
 !!! info "Linear supply curve observations"
 
@@ -141,6 +171,10 @@ However, we can deduce that $x$ is a **normal** good as $I\uparrow\rightarrow Q_
     * $c < 0\to\eta_s < 1$ (inelastic at every point)
 
     Also notice that when $P$ is large enough, $\eta_{s} \approx 1$, as the term $\frac{P}{Q} \to 1$.
+
+    !!! eg "Example"
+
+        If $MQ(q) = 2q$, we can notice that it passes through the origin, and hence $\eta_s = 1$ at every point.
 
 !!! tip "Determinants of the Price Elasticity of Supply"
 
@@ -156,7 +190,14 @@ However, we can deduce that $x$ is a **normal** good as $I\uparrow\rightarrow Q_
 
 !!! info " Quick predictions"
 
-    ```math
+    We can use the following equations to predict the change in price or quantity given a change in the other:
 
-    \%\Delta P = \frac{\%\Delta Q_d}{\eta_s+|\eta_d|} = -\frac{\%\Delta Q_s}{\eta_s+|\eta_d|}
+    ```math
+    \text{Increase }\%\Delta P = \frac{\%\Delta Q_d}{|\eta_d|+\eta_s} = -\frac{\%\Delta Q_s}{|\eta_d|+\eta_s}
+    ```
+
+    When asked about the percentage change in quantity, use definition of price elasticity:
+
+    ```math
+    \text{Increase }\%\Delta Q = \eta_s \times \%\Delta P
     ```
