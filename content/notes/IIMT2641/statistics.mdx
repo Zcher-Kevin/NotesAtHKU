@@ -5,17 +5,22 @@ title: Statistics
 ## Random variables
 
 !!! note "Notation"
+
     Random variables are denoted with capital letters $X$  
     The possible outcomes are denoted with regular letters $x$  
     Probability that the outcome of $X$ is $x$ is denoted by $P(X=x)$
 
 !!! tip "Expected value and Variance"
+
     $E(X^n)=\sum(x^n\cdot P(X=x))$ gives the expected value, which represents the mean value (outcome) of the random variable.  
     $Var(X)=E(X^2)-E(X)^2$ gives the variance, which is a measure of the variability of the random variable's outcomes.
 
 !!! tip "Operations of $E(X)$ and $Var(X)$"
+
     $E(X+Y)=E(X)+E(Y)$, which any addition/subtraction function within $E()$ can be expanded.  
+
     If $X$ and $Y$ are independent:  
+
     $Var(X+Y) = Var(X) + Var(Y),\quad\quad E(XY) = E(X)\cdot E(Y)$  
     For $Y=aX+b$:  
     $E(Y)=aE(X)+b,\quad\quad Var(Y)=a^2Var(X)$
@@ -25,11 +30,13 @@ title: Statistics
 A *continuous* random variable has probabilities as the area under its curve. Hence, $P(X=n)$ for any outcome $n$ is $0$. A *discrete* random variable has specific probabilities assigned to an outcome.
 
 !!! note "Operation on continuous ranges"
+
     $P(X<x)=P(X\leq x)$  
     $P(X>x)=1 - P(X<x)$  
     $P(a\leq X\leq b)=P(X<b)-P(X<a)$
 
 !!! note "Operation on discrete ranges"
+
     $P(X<x)=P(X\leq x-1)$  
     $P(X>x)=1-P(X\leq x)$  
     $P(a\leq X\leq b)=P(X\leq b)-P(X\leq a-1)$
@@ -43,12 +50,14 @@ X\sim f(x) = \begin{cases} Kx^2 & 0 \leq x \leq 1 \\ 0 & \text{otherwise} \end{c
 ```
 
 !!! tip "Using the function"
+
     $P(X=x)=0$  
     $P(a<X<b)=P(a\leq X\leq b)=\int_{a}^{b}f(x)dx$  
     
     Note that $\int_{\infty}^{-\infty}f(x)dx = 1$, as the total probability of any event is 1. This condition *must be true* for $f(x)$ to be a valid p.d.f. Hence for the example $K=3$
 
 !!! tip "Expected value"
+
     $E(X^n)=\int_{\infty}^{-\infty}x^nf(x)dx$
 
 ### Cumulative distribution function
@@ -83,6 +92,7 @@ X\sim N(\mu, \sigma^2)=\frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigm
 To calculate $P(X<x)$, we have to *standardize* our $N$ by $Z\sim N(0, 1)$, $P(X<x)=P(Z<\frac{x-\mu}{\sigma})$. Here $Z$ is the *standard normal variable*.
 
 !!! info "Reading the Z-table"
+
     For $P(Z<z)=p$, to find $p$, locate the header and leftmost column in the z-table such that their *sum* is $z$. The corresponding intersecting cell is $p$.  
     $Z_p$ gives the value $z$ in $P(Z<z)=p$
 

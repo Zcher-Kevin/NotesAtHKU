@@ -1,0 +1,149 @@
+---
+title: Counting
+---
+
+The main idea is to apply the rules, and ideas from Sets and Functions, to analyze and enumerate possible outcomes of a computational problem.
+
+## Basic counting principles
+
+!!! tip "The product rule"
+
+    "If there are $n_1$ ways to do task 1, and $n_2$ ways to do task 2, then there are $n_1 \cdot n_2$ ways to do both tasks."
+
+    If $A_1, A_2, \ldots, A_n$ are $n$ finite sets, then:
+
+    ```math
+    |A_1 \times A_2 \times \cdots \times A_n| = |A_1| \cdot |A_2| \cdots |A_n|
+    ```
+
+    !!! eg "Example"
+
+        Suppose you have $n$ different types of ice cream, $m$ different types of cones, and $k$ different toppings. The number of different sundaes you can make is:
+
+        ```math
+        |A| = |I| \cdot |C| \cdot |T| = n \cdot m \cdot k
+        ```
+
+!!! tip "The sum rule"
+
+    "If a task can be done either in one of $n_1$ ways or in one of $n_2$ ways (n_1 and n_2 are mutually exclusive), then there are $n_1 + n_2$ ways to do the task."
+
+    If $A_1, A_2, \ldots, A_n$ are $n$ **pairwise mutually exclusive** (disjoint) finite sets, then:
+
+    ```math
+    |A_1 \cup A_2 \cup \cdots \cup A_n| = |A_1| + |A_2| + \cdots + |A_n|
+    ```
+
+    !!! eg "Example"
+
+        Suppose you can choose your FYP from 3 lecturers. Lecturer A has 2 projects, lecturer B has 3 projects, and lecturer C has 4 projects. The number of different FYPs you can choose is:
+
+        ```math
+        |A| = |A| + |B| + |C| = 2 + 3 + 4 = 9
+        ```
+
+!!! tip "The subtraction rule"
+
+    "If a task can be done in either $n_1$ or $n_2$ ways, then number of ways to do task is $n_1+n_2-n_3$, where $n_3$ is the number of ways to do the task in both ways."
+
+    The subtraction rule is **inclusion-exclusion principle** for two sets. The following is the general formulation:
+
+    If $A_1, A_2, \ldots, A_n$ are $n$ finite sets, then:
+
+    ```math
+    \begin{aligned}
+    |A_1 \cup A_2 \cup \cdots \cup A_n| & = \sum_{i=1}^n |A_i| \\
+    & - \sum_{1 \leq i < j \leq n} |A_i \cap A_j| \\
+    & + \sum_{1 \leq i < j < k \leq n} |A_i \cap A_j \cap A_k|\\
+    & - \cdots\\
+    & + (-1)^{n+1} |A_1 \cap A_2 \cap \cdots \cap A_n|
+    \end{aligned}
+    ```
+
+    !!! eg "Example"
+
+        The number of integers from 1 to 100 that are divisible by 2, 3 or 5 is:
+
+        ```math
+        \begin{align*}
+            \text{Set of elements divisible by 2} : A_1 & = \lfloor \frac{100}{2} \rfloor = 50 \\
+            \text{Set of elements divisible by 3} : A_2 & = \lfloor \frac{100}{3} \rfloor = 33 \\
+            \text{Set of elements divisible by 5} : A_3 & = \lfloor \frac{100}{5} \rfloor = 20 \\
+            A_1 \cap A_2 &  = \lfloor \frac{100}{6} \rfloor = 16 \\
+            A_1 \cap A_3 &  = \lfloor \frac{100}{10} \rfloor = 10 \\
+            A_2 \cap A_3 &  = \lfloor \frac{100}{15} \rfloor = 6 \\
+            A_1 \cap A_2 \cap A_3 &  = \lfloor \frac{100}{30} \rfloor = 3 \\
+            \text{Total} & = A_1 + A_2 + A_3 - (A_1 \cap A_2) - (A_1 \cap A_3) - (A_2 \cap A_3) + (A_1 \cap A_2 \cap A_3) \\
+            & = 50 + 33 + 20 - (16 + 10 + 6) + 3 \\
+            & = 74
+
+        \end{align*}
+        ```
+
+!!! tip "The division rule"
+
+    "If a task can be done in $n$ ways, and if there are $k$ indistinguishable objects, then the number of ways to do the task is $\frac{n}{k}$."
+
+    If a finite set $ A = A_1 \cup A_2 \cup \cdots \cup A_n$, where $A_1, A_2, \ldots, A_n$ are $n$ **pairwise mutually exclusive** (disjoint) finite sets, then:
+
+    ```math
+    n = \frac{|A|}{k},\quad k = |A_1| + |A_2| + \cdots + |A_n|
+    ```
+
+    !!! eg "Example"
+
+        To sit four people around a circular table, when two seatings are consider to be the same, if each person has same left and right neighbour:
+
+        We know that there are $4!$ ways to arrange four people in a line. However, when we arrange them in a circle, we can rotate the arrangement without changing the relative positions of the people. Hence, we need to divide by 4 (the number of people), which $k=4$.
+
+        ```math
+        \text{Number of ways} = \frac{4!}{4} = 3! = 6
+        ```
+
+!!! tip "The pigeonhole principle"
+
+    If $n$ items are placed into $k$ boxes, then there is at least one box that contains at least $\lceil \frac{n}{k} \rceil$ items.
+
+    !!! eg "Example"
+
+        During a month with 30 days, a basketball team plays at least one game a day, but no more than 45 games in a month. 
+
+        To show that there must be a period of some numbers of consecutive days, during which the team plays exactly $14$ games.
+
+        Let $a_1, a_2, \ldots, a_{30}$ be the number of games played cummulative.
+
+        Observe $a_1 < a_2 < \cdots < a_{30}$, and $1 \leq a_i \leq 45$, which $15 \leq a_i + 14 \leq 59$.
+
+        Combining sequences, we have $a_1,a_2,\ldots,a_{30}, a_1+14, a_2+14, \ldots, a_{30}+14$. 
+
+        **Key 1**: There are a total of $30+30=60$ items, but they must be less than $59$.
+
+        **Key 2**: As team must be at least one game a day, each $a_i$ is unique in $a_1,a_2,\ldots,a_{30}$ (and all $a_i+14$ are unique).
+
+        This implies that in the combined sequence, at least one of the $a_i$ and $a_i+14$ must be equal, which means that there is a period of some numbers of consecutive days, during which the team plays exactly $14$ games.
+
+## Permutations and Combinations
+
+!!! info "Permutations"
+
+    The number of ways to arrange $r$ of $n$ objects is:
+
+    ```math
+    P(n,r) = {}^nP_r = \frac{n!}{(n-r)!},\quad P(n,n) = n!
+    ```
+
+!!! info "Combinations"
+
+    The number of ways to choose $r$ objects from $n$ objects is:
+
+    ```math
+    C(n,r) = {}^nC_r = {n \choose r} = \frac{n!}{r!(n-r)!},\quad C(n,0) = 1
+    ```
+    
+    The *property of binomial coefficients* states that the number of ways to choose $r$ objects from $n$ objects is equal to the number of ways to choose $n-r$ objects from $n$ objects:
+
+    ```math
+    C(n,r) = C(n,n-r)
+    ```
+
+    This is because choosing $r$ objects from $n$ objects is equivalent to leaving out $n-r$ objects from $n$ objects.
