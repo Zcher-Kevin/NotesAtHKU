@@ -2,4 +2,216 @@
 title: Memory
 ---
 
-tba
+## Memory hierarchy
+
+Memory comes with varying attributes. Our goal is to on **capacity**, **cost**, **access time**, and **access frequency**. The memory hierarchy is a way to organize memory in a computer system to optimize these attributes.
+
+!!! tip "Memory hierarchy"
+
+    | Type of memory | Usage | Category |
+    |---|---|---|
+    | Registers | Instructions | Inbound memory |
+    | On-chip cache | Inside CPU | Inbound memory |
+    | Cache memory | Motherboard | Inbound memory |
+    | Main memory | RAM | Inbound memory |
+    | Secondary storage | Hard disk, SSD | Outbound / Off-line storage |
+
+    Going from top of bottom, the memory hierarchy has the following trends:
+
+    - Capacity $\downarrow$
+    - Cost $\downarrow$
+    - Access time $\uparrow$
+    - Access frequency $\uparrow$
+
+!!! info "Principle of locality"
+
+    Programs do not access all memory locations uniformly. Some memory locations have higher tendency to be accessed than others.
+
+!!! info "Types of locality"
+
+    There are two types of locality:
+
+    - **Temporal locality**: If a memory location is accessed, it is likely to be accessed again in the near future.
+
+    - **Spatial locality**: If a memory location is accessed, it is likely that nearby memory locations will be accessed in the near future.
+
+    !!! eg "Example of locality"
+
+        Consider the following program:
+
+        ```py
+        for x in arr:
+            s += x
+        ```
+
+        The memory at `s` is accessed in every loop (temporal), while each element in `arr` is accessed sequentially (spatial).
+
+!!! info "Memory organization"
+
+    Assuming memory stores in units of 8 bits (1 byte), multi-byte data is stored differently in memory on different architectures.
+
+    - **Big endian**: Stored from most to least signficant byte (left to right).
+    - **Little endian**: Stored from least to most signficant byte (right to left).
+
+    !!! eg "Example storage"
+
+        To store `0x11223344` in memory:
+        - Big endian: `0x11 0x22 0x33 0x44`
+        - Little endian: `0x44 0x33 0x22 0x11`
+
+!!! note "Unit of transfer"
+
+    In modern days, CPU reads from **cache memory**. CPU reads **word by word, and data is transferred in **blocks** (usually 4 KB), containing multiple words.
+
+!!! note "Access methods"
+
+    | Access method | Data accessed by |
+    |---|---|
+    | Sequential | Beginning to end |
+    | Random | In any order. Has constant latency |
+    | Associative | Data is accessed by content, not by address. Used in cache memory & *Content-Addressable Memory* (CAM) |
+
+## Internal memory
+
+!!! note "Volatility"
+
+    Volatile memory **loses** its contents when power is turned off.
+
+!!! info "Comparison of internal memory types"
+
+    The following table compares the different types of internal memory:
+
+    <table>
+        <thead>
+            <tr>
+                <th>Memory Type</th>
+                <th>Category</th>
+                <th>Erasure</th>
+                <th>Write Mechanism</th>
+                <th>Volatility</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>RAM</td>
+                <td>Read-write</td>
+                <td>Electrically, byte-level</td>
+                <td>Electrically</td>
+                <td>Volatile</td>
+            </tr>
+            <tr>
+                <td>ROM</td>
+                <td rowspan="2">Read-only</td>
+                <td rowspan="2">Not possible</td>
+                <td>Masks</td>
+                <td rowspan="5">Nonvolatile</td>
+            </tr>
+            <tr>
+                <td>PROM</td>
+                <td rowspan="4">Electrically</td>
+            </tr>
+            <tr>
+                <td>EPROM</td>
+                <td rowspan="3">Read-mostly</td>
+                <td>UV light, chip-level</td>
+            </tr>
+            <tr>
+                <td>EEPROM</td>
+                <td>Electrically, byte-level</td>
+            </tr>
+            <tr>
+                <td>Flash</td>
+                <td>Electrically, block-level</td>
+            </tr>
+        </tbody>
+    </table>
+
+    Flash memory is primarily used for USB drives and SSD. They have faster write times than EEPROM, but limited number of write cycles.
+
+!!! info "Types of RAM"
+
+    | Characteristic | Dynamic RAM | Static RAM |
+    |---|---|---|
+    | Storage Technology | Use transistors to store electric charges. | Use logic gates (latches). |
+    | Refreshing | Required (every few ms due to leaking charge) | Not required |
+    | Speed | Slower (delay due to capacitance) | Faster |
+    | Usage | Main memory | Cache memory |
+    | Cost | Cheap | Very expensive |
+
+!!! info "Memory performance benchmarking"
+
+    We are interested in the following key metrics:
+
+    1. **Access time**: Time to read/write data
+    2. **Transfer time**: Time to transfer data
+    3. **Memory cycle time**: Access + Transfer time
+
+!!! note "Error Detection and Correction"
+
+    Errors may arise from various sources such as spike in voltage (lightning), electromagnetic interference (cosmic ray), power supply problems, etc. 
+    
+    Extra bits are required to detect errors. (Usually in secondary storage devices but not in main memory as it is volatile and less likely to have errors.)
+
+    Common error detection and correction methods include:
+    
+    * Parity Bit: Extra bit added to data to make number of 1s even/odd. (Only detection of odd number of errors, no correctionCannot be used to correct errors. )
+    * Hamming Code
+    * Repetition Code
+
+## Cache memory
+
+Cache memory is hidden software and managed by hardware. It stores copies of frequently accessed data to speed up future access to them.
+
+!!! note "Cache memory organization"
+
+    Consider the word-addressing main memory, with each address of length $n$ bits. By organizing the memory into **blocks** (groups) of $K$ words, we have a total of $M=\frac{2^n}K$ blocks.
+
+    Generally, caches will container $m << M$ **lines** (groups) of the $M$ blocks.
+
+    On each cache line, it contains a tag and a word,
+
+!!! tip "Overview of cache access process"
+
+    ```py
+    address = get_address() # get address from CPU
+    value, cache_position = address_mapping(address) # find address in cache
+
+    # Cache hit
+    return value if value is not None
+
+    # Cache miss
+    value = memory[address] # access from main memory
+    replaced_value = replacement_algorithm(value, cache_position) # replace value in cache
+
+    if write_policy == "write-back" and replaced_value is not None:
+        memory[address] = replaced_value # put discarded value back to memory
+    
+    def replacement_algorithm(value, cache_position):
+        if address_mapping == "direct":
+            cache[cache_position] = value
+            return None
+        
+        # associative mapping
+        if cache is not "full":
+            > "append at the end"
+        else:
+            > "use selected algorithm, and return replaced value"
+    ```
+
+### Address mapping
+
+Address mapping inteprets the address of a word in memory into three parts:
+...
+
+
+### Performance
+
+!!! info "Performance"
+
+    **Cache miss penalty ($C$)**: Time to transfer value from main memory to cache
+
+    **Cache hit time ($H$)**: Time to access the cache
+
+    **Cache hit rate ($P(\text{hit})$)**: $\frac{N(\text{hit})}{N(\text{access})} = 1 - \frac{N(\text{miss})}{N(\text{access})}$
+
+    **Average memory access time**: $H + P(\text{miss}) \cdot C$
