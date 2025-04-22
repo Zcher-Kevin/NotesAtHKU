@@ -132,6 +132,8 @@ The main idea is to apply the rules, and ideas from Sets and Functions, to analy
     P(n,r) = {}^nP_r = \frac{n!}{(n-r)!},\quad P(n,n) = n!
     ```
 
+!!! tip "Arrangements of indistinguishable objects"
+
     To arrange $n$ objects where there are $n_1$ indistinguishable objects of type 1, $n_2$ indistinguishable objects of type 2, ..., $n_k$ indistinguishable objects of type $k$, the number of arrangements is:
 
     ```math
@@ -145,6 +147,9 @@ The main idea is to apply the rules, and ideas from Sets and Functions, to analy
     ```math
     C(n,r) = {}^nC_r = {n \choose r} = \frac{n!}{r!(n-r)!},\quad C(n,0) = 1
     ```
+
+
+!!! tip "Property of binomial coefficients"
     
     The *property of binomial coefficients* states that the number of ways to choose $r$ objects from $n$ objects is equal to the number of ways to choose $n-r$ objects from $n$ objects:
 
@@ -153,3 +158,11 @@ The main idea is to apply the rules, and ideas from Sets and Functions, to analy
     ```
 
     This is because choosing $r$ objects from $n$ objects is equivalent to leaving out $n-r$ objects from $n$ objects.
+
+!!! info "Distributions of indistinguishable objects"
+
+    The number of ways to put $n$ **indistinguishable** items in $r$  **distinguisable** boxes, where each box can hold any number of items, is:
+
+    ```math
+    \binom{n+r-1}{r-1}
+    ```
