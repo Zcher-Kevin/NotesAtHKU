@@ -11,7 +11,9 @@
     "proofs",
     "sets-and-relations",
     "functions",
-    "counting"
+    "counting",
+    "probabilities",
+    "graphs"
   ],
   "wip": true
 }

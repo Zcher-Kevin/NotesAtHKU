@@ -10,7 +10,13 @@
     "digital-logic",
     "number-representation",
     "instruction-execution",
-    "memory"
+    "memory",
+    "storage",
+    "io",
+    "instruction-set-addressing",
+    "assembly",
+    "os-support",
+    "processor-risc"
   ],
   "wip": true
 }

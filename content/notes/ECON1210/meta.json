@@ -13,7 +13,10 @@
     "taxes-and-subsidies",
     "ceil-floor",
     "externalities",
-    "public-goods"
+    "public-goods",
+    "profit-maximization",
+    "monopoly",
+    "price-discrimination"
   ],
   "wip": true
 }

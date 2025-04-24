@@ -101,18 +101,18 @@ Memory comes with varying attributes. Our goal is to on **capacity**, **cost**, 
             </tr>
             <tr>
                 <td>ROM</td>
-                <td rowspan="2">Read-only</td>
-                <td rowspan="2">Not possible</td>
+                <td rowSpan="2">Read-only</td>
+                <td rowSpan="2">Not possible</td>
                 <td>Masks</td>
-                <td rowspan="5">Nonvolatile</td>
+                <td rowSpan="5">Nonvolatile</td>
             </tr>
             <tr>
                 <td>PROM</td>
-                <td rowspan="4">Electrically</td>
+                <td rowSpan="4">Electrically</td>
             </tr>
             <tr>
                 <td>EPROM</td>
-                <td rowspan="3">Read-mostly</td>
+                <td rowSpan="3">Read-mostly</td>
                 <td>UV light, chip-level</td>
             </tr>
             <tr>
@@ -170,79 +170,85 @@ Cache memory is hidden software and managed by hardware. It stores copies of fre
 
     On each cache line, it contains a tag (identifier) and a word. 
 
-    <div style="display: flex; justify-content: space-between;">
-        <div style="width: 48%">
-            <table style="text-align: center; width: 100%">
+    <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div style={{ width: "48%" }}>
+            <table style={{ textAlign: "center", width: "100%" }}>
                 <caption><strong>Main memory</strong></caption>
-                <tr>
-                    <th>Tag</th>
-                    <th colspan="4">Block</th>
-                </tr>
-                <tr>
-                    <td rowspan="4"></td>
-                    <td>0</td>
-                    <td>2<sup>n</sup>/k</td>
-                    <td>⋯</td>
-                    <td>2<sup>n</sup> - 2<sup>n</sup>/k</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2<sup>n</sup>/K + 1</td>
-                    <td>⋯</td>
-                    <td>2<sup>n</sup> - 2<sup>n</sup>/k + 1</td>
-                </tr>
-                <tr>
-                    <td>⋮</td>
-                    <td>⋮</td>
-                    <td>⋱</td>
-                    <td>⋮</td>
-                </tr>
-                <tr>
-                    <td>2<sup>n</sup>/k - 1</td>
-                    <td>2 × 2<sup>n</sup>/k - 1</td>
-                    <td>⋯</td>
-                    <td>2<sup>n</sup> - 1</td>
-                </tr>
-                <tr>
-                    <td colspan="5" style="text-align: center">←Block length (k words)→</td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Tag</th>
+                        <th colSpan="4">Block</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0</td>
+                        <td>2<sup>n</sup>/k</td>
+                        <td>⋯</td>
+                        <td>2<sup>n</sup> - 2<sup>n</sup>/k</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2<sup>n</sup>/K + 1</td>
+                        <td>⋯</td>
+                        <td>2<sup>n</sup> - 2<sup>n</sup>/k + 1</td>
+                    </tr>
+                    <tr>
+                        <td>⋮</td>
+                        <td>⋮</td>
+                        <td>⋱</td>
+                        <td>⋮</td>
+                    </tr>
+                    <tr>
+                        <td>2<sup>n</sup>/k - 1</td>
+                        <td>2 × 2<sup>n</sup>/k - 1</td>
+                        <td>⋯</td>
+                        <td>2<sup>n</sup> - 1</td>
+                    </tr>
+                    <tr>
+                        <td colSpan="5" style={{ textAlign: "center" }}>←Block length (k words)→</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
-        <div style="width: 48%">
-            <table style="text-align: center; width: 100%">
+        <div style={{ width: "48%" }}>
+            <table style={{ textAlign: "center", width: "100%" }}>
                 <caption><strong>Cache Memory</strong></caption>
-                <tr>
-                    <th>Tag</th>
-                    <th colspan="4">Word</th>
-                </tr>
-                <tr>
-                    <td rowspan="4"></td>
-                    <td>0</td>
-                    <td>m</td>
-                    <td>⋯</td>
-                    <td>(k-1)·m</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>m + 1</td>
-                    <td>⋯</td>
-                    <td>(k-1)·m + 1</td>
-                </tr>
-                <tr>
-                    <td>⋮</td>
-                    <td>⋮</td>
-                    <td>⋱</td>
-                    <td>⋮</td>
-                </tr>
-                <tr>
-                    <td>m - 1</td>
-                    <td>2m - 1</td>
-                    <td>⋯</td>
-                    <td>k·m - 1</td>
-                </tr>
-                <tr>
-                    <td colspan="5" style="text-align: center">←Word length (k words)→</td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Tag</th>
+                        <th colSpan="4">Word</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0</td>
+                        <td>m</td>
+                        <td>⋯</td>
+                        <td>(k-1)·m</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>m + 1</td>
+                        <td>⋯</td>
+                        <td>(k-1)·m + 1</td>
+                    </tr>
+                    <tr>
+                        <td>⋮</td>
+                        <td>⋮</td>
+                        <td>⋱</td>
+                        <td>⋮</td>
+                    </tr>
+                    <tr>
+                        <td>m - 1</td>
+                        <td>2m - 1</td>
+                        <td>⋯</td>
+                        <td>k·m - 1</td>
+                    </tr>
+                    <tr>
+                        <td colSpan="5" style={{ textAlign: "center" }}>←Word length (k words)→</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </div>
@@ -337,5 +343,3 @@ Address mapping inteprets the address of a word in memory, and maps it to a cach
     hazard. The main trend is to use split cache.
     2. Unified Cache: The cache is used for both instructions and data. Instructions and data are automatically
     balanced. Has contention problem on parallel and pipeline execution that imposes bottleneck on performance.
-
-## External memory

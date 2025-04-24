@@ -6,7 +6,11 @@ The main idea is to apply the rules, and ideas from Sets and Functions, to analy
 
 ## Basic counting principles
 
-!!! tip "The product rule"
+!!! note "Mutually exclusive"
+
+    Two sets are said to be **mutually exclusive** (or *pairwise disjoint*) if they have no elements in common.
+
+!!! tip "Product rule"
 
     "If there are $n_1$ ways to do task 1, and $n_2$ ways to do task 2, then there are $n_1 \cdot n_2$ ways to do both tasks."
 
@@ -24,11 +28,11 @@ The main idea is to apply the rules, and ideas from Sets and Functions, to analy
         |A| = |I| \cdot |C| \cdot |T| = n \cdot m \cdot k
         ```
 
-!!! tip "The sum rule"
+!!! tip "Sum rule"
 
     "If a task can be done either in one of $n_1$ ways or in one of $n_2$ ways (n_1 and n_2 are mutually exclusive), then there are $n_1 + n_2$ ways to do the task."
 
-    If $A_1, A_2, \ldots, A_n$ are $n$ **pairwise mutually exclusive** (disjoint) finite sets, then:
+    If $A_1, A_2, \ldots, A_n$ are $n$ **mutually exclusive** finite sets, then:
 
     ```math
     |A_1 \cup A_2 \cup \cdots \cup A_n| = |A_1| + |A_2| + \cdots + |A_n|
@@ -42,7 +46,7 @@ The main idea is to apply the rules, and ideas from Sets and Functions, to analy
         |A| = |A| + |B| + |C| = 2 + 3 + 4 = 9
         ```
 
-!!! tip "The subtraction rule"
+!!! tip "Subtraction rule"
 
     "If a task can be done in either $n_1$ or $n_2$ ways, then number of ways to do task is $n_1+n_2-n_3$, where $n_3$ is the number of ways to do the task in both ways."
 
@@ -80,7 +84,7 @@ The main idea is to apply the rules, and ideas from Sets and Functions, to analy
         \end{align*}
         ```
 
-!!! tip "The division rule"
+!!! tip "Division rule"
 
     "If a task can be done in $n$ ways, and if there are $k$ indistinguishable objects, then the number of ways to do the task is $\frac{n}{k}$."
 
@@ -100,7 +104,7 @@ The main idea is to apply the rules, and ideas from Sets and Functions, to analy
         \text{Number of ways} = \frac{4!}{4} = 3! = 6
         ```
 
-!!! tip "The pigeonhole principle"
+!!! tip "Pigeonhole principle"
 
     If $n$ items are placed into $k$ boxes, then there is at least one box that contains at least $\lceil \frac{n}{k} \rceil$ items.
 
