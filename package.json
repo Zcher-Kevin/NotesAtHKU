@@ -22,10 +22,12 @@
     "lucide-react": "^0.469.0",
     "motion": "^11.18.2",
     "next": "15.1.2",
+    "playright": "^0.0.22",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-loading-skeleton": "^3.5.0",
     "rehype-katex": "^7.0.1",
+    "rehype-mermaid": "^3.0.0",
     "remark-math": "^6.0.0",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7"

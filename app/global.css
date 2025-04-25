@@ -6,8 +6,12 @@
   font-size: 16px;
 }
 
+.katex {
+  font-size: 1em !important;
+}
+
 .katex-display > .katex {
-  overflow-x: scroll;
+  overflow-x: auto;
   overflow-y: hidden;
 }
 
