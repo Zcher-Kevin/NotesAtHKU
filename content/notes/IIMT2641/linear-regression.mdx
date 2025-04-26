@@ -4,6 +4,8 @@ title: Linear Regression
 
 ## Single variable linear regression
 
+Linear regression is a statistical method used to model the relationship between a dependent variable and one or more independent variables. 
+
 !!! tip "Dependent and independent variables"
 
     - **Dependent variable**: The variable we are trying to predict (y)
@@ -31,7 +33,7 @@ title: Linear Regression
 
 !!! tip "Estimated regression function"
 
-    Estimates the regression model with n observations (x_i, y_i)
+    Estimates the regression model with n observations $(x_i, y_i)$
 
     ```math
     \hat{y} = \hat{\beta_0} + \hat{\beta_1} x
@@ -58,7 +60,7 @@ title: Linear Regression
 !!! note "Total Sum of Squares (SST)"
 
     ```math
-    SST = \sum_{i=1}^{n} (\hat{y_i} - \bar{y})^2
+    SST = \sum_{i=1}^{n} (y_i - \bar{y})^2
     ```
 
     where:
@@ -66,7 +68,7 @@ title: Linear Regression
 
 !!! tip "Coefficient of Determination (R square)"
 
-    The coefficient of determination $R^2$, ranged from $0\to1$ is a measure of **how well the model fits the data**.
+    The coefficient of determination $R^2$, ranged from $0\to1$ is gives the **proportion of the variance in y** that is explained by the regression model: 
 
     ```math
     R^2 = 1 - \frac{SSE}{SST}
@@ -111,15 +113,107 @@ title: Linear Regression
     - **In-sample R square**: The proportion of variance explained by the model on the training data.
     - **Out-of-sample R square**: The proportion of variance explained by the model on the test data. The value can be negative, indicating that the model is worse than a simple mean prediction.
 
-## Difference in differences
+## Linear regression in R-lang
 
-Correlation does not mean causation. We use DiD to estimate the **casual effect** (causation) from a **treatment** (intervention), estimated by:
+Below is an example of performing linear regression in R:
 
-```math
-DiD = \Delta {T} - \Delta {C}
+```
+Call:
+lm(formula = Air_quality ~ Wind + Temp, data = data)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-41.251  -13.695  -2.856   11.390  100.367 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -71.0332    23.5780  -3.013  0.0032 ** 
+Wind          -3.0555     0.6633  -4.607  0.00001 ***
+Temp           1.8402     0.2500   7.362  0.00000 ***
+---
+Signif. codes:  
+0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 21.85 on 113 degrees of freedom
+  (37 observations deleted due to missingness)
+Multiple R-squared:  0.5687,	Adjusted R-squared:  0.5611 
+F-statistic: 74.5 on 2 and 113 DF,  p-value: < 2.2e-16
 ```
 
-T is the treatment group and C is the control group. 
+!!! note "Intepreting the estimates"
+
+    The model can be expressed as:
+
+    ```math
+    \text{Air quality} = -71.0332 - 3.0555 \text{Wind} + 1.8402 \text{Temp}
+    ```
+
+    Hence, for example if `Temp` increases by 2, the `Air_quality` will increase by `1.8402 * 2 = 3.6804`, all else being equal.
+
+!!! note "F-test"
+
+    The F-test is used to test the overall significance of the regression model. It tests whether at least one of the independent variables is significantly related to the dependent variable.
+
+    The null and alt hypothesis of the F-test is :
+
+    ```math
+    H_0: \beta_1 = \beta_2 = 0\\
+    H_1: \exists i \in \{1,2\} \to \beta_i \neq 0
+    ```
+
+    As the `p-value` is less than `0.05`, we reject the null hypothesis, and conclude that at least one of the independent variables is significant.
+
+!!! note "Multiple R-squared"
+
+    The proportion of variation explained by the model, as a percentage.
+
+!!! note "t-value"
+
+    The t-value is computed as `Estimate / Std. Error`. 
+
+!!! note "Significant codes"
+
+    The signficant code is computed by comparing the p-value (`Pr(>|t|)`), and checking if it is **less than** the following values:
+
+    - `***`: 0.001
+    - `**`: 0.01
+    - $\ldots$ `*`: 0.05 `.`: 0.1 ` `: 1
+
+### Other functions
+
+!!! note "Dimension of data"
+
+    ```R
+    > dim(data)
+    [1] 151  3
+    ```
+
+    `rows columns`. The number of rows is the number of observations, and the number of columns is the number of variables.
+
+## Difference in differences
+
+Correlation does not mean causation. We use DiD to estimate the **casual effect** (causation) from a **treatment** (intervention).
+
+!!! tip "DiD"
+    The DiD estimator is calculated as:
+
+    ```math
+    DiD = \Delta {T} - \Delta {C}
+    ```
+
+    T is the treatment group and C is the control group. 
+
+    !!! eg "Example"
+
+        The treatment group is the group that receives the treatment, and the control group is the group that does not receive the treatment.
+
+        | | Time Period      | Control Group (Sales) [C] | Treated Group (Sales) [T] |
+        | --- | --- | --- | --- |
+        | Before implementation | Year 1  | 1500 | 1400 | 
+        | After implementation  | Year 2 | 990  | 1000 | 
+        | Change [$\Delta$] | | -510 | -400 |
+
+        Compute DiD: $DiD = \Delta T - \Delta C -400 - (-510) = 110$
 
 !!! tip "DiD by linear regression"
 
@@ -139,222 +233,11 @@ T is the treatment group and C is the control group.
     - $\beta_2 = E[y | T=0, P=1] - E[y | T=0, P=0]$ (control group post-treatment)
     - $\beta_3 = E[y | T=1, P=1] - E[y | T=0, P=1] - E[y | T=1, P=0] + E[y | T=0, P=0]$ (DiD)
 
-!!! note "Estimate DiD using R-lang"
-
-    pass
-
+    !!! eg "Example"
+    
+        ...
+        
 !!! info "Requirements for DiDs"
 
     1. Both "pre" and "post" periods must be observed for both treatment and control groups.
     2. Must have control and treated group, where the control should exhibit **parallel trend** before treatment
-
-## Conducting analysis with R-lang
-
-<Steps>
-
-### Load and Explore the Dataset
-Understand the structure of the dataset and identify potential predictors and target variables.
-
-#### R Commands:
-```r
-# Load the dataset
-data <- read.csv("your_dataset.csv")
-
-# Check the structure and summary of the data
-str(data)
-summary(data)
-
-# Check for missing values
-sum(is.na(data))
-
-# View the first few rows
-head(data)
-```
-
-#### Metrics to Look Out For:
-- **Variable Types**: Identify numerical and categorical variables.
-- **Missing Values**: Assess if data cleaning is required.
-- **Outliers**: Look for extreme values in numerical variables.
-
-
-
-### Visualize Relationships Between Variables
-Identify potential relationships and correlations between predictors and the target variable.
-
-#### R Commands:
-```r
-# Scatter plot for numerical predictors vs target
-plot(data$Predictor, data$Target, main="Scatter Plot", xlab="Predictor", ylab="Target")
-
-# Correlation matrix for numerical variables
-cor(data[, sapply(data, is.numeric)])
-
-# Pairwise scatter plots for multiple variables
-pairs(~ Predictor1 + Predictor2 + Target, data=data)
-
-# Boxplot for categorical predictors
-boxplot(Target ~ CategoricalPredictor, data=data, main="Boxplot of Target by Categorical Predictor")
-```
-
-#### Metrics to Look Out For:
-- **Linear Relationships**: Check for linear trends between predictors and the target variable.
-- **Correlations**: Identify variables with high correlation to the target variable.
-
-
-
-### Prepare the Data
-Clean and preprocess the dataset (e.g., handling missing values, creating new variables, or encoding categorical variables).
-
-#### R Commands:
-```r
-# Handle missing values (e.g., replace with mean or remove rows)
-data$Predictor[is.na(data$Predictor)] <- mean(data$Predictor, na.rm=TRUE)
-data <- na.omit(data)
-
-# Create new variables (e.g., differences, ratios, or transformations)
-data$NewVariable <- data$Variable1 - data$Variable2
-
-# Encode categorical variables (if applicable)
-data$CategoricalPredictor <- as.factor(data$CategoricalPredictor)
-```
-
-#### Key Considerations:
-- Handle missing values appropriately.
-- Create meaningful derived features (e.g., differences, ratios).
-- Ensure categorical variables are properly encoded.
-
-
-
-### Split the Dataset
-Separate the data into training and testing sets for model evaluation.
-
-#### R Commands:
-```r
-# Install and load the caret package (if not already installed)
-install.packages("caret")
-library(caret)
-
-# Split the data (e.g., 70% training, 30% testing)
-set.seed(123) # For reproducibility
-trainIndex <- createDataPartition(data$Target, p=0.7, list=FALSE)
-train <- data[trainIndex, ]
-test <- data[-trainIndex, ]
-```
-
-#### Metrics to Look Out For:
-- **Balanced Splits**: Ensure the training and testing sets are representative of the overall dataset.
-
-
-
-### Build a Linear Regression Model
-Fit a linear regression model to the training data and evaluate its performance.
-
-#### R Commands:
-```r
-# Fit the linear regression model
-model <- lm(Target ~ Predictor1 + Predictor2 + Predictor3, data=train)
-
-# View the summary to evaluate significance of predictors
-summary(model)
-```
-
-#### Metrics to Look Out For:
-- **R²**: Proportion of variance in the target variable explained by the predictors.
-- **p-values**: Identify significant predictors (p-value < 0.05).
-- **Coefficients**: Assess the magnitude and direction of relationships.
-
-
-
-### Evaluate the Model
-Assess the model's performance on the training data.
-
-#### R Commands:
-```r
-# Predict on the training set
-train_predictions <- predict(model, newdata=train)
-
-# Compute residuals
-residuals <- train$Target - train_predictions
-
-# Compute metrics
-SSE <- sum(residuals^2)
-RMSE <- sqrt(SSE / nrow(train))
-
-# Print metrics
-SSE
-RMSE
-```
-
-#### Metrics to Look Out For:
-- **Sum of Squared Errors (SSE)**: Lower values indicate better fit.
-- **Root Mean Squared Error (RMSE)**: Indicates the average error in predictions.
-
-
-
-### Refine the Model
-Simplify the model by removing insignificant predictors or multicollinear variables.
-
-#### R Commands:
-```r
-# Refit the model with significant predictors
-model_refined <- lm(Target ~ Predictor1 + Predictor2, data=train)
-
-# View summary to verify improvements
-summary(model_refined)
-```
-
-#### Metrics to Look Out For:
-- Check for improved p-values and minimal change in RMSE or R² after removing variables.
-
-
-
-### Test the Model on the Test Set
-Evaluate the model's generalizability using out-of-sample data.
-
-#### R Commands:
-```r
-# Predict on the test set
-test_predictions <- predict(model_refined, newdata=test)
-
-# Compute test SSE, RMSE, and R²
-test_residuals <- test$Target - test_predictions
-SSE_test <- sum(test_residuals^2)
-RMSE_test <- sqrt(SSE_test / nrow(test))
-
-SST_test <- sum((mean(train$Target) - test$Target)^2)
-R2_test <- 1 - (SSE_test / SST_test)
-
-# Print metrics
-SSE_test
-RMSE_test
-R2_test
-```
-
-#### Metrics to Look Out For:
-- **Out-of-Sample R²**: Indicates how well the model generalizes to new data.
-- **RMSE**: Compare test RMSE to training RMSE to check for overfitting.
-
-
-
-### Make Predictions
-Use the model to make predictions on new data.
-
-#### R Commands:
-```r
-# Predict on new data
-new_predictions <- predict(model_refined, newdata=new_data)
-
-# View predictions
-new_predictions
-```
-
-</Steps>
-
-### **Summary of Key Metrics**
-1. **R²**: Indicates the proportion of variance explained by the model.
-2. **p-values**: Identify statistically significant predictors.
-3. **SSE**: Measures the total prediction error.
-4. **RMSE**: Represents the average prediction error.
-5. **Out-of-Sample R² and RMSE**: Assess generalizability.
-
-By following these steps, you can perform a similar analysis on any dataset using R.
