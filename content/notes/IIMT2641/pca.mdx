@@ -48,13 +48,13 @@ PCA summarizes a dataset with a **small number** of representative variables tha
 
     A **scree plot** is a line plot of *PVE* against *number of* $PC$s. The elbow point is the point where the curve starts to flatten out, which would be the number of $PC$s to keep. 
 
-    ![](../../../public/img/IIMT2641/screeplot.png)
+    *In the image below, the conclusion is to use 3 PCs*.
 
-    *In the above image, the conclusion is to use 3 PCs*.
+![](../../../public/img/IIMT2641/screeplot.png)
 
 ## PCA in R-lang
 
-```R
+```r
 > pr.out <- prcomp(data, scale = TRUE)
 > str(pr.out)
 > pr.out$center # column mean

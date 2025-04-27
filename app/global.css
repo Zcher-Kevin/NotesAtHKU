@@ -141,11 +141,9 @@ details summary::-webkit-details-marker {
   display: none;
 }
 
-/* @layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-} */
+/* invert images in dark mode */
+
+.dark img,
+.dark picture {
+  filter: invert(1) hue-rotate(180deg);
+}

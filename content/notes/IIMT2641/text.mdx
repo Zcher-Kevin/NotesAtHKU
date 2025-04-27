@@ -31,7 +31,7 @@ The main idea is to **count** words, find **correlated** words or
 
 First install required (recommended for course) packages:
 
-```R
+```r
 # Install
 install.packages("tm")  # for text mining
 install.packages("SnowballC") # for text stemming
@@ -50,7 +50,7 @@ library("ggplot2")
 
 Clean up the text:
 
-```R
+```r
 text <- readLines('TeamHealthRawDataForDemo.txt')
 text<-enc2utf8(text) #transfer the characters into utf8 coding
 # Load the data as a corpus
@@ -83,7 +83,7 @@ TextDoc <- tm_map(TextDoc, stemDocument)
 
 Calculate word frequency:
 
-```R
+```r
 # Build a term-document matrix
 TextDoc_dtm <- TermDocumentMatrix(TextDoc)
 dtm_m <- as.matrix(TextDoc_dtm)
@@ -94,7 +94,7 @@ dtm_d <- data.frame(word = names(dtm_v),freq=dtm_v)
 
 Visualization:
 
-```R
+```r
 # Plot the most frequent words
 barplot(dtm_d[1:5,]$freq, las = 2, names.arg = dtm_d[1:5,]$word,
         col ="lightgreen", main ="Top 5 most frequent words",
@@ -111,7 +111,7 @@ wordcloud(words = dtm_d$word, freq = dtm_d$freq, min.freq = 5,
 
 The following are the 4 main methods of the `Syuzhet` package:
 
-```R
+```r
 d<-get_nrc_sentiment(text) # This generates the sentiment analysis results
 bing_vector <- get_sentiment(text, method="bing")
 afinn_vector <- get_sentiment(text, method="afinn")

@@ -1,10 +1,10 @@
 ---
-title: Classification and Regression Trees
+title: CART
 ---
 
 ## Introduction
 
-!!! tip "CART"
+!!! tip "Classification and Regression Trees (CART)"
 
     A tree with leaf nodes that represent **predicted value** and non-leaf nodes that represent **decision rules**.
 
@@ -41,7 +41,7 @@ title: Classification and Regression Trees
 
     The final performance metric is the average of the performance metrics from each fold.
 
-    ![](../../../public/img/IIMT2641/cross_validation.png)
+![](../../../public/img/IIMT2641/cross_validation.png)
 
 !!! tip "Complexity parameter (cp)"
 
@@ -62,7 +62,7 @@ title: Classification and Regression Trees
 
 ### Fitting cart model by minbucket
 
-```R
+```r
 # Split data randomly into training and test sets
 library(caTools)
 set.seed(123) # for reproducibility
@@ -80,13 +80,13 @@ prp(Tree)
 
 ### Making predictions
 
-```R
+```r
 # Make predictions
 Predictions = predict(Tree, newdata = Test, type = "class")
 table(Test$DV, Predictions) # Print confusion matrix
 ```
 
-```R
+```r
    Predict CART
           0 1
 0        41 36
@@ -95,7 +95,7 @@ table(Test$DV, Predictions) # Print confusion matrix
 
 ### Fitting cart model by cp
 
-```R
+```r
 # K-fold cross validation
 library(caret)
 numFolds = trainControl(method = "cv", number = 10)
@@ -104,7 +104,7 @@ cpGrid = expand.grid(.cp = seq(0.01, 0.5, 0.01)) # from 0.01 to 0.1 with steps o
 train(DV ~ ., data = Train, method = "rpart", trControl = numFolds, tuneGrid = cpGrid)
 ```
 
-```R
+```r
 # Output of cross-validation
 CART 
 
@@ -130,7 +130,7 @@ Accuracy was used to select the optimal model using the largest value.
 The final value used for the model was cp = 0.19.
 ```
 
-```R
+```r
 # Create CART model with cp
 CART = rpart(DV ~ ., data = Train, method = "class", cp = 0.19)
 ```

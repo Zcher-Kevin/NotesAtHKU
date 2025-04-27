@@ -72,7 +72,7 @@ Logistic regression is a statistical method used for binary classification probl
 
 Below is an example of performing logistic regression in R:
 
-```R
+```r
 Call:
 glm(formula = Bad_air ~ Wind + Temp, family = binomial(link = "logit"), data = data)
 
@@ -117,7 +117,7 @@ AIC: 46.502
 
 Showing the [confusion matrix](#confusion-matrix) in R:
 
-```R
+```r
 > table(data$Bad_air, predict(model, type = "response") >= 0.5)
 
   FALSE TRUE

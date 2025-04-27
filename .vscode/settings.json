@@ -7,5 +7,9 @@
     "titleBar.inactiveBackground": "#79360099",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "peacock.color": "#793600"
+  "peacock.color": "#793600",
+  "editor.fontSize": 18,
+  // "editor.fontFamily": "Atkinson Hyperlegible",
+  "editor.lineHeight": 1.5,
+  "markdown.preview.fontSize": 16
 }
