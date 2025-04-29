@@ -2,6 +2,25 @@
 title: Operating System Support
 ---
 
-## Operating system
+!!! note "Operating system"
+
+    The operating system (OS) is a software that controls the execution of programs and manages hardware resources. It allows a computer to be used efficiently and conveniently.
+    
+    Services provided by the OS:
+    * Program Creation – through compilers, assemblers, editors, debuggers etc.
+    * Program Execution – through loading programs into memory and preparing resources for the program
+    * I/O Access – through providing a uniform I/O interface while the implementation is left to the OS
+    * File System Management
+    * System Access – control access to system resources to prevent unauthorised users
+    * Error Detection and Responsde
+    * Accounting – collecting usage statistics and monitoring performance parameters
+
+!!! info "OS Protection Scheme"
+
+    Most OSs uses two modes of operation: user mode and kernel mode. The CPU will execute in different modes to facilitate protection. Some OSs may use up to four modes. Some resources are only accessible in kernel mode.
+
+    An OS is supposed to be well-tested, while bugs may exist in user programs.
+
+    OS functions are usually accessed via special entry points called system calls. Upon a system call, the CPU will switch from user mode to kernel mode.
 
 ## Virtual memory

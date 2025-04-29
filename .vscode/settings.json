@@ -9,7 +9,7 @@
   },
   "peacock.color": "#793600",
   "editor.fontSize": 18,
-  // "editor.fontFamily": "Atkinson Hyperlegible",
+  // "editor.fontFamily": "Arial Black",
   "editor.lineHeight": 1.5,
   "markdown.preview.fontSize": 16
 }
