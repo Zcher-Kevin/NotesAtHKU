@@ -9,12 +9,10 @@
     "evolution",
     "digital-logic",
     "number-representation",
-    "instruction-execution",
+    "instructions",
     "memory",
     "storage",
     "io",
-    "instruction-set-addressing",
-    "assembly",
     "os-support",
     "processor-risc"
   ],
