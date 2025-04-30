@@ -21,6 +21,32 @@ title: Operating System Support
 
     An OS is supposed to be well-tested, while bugs may exist in user programs.
 
-    OS functions are usually accessed via special entry points called system calls. Upon a system call, the CPU will switch from user mode to kernel mode.
+    OS functions are usually accessed via special entry points called **system calls**. Upon a system call, the CPU will switch from user mode to kernel mode.
+
+!!! info "Process scheduling"
+
+    To fully utilise the CPU, the CPU is shared among multiple processes. Each process is given a time slice to execute.
+
+    When it uses up its time slice, the CPU will suspend the execution and switch to another process.
+
+    The OS maintains a queue of processes in which the order of execution depends on several factors, such as priority,waiting time, whether the process has used up its time slice (i.e. CPU-bound jobs), the current system load, etc.
 
 ## Virtual memory
+
+The demand of memory is often greater than available physical memory. **Virtual memory** is a technique involving the use of *secondary storage* to simulate additional memory. 
+
+!!! info "Physical and logical address"
+
+    **Physical** addresses are addresses to the physical memory, which is smaller.
+
+    **Logical** addresses - addressing space for the program. (e.g. if 32-bit addresses are used, addressing space is $0-4G$).
+
+!!! tip "Paging and page table"
+
+    The OS divides the logical address space into fixed-size blocks called **pages**. The physical memory is divided into blocks of the same size called **frames**.
+
+    When a program is loaded, the OS will load the pages into frames. The mapping between pages and frames is stored in a **page table**.
+
+    When a program accesses a page, the OS will check if it is in memory. If not, it will load the page from disk to memory. This is called **paging**.
+
+    The OS will also keep track of which pages are in memory and which are not. This is called **page replacement**.
