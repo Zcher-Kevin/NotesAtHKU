@@ -261,51 +261,68 @@ The cycle is as follows:
 
 ![](./../../../public/img/COMP2120/ec.png)
 
-!!! info "Step 1. IAC Instruction address calculation"
+!!! "Fetch Decode Execute"
 
-    Address to the next instruction is stored in PC register, which is incremented automatically during execution. 
-    
-    For a two-word instruction, the first word is fetched first, then PC is incremented by 1 word to point to the second word. Then the second word is fetched, and PC is incremented again to point to the next instruction.
+    There are 3 stages in an instruction execution cycle:
+    1. **F**etch **I**nstruction (FI)
+    2. **D**ecode **I**nstruction (DI)
+    3. Instruction Execution:
+        * **C**alculate **O**perand Address (CO)
+        * **F**etch **O**perands from memory (FO)
+        * **E**xecute **I**nstruction (EI)
+        * **W**rite **O**perand (WO)
 
-!!! info "Step 2. IF Instruction fetch"
+    Notes:
+    * Many instructions don't need CO.
+    * `LD/ST` instructions do not need to EI.
 
-    The following operations happen during instruction fetch:
+Consider the data transfer sequences for the FDE cycle of `ADD R1, R2, R3`:
 
-    ```math
-    MAC \leftarrow PC
-    PC \leftarrow PC + 1
-    IR \leftarrow mem[MAC]
-    ```
+<Steps>
 
-!!! info "Step 3. ID Instruction decode"
+### Fetch instruction
 
-    The **control unit** handles:
-    * Decoding the instruction
-    * Setups up CPU components like ALU at the right time
+```
+MAR <- PC
+PC <- PC + 4  # Update for next instruction
+IR <- mem[MAR] # mem[] means to fetch the value stored at address MAR
+```
 
-!!! info "Step 4. OA Operand address calculation"
+Note: recall definitions of [shorthands](#storage-inside-cpu).
 
-    ...
+Decoding is done by the control unit, which interprets the instruction in IR and generates control signals to execute the instruction.
 
-!!! info "Step 5. OF Operand fetch"
+### Instruction execution
 
-    If the operands are in registers, data are moved from registers to ALU.
-    
-    If the operands are in memory, then the instruction would be a two-word instruction. Note that if PC points to the second word of a two-word instruction, after the above process, MBR will contain the address of the second word, not the content. Therefore, another memory read is needed to fetch the content, by:
-    
-    ```math
-    MAR \leftarrow MBR\\
-    MBR \leftarrow mem[MAR]
-    ```
+```
+Step:   Transfer            Comments
+------------------------------------
+CO1:    MAR ←− PC          # find operand addr
+        PC ←− PC+4
+        MBR ←− mem[MAR]    # addr of A in MBR
+        MAR ←− MBR
+FO1:    MBR ←− mem[MAR]    # value of A in MBR
+        ALU.input1 ←− MBR
 
-!!! info "Step 6. EX Execution"
+CO2:    MAR ←− PC          # find operand addr
+        PC ←− PC+4
+        MBR ←− mem[MAR]    # addr of B in MBR
+        MAR ←− MBR
+FO2:    MBR ←− mem[MAR]    # value of B in MBR
+        ALU.input2 ←− MBR
 
-    The ALU performs the operation specified by the instruction. The result is stored in some temporary register.
-    
+EI:     ALU.output ←− ALU.input1 + ALU.input2
 
-!!! info "Step 7. WB Write back"
+CO3:    MAR ←− PC          # write back result
+        PC ←− PC+4
+        MBR ←− mem[MAR]    # addr of C in MBR
+        MAR ←− MBR
 
-    Similar to operand fetch, if the destination is in register, RF write is performed. If the destination is in memory, then operand address calculation is first performed. Then the data is written to memory.
+WO:     MBR ←− ALU.ouput   # value of C in MBR
+        mem[MAR] ←− MBR    # memory write
+```
+
+</Steps>
 
 !!! info "Interrupt handling"
 
