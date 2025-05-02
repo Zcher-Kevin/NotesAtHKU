@@ -11,15 +11,28 @@ title: Profit maximization
 
     Price takers: $MR=P$
 
-!!! tip "Profit"
+!!! tip "Cost expressions"
 
     **Fixed cost (FC)** are cost that do not vary with output, unlike **variable cost (VC)**.
 
     ```math
     \begin{align*}
+    TC & = TVC + FC \\
+    MC & = \frac{\Delta TC}{\Delta Q} \\
+    AVC & = \frac{TVC}{Q} \\ 
+    AC & = \frac{TC}{Q} \\
+    & = AVC + \frac{FC}{Q} \\
+    \end{align*}
+    ```
+
+
+!!! note "Profit"
+
+    ```math
+    \begin{align*}
     \text{Total Profit} &= \text{TR} - \text{TC} \\
     & = \text{P} \times \text{Q}  - (\text{FC} + \text{TVC})\\
-    \text{PS} & = \text{TR} - \text{TVC} \\
+    PS & = TR - TVC \\
     \end{align*}
     ```
 
@@ -34,7 +47,7 @@ title: Profit maximization
 
 !!! tip "Profit maximization conditions"
 
-    Principle $MR(P) = MC$. This can be explained by:
+    Maximize profit at $MR = P = MC$. This can be explained by:
     
     * $\because MR>MC\implies MP > 0 \implies$ firms can increase profit by increasing output
     * $\because MR<MC\implies MP < 0 \implies$ firms can increase profit by decreasing output
@@ -50,14 +63,6 @@ title: Profit maximization
     | Short run | Profit $<0$             | Exit of existing firms           |
     | Short run | $P < AVC \cup TR < TVC$ | Shutdown at $P=\min\{AVC\} = MC$ |
     | Long run  | $P < AC \cup TR < TC$   | Exit at $P=\min\{AC\} = MC$      |
-    
-    ```math
-    \begin{align*}
-       MC & = \frac{\Delta TC}{\Delta Q} \\
-       AC & = \frac{TC}{Q} \\
-       AVC & = \frac{TVC}{Q} \\ 
-    \end{align*}
-    ```
 
 ## Monopoly
 
@@ -138,61 +143,97 @@ The following are three types of price discrimination:
 
         A souvenir store has six customers each day. Their willingness to pay for the souvenir are listed in the following table.
 
-        Customer		Willingness to pay
-        1		92
-        2		79
-        3		64
-        4		51
-        5		36
-        6		22
-        The marginal cost is constant at $28.
-        (a) With perfect price discrimination, the store’s producer surplus will be Answer for part 1
-        182
-        dollars.
+        | Customer | WTP |
+        | --- | --- |
+        | 1   | 92  |
+        | 2   | 79  |
+        | 3   | 64  |
+        | 4   | 51  |
+        | 5   | 36  |
+        | 6   | 22  |
 
-        (b) Suppose only consumers with willingness to pay below $70 will clip coupons and use them. The store owner will optimally provide a coupon that takes Answer for part 2
-        28
-        dollar off.
+        The marginal cost is constant at \$28.
 
-        (c) Continue with the previous question. The deadweight loss equals Answer for part 3
-        8
-        dollars.
+        (a) With perfect price discrimination, the store’s producer surplus will be ?
+
+        (b) Suppose only consumers with willingness to pay below $70 will clip coupons and use them. The store owner will optimally provide a coupon that takes ? off
+
+        (c) Continue with the previous question. The deadweight loss equals ? dollars
+
+        <BlockSep />
+
+        First, add $MR, MC$ columns:
+        
+        | Customer | WTP | MR  | MC  | Indicator              |
+        | -------- | --- | --- | --- | ---------------------- |
+        | 1        | 92  | 92  | 28  |                        |
+        | 2        | 79  | 66  | 28  | < (b 1st min. MR > MC) |
+        |          |     |     |     | < (b sep)              |
+        | 3        | 64  | 64  | 28  |                        |
+        | 4        | 51  | 38  | 28  | < (b 2nd min. MR > MC) |
+        | 5        | 36  | 6   | 28  | < (a)                  |
+        | 6        | 22  | -20 | 28  |                        |
+
+        (a) $PS = 92+79+64+51+36-5\times28$
+
+        (b) From the above table, we see that the coupon threshold is between WTP of customer 2 and 3. Then, for each separated group, find the minimum $MR>MC$ (maximize profit). Coupon amount = $66-38$
+
+        (c) Because for each group, we set the price as $79$ and $51$, $CS = (92-79) + (64-51)$ $\implies DWL = 182 - CS - PS$.
+        
+        (Note: The $CS$ full formula is $CS = (92-79) + (79-79) + (51-51) + (64-51)$)
     
     !!! eg "2023 Spring Final Q66-68"
 
         Doris runs a wedding photography business in Utopia. The marginal cost of providing each unit of wedding photography service is $274. Doris has to incur a fixed cost of $70 per month. On a typical month, Doris expects to see 10 customer couples with the following reservation prices for wedding photography service. (Each customer couple will purchase either zero or one unit of wedding photography service.)
 
-        Customer couple		Reservation price ($ per unit)
-        A		230
-        B		260
-        C		290
-        D		320
-        E		350
-        F		380
-        G	 	405
-        H	 	430
-        I	 	450
-        J	 	470
+        | Customer couple | Reservation price ($ per unit) |
+        | --------------- | ------------------------------ |
+        | A               | 230                            |
+        | B               | 260                            |
+        | C               | 290                            |
+        | D               | 320                            |
+        | E               | 350                            |
+        | F               | 380                            |
+        | G               | 405                            |
+        | H               | 430                            |
+        | I               | 450                            |
+        | J               | 470                            |
 
-        (a) If Doris has to charge the same price for all wedding photography services, to maximize profit, she will charge $Answer field 1 for part 1
-        380
-        per unit and sell to Answer field 2 for part 1
-        5
-        customer couples, and consequently make a monthly profit of $Answer field 3 for part 1
-        460
-        .
+        (a) If Doris has to charge the same price for all wedding photography services, to maximize profit, she will charge ? per unit and sell to ? customer couples, and consequently make a monthly profit of ?.
 
-        (b) Suppose Doris does not know each customer couple’s reservation price but she knows that all customer couples with a reservation price above $333 never use discount coupons. Those with reservation prices below $333 use them whenever they are available. If Doris makes coupons available in wedding magazines, those customer couples who clip and present them get to pay a discounted price for wedding photography service. Others pay the regular list price. To maximize profit, Doris should set the list price at $Answer field 1 for part 2
-        380
-        per unit and the discount price at Answer field 2 for part 2
-        320
-        per unit.
+        (b) Suppose Doris does not know each customer couple’s reservation price but she knows that all customer couples with a reservation price above $333 never use discount coupons. Those with reservation prices below $333 use them whenever they are available. If Doris makes coupons available in wedding magazines, those customer couples who clip and present them get to pay a discounted price for wedding photography service. Others pay the regular list price. To maximize profit, Doris should set the list price at ? per unit and the discount price at ? per unit
 
-        (c) Suppose instead Doris knows each customer couple’s reservation price and can practice perfect price discrimination. Doris will provide wedding photography service to Answer field 1 for part 3
-        8
-        customer couples in total, and consequently make a monthly profit of $Answer field 2 for part 3
-        833
-        in total.
+        (c) Suppose instead Doris knows each customer couple’s reservation price and can practice perfect price discrimination. Doris will provide wedding photography service to ? customer couples in total, and consequently make a monthly profit of ? in total.
+
+        <BlockSep />
+
+        First, add number of buyers at price and set price columns:
+
+        | Customer | Price | No. buyers | Profit with set price @ price | Profit | Indicator |
+        | -------- | ----- | ---------- | ----------------------------- | ------ | --------- |
+        | A        | 230   | 10         | -510                          | 775    |           |
+        | B        | 260   | 9          | -196                          | 819    |           |
+        | C        | 290   | 8          | 58                            | 833    | (c)       |
+        | D        | 320   | 7          | 252                           | 817    |           |
+        |          |       |            |                               | ...    | (b sep)   |
+        | E        | 350   | 6          | 386                           | ...    |           |
+        | F        | 380   | 5          | 460                           | ...    | (a)       |
+        | G        | 405   | 4          | 454                           | ...    |           |
+        | H        | 430   | 3          | 398                           | ...    |           |
+        | I        | 450   | 2          | 282                           | ...    |           |
+        | J        | 470   | 1          | 126                           | ...    |           |
+
+        Note: 
+        * Profit with set price is calculated as $\text{No. buyers}\times(\text{Price} - MC) - FC$.
+        * Profit is calculated as $SUM(\text{Price}) - MC \times \text{No. buyers} - FC$ Sum range from each row to end (count is same as no. buyers!)
+
+        (a) Maximum profit is at $P=380$, $Q=5$, and profit of $460$ (Row F).
+
+        (b) Find separated groups by threshold $333$. Then, discounted price is at $320$, and listed price unchanged ($380$).
+
+        (c) Maximum profit is at $P=290$, $Q=8$, and profit of $833$ (Row C).
+
+
 
 
 ![](../../../public/img/ECON1210/pd1.png)

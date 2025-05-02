@@ -99,11 +99,12 @@ Situations that prevent the next instruction rom entering the pipeline for execu
 
      There is overall improvement in performance, as increase in instruction count (and code size) is usually *very small*.
 
-     !!! eg "Perf. improvement by using registers"
+     !!! eg "Improvement when using registers"
 
         Consider the two set of instructions:
 
-        Without reigsters:
+        Without registers:
+
         ```
         ADD A, B, C
         ADD D, C, F
@@ -113,6 +114,7 @@ Situations that prevent the next instruction rom entering the pipeline for execu
         ```
 
         With registers:
+
         ```
         LD A, R1
         LD B, R2
