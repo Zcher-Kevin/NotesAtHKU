@@ -117,7 +117,7 @@ The following applies in the context of directed graphs.
 
 !!! tip "Complete graph"
 
-    $G=K_n$ is a graph that has all nodes connected to each other. 
+    $G=K_n$ is a graph that has all nodes connected to each other. $|E|=\frac{n(n-1)}{2}$.
 
     A graph for which there is a pair of nodes that are not connected is called an **incomplete graph**.
 
@@ -125,7 +125,7 @@ The following applies in the context of directed graphs.
 
 !!! tip "Cycles"
 
-    $G=C_n$ is a graph of a polygon with $n \geq 3$ sides. This can be expressed as:
+    $G=C_n$ is a graph of a polygon with $n \geq 3$ sides. $|E|=|V|$. This can be expressed as:
     
     ```math
     C_n = (\{1,2,\ldots,n\}, \{(1,2), (2,3), \ldots, (n-1,n), (n,1)\})
@@ -415,7 +415,7 @@ The following applies in the context of directed graphs.
 
 !!! info "Sufficient and necessary condition for directed Euler circuits"
 
-    ...
+    A connected directed multigraph with $|V| \geq 2$ has an Euler circuit *iff* all nodes have equal in-degree and out-degree.
 
 !!! info "Necessary and sufficient condition for Euler paths"
 

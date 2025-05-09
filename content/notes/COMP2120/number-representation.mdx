@@ -115,7 +115,7 @@ Represent a floating point binary number as long bits.
     
     The binary representation is:
     ```math
-    \underbrace{[\text{sign}]}_{1 \text{ bit}} \underbrace{[\text{---}e\text{---}]}_{x \text{ bits}} \underbrace{[\text{------}f\text{------}]}_{l-x \text{ bits}}
+    \underbrace{[\text{sign}]}_{1 \text{ bit}} \underbrace{[\text{---}e\text{---}]}_{x \text{ bits}} \underbrace{[\text{------}f\text{------}]}_{l-x-1 \text{ bits}}
     ```
     * Sign bit: $+\text{ve} \implies 0$, $-\text{ve} \implies 1$
     * Significand $f$: Add trailing zeros to fill bits of available length
@@ -159,8 +159,9 @@ Represent a floating point binary number as long bits.
         ```math
         \text{Value} = -1.89111 \times 2^2 = -7.56444
         ```
-    
+
     Note that the range of $e$ is $1\rightarrow254$ for Binary32. $0$ and $255$ are reserved for special cases.
+
 !!! info "Representable numbers"
 
     The range of floating point numbers is limited by the number of bits used for the significand and exponent. 

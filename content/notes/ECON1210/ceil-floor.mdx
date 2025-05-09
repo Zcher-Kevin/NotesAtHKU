@@ -23,9 +23,9 @@ Policy makers often intervene in markets to achieve a desired outcome. Two commo
 
     ```math
     \begin{aligned}
-    Q_1 &= \text{Intersect}(P=p, D)\\
-    Q_2 &= \text{Intersect}(P=p, S)\\
-    \text{Shortage} &= Q_2 - Q_1\\
+    Q_D &= \text{Intersect}(P=p, D)\\
+    Q_S &= \text{Intersect}(P=p, S)\\
+    \text{Shortage} &= Q_D - Q_S\\
     \end{aligned}
     ```
 
@@ -39,16 +39,16 @@ Policy makers often intervene in markets to achieve a desired outcome. Two commo
 
     ```math
     \begin{aligned}
-    \text{Bribe equilibrium} BEq &= y(\text{Intersect}(x = x(Q_1), D)) - p\\
-    \text{Let} V &= BEq \times Q_1\\
-    \text{Total value of bribery} & = V \text{when allocating by bribery}\\
+    \text{Bribe equilibrium } BEq &= y(\text{Intersect}(x = x(Q_S), D)) - p\\
+    \text{Let } V &= BEq \times Q_S\\
+    \text{Total value of bribery } & = V \text{when (1)}\\
     \text{Welfare loss} &= \begin{cases}
-    DWL & \text{bribery or highest-valued}\\
-    DWL + V & \text{waiting in line}
+    DWL & \text{(1) or (3)}\\
+    DWL + V & \text{(2)}
     \end{cases}\\
     \text{Customer surplus} &= \begin{cases}
-    CS + V & \text{highest-valued}\\
-    CS & \text{bribery or waiting in line}\\
+    CS + V & \text{(3)}\\
+    CS & \text{(1) or (2)}\\
     \end{cases}
     \end{aligned}
     ```

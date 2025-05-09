@@ -22,14 +22,16 @@ title: Instructions
 
 !!! tip "Storage inside CPU"
 
-    | Short | Name                       | Holds                                                                 |
-    |---|---|---|
-    | PC    | Program Counter            | Address of next instruction                                             |
-    | IR    | Instruction Register       | Current instruction                                             ` |
-    | MAR   | Memory Address Register    | Address of memory location                                        |
-    | MBR   | Memory Buffer Register     | Data to be written to memory or data read from memory             |d
-    | I/O AR | I/O Address Register      | Address of I/O device                                             |
-    | I/O BR | I/O Buffer Register       | Data to be written to/read from I/O device   |
+    | Short  | Name                    | Holds                                                 |
+    | ------ | ----------------------- | ----------------------------------------------------- |
+    | PC     | Program Counter         | Address of next instruction                           |
+    | IR     | Instruction Register    | Current instruction                                   |
+    | MAR    | Memory Address Register | Address of memory location                            |
+    | MBR    | Memory Buffer Register  | Data to be written to memory or data read from memory |
+    | MDR    | Memory Data Register    | Data being transferred to or from memory              |
+    | ACC    | Accumulator             | Intermediate arithmetic and logic operation results   |
+    | I/O AR | I/O Address Register    | Address of I/O device                                 |
+    | I/O BR | I/O Buffer Register     | Data to be written to/read from I/O device            |
 
 
 ## Instruction set 
@@ -58,7 +60,7 @@ title: Instructions
 
     The following is our list of instructions, sorted by operator code:
 
-    | Mnemonic | Assembled           | Assembly Syntax                | Description                                        | Type          |
+    | Mnemonic | Assembled           | Assembly Syntax       | Description                                        | Type          |
     | -------- | ------------------- | --------------------- | -------------------------------------------------- | ------------- |
     | ADD      | `00######`          | `ADD src1, src2, dst` | Add src1 and src2, store in dst                    | Arithmetic    |
     | SUB      | `01######`          | `SUB src1, src2, dst` | Subtract src2 from src1, store in dst              | Arithmetic    |
@@ -72,7 +74,7 @@ title: Instructions
     | BZ       | `0801ff00 000000$$` | `BZ label`            | <u>B</u>ranch if Zero                              | Control flow  |
     | BNZ      | `0802ff00 000000$$` | `BNZ label`           | <u>B</u>ranch if <u>N</u>ot <u>Z</u>ero            | Control flow  |
     | HALT     | `09000000`          | `HLT`                 | Stops the execution                                | Control flow  |
-    | PUSH     | `0A##0000`          | `PUSH r`              | Push `r` to *stack* (temp store value)            | Data transfer |
+    | PUSH     | `0A##0000`          | `PUSH r`              | Push `r` to *stack* (temp store value)             | Data transfer |
     | POP      | `0B0000##`          | `POP r`               | Pop from *stack* to `r` (restore value)            | Data transfer |
     | CALL     | `0C00ff00 000000$$` | `CALL label`          | Call function at label                             | Control flow  |
     | RET      | `0D000000`          | `RET`                 | Return from function                               | Control flow  |

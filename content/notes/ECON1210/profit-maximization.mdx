@@ -30,20 +30,15 @@ title: Profit maximization
 
     ```math
     \begin{align*}
-    \text{Total Profit} &= \text{TR} - \text{TC} \\
-    & = \text{P} \times \text{Q}  - (\text{FC} + \text{TVC})\\
+    \text{Total Profit } \pi &= TR - TC \\
+    & = P \times Q  - (FC + TVC)\\
+    & = P \times Q  - AVC \times Q - FC\\
     PS & = TR - TVC \\
     \end{align*}
     ```
 
     **Economic profit** includes the opportunity cost in total cost, whereas **accounting profit** does not.
 
-!!! tip "Production runs"
-
-    * **Short run** is the period over which **some inputs are fixed**
-    * **Long run** is the period over which **all inputs are variable**. $TR=TC \to $ no economic profit.
-
-    They are **not** defined by time, but by the ability to change inputs.
 
 !!! tip "Profit maximization conditions"
 
@@ -53,16 +48,52 @@ title: Profit maximization
     * $\because MR<MC\implies MP < 0 \implies$ firms can increase profit by decreasing output
     * Note that $MR=MC$ does not represent the total profit, the total profit depends on $TR$ and $TC$.
 
+    The **equilibrium price** is **affected by** the **number of firms** $n$ in the market. 
+    * Convert individual firm supply curve to market: $MC(q)\to MC(\frac{q}{n})$
+    * Convert market demand curve to individual: $MB(q)\to MB(n\times q)$
+
+!!! tip "Production runs"
+
+    * **Short run** is the period over which **some inputs are fixed**
+    * **Long run** is the period over which **all inputs are variable**. 
+        * $TR=TC \to $ no economic profit.
+        * Profit maximization at $ATC = AVC = MC$ as no fixed cost.
+
+    They are **not** defined by time, but by the ability to change inputs.
+
 !!! tip "Entry, exit and shutdown conditions"
 
     **Entry** is when new firms enter the market, **exit** is when existing firms leave the market, and **shutdown** is when a firm stops production temporarily.
 
     | Run       | Factor                  | Result                           |
     | --------- | ----------------------- | -------------------------------- |
-    | Short run | Profit $>0$             | Entry of new firms               |
-    | Short run | Profit $<0$             | Exit of existing firms           |
     | Short run | $P < AVC \cup TR < TVC$ | Shutdown at $P=\min\{AVC\} = MC$ |
+    | Long run | $P > ATC$             | Entry of new firms               |
+    | Long run | $P < ATC$             | Exit of existing firms           |
     | Long run  | $P < AC \cup TR < TC$   | Exit at $P=\min\{AC\} = MC$      |
+
+!!! tip "Changing cost industries"
+
+    **Increasing cost** (decreasing, constant) industries have greater (lower, constant) cost as production expands. 
+    
+    The following table summarizes their characteristics:
+
+    | Type       | When $D\uparrow$, MC and AC: | Long run supply curve |
+    | ---------- | ---------------------------- | --------------------- |
+    | Constant   | Unchanged                    | Flat                  |
+    | Increasing | Upward shift                 | Upward sloping        |
+    | Decreasing | Downward shift               | Downward sloping      |
+
+    The following table summarizes changes in the following quantities when **demand increases** in long run / short run markets ($C \uparrow, \downarrow$):
+
+    | Stage                     | D          | S          | Q          | P                            | $\pi$      | n          |
+    | ------------------------- | ---------- | ---------- | ---------- | ---------------------------- | ---------- | ---------- |
+    | Initial L                 | -          | -          | $Q_0$      | $P_0$                        | $\pi_0=0$  | $n_0$      |
+    | $D\Uparrow$ S             | $\Uparrow$ | -          | $\Uparrow$ | $P_1 \Uparrow$               | $\Uparrow$ | -          |
+    | $C\downarrow D\Uparrow$ L | -          | $\Uparrow$ | $\Uparrow$ | $\Downarrow P_1 > P_2 > P_0$ | $\pi_2=0$  | $\Uparrow$ |
+    | $C\uparrow D\Uparrow$ L   | -          | $\Uparrow$ | $\Uparrow$ | $\Uparrow$                   | $\pi_2=0$  | $\uparrow$ |
+
+    Flip arrow directions for decreasing demand.
 
 ## Monopoly
 
@@ -74,9 +105,9 @@ title: Profit maximization
 
 !!! tip "Derivation of Marginal Revenue"
 
-    Quantity: n
+    Quantity: $n$
 
-    Discrete: MR = TR (n)- TR (n-1)
+    Discrete: $MR = TR(n) - TR(n-1)$
 
     Continous: MR curve has twice the slope of D curve. (Coefficienct of $Q\times2$)
 
@@ -87,8 +118,8 @@ title: Profit maximization
     3. Find Profit-maximizing Q* **quantity** @ MR=MC
     4. Price is intersection of D curve and Q=Q*
 
-    More elastic demand -> Lower price, smaller markup
-    Less elastic demand -> Higher price, higehr markup
+    More elastic demand $\to$ Lower price, smaller markup
+    Less elastic demand $\to$ Higher price, higher markup
 
 !!! note "Markup"
 
@@ -114,12 +145,11 @@ title: Profit maximization
 
 !!! info "Price control on monopoly"
 
-    Price ceiling: New MR will be line from intersection of D and ceiling to yaxis and xaxis. Marginal revenue is constant for q < x(intersection).
+    Price ceiling: New MR will be line from $I = \text{Intersection}(D, P)$ to `yAxis` and `xAxis` (L-shaped). MR is constant for $q < x(I)$, where $x(I)$ is the **maximum quantity** that the market sells.
 
-    x(intersection) is maximum quantity that the market sells.
-
-    Price ceiling @ D=MC -> Socially efficient quantity, profit maximizing, no dwl
-    Price ceiling @ D=AC -> Zero profit, DWL triangle under x(intersection) and above MC. (Zero profit)
+    Special points:
+    * $P @ D=MC \implies$ Profit maximizing, no dwl, socially optimal
+    * $P @ D=AC \implies$ Zero profit, DWL triangle under $x(I)$ and above MC. 
 
 ## Price discrimination
 
@@ -290,7 +320,7 @@ The following are three types of price discrimination:
 
         Given $MC=2, FC=3$, and bundling cost $bc=1$. The following table gives the WTP of two people P1 and P2 for goods A and B:
 
-        | Persion \ Goods | A   | B   |     | WTP |
+        | Person \ Goods | A   | B   |     | WTP |
         | --------------- | --- | --- | --- | --- |
         | P1              | 9   | 5   |     | 14  |
         | P2              | 4   | 6   |     | 10  |
