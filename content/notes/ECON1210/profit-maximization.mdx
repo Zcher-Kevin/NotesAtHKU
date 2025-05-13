@@ -40,26 +40,32 @@ title: Profit maximization
     **Economic profit** includes the opportunity cost in total cost, whereas **accounting profit** does not.
 
 
-!!! tip "Profit maximization conditions"
+!!! tip "Production runs and profit maximization conditions"
 
-    Maximize profit at $MR = P = MC$. This can be explained by:
-    
-    * $\because MR>MC\implies MP > 0 \implies$ firms can increase profit by increasing output
-    * $\because MR<MC\implies MP < 0 \implies$ firms can increase profit by decreasing output
-    * Note that $MR=MC$ does not represent the total profit, the total profit depends on $TR$ and $TC$.
+    * **Short run** is the period over which **some inputs are fixed**
+        * Profit maximization at $P=\text{Intersect}(MC, MR)$
+    * **Long run** is the period over which **all inputs are variable** (*no fixed cost*)
+        * $TR=TC \to $ no **economic** profit (can still have *accounting* profit)
+        * Profit maximization at $P=\text{Intersect}(MC, ATC=AVC)$
+
+    They are **not** defined by time, but by the ability to change inputs.
+
+    !!! eg "Explanation of short run profit maximization"
+
+        * $\because MR>MC\implies MP > 0 \implies$ firms can increase profit by increasing output
+        * $\because MR<MC\implies MP < 0 \implies$ firms can increase profit by decreasing output
+        * Note that $MR=MC$ does not represent the total profit, the total profit depends on $TR$ and $TC$.
+
+
+!!! info "Number of firms"
 
     The **equilibrium price** is **affected by** the **number of firms** $n$ in the market. 
     * Convert individual firm supply curve to market: $MC(q)\to MC(\frac{q}{n})$
     * Convert market demand curve to individual: $MB(q)\to MB(n\times q)$
 
-!!! tip "Production runs"
-
-    * **Short run** is the period over which **some inputs are fixed**
-    * **Long run** is the period over which **all inputs are variable**. 
-        * $TR=TC \to $ no economic profit.
-        * Profit maximization at $ATC = AVC = MC$ as no fixed cost.
-
-    They are **not** defined by time, but by the ability to change inputs.
+    To find the number of firms in the market:
+    * Short run: $D=S\to Q, P=MC \to q, n=\frac{Q}{q}$
+    * Long run: $P=\text{Intersect}(MC, ATC=AVC) \to MB(P) \to Q, n=\frac{Q}{q}$
 
 !!! tip "Entry, exit and shutdown conditions"
 
@@ -97,13 +103,18 @@ title: Profit maximization
 
 ## Monopoly
 
-!!! note "Simple monopoly"
+!!! note "Market power"
 
     Ability to raise price > marginal cost without losing all customers
 
-    Marginal revenue = marginal cost
+    | Sources of market power | Examples                       |
+    | ----------------------- | ------------------------------ |
+    | Patents                 | -                              |
+    | Laws preventing entry   | US Postal Service              |
+    | Scale                   | Subways, electricity, highways |
+    | Innovation              | iPod, eBay                     |
 
-!!! tip "Derivation of Marginal Revenue"
+!!! note "Derivation of Marginal Revenue"
 
     Quantity: $n$
 
@@ -112,6 +123,8 @@ title: Profit maximization
     Continous: MR curve has twice the slope of D curve. (Coefficienct of $Q\times2$)
 
 !!! info "Simple monopoly pricing"
+
+    Maximize profit at $MR=MC$.
 
     1. Find D curve
     2. Obtian MR curve ^^ (discrete vs continous)
@@ -148,8 +161,16 @@ title: Profit maximization
     Price ceiling: New MR will be line from $I = \text{Intersection}(D, P)$ to `yAxis` and `xAxis` (L-shaped). MR is constant for $q < x(I)$, where $x(I)$ is the **maximum quantity** that the market sells.
 
     Special points:
-    * $P @ D=MC \implies$ Profit maximizing, no dwl, socially optimal
-    * $P @ D=AC \implies$ Zero profit, DWL triangle under $x(I)$ and above MC. 
+    * $P_c = \text{Intersect}(D,MC) \implies$ Profit maximizing, no dwl, socially optimal
+    * $P_c @ \text{Intersect}(D,AC) \implies$ Zero profit, DWL triangle under $x(I)$ and above MC. 
+
+!!! info "Eliminate DWL by taxes or subsidies"
+
+    We can use the formula which shifts the supply curve by $ts$. For $I=\text{Intersect}(D,MC)$:
+
+    ```math
+    MR(x(I))=y(I)-ts
+    ```
 
 ## Price discrimination
 
