@@ -132,7 +132,7 @@ To calculate $P(X<x)$, we have to *standardize* our $N$ by $Z\sim N(0, 1)$, $P(X
     If $X$ is normally distributed:
 
     ```math
-    \bar{X}\sim N(\mu, \frac{\sigma^2}{\sqrt{n}}),\quad \sqrt{n}\text{ is the standard error (deviation)}
+    \bar{X}\sim N(\mu, \frac{\sigma^2}{\sqrt{n}}),\quad \frac{\sigma^2}{\sqrt{n}}\text{ is the standard error (deviation)}
     ```
 
     The standard error captures how *off* the sample statistics are from the true population value. The value **decreases as n increases**.
@@ -149,70 +149,24 @@ To calculate $P(X<x)$, we have to *standardize* our $N$ by $Z\sim N(0, 1)$, $P(X
 
     **Alternative Hypothesis $H_1$**: Parameter if assumption shown wrong
 
-!!! info "Types of tests"
+!!! tip "Conducting tests"
 
-    - $H_1$ in the form $H_1: p < \text{ or } p >$ → "one-tailed"
-    - $H_1$ in the form $H_1: p \neq$ → "two-tailed"
+    1. **Define null and alternative hypotheses**
+        * Upper tail test: $H_1:\mu > \mu_0$
+        * Lower tail test: $H_1:\mu < \mu_0$
+        * Two-tailed test: $H_1:\mu \neq \mu_0$
+        * $H_0$ is the opposite of $H_1$
+    2. **Identify variables $\bar{x}, \mu_0, n, \alpha, p$, and $\sigma$ OR $s$**
+    3. **Calculate statistic value:**
+        * Given **standard deviation** $\sigma$: z-score $z=\frac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}$
+        * Given **sample standard deviation** $s$: t-score $t=\frac{\bar{x}-\mu_0}{s/\sqrt{n}}$
+    4. **Calculate p-value (use corresponding table)**
+        * Upper tail: $1-P(Z<z)$ or $1-P(T<t)$
+        * Lower tail: $P(Z<z)$ or $P(T<t)$
+        * Two-tailed: $2P(Z<-|z|)$ or $2P(T<-|t|)$
+    5. **Compare p-value with $\alpha$:**
+        * If $p<\alpha$, reject $H_0$ (evidence against $H_0$)
+        * If $p>\alpha$, do not reject $H_0$ (no evidence against $H_0$)
+    6. **State conclusion**
 
-    - Over / under / increase / decrease = one-tailed
-    - Change / not = two-tailed
-
-!!! tip "Carrying out tests"
-
-    1. Identify the available data:
-        - Test statistic, $X$
-        - Significance level
-        - One tail or two tail
-
-    2. Execution:
-        - Define $X$ – the test statistic
-        - Define $H_0$ & $H_1$
-        - Assume $H_0$ true, substitute $p$ to distribution model → find $P(X \sim \text{t-value})$ to give the t-value.
-        - Compare: if $P(X \sim \text{t-value}) < \text{s.l.}$ → reject $H_0$
-        - Conclude in context of the question
-
-    !!! eg "Example of Hypothesis Testing"
-
-        A seed producer claims that 96% of its beans turn golden. A random sample of 75 bean seeds was planted and 66 of these seeds turned golden. Test at 1% significance whether the producer is overstating the probability of the seeds turning golden.
-
-        1. Data identified:
-            - $n = 75, p = 0.96$
-            - Model hence is Binomial
-            - Test statistic value $x = 66$
-            - $s.l. = 0.01$
-            - One tail
-
-        2. Define $X$ – the test statistic:
-            - Let $X$ = the number of seeds that turn golden
-
-        3. Define $H_0$ & $H_1$:
-            - $H_0: p = 0.96, H_1: p < 0.96$
-
-        4. Assume $H_0$ true, substitute $p$ to distribution model → find $P(X \sim \text{t-value})$:
-            - $P(X \leq 66) = 0.00303 < 0.01$
-
-        5. Compare: if $P(X \sim \text{t-value}) < \text{s.l.}$ → reject $H_0$:
-            - $H_0$ rejected
-
-        6. Conclude in context of the question:
-            - Producer is overstating …
-
-        #### Example if Two-Tailed
-
-        Test at 1% significance whether the producer is lying about the probability of the seeds turning golden.
-
-        1. Define $X$ – the test statistic:
-            - Let $X$ = the number of seeds that turn golden
-
-        2. Define $H_0$ & $H_1$:
-            - $H_0: p = 0.96, H_1: p \neq 0.96$
-
-        3. Assume $H_0$ true, substitute $p$ to distribution model → find $P(X \geq \text{t-value})$ & $P(X \leq \text{t-value})$ if two-tailed:
-            - $P(X \leq 66) = 0.00303 < 0.005$
-            - $P(X \geq 66) = 1 - 0.00303 > 0.005$
-
-        4. Compare: if $P(X \sim \text{t-value}) < \text{s.l.} \div 2$ → reject $H_0$:
-            - $H_0$ rejected (first tail)
-
-        5. Conclude in context of the question:
-            - Producer is lying and overstating…
+    Note that the p-value **does not** tell the chance that $H_0$ is true or false, but rather the chance of observing the sample data if $H_0$ is true.

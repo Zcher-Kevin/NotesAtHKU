@@ -171,6 +171,10 @@ F-statistic: 74.5 on 2 and 113 DF,  p-value: < 2.2e-16
 
     The t-value is computed as `Estimate / Std. Error`. 
 
+!!! note "p-value"
+
+    The p-value (column `Pr(>|t|)`) is computed as $2(1 - P(T>|t|))$. The value of $P$ can be found by referencing the t-distribution table.
+
 !!! note "Significant codes"
 
     The signficant code is computed by comparing the p-value (`Pr(>|t|)`), and checking if it is **less than** the following values:
@@ -235,7 +239,17 @@ Correlation does not mean causation. We use DiD to estimate the **casual effect*
 
     !!! eg "Example"
     
-        ...
+        | | Time Period      | Control Group (Sales) [C] | Treated Group (Sales) [T] |
+        | --- | --- | --- | --- |
+        | Before implementation | Year 1  | 1500 | 1400 | 
+        | After implementation  | Year 2 | 990  | 1000 | 
+        | Change [$\Delta$] | | -510 | -400 |
+
+        The regression model coefficents are:
+        * $\beta_0 = 1500$
+        * $\beta_1 = 1400 - 1500 = -100$ (treatment group pre-treatment)
+        * $\beta_2 = 990 - 1500 = -510$ (control group post-treatment)
+        * $\beta_3 = 1000 - 990 - (-100) + 1500 = 110$ (DiD)
         
 !!! info "Requirements for DiDs"
 

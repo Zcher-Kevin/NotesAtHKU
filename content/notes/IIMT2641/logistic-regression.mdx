@@ -53,7 +53,7 @@ Logistic regression is a statistical method used for binary classification probl
     \begin{aligned}
     \text{Accuracy} & = \frac{TP + TN}{TP + TN + FP + FN} \\
     \text{TPR True positive rate (sensitivity)} & = \frac{TP}{TP + FN} \propto \frac{1}{t}\\
-    \text{TNR True negative rate (specificity)} & = \frac{TN}{TN + FP} \propto \frac{1}{t} \\
+    \text{TNR True negative rate (specificity)} & = \frac{TN}{TN + FP} \propto t \\
     \end{aligned}
     ```
 
@@ -61,7 +61,7 @@ Logistic regression is a statistical method used for binary classification probl
 
 !!! info "ROC curve"
 
-    The ROC (Receiver Operating Characteristic) curve is a graphical representation of *true positive rate* against *false positive rate* at values of $t$. The plot always starts at $(0,0)$ and ends at $(1,1)$. 
+    The ROC (Receiver Operating Characteristic) curve is a graphical representation of **TPR-FPR** (*true positive rate* against *false positive rate*) at values of $t$. The plot always starts at $(0,0)$ and ends at $(1,1)$. The point at `(0,0)` holds for `t=1`.
     
     The ideal ROC curve is for it to be **close to top left corner** $(0,1)$, which means $\Uparrow TPR, \Downarrow FPR$.
 
@@ -109,7 +109,7 @@ AIC: 46.502
 
 !!! note "p-value"
 
-    The p-value is computed as $2(1 - \phi(|z|))$. The value of $\phi$ can be found by referencing the standard normal distribution table.
+    The p-value (column `Pr(>|z|)`) is computed as $2(1 - \phi(|z|))$. The value of $\phi$ can be found by referencing the standard normal distribution table.
 
 [Significant codes](linear-regression/#significant-codes) are the same as in linear regression.
 
