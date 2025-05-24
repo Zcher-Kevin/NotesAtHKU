@@ -56,6 +56,8 @@ title: Graph Theory
     * Visually the number of lines drawn from $v$
     * The occurance of $v$ in the items of $E$
     * $|N| + |L(v)|$, where $N$ is the set of neighbours and $L(v)$ is the set of loops that contain $v$
+    
+    The *average degree* for $G=(V,E)$ is simply $\frac{2|E|}{|V|}$.
 
 
 !!! info "Handshaking theorem"
@@ -123,7 +125,7 @@ The following applies in the context of directed graphs.
 
 !!! tip "Complete graph"
 
-    $G=K_n$ is a graph that has all nodes connected to each other. $|E|=\frac{n(n-1)}{2}$.
+    $G=K_n$ is a graph that has all nodes connected to each other. $|E|=\frac{n(n-1)}{2}=\binom{n}{2}$.
 
     A graph for which there is a pair of nodes that are not connected is called an **incomplete graph**.
 
@@ -267,7 +269,7 @@ The following applies in the context of directed graphs.
         * $A \to B \to C \to D \to C$ is a non-simple path of length 4
         * $A \to B \to C \to A$ is a simple circuit of length 3
 
-!!! note "Connectedness"
+!!! info "Connectedness"
 
     A graph is **connected** if there is a path between every pair of distinct nodes, else it is **disconnected**.
 
@@ -316,7 +318,12 @@ The following applies in the context of directed graphs.
         The graph on the right is **strongly connected** as there is a path between every pair of distinct nodes in both directions. 
 
         For the weakly connected graph, the strongly connected components are $G_1=(\{A,B,C\}, \{(A,B), (B,C), (C,A)\})$ and $G_2=(\{D\}, \{\})$. 
-        
+
+!!! info "Min max connected components"
+
+    For $G=(V,E)$:
+    * Min. number of connected components: $\max\{1, |V| - |E|\}$
+    * Max. number of connected components: $n-r+1, \text{where } \binom{r}{2} = |E|$
 
 !!! info "Cut nodes and edges"
 

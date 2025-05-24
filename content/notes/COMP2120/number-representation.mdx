@@ -184,7 +184,7 @@ Represent a floating point binary number as long bits.
                 f=111\dots_2 (\text{length: }F.bits) \rightarrow 1.111... =&\ 1 + 0.1 + 0.01 + \dots + 2^{-F.bits}\\
                 =&\ 2-2^{-F.bits}\ (\text{geometry series})\\ 
                 e=2^{E.bits}-1-s \implies& \pm(2-2^{-F.bits})\cdot2^{2^{E.bits}-1-s-(2^{E.bits-1}-1)}\\
-                = & \pm(2-2^{-F.bits})\cdot2^{2^{E.bits-1}-2^{E.bits}-s}
+                = & \pm(2-2^{-F.bits})\cdot2^{2^{E.bits}-2^{E.bits-1}-s}
                 
             \end{align*}
             ```

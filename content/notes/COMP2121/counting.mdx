@@ -128,7 +128,7 @@ The main idea is to apply the rules, and ideas from Sets and Functions, to analy
 
 ## Permutations and Combinations
 
-!!! info "Permutations"
+!!! tip "Permutations"
 
     The number of ways to arrange $r$ of $n$ objects is:
 
@@ -136,7 +136,7 @@ The main idea is to apply the rules, and ideas from Sets and Functions, to analy
     P(n,r) = {}^nP_r = \frac{n!}{(n-r)!},\quad P(n,n) = n!
     ```
 
-!!! tip "Arrangements of indistinguishable objects"
+!!! info "Arrangements of indistinguishable objects"
 
     To arrange $n$ objects where there are $n_1$ indistinguishable objects of type 1, $n_2$ indistinguishable objects of type 2, ..., $n_k$ indistinguishable objects of type $k$, the number of arrangements is:
 
@@ -144,7 +144,15 @@ The main idea is to apply the rules, and ideas from Sets and Functions, to analy
     \frac{n!}{n_1! n_2! \cdots n_k!}
     ```
 
-!!! info "Combinations"
+!!! info "Arrangement with repetition"
+
+    The number of ways to arrange $k$ of $n$ objects, where each object can be chosen more than once, is:
+
+    ```math
+    \binom{n+k-1}{k}
+    ```
+
+!!! tip "Combinations"
 
     The number of ways to choose $r$ objects from $n$ objects is:
 
@@ -153,7 +161,7 @@ The main idea is to apply the rules, and ideas from Sets and Functions, to analy
     ```
 
 
-!!! tip "Property of binomial coefficients"
+!!! info "Property of binomial coefficients"
     
     The *property of binomial coefficients* states that the number of ways to choose $r$ objects from $n$ objects is equal to the number of ways to choose $n-r$ objects from $n$ objects:
 
@@ -212,3 +220,24 @@ The main idea is to apply the rules, and ideas from Sets and Functions, to analy
     ```math
     n^r
     ```
+
+!!! info "Derrangements"
+
+    The number of ways to arrange $n$ objects such that **no object is in its original position** is called a **derangement**. The number of derangements of $n$ objects is denoted by $!n$ and can be calculated using the following formula:
+
+    ```math
+    !n = n! \sum_{i=0}^{n} \frac{(-1)^i}{i!}
+    ```
+
+!!! info "Counting surjections"
+
+    The number of [surjections](functions/#characteristics-of-functions) from a set of size $n$ to a set of size $k$ is given by the following formula:
+
+    ```math
+    S(n \to k) = \sum_{i=0}^{k} (-1)^i \binom{k}{i} (k-i)^n
+    ```
+
+    This can also be expressed as:
+    * The number of functions $f: |n| \to |k|$ such that $f$ is a surjection.
+    * Distribute $n$ distinguishable objects into $k$ distinguishable boxes, such that no box is empty.
+    * The number of equivalence relations on a set of size $n$ with exactly $k$ [equivalence classes](sets-and-relations/#equivalence-class).
