@@ -3,7 +3,7 @@
   "semester": "2025 Fall",
   "description": "Principles of operating systems",
   "root": true,
-  "icon": "Hat-Glasses",
+  "icon": "HatGlasses",
   "pages": ["index"],
   "wip": true
 }
